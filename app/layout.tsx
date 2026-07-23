@@ -22,15 +22,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Oregon Dunes Field Guide",
-    description: "Camp, ride, wander, and plan your Oregon Dunes weekend.",
+    description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
     type: "website",
-    images: [{ url: "/og.png", width: 1536, height: 1024, alt: "Oregon Dunes Field Guide" }],
+    images: [{ url: "/og-v2.png", width: 1536, height: 1024, alt: "Oregon Dunes Field Guide maps, camp, ride, and explore" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Oregon Dunes Field Guide",
-    description: "Camp, ride, wander, and plan your Oregon Dunes weekend.",
-    images: ["/og.png"],
+    description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
+    images: ["/og-v2.png"],
   },
 };
 

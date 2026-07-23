@@ -55,6 +55,25 @@ export default function Home() {
         ))}
       </section>
 
+      <section className="guide-directory page-shell">
+        <div className="directory-heading">
+          <div><p className="section-label">EXPLORE THE FULL GUIDE</p><h2>Every detail,<br /><i>one coastline.</i></h2></div>
+          <p>Go beyond the essentials with deeper chapters on permits, wildlife, nearby towns, safety, weather, and practical trip design.</p>
+        </div>
+        <div className="directory-grid">
+          {[
+            ["Interactive maps","Staging, campgrounds, riding zones, and gateways","/trail-maps","01"],
+            ["Camping guide","Developed sites, OHV bases, reservations, and packing","/camping","02"],
+            ["Riding zones","Florence, Umpqua, and Horsfall terrain explained","/ohv-riding","03"],
+            ["Permits & rules","Current planning overview and official sources","/permits","04"],
+            ["Safety fieldbook","Dune hazards, recovery, youth, and group plans","/safety","05"],
+            ["Nearby towns","Florence, Winchester Bay, Reedsport, and Coos Bay","/nearby-towns","06"],
+            ["Wildlife notes","Snowy plovers, elk, habitat, and low-impact viewing","/wildlife","07"],
+            ["Trip planner","Rider, mixed-group, and quiet-coast itineraries","/trip-planner","08"],
+          ].map(([title,text,href,num]) => <Link href={href} key={href}><span>{num}</span><div><h3>{title}</h3><p>{text}</p></div><b>→</b></Link>)}
+        </div>
+      </section>
+
       <section className="conditions">
         <div className="page-shell conditions-grid">
           <div>

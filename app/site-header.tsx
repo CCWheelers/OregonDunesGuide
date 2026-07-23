@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const nav = [
   ["Camp", "/camping"], ["Ride", "/ohv-riding"], ["Maps", "/trail-maps"],
-  ["Conditions", "/current-conditions"], ["Plan", "/trip-planner"], ["More", "/faqs"],
+  ["Safety", "/safety"], ["Towns", "/nearby-towns"], ["Wildlife", "/wildlife"],
 ];
 
 export function SiteHeader() {
