@@ -17,3 +17,19 @@
 .map-detail>p{color:rgba(255,255,255,.82)}
 .map-detail dl div{border-color:rgba(255,255,255,.25)}
 .map-detail dt{color:rgba(255,255,255,.58)}
+.brand{display:flex;align-items:center;justify-content:flex-start;width:165px;min-width:165px;line-height:1}
+.brand img{display:block;width:165px;height:auto}
+.footer-brand{display:block;justify-self:start;width:175px}
+.footer-brand img{display:block;width:100%;height:auto}
+footer .page-shell>.footer-brand:last-child{justify-self:end}
+@media(max-width:1180px) and (min-width:801px){
+  .site-header{gap:20px}
+  .brand,.brand img{width:148px}
+  .brand{min-width:148px}
+  .site-header nav{gap:20px;font-size:12px}
+}
+@media(max-width:800px){
+  .brand,.brand img{width:150px}
+  .brand{min-width:150px}
+  footer .page-shell>.footer-brand:last-child{justify-self:start}
+}

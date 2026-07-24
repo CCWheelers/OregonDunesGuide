@@ -11,16 +11,17 @@ async function render(pathname = "/") {
   }, { waitUntil() {}, passThroughOnException() {} });
 }
 
-test("renders the complete field guide homepage", async () => {
+test("renders the complete Oregon Dunes Guide homepage", async () => {
   const response = await render("/");
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  assert.match(html, /<title>Oregon Dunes Field Guide<\/title>/i);
+  assert.equal(response.status, 307);
+  assert.equal(new URL(response.headers.get("location"), "http://localhost").pathname, "/index.html");
+  const html = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
+  assert.match(html, /<title>Oregon Dunes Guide<\/title>/i);
   assert.match(html, /Where the forest/);
   assert.match(html, /Explore the full guide/i);
-  assert.match(html, /href="\/trail-maps"/);
-  assert.match(html, /href="\/nearby-towns"/);
-  assert.match(html, /href="\/wildlife"/);
+  assert.match(html, /href="maps\.html"/);
+  assert.match(html, /topic=towns/);
+  assert.match(html, /topic=wildlife/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 

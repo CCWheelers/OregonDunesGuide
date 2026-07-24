@@ -15,7 +15,7 @@ function parseTideTime(value){return new Date(value.replace(" ","T"))}
 
 function tideApiUrl(station,interval,range){
   const params=new URLSearchParams({
-    product:"predictions",application:"ODFieldGuide",begin_date:tideDateString(),range:String(range),
+    product:"predictions",application:"OregonDunesGuide",begin_date:tideDateString(),range:String(range),
     datum:"MLLW",station,time_zone:"lst_ldt",units:"english",interval,format:"json"
   });
   return `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?${params}`;

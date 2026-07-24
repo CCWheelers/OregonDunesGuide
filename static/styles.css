@@ -710,3 +710,20 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
   .gas-planner-ribbon .button{width:100%}
   .gas-trend-table th,.gas-trend-table td{padding:12px 10px;white-space:nowrap}
 }
+.brand{display:flex;align-items:center;justify-content:flex-start;width:165px;min-width:165px;line-height:1}
+.brand img{display:block;width:165px;height:auto}
+.footer-brand{display:block;justify-self:start;width:175px}
+.footer-brand img{display:block;width:100%;height:auto}
+footer .shell>.footer-brand:last-child{justify-self:end}
+@media(max-width:1180px) and (min-width:801px){
+  .site-header{gap:18px}
+  .brand,.brand img{width:142px}
+  .brand{min-width:142px}
+  .site-header nav{gap:15px;font-size:11px}
+  .header-cta{padding:12px 13px}
+}
+@media(max-width:800px){
+  .brand,.brand img{width:150px}
+  .brand{min-width:150px}
+  footer .shell>.footer-brand:last-child{justify-self:start}
+}

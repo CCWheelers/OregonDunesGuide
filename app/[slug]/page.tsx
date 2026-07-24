@@ -47,6 +47,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </div>
     </section>
     <section className="next-step"><div className="page-shell"><div><small>KEEP PLANNING</small><h2>Ready for the next detail?</h2></div><Link href={slug === "trip-planner" ? "/current-conditions" : "/trip-planner"} className="button ink">Continue your plan ↗</Link></div></section>
-    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Independent planning guide · Verify current details with official sources.</p><span>Oregon Dunes Field Guide</span></div></footer>
+    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Independent planning guide · Verify current details with official sources.</p><Link className="footer-brand" href="/" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width={2075} height={758} /></Link></div></footer>
   </main>;
 }

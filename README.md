@@ -1,4 +1,4 @@
-# Oregon Dunes Field Guide
+# Oregon Dunes Guide
 
 ## Static site
 

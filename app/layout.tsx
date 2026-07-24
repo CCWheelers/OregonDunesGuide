@@ -14,23 +14,24 @@ const display = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Oregon Dunes Field Guide", template: "%s · Oregon Dunes Field Guide" },
+  title: { default: "Oregon Dunes Guide", template: "%s · Oregon Dunes Guide" },
   description: "An independent guide to camping, OHV riding, maps, safety, and trip planning in the Oregon Dunes.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon-ogd.png",
+    shortcut: "/favicon-ogd.png",
+    apple: "/favicon-ogd.png",
   },
   openGraph: {
-    title: "Oregon Dunes Field Guide",
+    title: "Oregon Dunes Guide",
     description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
     type: "website",
-    images: [{ url: "/og-v2.png", width: 1536, height: 1024, alt: "Oregon Dunes Field Guide maps, camp, ride, and explore" }],
+    images: [{ url: "/og-v3.png", width: 1536, height: 1024, alt: "Oregon Dunes Guide maps, camp, ride, and explore" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oregon Dunes Field Guide",
+    title: "Oregon Dunes Guide",
     description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
-    images: ["/og-v2.png"],
+    images: ["/og-v3.png"],
   },
 };
 
