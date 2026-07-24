@@ -376,13 +376,19 @@ async function loadPlannerWeather(plan){
 function renderLocalStopGroup(label,items,groupKey,selected=[]){
   return`<article class="local-stop-group"><p>${label}</p><div>${items.map((item,index)=>{const key=`${groupKey}:${index}`;return`<article class="local-stop-card"><a class="local-stop-details" href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="${label}" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div></article>`
 }
+function escapeHtml(value=""){
+  return String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))
+}
 function renderStaySection(plan){
   if(plan.tripType==="day")return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>No overnight stay selected</h2><p class="stay-guide-intro">This plan is set as a day trip. If the group decides to stay overnight, change “How will you use the dunes?” to Camping overnight or Town lodging and rebuild the plan.</p></section>`;
   const stayType=plan.tripType==="offsite"?"lodging":plan.vehicle==="rv"?"rv":"camping";
   const heading=stayType==="lodging"?`Town lodging near ${plan.region.base}`:stayType==="rv"?`RV options near ${plan.region.base}`:`Campgrounds near ${plan.region.base}`;
   const intro=stayType==="lodging"?"Compare hotels and inns convenient to town services, dining, and the dunes.":stayType==="rv"?"Compare RV parks and RV-friendly campgrounds, then verify rig length, hookups, vehicle limits, and access before reserving.":"Compare developed campgrounds, then verify current openings, reservation rules, and site details.";
   const options=plan.region.stays[stayType],selected=plan.plannedStops||[];
-  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose “Plan this” on any option the group wants included in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
+  const selectedStayKey=selected.find(key=>key.startsWith("stay:"))||"";
+  const selectedStayIndex=Number(selectedStayKey.split(":")[2]);
+  const selectedStayName=Number.isInteger(selectedStayIndex)&&options[selectedStayIndex]?options[selectedStayIndex].name:"";
+  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose one “Plan this” option to include it in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="radio" name="plannedStay" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selectedStayKey===key?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><div class="stay-confirmation-panel" id="stayConfirmationPanel" ${selectedStayName?"":"hidden"}><p id="staySummary">${selectedStayName?`You are staying at “${selectedStayName}”.`:""}</p><label for="stayConfirmation">Confirmation number <span>(optional)</span></label><input id="stayConfirmation" type="text" maxlength="80" autocomplete="off" placeholder="Reservation or confirmation number" value="${escapeHtml(plan.stayConfirmation||"")}"><small class="stay-confirmation-field-note">Saved on this device and included when you print or share.</small><p class="stay-confirmation-print" id="stayConfirmationPrint">${plan.stayConfirmation?`Confirmation number: ${escapeHtml(plan.stayConfirmation)}`:""}</p></div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
 }
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
@@ -413,24 +419,39 @@ function renderTrip(plan){
   const shareTitle="My Oregon Dunes trip plan";
   const shareSummary=`Oregon Dunes trip: ${plan.region.name}, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;
   const selectedPlanStops=()=>[...result.querySelectorAll(".plan-stop-checkbox:checked")].map(input=>({key:input.value,category:input.dataset.planCategory,name:input.dataset.planName}));
-  const buildShareMessage=()=>{const picks=selectedPlanStops();const groupPicks=picks.length?`\n\nGroup picks:\n${picks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
+  const buildShareMessage=()=>{const picks=selectedPlanStops(),stay=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:"));const confirmation=(document.getElementById("stayConfirmation")?.value||"").trim();const stayLine=stay?`\n\nYou are staying at "${stay.name}".${confirmation?` Confirmation number: ${confirmation}.`:""}`:"";const groupPicks=otherPicks.length?`\n\nGroup picks:\n${otherPicks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${stayLine}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
   const closeShare=()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");shareButton.focus()};
   closeShareButton.addEventListener("click",closeShare);
   shareMenu.addEventListener("keydown",event=>{if(event.key==="Escape"){event.preventDefault();closeShare()}});
   const emailLink=document.getElementById("shareEmail");
   const textLink=document.getElementById("shareText");
   const refreshShareLinks=()=>{const shareMessage=buildShareMessage();emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`};
+  const confirmationInput=document.getElementById("stayConfirmation");
+  const updateStayConfirmation=()=>{
+    if(!confirmationInput)return;
+    plan.stayConfirmation=confirmationInput.value.trim();
+    const confirmationPrint=document.getElementById("stayConfirmationPrint");
+    if(confirmationPrint)confirmationPrint.textContent=plan.stayConfirmation?`Confirmation number: ${plan.stayConfirmation}`:"";
+    const saved=readSavedTrip();
+    if(saved){try{const savedData=JSON.parse(saved);savedData.stayConfirmation=plan.stayConfirmation;saveTrip(savedData)}catch{}}
+    refreshShareLinks()
+  };
   const updatePlannedStops=()=>{
     const picks=selectedPlanStops(),status=document.getElementById("plannedStopsStatus");
-    const stayPicks=picks.filter(item=>item.key.startsWith("stay:")),stayStatus=document.getElementById("plannedStayStatus");
+    const stayPick=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:")),stayStatus=document.getElementById("plannedStayStatus");
+    const stayPanel=document.getElementById("stayConfirmationPanel"),staySummary=document.getElementById("staySummary");
     plan.plannedStops=picks.map(item=>item.key);
-    if(status)status.textContent=picks.length?`${picks.length} group pick${picks.length===1?"":"s"} will be included when this plan is shared.`:"No group picks selected yet.";
-    if(stayStatus)stayStatus.textContent=stayPicks.length?`${stayPicks.length} stay option${stayPicks.length===1?" is":"s are"} marked for this group plan.`:"No stay option selected yet.";
+    if(status)status.textContent=otherPicks.length?`${otherPicks.length} group pick${otherPicks.length===1?"":"s"} will be included when this plan is shared.`:"No group picks selected yet.";
+    if(stayStatus)stayStatus.textContent=stayPick?"Your selected stay will be included when this plan is printed or shared.":"No stay option selected yet.";
+    if(stayPanel)stayPanel.hidden=!stayPick;
+    if(staySummary)staySummary.textContent=stayPick?`You are staying at "${stayPick.name}".`:"";
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.plannedStops=plan.plannedStops;saveTrip(savedData)}catch{}}
     refreshShareLinks()
   };
   result.querySelectorAll(".plan-stop-checkbox").forEach(input=>input.addEventListener("change",updatePlannedStops));
+  if(confirmationInput)confirmationInput.addEventListener("input",updateStayConfirmation);
+  updateStayConfirmation();
   updatePlannedStops();
   shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
   emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
