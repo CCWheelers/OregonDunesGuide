@@ -179,7 +179,10 @@ function chooseRegion(data){
 }
 function regionProfile(key){
   return{
-    florence:{name:"Florence & Siltcoos",base:"Florence",headline:"A flexible north-dunes base",summary:"A balanced choice for first-time dune visitors, mixed-interest crews, freshwater lakes, South Jetty staging, and the varied Siltcoos area.",ride:"South Jetty and Siltcoos",camp:"Honeyman or a nearby Forest Service campground",backup:"Old Town Florence, a lake walk, or a sheltered forest outing",localStops:{
+    florence:{name:"Florence & Siltcoos",base:"Florence",latitude:43.9826,longitude:-124.0998,headline:"A flexible north-dunes base",summary:"A balanced choice for first-time dune visitors, mixed-interest crews, freshwater lakes, South Jetty staging, and the varied Siltcoos area.",ride:"South Jetty and Siltcoos",camp:"Honeyman or a nearby Forest Service campground",backup:"Old Town Florence, a lake walk, or a sheltered forest outing",parking:[
+      {name:"Official Old Town parking map",note:"Shows public areas, 3-hour zones, day-use areas, and 7-foot vehicle-height restrictions. RVs and trailers are not allowed in restricted Old Town zones.",url:"https://www.ci.florence.or.us/918/4740/Old-Town-Parking"},
+      {name:"Navigate to Old Town parking",note:"Open directions near Bay Street, then follow posted signs because limits vary by block and lot.",url:"https://www.google.com/maps/search/?api=1&query=public+parking+Old+Town+Florence+Oregon"}
+    ],localStops:{
       shopping:[
         {name:"Historic Old Town Florence",note:"Walk Bay Street for coastal gifts, locally made art, galleries, books, and waterfront views.",url:"https://florencechamber.com/historic-old-town/"},
         {name:"Florence shopping guide",note:"Find antiques, jewelry, outdoor goods, toys, kites, and more locally owned shops around town.",url:"https://florencechamber.com/things-to-do/shopping/"}
@@ -197,7 +200,10 @@ function regionProfile(key){
         {name:"Fresh Harvest Café",note:"Start the next morning with a full breakfast, including its well-known marionberry French toast.",url:"https://www.google.com/maps/search/?api=1&query=Fresh+Harvest+Cafe+Florence+Oregon"}
       ]
     }},
-    winchester:{name:"Winchester Bay & Umpqua Dunes",base:"Winchester Bay",headline:"Big sand with a compact harbor base",summary:"Best for a riding-centered trip with experienced dune travelers, large open terrain, harbor services, and lighthouse-country backups.",ride:"Umpqua Dunes",camp:"Winchester Bay area camping or Eel Creek",backup:"Umpqua Lighthouse, the harbor, or Reedsport",localStops:{
+    winchester:{name:"Winchester Bay & Umpqua Dunes",base:"Winchester Bay",latitude:43.6765,longitude:-124.1751,headline:"Big sand with a compact harbor base",summary:"Best for a riding-centered trip with experienced dune travelers, large open terrain, harbor services, and lighthouse-country backups.",ride:"Umpqua Dunes",camp:"Winchester Bay area camping or Eel Creek",backup:"Umpqua Lighthouse, the harbor, or Reedsport",parking:[
+      {name:"Downtown Reedsport public lot",note:"Ten public spaces at Greenwood Avenue and North Fourth Street; posted two-hour limit from 7 a.m. to 7 p.m.",url:"https://www.google.com/maps/dir/?api=1&destination=Greenwood+Avenue+and+North+Fourth+Street+Reedsport+Oregon"},
+      {name:"Rainbow Plaza riverfront lot",note:"Passenger and boat-trailer spaces near Riverfront Way, public restrooms, picnic tables, and the Umpqua riverfront. Check kiosk signs for launch-related fees.",url:"https://www.cityofreedsport.org/community/page/rainbow-plaza-boat-launch"}
+    ],localStops:{
       shopping:[
         {name:"Old Towne Reedsport & Fir Avenue",note:"Browse local art, Oregon gifts, home finds, and small shops in Reedsport’s compact downtown.",url:"https://reedsportcc.org/member-directory/"},
         {name:"Myrtlewood Gallery",note:"A classic Highway 101 stop for Oregon myrtlewood gifts, art, and locally crafted keepsakes.",url:"https://www.google.com/maps/search/?api=1&query=Myrtlewood+Gallery+Reedsport+Oregon"}
@@ -215,7 +221,10 @@ function regionProfile(key){
         {name:"Harbor Light Family Restaurant",note:"A sit-down Reedsport breakfast option with a traditional family-restaurant feel.",url:"https://www.google.com/maps/search/?api=1&query=Harbor+Light+Family+Restaurant+Reedsport+Oregon"}
       ]
     }},
-    coos:{name:"Coos Bay & Horsfall",base:"Coos Bay / North Bend",headline:"Southern access with the fullest services",summary:"A strong match for groups, trailers, multiple machines, ride-from-camp options, and easy access to repairs, groceries, and town lodging.",ride:"Spinreel to Horsfall",camp:"Spinreel, Horsfall, Bluebill, or Riley Ranch",backup:"Coos Bay, North Bend, Charleston, or a Cape Arago day",localStops:{
+    coos:{name:"Coos Bay & Horsfall",base:"Coos Bay / North Bend",latitude:43.3665,longitude:-124.2179,headline:"Southern access with the fullest services",summary:"A strong match for groups, trailers, multiple machines, ride-from-camp options, and easy access to repairs, groceries, and town lodging.",ride:"Spinreel to Horsfall",camp:"Spinreel, Horsfall, Bluebill, or Riley Ranch",backup:"Coos Bay, North Bend, Charleston, or a Cape Arago day",parking:[
+      {name:"Third Street & Central Avenue lot",note:"A completed public downtown lot close to shops, restaurants, and seasonal community events.",url:"https://www.google.com/maps/dir/?api=1&destination=South+3rd+Street+and+Central+Avenue+Coos+Bay+Oregon"},
+      {name:"Visitor Center & Boardwalk parking",note:"Public parking beside the Visitor Information Center at 50 Central Avenue, across from the Boardwalk and City Docks.",url:"https://www.coosbayor.gov/Home/Components/FacilityDirectory/FacilityDirectory/14/35"}
+    ],localStops:{
       shopping:[
         {name:"Cranberry Sweets",note:"Sample locally made fruit candies and chocolates, then browse Oregon Coast gifts in the showroom.",url:"https://visittheoregoncoast.com/cities/coos-bay/activities/cranberry-sweets/"},
         {name:"Historic Marshfield District",note:"Explore downtown Coos Bay shops, galleries, antiques, and local home-and-gift stores.",url:"https://visittheoregoncoast.com/cities/coos-bay"}
@@ -257,6 +266,10 @@ function buildTrip(data){
   if(data.crew.includes("dog"))alerts.push(["Dog and habitat plan","Check campground and beach rules, carry a leash, protect paws from hot sand, and keep pets far from signed snowy plover habitat."]);
   if(data.crew.includes("campfire"))alerts.push(["Fire plan","Confirm same-day fire restrictions with the managing agency. Carry an extinguisher and never assume a fire is allowed because a ring is present."]);
   if(data.experience==="first"&&hasMachines)alerts.push(["First-hour rule","Use a low-consequence practice area, shorten the first loop, and learn current ridge and slip-face conditions before adding speed."]);
+  if(data.interests.includes("towns")){
+    alerts.push(["Public parking near your town stops",`<span class="parking-links">${region.parking.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><small>${item.note}</small></a>`).join("")}</span>`]);
+    alerts.push(["Weather, rain attire & roads",`<span id="plannerWeatherAlert" class="weather-outlook" aria-live="polite">Checking the forecast for ${region.base} and your trip dates…</span>`]);
+  }
   const checklist=["Offline official maps and saved reservations","Coastal wind layer, warm layer, and dry footwear","Water, food, first-aid kit, headlamps, and battery bank","Emergency contacts and plan shared with someone at home","Trash bags and a bin for sandy gear"];
   if(hasMachines)checklist.push("ATV permits for every machine","Required safety cards for operators","Whip flags, helmets, eye protection, and gloves","Tow strap, tools, tire gauge, and recovery plan","Working brakes, lights, exhaust, and secure fuel","Fire-season spark arrestor and equipment as required");
   if(data.vehicle==="rv")checklist.push("Trailer tires, bearings, lights, chocks, leveling blocks, and hitch lock");
@@ -264,6 +277,50 @@ function buildTrip(data){
   if(data.crew.includes("dog"))checklist.push("Leash, water bowl, waste bags, towel, and pet-safe backup activity");
   if(data.interests.includes("wildlife"))checklist.push("Binoculars and long lens for distance-respecting wildlife viewing");
   return{...data,days,regionKey,region,itinerary,alerts,checklist,hasMachines}
+}
+function plannerDate(value){return new Date(`${value}T12:00:00`)}
+function forecastDayLabel(value){return new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric"}).format(plannerDate(value))}
+function weatherCodeLabel(code){
+  if(code===0)return"clear";
+  if([1,2,3].includes(code))return"partly cloudy";
+  if([45,48].includes(code))return"fog possible";
+  if(code>=51&&code<=67)return"rain or drizzle";
+  if(code>=71&&code<=77)return"snow possible";
+  if(code>=80&&code<=82)return"rain showers";
+  if(code>=85&&code<=86)return"snow showers";
+  if(code>=95)return"thunderstorms possible";
+  return"variable coastal weather"
+}
+async function loadPlannerWeather(plan){
+  const target=document.getElementById("plannerWeatherAlert");if(!target||!plan.interests.includes("towns"))return;
+  const today=new Date();today.setHours(12,0,0,0);
+  const arrival=plannerDate(plan.arrival),departure=plannerDate(plan.departure);
+  const latest=new Date(today);latest.setDate(latest.getDate()+15);
+  const tripCheck=`<a href="https://www.tripcheck.com/" target="_blank" rel="noreferrer">Check live Oregon road conditions on TripCheck ↗</a>`;
+  if(departure<today){target.innerHTML=`These dates have passed, so a live trip forecast is unavailable. Update the planner dates to receive rain-attire and road-weather guidance. ${tripCheck}`;return}
+  if(arrival>latest){const daysUntil=Math.ceil((arrival-today)/86400000);target.innerHTML=`Your trip begins in ${daysUntil} days. Detailed forecasts are available about 16 days ahead; rebuild this plan closer to departure for rain attire and a weather-based road outlook. ${tripCheck}`;return}
+  const forecastEnd=departure>latest?latest:departure;
+  const url=new URL("https://api.open-meteo.com/v1/forecast");
+  url.search=new URLSearchParams({latitude:String(plan.region.latitude),longitude:String(plan.region.longitude),daily:"weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,wind_gusts_10m_max",temperature_unit:"fahrenheit",wind_speed_unit:"mph",precipitation_unit:"inch",timezone:"America/Los_Angeles",start_date:plan.arrival,end_date:forecastEnd.toISOString().slice(0,10)}).toString();
+  try{
+    const response=await fetch(url);if(!response.ok)throw new Error("Forecast unavailable");
+    const forecast=await response.json(),daily=forecast.daily;
+    const rainChance=Math.max(...daily.precipitation_probability_max.map(value=>Number(value)||0));
+    const rainTotal=daily.precipitation_sum.reduce((sum,value)=>sum+(Number(value)||0),0);
+    const low=Math.round(Math.min(...daily.temperature_2m_min)),high=Math.round(Math.max(...daily.temperature_2m_max));
+    const gust=Math.round(Math.max(...daily.wind_gusts_10m_max.map(value=>Number(value)||0)));
+    const condition=weatherCodeLabel(Math.max(...daily.weather_code.map(value=>Number(value)||0)));
+    const attire=rainChance>=60||rainTotal>=.1?"Pack a waterproof shell with a hood, water-resistant shoes, and a dry layer for after shopping.":rainChance>=30?"Bring a light rain shell and shoes that handle wet sidewalks; keep a dry layer in the vehicle.":"A wind-resistant coastal layer should be enough, but keep a compact rain shell handy.";
+    const roadNotes=[];
+    if(rainChance>=60||rainTotal>=.1)roadNotes.push("wet pavement, spray, reduced visibility, and localized standing water are possible");
+    else if(rainChance>=30)roadNotes.push("brief slick pavement is possible during showers");
+    else roadNotes.push("no strong rain signal is showing yet");
+    if(gust>=35)roadNotes.push(`gusts near ${gust} mph could affect high-profile vehicles and exposed bridges`);
+    const shownThrough=forecastEnd<departure?` Forecast shown through ${forecastDayLabel(forecastEnd.toISOString().slice(0,10))}; later trip days are not in range yet.`:"";
+    target.innerHTML=`<b>${forecastDayLabel(plan.arrival)}–${forecastDayLabel(forecastEnd.toISOString().slice(0,10))}:</b> ${condition}, ${low}–${high}°F, up to ${rainChance}% rain chance, about ${rainTotal.toFixed(2)} in. total precipitation, and gusts up to ${gust} mph. <b>What to wear:</b> ${attire} <b>Possible road effects:</b> ${roadNotes.join("; ")}.${shownThrough} ${tripCheck}<small>Forecast data: Open-Meteo. Weather-based road outlook is not a live closure report.</small>`
+  }catch{
+    target.innerHTML=`The live forecast could not load right now. Pack a waterproof layer and check again before leaving. ${tripCheck}`
+  }
 }
 function renderLocalStopGroup(label,items){
   return`<article class="local-stop-group"><p>${label}</p><div>${items.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a>`).join("")}</div></article>`
@@ -312,6 +369,7 @@ function renderTrip(plan){
     catch{shareFeedback.textContent="Messenger opened, but this browser blocked copying. Email and Text remain available here."}
   });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
+  loadPlannerWeather(plan);
   result.scrollIntoView({behavior:"smooth",block:"start"});
 }
 function restoreTrip(form,data){
