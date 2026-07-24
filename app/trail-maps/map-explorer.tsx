@@ -23,6 +23,19 @@ const places: Place[] = [
 ];
 
 const types = [["all","All places"],["staging","Staging"],["campground","Camping"],["riding","Riding zones"],["town","Towns"]] as const;
+const placeImages: Record<string,string> = {
+  florence:"/images/home-explore.webp",
+  "south-jetty":"/images/riding-01-florence.webp",
+  honeyman:"/images/camp-booking-honeyman.webp",
+  siltcoos:"/images/camp-region-florence.webp",
+  "eel-creek":"/images/camp-style-quiet.webp",
+  umpqua:"/images/riding-02-winchester.webp",
+  winchester:"/images/camp-region-winchester-bay.webp",
+  spinreel:"/images/camp-style-ride-from-camp.webp",
+  horsfall:"/images/riding-03-coos-bay.webp",
+  coos:"/images/camp-region-coos-bay.webp",
+  riley:"/images/camp-style-full-service.webp",
+};
 
 export function MapExplorer() {
   const [filter, setFilter] = useState<(typeof types)[number][0]>("all");
@@ -41,10 +54,10 @@ export function MapExplorer() {
         <div className="highway">US 101</div>
         {visible.map(place => <button key={place.id} className={`map-marker marker-${place.type} ${active.id === place.id ? "active" : ""}`} style={{ top:`${place.top}%`, left:`${place.side}%` }} onClick={() => setActiveId(place.id)} aria-label={`${place.name}, ${place.type}`}><i /><span>{place.name}</span></button>)}
       </div>
-      <aside className="map-detail">
+      <aside className="map-detail" style={{ "--place-image":`url("${placeImages[active.id]}")` } as React.CSSProperties}>
         <div className={`place-type type-${active.type}`}>{active.type}</div><p className="map-region-name">{active.region} region</p><h2>{active.name}</h2><p>{active.summary}</p>
         <dl><div><dt>Access</dt><dd>{active.access}</dd></div><div><dt>Best for</dt><dd>{active.bestFor}</dd></div></dl>
-        <a className="button ink" href={active.maps} target="_blank" rel="noreferrer">Open directions ↗</a>
+        <a className="button sand" href={active.maps} target="_blank" rel="noreferrer">Open directions ↗</a>
       </aside>
     </div>
   </section>;

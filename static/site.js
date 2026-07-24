@@ -10,9 +10,9 @@ const chapters = {
     ["Florence: South Jetty to Siltcoos","The northern zone blends open sand, tree islands, narrow connectors, and several access points. It suits mixed-experience groups when riders stay oriented and regroup often."],
     ["Winchester Bay: Umpqua Dunes","Large, exposed dunes define the central zone. Wind changes ridge shape, visibility, and the location of sharp slip faces."],
     ["Coos Bay: Spinreel to Horsfall","The southern network combines open sand, forest edges, camp access, staging areas, and more route decisions."],
-    ["Machine and rider checklist","Confirm every machine and operator before staging.",["Visible ATV permit and applicable safety card","Helmet and eye protection","Whip flag for sand use","Working lights for after-dark operation","Tow strap, tools, water, and communication device"]],
+    ["Permits, rules & local support","Handle the legal basics first, then know where to find riding gear, recovery supplies, and machine parts near each dune region."],
     ["Dune-reading fundamentals","Approach crests at an angle so you can scan the downwind side. Watch for razorbacks, witches' eyes, changing sand moisture, hidden traffic, and abrupt bowls."],
-    ["Group protocol","Choose a lead and sweep, agree on signals, regroup at every major decision, and never let the fastest rider set the trip's safety margin."]
+    ["Group protocol","A good group ride stays organized without feeling rigid. Set the route and roles before moving, leave room to react, keep every rider accounted for, and make the youngest or least-experienced rider the pace setter."]
   ]},
   safety:{eyebrow:"SAFETY FIELDBOOK",title:"Confidence starts before the engine.",intro:"Most dune incidents are preventable. Slow the first hour down, learn how the sand is behaving, and make every group decision easy to understand.",sections:[
     ["Razorbacks and slip faces","The downwind side of a crest can drop steeply. Approach at an angle, slow enough to stop, scan for traffic, and avoid crossing straight over a sharp ridge."],
@@ -60,17 +60,23 @@ const chapters = {
 };
 
 const mapPlaces=[
-  {id:"florence",name:"Florence",region:"Florence",type:"town",top:7,left:42,summary:"The north gateway for groceries, fuel, rentals, lodging, dunes, and lakes.",access:"US 101 · north zone",best:"First visits and mixed groups",url:"https://www.google.com/maps/search/?api=1&query=Florence%2C%20Oregon"},
-  {id:"south-jetty",name:"South Jetty",region:"Florence",type:"staging",top:14,left:27,summary:"A principal Florence-area day-use access point for the northern riding zone.",access:"South Jetty Road",best:"Day rides",url:"https://www.google.com/maps/search/?api=1&query=South%20Jetty%20OHV%20Staging%20Area%20Oregon"},
-  {id:"honeyman",name:"Honeyman State Park",region:"Florence",type:"campground",top:21,left:64,summary:"A large developed campground between freshwater lakes and dunes.",access:"US 101 south of Florence",best:"Families and lake time",url:"https://www.google.com/maps/search/?api=1&query=Jessie%20M.%20Honeyman%20Memorial%20State%20Park"},
-  {id:"siltcoos",name:"Siltcoos",region:"Florence",type:"riding",top:28,left:34,summary:"A varied northern riding area with open sand, forest edges, and designated routes.",access:"Siltcoos access roads",best:"Varied terrain",url:"https://www.google.com/maps/search/?api=1&query=Siltcoos%20OHV%20Oregon"},
-  {id:"eel-creek",name:"Eel Creek",region:"Winchester Bay",type:"campground",top:40,left:64,summary:"Forested Forest Service camping with a trail toward the open dunes.",access:"Near Lakeside",best:"Quieter dune access",url:"https://www.google.com/maps/search/?api=1&query=Eel%20Creek%20Campground%20Oregon"},
-  {id:"umpqua",name:"Umpqua Dunes",region:"Winchester Bay",type:"riding",top:49,left:29,summary:"The dramatic central zone, known for large open dunes.",access:"Winchester Bay approaches",best:"Experienced riders",url:"https://www.google.com/maps/search/?api=1&query=Umpqua%20Dunes%20Oregon"},
-  {id:"winchester",name:"Winchester Bay",region:"Winchester Bay",type:"town",top:56,left:58,summary:"A compact harbor base close to the central dunes.",access:"US 101 · central gateway",best:"Riding weekends",url:"https://www.google.com/maps/search/?api=1&query=Winchester%20Bay%2C%20Oregon"},
-  {id:"spinreel",name:"Spinreel",region:"Coos Bay",type:"campground",top:68,left:31,summary:"OHV-oriented camping and staging near the southern riding network.",access:"Spinreel Road",best:"Ride-from-camp trips",url:"https://www.google.com/maps/search/?api=1&query=Spinreel%20Campground%20Oregon"},
-  {id:"horsfall",name:"Horsfall",region:"Coos Bay",type:"staging",top:77,left:64,summary:"Major access near North Bend with camping, day use, and routes into the dunes.",access:"Horsfall Beach Road",best:"Groups and meetups",url:"https://www.google.com/maps/search/?api=1&query=Horsfall%20OHV%20Staging%20Area"},
-  {id:"coos",name:"Coos Bay / North Bend",region:"Coos Bay",type:"town",top:87,left:40,summary:"The south coast's broadest service base for supplies, repairs, food, and lodging.",access:"US 101 · south gateway",best:"Longer stays",url:"https://www.google.com/maps/search/?api=1&query=Coos%20Bay%2C%20Oregon"},
-  {id:"riley",name:"Riley Ranch",region:"Coos Bay",type:"campground",top:94,left:67,summary:"County campground and OHV staging base south of Horsfall.",access:"South of Coos Bay",best:"Groups and trailers",url:"https://www.google.com/maps/search/?api=1&query=Riley%20Ranch%20County%20Park%20Oregon"}
+  {id:"florence",name:"Florence",region:"Florence",type:"town",lat:43.98001,lng:-124.10131,image:"/images/home-explore.webp",summary:"The north gateway for groceries, fuel, rentals, lodging, dunes, and lakes.",access:"US 101 · north gateway",best:"First visits and mixed groups",url:"https://www.google.com/maps/search/?api=1&query=Florence%2C%20Oregon"},
+  {id:"south-jetty",name:"South Jetty OHV Staging",region:"Florence",type:"staging",lat:43.95674,lng:-124.12045,image:"/images/riding-01-florence.webp",summary:"A principal day-use staging point for the northern riding area.",access:"South Jetty Road",best:"Day rides and north-zone access",url:"https://www.google.com/maps/search/?api=1&query=South%20Jetty%20OHV%20Staging%20Area%20Oregon",guide:"riding-florence.html"},
+  {id:"honeyman",name:"Honeyman State Park",region:"Florence",type:"campground",lat:43.93041,lng:-124.10892,image:"/images/camp-booking-honeyman.webp",summary:"A large developed campground between freshwater lakes and dunes.",access:"US 101 south of Florence",best:"Families and lake time",url:"https://www.google.com/maps/search/?api=1&query=Jessie%20M.%20Honeyman%20Memorial%20State%20Park"},
+  {id:"siltcoos",name:"Siltcoos Riding Area",region:"Florence",type:"riding",lat:43.88054,lng:-124.13761,image:"/images/camp-region-florence.webp",summary:"The southern half of the Florence riding region, with open sand, forest edges, and designated routes.",access:"Siltcoos and Driftwood access",best:"Varied northern-zone terrain",url:"https://www.google.com/maps/search/?api=1&query=Siltcoos%20OHV%20Oregon",guide:"riding-florence.html"},
+  {id:"reedsport",name:"Reedsport",region:"Winchester Bay",type:"town",lat:43.70234,lng:-124.09678,image:"/images/home-explore.webp",summary:"A full-service US 101 town east of Winchester Bay with groceries, fuel, food, and repair support.",access:"US 101 and OR 38",best:"Supplies and central-region backups",url:"https://www.google.com/maps/search/?api=1&query=Reedsport%2C%20Oregon"},
+  {id:"winchester",name:"Winchester Bay",region:"Winchester Bay",type:"town",lat:43.67761,lng:-124.17379,image:"/images/camp-region-winchester-bay.webp",summary:"A compact harbor community near the central dunes.",access:"US 101 · central gateway",best:"Riding weekends and harbor evenings",url:"https://www.google.com/maps/search/?api=1&query=Winchester%20Bay%2C%20Oregon"},
+  {id:"umpqua",name:"Umpqua Dunes Riding Area",region:"Winchester Bay",type:"riding",lat:43.61296,lng:-124.21156,image:"/images/riding-02-winchester.webp",summary:"The dramatic central riding zone, known for large open dunes and changing wind-shaped terrain.",access:"Winchester Bay and Umpqua approaches",best:"Experienced riders and big sand",url:"https://www.google.com/maps/search/?api=1&query=Umpqua%20Dunes%20Oregon",guide:"riding-winchester-bay.html"},
+  {id:"eel-creek",name:"Eel Creek Campground",region:"Winchester Bay",type:"campground",lat:43.58831,lng:-124.18723,image:"/images/camp-style-quiet.webp",summary:"Forested Forest Service camping with a trail leading toward the open dunes.",access:"Near Lakeside",best:"Quieter dune access",url:"https://www.google.com/maps/search/?api=1&query=Eel%20Creek%20Campground%20Oregon"},
+  {id:"lakeside",name:"Lakeside",region:"Winchester Bay",type:"town",lat:43.57567,lng:-124.17512,image:"/images/home-explore.webp",summary:"A small lake community between the central and southern dunes with food, fuel, and lodging.",access:"US 101 and N 8th Street",best:"Lake stays and regional access",url:"https://www.google.com/maps/search/?api=1&query=Lakeside%2C%20Oregon"},
+  {id:"spinreel",name:"Spinreel Campground",region:"Coos Bay",type:"campground",lat:43.56968,lng:-124.20370,image:"/images/camp-style-ride-from-camp.webp",summary:"OHV-oriented Forest Service camping and staging near the southern riding network.",access:"Spinreel Road",best:"Ride-from-camp trips",url:"https://www.google.com/maps/search/?api=1&query=Spinreel%20Campground%20Oregon",guide:"riding-coos-bay.html"},
+  {id:"riley",name:"Riley Ranch County Park",region:"Coos Bay",type:"campground",lat:43.5150,lng:-124.2189,image:"/images/camp-style-full-service.webp",summary:"A large county campground beside Butterfield Lake with direct ATV access to the dunes.",access:"US 101 near Hauser",best:"Groups, trailers, and direct access",url:"https://www.google.com/maps/search/?api=1&query=Riley%20Ranch%20County%20Park%20Oregon",guide:"riding-coos-bay.html"},
+  {id:"horsfall",name:"Horsfall OHV Staging",region:"Coos Bay",type:"staging",lat:43.44288,lng:-124.24525,image:"/images/riding-03-coos-bay.webp",summary:"Major day-use access near North Bend with routes into the southern dunes.",access:"Horsfall Beach Road",best:"Groups and meetups",url:"https://www.google.com/maps/search/?api=1&query=Horsfall%20OHV%20Staging%20Area",guide:"riding-coos-bay.html"},
+  {id:"north-bend",name:"North Bend",region:"Coos Bay",type:"town",lat:43.40650,lng:-124.22428,image:"/images/camp-region-coos-bay.webp",summary:"The closest full-service town to Horsfall, with lodging, dining, groceries, and machine support.",access:"US 101 · south gateway",best:"Horsfall and Hauser services",url:"https://www.google.com/maps/search/?api=1&query=North%20Bend%2C%20Oregon"},
+  {id:"coos",name:"Coos Bay",region:"Coos Bay",type:"town",lat:43.36789,lng:-124.21746,image:"/images/camp-region-coos-bay.webp",summary:"The south coast’s broadest service base for supplies, repairs, food, and lodging.",access:"US 101 · south coast",best:"Longer stays and full services",url:"https://www.google.com/maps/search/?api=1&query=Coos%20Bay%2C%20Oregon"},
+  {id:"florence-motorsports",name:"Florence Motorsports",region:"Florence",type:"parts",lat:43.97512,lng:-124.10280,image:"/images/riding-04-checklist.webp",summary:"Powersports sales, service, parts, riding gear, and accessories in Florence.",access:"310 Highway 101",best:"Parts, gear, service, and tires",url:"https://www.florencemotorsports.com/"},
+  {id:"one-stop",name:"1 Stop Sport Shop",region:"Winchester Bay",type:"parts",lat:43.70959,lng:-124.10109,image:"/images/riding-04-checklist.webp",summary:"A Reedsport sporting-goods stop known locally for basic ATV and motorcycle supplies.",access:"1401 Oregon Coast Highway",best:"Basic supplies, tools, and parts",url:"https://visittheoregoncoast.com/cities/reedsport/activities/1-stop-sport-shop/"},
+  {id:"north-bend-powersports",name:"North Bend Powersports",region:"Coos Bay",type:"parts",lat:43.40726,lng:-124.22300,image:"/images/riding-04-checklist.webp",summary:"A full powersports dealership with parts, service, tires, wheels, and riding gear.",access:"2105 Sheridan Avenue",best:"Parts, repairs, tires, and gear",url:"https://www.northbendpowersports.com/"}
 ];
 
 function renderMap(){
@@ -79,40 +85,54 @@ function renderMap(){
   if(!canvas||!detail)return;
 
   const filters=[...document.querySelectorAll("[data-filter]")];
-  const typeLabels={town:"Gateway town",staging:"OHV staging",campground:"Campground",riding:"Riding zone"};
+  const basemapButtons=[...document.querySelectorAll("[data-basemap]")];
+  const typeLabels={town:"Gateway town",staging:"OHV staging",campground:"Campground",riding:"Riding area",parts:"Parts & gear"};
+  if(!window.L){
+    detail.innerHTML=`<span class="place-type">MAP UNAVAILABLE</span><h2>Open the detailed riding guides.</h2><p>The live map could not load. The regional guides still include official map images, staging, camping, and GPS links.</p><a class="button sand" href="riding-florence.html">Open Florence riding guide →</a>`;
+    return;
+  }
+  const map=L.map(canvas,{zoomControl:true,minZoom:8,maxZoom:18}).setView([43.69,-124.16],9);
+  const baseLayers={
+    street:L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),
+    terrain:L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, style &copy; OpenTopoMap'}),
+    satellite:L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Tiles &copy; Esri"})
+  };
+  let currentBase=baseLayers.street.addTo(map);
+  const markerLayer=L.layerGroup().addTo(map);
+  const zoneLayer=L.layerGroup().addTo(map);
+  const markerColors={town:"#235f77",staging:"#e25b34",campground:"#7e8c43",riding:"#c28d3a",parts:"#6f4c89"};
+  const ridingZones=[
+    {id:"siltcoos",bounds:[[43.965,-124.151],[43.965,-124.112],[43.875,-124.105],[43.872,-124.153]]},
+    {id:"umpqua",bounds:[[43.695,-124.225],[43.690,-124.174],[43.565,-124.170],[43.560,-124.232]]},
+    {id:"horsfall",bounds:[[43.585,-124.226],[43.581,-124.183],[43.424,-124.202],[43.421,-124.273]]}
+  ];
   let selectedId=mapPlaces[0].id;
   let activeFilter="all";
 
   function showPlace(place){
     selectedId=place.id;
-    canvas.querySelectorAll(".marker").forEach(marker=>{
-      const selected=marker.dataset.placeId===place.id;
-      marker.classList.toggle("active",selected);
-      marker.setAttribute("aria-pressed",String(selected));
-    });
+    detail.style.setProperty("--place-image",`url("${place.image}")`);
+    markerLayer.eachLayer(marker=>marker.getElement()?.classList.toggle("active",marker.options.placeId===place.id));
     detail.innerHTML=`<span class="place-type">${typeLabels[place.type]||place.type}</span>
       <span class="region-name">${place.region} region</span>
       <h2>${place.name}</h2>
       <p>${place.summary}</p>
       <dl><div><dt>Access</dt><dd>${place.access}</dd></div><div><dt>Best for</dt><dd>${place.best}</dd></div></dl>
-      <a class="button ink" href="${place.url}" target="_blank" rel="noreferrer">Open directions ↗</a>`;
+      <div class="map-detail-actions">${place.guide?`<a class="button sand" href="${place.guide}">Open riding map & guide →</a>`:""}<a class="map-gps-link" href="${place.url}" target="_blank" rel="noreferrer">${place.type==="parts"?"Open business website":"Open GPS directions"} ↗</a></div>`;
   }
 
   function drawMarkers(){
-    canvas.querySelectorAll(".marker").forEach(marker=>marker.remove());
+    markerLayer.clearLayers();
+    zoneLayer.clearLayers();
     const visible=activeFilter==="all"?mapPlaces:mapPlaces.filter(place=>place.type===activeFilter);
+    if(activeFilter==="all"||activeFilter==="riding")ridingZones.forEach(zone=>{
+      const place=mapPlaces.find(item=>item.id===zone.id);
+      L.polygon(zone.bounds,{color:"#d99a32",weight:2,fillColor:"#efcd7b",fillOpacity:.22,dashArray:"7 6"}).on("click",()=>place&&showPlace(place)).addTo(zoneLayer);
+    });
     visible.forEach(place=>{
-      const marker=document.createElement("button");
-      marker.type="button";
-      marker.className=`marker marker-${place.type}`;
-      marker.dataset.placeId=place.id;
-      marker.style.top=`${place.top}%`;
-      marker.style.left=`${place.left}%`;
-      marker.setAttribute("aria-label",`${place.name}, ${typeLabels[place.type]||place.type}`);
-      marker.setAttribute("aria-pressed","false");
-      marker.innerHTML=`<i aria-hidden="true"></i><span>${place.name}</span>`;
-      marker.addEventListener("click",()=>showPlace(place));
-      canvas.appendChild(marker);
+      const icon=L.divIcon({className:"leaflet-place-icon",html:`<span class="leaflet-place-dot" style="--marker-color:${markerColors[place.type]}"></span><b>${place.name}</b>`,iconSize:[20,20],iconAnchor:[10,10]});
+      const marker=L.marker([place.lat,place.lng],{icon,keyboard:true,title:place.name,placeId:place.id}).on("click",()=>showPlace(place)).addTo(markerLayer);
+      marker.bindTooltip(`${place.name} · ${typeLabels[place.type]}`,{direction:"top",offset:[0,-10]});
     });
     const selected=visible.find(place=>place.id===selectedId)||visible[0];
     if(selected)showPlace(selected);
@@ -129,7 +149,16 @@ function renderMap(){
     drawMarkers();
   }));
   filters.forEach(button=>button.setAttribute("aria-pressed",String(button.classList.contains("active"))));
+  basemapButtons.forEach(button=>button.addEventListener("click",()=>{
+    const key=button.dataset.basemap;
+    if(!baseLayers[key]||baseLayers[key]===currentBase)return;
+    map.removeLayer(currentBase);
+    currentBase=baseLayers[key].addTo(map);
+    currentBase.bringToBack();
+    basemapButtons.forEach(item=>item.classList.toggle("active",item===button));
+  }));
   drawMarkers();
+  setTimeout(()=>map.invalidateSize(),0);
 }
 
 function setupMenu(){const header=document.querySelector(".site-header"),button=document.querySelector(".menu-button");if(!button)return;button.addEventListener("click",()=>{const open=header.classList.toggle("open");button.setAttribute("aria-expanded",String(open));button.textContent=open?"Close":"Menu"})}
@@ -167,7 +196,99 @@ function setupShareControls(){
   controls.append(share,copy);
   const menu=header.querySelector(".menu-button");header.insertBefore(controls,menu);
 }
-function renderGuide(){const root=document.getElementById("guideRoot");if(!root)return;const requestedKey=new URLSearchParams(location.search).get("topic")||"camping";const key=chapters[requestedKey]?requestedKey:"camping";const page=chapters[key];document.title=`${page.eyebrow} · Oregon Dunes Field Guide`;root.innerHTML=`<section class="guide-hero guide-hero-${key}"><div class="shell"><p class="kicker">${page.eyebrow}</p><h1>${page.title}</h1><p>${page.intro}</p></div></section><div class="guide-layout shell"><aside class="guide-toc"><p>IN THIS GUIDE</p>${page.sections.map((s,i)=>`<a href="#section-${i}"><span>0${i+1}</span>${s[0]}</a>`).join("")}</aside><div class="guide-content">${page.sections.map((s,i)=>`<section id="section-${i}"><span>0${i+1}</span><h2>${s[0]}</h2><p>${s[1]}</p>${s[2]?`<ul>${s[2].map(x=>`<li>${x}</li>`).join("")}</ul>`:""}</section>`).join("")}</div></div><section class="chapter-nav"><div class="shell"><div><small>KEEP PLANNING</small><h2>Ready for the next detail?</h2></div><a class="button ink" href="${key==="conditions"?"maps.html":"planner.html"}">${key==="conditions"?"Open the map":"Build a personal plan"} ↗</a></div></section>`}
+function renderGuide(){
+  const root=document.getElementById("guideRoot");if(!root)return;
+  const requestedKey=new URLSearchParams(location.search).get("topic")||"camping";
+  const key=chapters[requestedKey]?requestedKey:"camping";
+  const page=chapters[key];
+  const isRiding=key==="riding";
+  const ridingImages=[
+    ["riding-01-florence.webp","ATV riders exploring the open sand and forest-edge routes near Florence"],
+    ["riding-02-winchester.webp","A side-by-side paused beneath the large wind-shaped Umpqua Dunes"],
+    ["riding-03-coos-bay.webp","Dirt-bike riders choosing a route where the southern dunes meet the coastal forest"],
+    ["riding-04-checklist.webp","A rider checking an ATV, protective equipment, recovery gear, and whip flag before staging"],
+    ["riding-05-dune-reading.webp","An ATV rider approaching a sharp dune crest slowly enough to inspect the slip face"],
+    ["riding-06-group-protocol.webp","A riding group stopped together to agree on the route and regrouping plan"]
+  ];
+  const ridingMaps=[
+    {
+      region:"Florence / South Jetty–Siltcoos",
+      pageUrl:"riding-florence.html",
+      buttonLabel:"Open the Florence map & guide"
+    },
+    {
+      region:"Winchester Bay / Umpqua Dunes",
+      pageUrl:"riding-winchester-bay.html",
+      buttonLabel:"Open the Winchester Bay map & guide"
+    },
+    {
+      region:"Coos Bay / Spinreel–Horsfall",
+      pageUrl:"riding-coos-bay.html",
+      buttonLabel:"Open the Coos Bay map & guide"
+    }
+  ];
+  const renderSection=(section,index)=>{
+    const map=ridingMaps[index];
+    const mapPanel=map?`<aside class="riding-map-panel"><span>MAPS, STAGING & GPS</span><h3>${map.region}</h3><p>See the official riding-area map, staging choices, trail starting points, nearby camping, and one-tap GPS directions on one simple page.</p><a class="button ink" href="${map.pageUrl}">${map.buttonLabel} →</a></aside>`:"";
+    const prepPanel=isRiding&&index===3?`<div class="riding-prep-grid">
+      <article class="riding-prep-card"><span>PERMIT</span><h3>Buy the Oregon ATV permit.</h3><p>Oregon's operating permit is required for machines used on public ATV lands. It currently costs $10 and is valid for two years. Online buyers receive temporary proof by email.</p><div><a href="https://store.oregonstateparks.org/index.cfm?do=v.dsp_item&itemId=100" target="_blank" rel="noopener">Buy the permit online ↗</a><a href="https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx" target="_blank" rel="noopener">Read permit details ↗</a></div></article>
+      <article class="riding-prep-card"><span>EQUIPMENT</span><h3>Know the rules.</h3><p>Helmet and eye protection, whip flags, lighting, safety cards, sound limits, and equipment requirements depend on rider age, vehicle class, location, and conditions.</p><div><a href="rules.html">Open the rules guide →</a></div></article>
+    </div>
+    <aside class="riding-local-support"><span>LOCAL GEAR, PARTS & REPAIRS</span><h3>Forgot it—or broke it?</h3><p>These nearby businesses advertise useful riding gear, ATV or motorcycle parts, tools, tires, or repair support. Call before driving over to confirm hours and exact inventory.</p><div class="riding-shop-grid">
+      <a href="https://www.florencemotorsports.com/" target="_blank" rel="noopener"><b>Florence Motorsports</b><span>Florence · helmets, riding gear, parts, and accessories</span><strong>Shop information ↗</strong></a>
+      <a href="https://visittheoregoncoast.com/cities/reedsport/activities/1-stop-sport-shop/" target="_blank" rel="noopener"><b>1 Stop Sport Shop</b><span>Reedsport · basic ATV and motorcycle parts, air, tools, and chain supplies</span><strong>Shop information ↗</strong></a>
+      <a href="https://www.northbendpowersports.com/" target="_blank" rel="noopener"><b>North Bend Powersports</b><span>North Bend · tires, wheels, riding gear, and parts for many makes</span><strong>Shop information ↗</strong></a>
+    </div></aside>`:"";
+    const duneVideoPanel=isRiding&&index===4?`<aside class="riding-video-panel">
+      <div class="riding-video-heading"><span>WATCH: DUNE READING IN ACTION</span><h3>Driving Sand Dunes, Beginners to Advanced</h3><p>Watch how the rider reads crests, slopes, changing sand, and the terrain ahead. Pause as needed and compare each technique with the safety points above.</p></div>
+      <a class="riding-video-frame riding-video-preview" href="https://youtu.be/LxyEo_Bnpk0?si=OGAVvjKT6rDICxnB" target="_blank" rel="noopener" aria-label="Watch Driving Sand Dunes, Beginners to Advanced on YouTube"><img src="/images/video-dune-reading.jpg" alt="Preview of Driving Sand Dunes, Beginners to Advanced"><span class="riding-video-play" aria-hidden="true">▶</span><b>Watch the dune-reading video</b></a>
+      <p class="riding-video-note"><strong>Remember:</strong> a video can demonstrate technique, but it cannot show today’s sand, traffic, closures, or visibility. Slow down and read the conditions in front of you.</p>
+      <a href="https://youtu.be/LxyEo_Bnpk0?si=OGAVvjKT6rDICxnB" target="_blank" rel="noopener">Watch directly on YouTube ↗</a>
+    </aside>`:"";
+    const groupProtocolPanel=isRiding&&index===5?`<div class="group-protocol-grid">
+      <article><span>01 · BEFORE YOU MOVE</span><h3>Plan the ride and assign roles.</h3><ul>
+        <li><strong>Riders’ meeting:</strong> review the route, terrain, fuel stops, regroup points, hand signals, and what to do if separated.</li>
+        <li><strong>Lead rider:</strong> sets a sustainable pace, scans for hazards, and stops where the entire group can gather safely.</li>
+        <li><strong>Sweep rider:</strong> stays last, helps with breakdowns, and confirms that nobody has been left behind.</li>
+        <li><strong>Group size:</strong> aim for five to seven riders; split larger groups and give each one its own lead and sweep.</li>
+      </ul></article>
+      <article><span>02 · SPACE TO REACT</span><h3>Control the gap—not the rider ahead.</h3><ul>
+        <li>Ride single file on narrow routes, through dust, near blind crests, and around tight corners.</li>
+        <li>Keep at least a three-to-five-second following gap, adding more space when visibility or traction worsens.</li>
+        <li>Never “dust-draft.” If you cannot clearly see the route, slow or stop somewhere safe and let the gap open.</li>
+      </ul></article>
+      <article><span>03 · EVERY TURN COUNTS</span><h3>Use the buddy system.</h3><ul>
+        <li>At every confusing turn or intersection, wait until you see the rider behind you recognize and complete the turn.</li>
+        <li>If each rider keeps contact with the person behind, the group stays connected and the sweep knows where to go.</li>
+        <li>When someone is missing, stop at the agreed regroup point. Do not scatter the group into an uncoordinated search.</li>
+      </ul></article>
+      <article><span>04 · READ FAR AHEAD</span><h3>Keep your head on a swivel.</h3><ul>
+        <li>Look beyond the sand directly in front of the machine. Scan far enough ahead to anticipate traffic, holes, drop-offs, and changing lines.</li>
+        <li>Assume the unexpected can happen: another rider may appear, the sand may change, or the safe-looking route may close abruptly.</li>
+        <li>When meeting oncoming riders, slow down and use the group’s agreed signal to indicate that more riders are behind you.</li>
+      </ul></article>
+      <article><span>05 · RIDING WITH KIDS</span><h3>Build an adult safety buffer.</h3><ul>
+        <li>Choose an officially open, low-consequence practice area and avoid peak holiday and Saturday traffic when possible.</li>
+        <li>Place experienced adults in front of, behind, and—when space permits—beside young riders so approaching traffic recognizes a supervised group.</li>
+        <li>Use age-appropriate machines, required training and supervision, full safety gear, and short loops with frequent check-ins.</li>
+      </ul></article>
+      <article><span>06 · LOOK AFTER PEOPLE</span><h3>Stop, check, and offer help.</h3><ul>
+        <li>Wear a helmet and appropriate protective gear. Appearance is irrelevant when the equipment can prevent a life-changing injury.</li>
+        <li>If someone is stopped, broken down, or involved in an accident, slow safely and check whether help is needed.</li>
+        <li>Even if you cannot repair the machine, you may be able to call for help, share water, direct traffic, or simply stay with an injured rider.</li>
+      </ul></article>
+    </div>
+    <aside class="facebook-video-resource"><div><span>RELATED RIDING VIDEO</span><h3>Tips and ideas for riding sand dunes</h3><p>Facebook does not provide a reliable website player for group posts. This button opens the original post in Facebook, where visibility may depend on the post’s current privacy settings or group membership.</p></div><a class="button sand" href="https://www.facebook.com/groups/258742818128141/posts/575683449767408/" target="_blank" rel="noopener">Watch on Facebook ↗</a></aside>`:"";
+    const standardItems=section[2]?`<ul>${section[2].map(item=>`<li>${item}</li>`).join("")}</ul>`:"";
+    const copy=`<span>0${index+1}</span><h2>${section[0]}</h2><p>${section[1]}</p>${prepPanel||standardItems}${duneVideoPanel}${groupProtocolPanel}${mapPanel}`;
+    if(!isRiding)return `<section id="section-${index}">${copy}</section>`;
+    const image=ridingImages[index];
+    return `<section id="section-${index}" class="riding-section-card"><img class="guide-section-photo" src="public/images/${image[0]}" data-fallback-src="/images/${image[0]}" alt="${image[1]}"><div class="guide-section-copy">${copy}</div></section>`;
+  };
+  document.title=`${page.eyebrow} · Oregon Dunes Field Guide`;
+  root.innerHTML=`<section class="guide-hero guide-hero-${key}"><div class="shell"><p class="kicker">${page.eyebrow}</p><h1>${page.title}</h1><p>${page.intro}</p></div></section><div class="guide-layout shell"><aside class="guide-toc"><p>IN THIS GUIDE</p>${page.sections.map((s,i)=>`<a href="#section-${i}"><span>0${i+1}</span>${s[0]}</a>`).join("")}</aside><div class="guide-content${isRiding?" riding-content":""}">${page.sections.map(renderSection).join("")}</div></div><section class="chapter-nav"><div class="shell"><div><small>KEEP PLANNING</small><h2>Ready for the next detail?</h2></div><a class="button ink" href="${key==="conditions"?"maps.html":"planner.html"}">${key==="conditions"?"Open the map":"Build a personal plan"} ↗</a></div></section>`;
+  if(isRiding)root.querySelectorAll(".guide-section-photo").forEach(img=>img.addEventListener("error",()=>{const fallback=img.dataset.fallbackSrc;if(fallback&&img.getAttribute("src")!==fallback)img.src=fallback},{once:true}));
+}
 function renderCampingGuide(page){
   const regions=[
     ["NORTH","Florence","First trips, families & mixed groups","Developed camping, freshwater lakes, town services, and access to the South Jetty–Siltcoos area.",["Jessie M. Honeyman Memorial State Park","Forest Service lake and forest campgrounds","Town RV parks and private campgrounds"],"camp-region-florence.webp","Freshwater lake, coastal dunes, and shore pines near Florence"],

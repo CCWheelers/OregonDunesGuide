@@ -11,3 +11,9 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .chapter-links{padding-bottom:95px}.chapter-links>div{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(21,63,60,.17)}.chapter-links a{display:flex;flex-direction:column;gap:12px;padding:22px 20px;border-right:1px solid rgba(21,63,60,.17);border-bottom:1px solid rgba(21,63,60,.17)}.chapter-links a:first-child{padding-left:0}.chapter-links a:hover b{color:var(--orange)}.chapter-links span{font-size:9px;letter-spacing:.18em;color:var(--orange);font-weight:800}.chapter-links b{font-family:var(--font-display);font-size:19px;line-height:1.2}
 @media(max-width:800px){.chapter-links>div{grid-template-columns:1fr 1fr}.chapter-links a:first-child{padding-left:20px}}
+.map-detail{background-image:linear-gradient(180deg,rgba(7,39,37,.76),rgba(7,39,37,.94)),var(--place-image);background-position:center;background-size:cover;color:white;transition:background-image .25s ease}
+.map-region-name{color:rgba(255,255,255,.68)!important}
+.map-detail h2,.map-detail dd{color:white}
+.map-detail>p{color:rgba(255,255,255,.82)}
+.map-detail dl div{border-color:rgba(255,255,255,.25)}
+.map-detail dt{color:rgba(255,255,255,.58)}
