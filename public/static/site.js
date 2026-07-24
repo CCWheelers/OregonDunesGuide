@@ -184,18 +184,18 @@ function regionProfile(key){
       {name:"Navigate to Old Town parking",note:"Open directions near Bay Street, then follow posted signs because limits vary by block and lot.",url:"https://www.google.com/maps/search/?api=1&query=public+parking+Old+Town+Florence+Oregon"}
     ],stays:{
       rv:[
-        {name:"Jessie M. Honeyman State Park",note:"Large state-park campground south of Florence with RV sites, dunes access nearby, and easy access to town services.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95"},
+        {name:"Jessie M. Honeyman State Park",note:"Large state-park campground south of Florence with RV sites, dunes access nearby, and easy access to town services.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95",dogFriendly:true,petNote:"Dogs are welcome in Oregon State Parks when leashed or otherwise physically controlled; reserve only designated pet-friendly cabins or yurts."},
         {name:"Port of Siuslaw Campground & Marina",note:"Riverfront RV camping within walking distance of Historic Old Town Florence restaurants and shops.",url:"https://www.google.com/maps/search/?api=1&query=Port+of+Siuslaw+Campground+and+Marina+Florence+Oregon"},
         {name:"Florence RV and campground directory",note:"Compare additional private parks and public campgrounds around Florence, Siltcoos, and the dunes.",url:"https://florencechamber.com/lodging/"}
       ],
       lodging:[
-        {name:"Driftwood Shores Resort",note:"Oceanfront rooms north of Florence with beach access, kitchens in many rooms, and an indoor pool.",url:"https://www.google.com/maps/search/?api=1&query=Driftwood+Shores+Resort+Florence+Oregon"},
+        {name:"Driftwood Shores Resort",note:"Oceanfront rooms north of Florence with beach access, kitchens in many rooms, and an indoor pool.",url:"https://www.driftwoodshores.com/stay/",dogFriendly:true,petNote:"A limited number of dog-friendly rooms are available; the property currently lists a per-dog nightly fee."},
         {name:"River House Inn",note:"A riverfront Old Town base within walking distance of Bay Street shopping and dining.",url:"https://www.google.com/maps/search/?api=1&query=River+House+Inn+Florence+Oregon"},
-        {name:"Best Western Pier Point Inn",note:"A scenic river-view hotel with breakfast and quick Highway 101 access south of Old Town.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Pier+Point+Inn+Florence+Oregon"}
+        {name:"Best Western Pier Point Inn",note:"A scenic river-view hotel with breakfast and quick Highway 101 access south of Old Town.",url:"https://www.bestwestern.com/en_US/book/hotels-in-florence/best-western-pier-point-inn/propertyCode.38098.html",dogFriendly:true,petNote:"Limited pet-friendly rooms allow up to two dogs; verify room availability, current size limit, and nightly fee."}
       ],
       camping:[
-        {name:"Jessie M. Honeyman State Park",note:"A full-service state-park base near Florence with tent sites and easy access to lakes and dunes.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95"},
-        {name:"Siltcoos-area Forest Service camping",note:"Compare developed campgrounds around Siltcoos Lake and the central Oregon Dunes corridor.",url:"https://www.fs.usda.gov/r06/siuslaw/recreation/camping-cabins"}
+        {name:"Jessie M. Honeyman State Park",note:"A full-service state-park base near Florence with tent sites and easy access to lakes and dunes.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95",dogFriendly:true,petNote:"Dogs are welcome at campsites when leashed or otherwise physically controlled; cabins and yurts must be specifically designated pet-friendly."},
+        {name:"Siltcoos-area Forest Service camping",note:"Compare developed campgrounds around Siltcoos Lake and the central Oregon Dunes corridor.",url:"https://www.fs.usda.gov/r06/siuslaw/recreation/camping-cabins",dogFriendly:true,petNote:"Dogs at developed Forest Service recreation sites must be leashed no longer than six feet or otherwise physically restrained."}
       ]
     },localStops:{
       shopping:[
@@ -220,18 +220,18 @@ function regionProfile(key){
       {name:"Rainbow Plaza riverfront lot",note:"Passenger and boat-trailer spaces near Riverfront Way, public restrooms, picnic tables, and the Umpqua riverfront. Check kiosk signs for launch-related fees.",url:"https://www.cityofreedsport.org/community/page/rainbow-plaza-boat-launch"}
     ],stays:{
       rv:[
-        {name:"Winchester Bay RV Resort",note:"Waterfront full-hookup RV sites at Salmon Harbor with a compact harbor-town base.",url:"https://www.google.com/maps/search/?api=1&query=Winchester+Bay+RV+Resort+Oregon"},
+        {name:"Winchester Bay RV Resort",note:"Waterfront full-hookup RV sites at Salmon Harbor with a compact harbor-town base.",url:"https://www.winchesterbayresort.com/rules/",dogFriendly:true,petNote:"Pets are allowed at RV sites when leashed, supervised, contained, and cleaned up after; verify current rules when reserving."},
         {name:"Half Moon Bay Campground",note:"A Douglas County campground near the harbor, Umpqua Dunes, and lighthouse area.",url:"https://www.google.com/maps/search/?api=1&query=Half+Moon+Bay+Campground+Winchester+Bay+Oregon"},
         {name:"Salmon Harbor RV Park",note:"A Highway 101 RV option close to Winchester Bay services and dune access routes.",url:"https://www.google.com/maps/search/?api=1&query=Salmon+Harbor+RV+Park+Winchester+Bay+Oregon"}
       ],
       lodging:[
         {name:"Winchester Bay Inn",note:"A small harbor-community hotel close to bayfront restaurants and Umpqua Dunes access.",url:"https://www.google.com/maps/search/?api=1&query=Winchester+Bay+Inn+Oregon"},
-        {name:"Best Western Salbasgeon Inn",note:"A Reedsport hotel with Highway 101 access, useful for groups wanting more town services.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Salbasgeon+Inn+Reedsport+Oregon"},
+        {name:"Best Western Salbasgeon Inn",note:"A Reedsport hotel with Highway 101 access, useful for groups wanting more town services.",url:"https://www.bestwestern.com/en_US/book/hotels-in-reedsport/best-western-salbasgeon-inn-suites-of-reedsport/propertyCode.38115.html",dogFriendly:true,petNote:"Limited pet-friendly rooms allow up to two dogs; verify room availability, current size limit, and nightly fee."},
         {name:"Umpqua River Inn & Suites",note:"A Reedsport lodging option convenient to groceries, dining, and the Winchester Bay drive.",url:"https://www.google.com/maps/search/?api=1&query=Umpqua+River+Inn+and+Suites+Reedsport+Oregon"}
       ],
       camping:[
         {name:"Half Moon Bay Campground",note:"Harbor-side camping near Winchester Bay, the lighthouse, and Umpqua Dunes.",url:"https://www.google.com/maps/search/?api=1&query=Half+Moon+Bay+Campground+Winchester+Bay+Oregon"},
-        {name:"Umpqua Lighthouse State Park",note:"A state-park campground near Lake Marie and the Umpqua River Lighthouse.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=83"}
+        {name:"Umpqua Lighthouse State Park",note:"A state-park campground near Lake Marie and the Umpqua River Lighthouse.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=83",dogFriendly:true,petNote:"Pets are welcome when leashed or physically controlled; only designated yurts and cabins are pet-friendly."}
       ]
     },localStops:{
       shopping:[
@@ -256,17 +256,17 @@ function regionProfile(key){
       {name:"Visitor Center & Boardwalk parking",note:"Public parking beside the Visitor Information Center at 50 Central Avenue, across from the Boardwalk and City Docks.",url:"https://www.coosbayor.gov/Home/Components/FacilityDirectory/FacilityDirectory/14/35"}
     ],stays:{
       rv:[
-        {name:"Oregon Dunes KOA Holiday",note:"Full-hookup RV sites with direct access toward the dunes and family-oriented campground amenities.",url:"https://www.google.com/maps/search/?api=1&query=Oregon+Dunes+KOA+Holiday+North+Bend+Oregon"},
+        {name:"Oregon Dunes KOA Holiday",note:"Full-hookup RV sites with direct access toward the dunes and family-oriented campground amenities.",url:"https://koa.com/campgrounds/oregon-dunes/general-information/",dogFriendly:true,petNote:"Dogs are welcome at RV and tent sites and must remain leashed; they are not allowed in cabins, rental units, or buildings."},
         {name:"Riley Ranch County Park",note:"RV and camping options with direct OHV access near the southern dunes and Butterfield Lake.",url:"https://www.google.com/maps/search/?api=1&query=Riley+Ranch+County+Park+North+Bend+Oregon"},
-        {name:"Ko-Kwel Casino Resort RV Park",note:"Full-hookup waterfront RV sites near North Bend dining, entertainment, and town services.",url:"https://www.google.com/maps/search/?api=1&query=Ko-Kwel+Casino+Resort+RV+Park+North+Bend+Oregon"}
+        {name:"Ko-Kwel Casino Resort RV Park",note:"Full-hookup waterfront RV sites near North Bend dining, entertainment, and town services.",url:"https://www.themillcasino.com/accommodations/",dogFriendly:true,petNote:"The resort advertises more than 100 pet-friendly RV sites; confirm the current pet rules when reserving."}
       ],
       lodging:[
         {name:"Ko-Kwel Casino Resort Coos Bay",note:"A waterfront North Bend hotel with dining, entertainment, pool, and hot tub amenities.",url:"https://www.google.com/maps/search/?api=1&query=Ko-Kwel+Casino+Resort+Coos+Bay+North+Bend+Oregon"},
-        {name:"Best Western Holiday Hotel",note:"A Coos Bay hotel across from the bay and within walking distance of downtown shopping and dining.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Holiday+Hotel+Coos+Bay+Oregon"},
+        {name:"Best Western Holiday Hotel",note:"A Coos Bay hotel across from the bay and within walking distance of downtown shopping and dining.",url:"https://www.bestwestern.com/en_US/book/hotels-in-coos-bay/best-western-holiday-hotel/propertyCode.38071.html",dogFriendly:true,petNote:"Limited pet-friendly rooms allow up to two dogs; verify room availability, current size limit, and nightly fee."},
         {name:"Edgewater Inn",note:"Rooms and suites on the bay with an observation deck and quick access to Coos Bay services.",url:"https://www.google.com/maps/search/?api=1&query=Edgewater+Inn+Coos+Bay+Oregon"}
       ],
       camping:[
-        {name:"Spinreel Campground",note:"A Forest Service campground with direct access to the southern Oregon Dunes riding area.",url:"https://www.google.com/maps/search/?api=1&query=Spinreel+Campground+North+Bend+Oregon"},
+        {name:"Spinreel Campground",note:"A Forest Service campground with direct access to the southern Oregon Dunes riding area.",url:"https://www.fs.usda.gov/r06/siuslaw/recreation/spinreel-campground",dogFriendly:true,petNote:"Dogs must be on a leash no longer than six feet or otherwise under physical restrictive control."},
         {name:"Riley Ranch County Park",note:"Campsites, cabins, showers, lake access, and a direct connection to OHV terrain.",url:"https://www.google.com/maps/search/?api=1&query=Riley+Ranch+County+Park+North+Bend+Oregon"}
       ]
     },localStops:{
@@ -291,43 +291,33 @@ function regionProfile(key){
 }
 function collectTrip(form){
   const fd=new FormData(form);
-  return{arrival:fd.get("arrival"),departure:fd.get("departure"),region:fd.get("region"),vehicle:fd.get("vehicle"),tripType:fd.get("tripType"),rentalType:fd.get("rentalType")||"none",experience:fd.get("experience"),partySize:Number(fd.get("partySize")||1),toys:getChecked(form,"toys"),crew:getChecked(form,"crew"),interests:getChecked(form,"interests")}
+  return{arrival:fd.get("arrival"),departure:fd.get("departure"),region:fd.get("region"),vehicle:fd.get("vehicle"),tripType:fd.get("tripType"),rentalType:fd.get("rentalType")||"none",experience:fd.get("experience"),partySize:Number(fd.get("partySize")||1),planningGroup:fd.has("planningGroup"),toys:getChecked(form,"toys"),crew:getChecked(form,"crew"),interests:getChecked(form,"interests")}
 }
 function buildTrip(data){
   const start=new Date(`${data.arrival}T12:00:00`),end=new Date(`${data.departure}T12:00:00`);
   const days=Math.round((end-start)/86400000)+1,regionKey=chooseRegion(data),region=regionProfile(regionKey);
   const needsRental=data.rentalType&&data.rentalType!=="none";
-  const hasMachines=data.toys.some(x=>x!=="none")||needsRental,isDay=data.tripType==="day";
-  const itinerary=[];
-  itinerary.push(["Arrive with daylight",isDay?`Start early in ${region.base}, confirm current access, and stage at ${region.ride}.`:`Settle into ${region.camp}. Confirm weather, closures, maps, and the next morning's access before reliable service fades.`]);
-  if(days>1)itinerary.push([hasMachines?"Primary riding day":"Dunes and lake day",hasMachines?`Begin early in ${region.ride}. Use a conservative first loop to read the sand, regroup often, and finish with daylight in reserve.`:`Explore a permitted dune trail in the morning, then add a freshwater lake or forest-edge walk after lunch.`]);
-  if(days>2)itinerary.push(["Coast and community day",data.interests.includes("towns")?`Use the weather window for ${data.interests.includes("wildlife")?"quiet wildlife watching":"a shorter dune outing"}, then browse ${region.localStops.shopping[0].name}, stop for lunch, and finish with a local dinner. Breakfast choices for the next morning are included below.`:`Use the weather window for ${data.interests.includes("wildlife")?"quiet wildlife watching":"a shorter dune outing"}, then make room for ${region.backup}.`]);
-  for(let i=3;i<Math.min(days,7);i++)itinerary.push([i%2?`Flexible adventure day`:`Slow coast day`,i%2?`Choose a second zone only if the group is rested and current conditions support the drive. Otherwise deepen the ${region.name} plan.`:`Rest machines and riders. Explore a town, lake, lighthouse, or forest trail and recheck tomorrow's conditions.`]);
-  if(days>1)itinerary.push(["Leave light",`Choose a compact final activity, clean and secure equipment, pack every item, and allow extra time for US 101 and trailer traffic.`]);
-  const alerts=[
-    ["Check current closures","Review Siuslaw National Forest notices, seasonal wildlife closures, fire restrictions, and campground status on departure morning."],
-    [data.vehicle==="rv"?"Trailer access matters":data.vehicle==="2wd"?"Keep access conservative":"Use 4WD as margin, not permission",data.vehicle==="rv"?`Confirm site length, turning room, staging connection, and fuel stops before entering ${region.camp}.`:data.vehicle==="2wd"?"Use developed roads and parking. Do not enter soft sand or informal pullouts based on appearance alone.":"Air pressure and recovery gear matter, but designated access and posted rules still control where you drive."],
-  ];
-  if(data.crew.includes("youth"))alerts.push(["Youth rider plan","Confirm Oregon safety-card, hands-on training, supervision, rider-fit, restraint, and helmet requirements for every youth operator."]);
-  if(data.crew.includes("dog"))alerts.push(["Dog and habitat plan","Check campground and beach rules, carry a leash, protect paws from hot sand, and keep pets far from signed snowy plover habitat."]);
-  if(data.crew.includes("campfire"))alerts.push(["Fire plan","Confirm same-day fire restrictions with the managing agency. Carry an extinguisher and never assume a fire is allowed because a ring is present."]);
-  if(data.experience==="first"&&hasMachines)alerts.push(["First-hour rule","Use a low-consequence practice area, shorten the first loop, and learn current ridge and slip-face conditions before adding speed."]);
-  if(needsRental){
-    const rentalName={quad:"ATV / quad",sxs:"side-by-side / UTV",bike:"dirt bike",unsure:"rental machine"}[data.rentalType]||"rental machine";
-    alerts.push(["Reserve your rental early",`Ask the rental company about ${rentalName} availability, operator age and license rules, deposits, insurance, safety gear, training, delivery or staging location, fuel, and cancellation terms. Confirm exactly where the machine may be ridden.`]);
+  const hasMachines=data.toys.some(x=>x!=="none")||needsRental;
+  const checklistGroups=[{title:"Trip essentials",items:["Offline maps and any saved reservations","Coastal wind layer, warm layer, and dry footwear","Water, food, first-aid kit, headlamps, and battery bank","Emergency contacts and plan shared with someone at home"]}];
+  if(hasMachines){
+    const ridingItems=["ATV permits for every machine","Required safety cards for operators","Whip flags, helmets, eye protection, and gloves","Tools, tire gauge, recovery gear, and secure fuel","Working brakes, lights, exhaust, and required spark arrestor"];
+    if(data.toys.includes("sxs")||data.rentalType==="sxs")ridingItems.push("Side-by-side restraints, doors or nets, and passenger seating checked");
+    if(data.toys.includes("quad")||data.rentalType==="quad")ridingItems.push("ATV controls, tire pressures, and rider fit checked");
+    if(data.toys.includes("bike")||data.rentalType==="bike")ridingItems.push("Dirt-bike controls, tire pressures, and protective riding gear checked");
+    checklistGroups.push({title:"OHV riding",items:ridingItems})
   }
-  if(data.interests.includes("towns")){
-    alerts.push(["Public parking near your town stops",`<span class="parking-links">${region.parking.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><small>${item.note}</small></a>`).join("")}</span>`]);
-    alerts.push(["Weather, rain attire & roads",`<span id="plannerWeatherAlert" class="weather-outlook" aria-live="polite">Checking the forecast for ${region.base} and your trip dates…</span>`]);
-  }
-  const checklist=["Offline official maps and saved reservations","Coastal wind layer, warm layer, and dry footwear","Water, food, first-aid kit, headlamps, and battery bank","Emergency contacts and plan shared with someone at home","Trash bags and a bin for sandy gear"];
-  if(hasMachines)checklist.push("ATV permits for every machine","Required safety cards for operators","Whip flags, helmets, eye protection, and gloves","Tow strap, tools, tire gauge, and recovery plan","Working brakes, lights, exhaust, and secure fuel","Fire-season spark arrestor and equipment as required");
-  if(data.vehicle==="rv")checklist.push("Trailer tires, bearings, lights, chocks, leveling blocks, and hitch lock");
-  if(data.crew.includes("youth"))checklist.push("Youth training records, supervision plan, and correctly sized machine");
-  if(data.crew.includes("dog"))checklist.push("Leash, water bowl, waste bags, towel, and pet-safe backup activity");
-  if(data.interests.includes("wildlife"))checklist.push("Binoculars and long lens for distance-respecting wildlife viewing");
-  if(needsRental)checklist.push("Rental confirmation, operator documents, deposit method, pickup time, included safety gear, and after-hours contact");
-  return{...data,days,regionKey,region,itinerary,alerts,checklist,hasMachines}
+  if(needsRental)checklistGroups.push({title:"OHV rental",items:["Rental confirmation and pickup time","Operator documents and deposit method","Included safety gear, fuel policy, and after-hours contact"]});
+  if(data.vehicle==="4wd")checklistGroups.push({title:"4×4 vehicle",items:["Tow strap, shovel, tire gauge, and recovery points","Full-size spare, jack, and basic tools","Confirm the vehicle is permitted on the planned access route"]});
+  if(data.vehicle==="2wd"&&hasMachines)checklistGroups.push({title:"2WD access",items:["Use developed roads, staging areas, and firm designated parking","Confirm the tow vehicle and trailer can turn around before entering an access road","Do not enter soft sand or informal pullouts"]});
+  if(data.vehicle==="rv")checklistGroups.push({title:"RV or trailer",items:["Trailer tires, bearings, lights, and hitch lock","Chocks, leveling blocks, and confirmed site length","Turning room and parking plan for campgrounds and planned stops"]});
+  const crewItems=[];
+  if(data.crew.includes("youth"))crewItems.push(hasMachines?"Youth training records, supervision plan, and correctly sized machine":"Age-appropriate layers, snacks, supervision, and an easy backup activity");
+  if(data.crew.includes("dog"))crewItems.push("Leash, water bowl, waste bags, towel, and pet-safe backup activity");
+  if(data.crew.includes("campfire"))crewItems.push("Same-day fire restriction check, extinguisher, and a fully cold-out plan");
+  if(data.crew.includes("accessibility"))crewItems.push("Accessible parking, restroom, path-surface, and lodging details confirmed directly");
+  if(crewItems.length)checklistGroups.push({title:data.planningGroup?"Your group":"Trip details",items:crewItems});
+  if(data.interests.includes("wildlife"))checklistGroups.push({title:"Wildlife watching",items:["Binoculars or a long lens","Distance-respecting viewing plan and protected-habitat awareness"]});
+  return{...data,days,regionKey,region,checklistGroups,hasMachines}
 }
 function plannerDate(value){return new Date(`${value}T12:00:00`)}
 function forecastDayLabel(value){return new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric"}).format(plannerDate(value))}
@@ -343,7 +333,7 @@ function weatherCodeLabel(code){
   return"variable coastal weather"
 }
 async function loadPlannerWeather(plan){
-  const target=document.getElementById("plannerWeatherAlert");if(!target||!plan.interests.includes("towns"))return;
+  const target=document.getElementById("plannerWeatherAlert");if(!target)return;
   const today=new Date();today.setHours(12,0,0,0);
   const arrival=plannerDate(plan.arrival),departure=plannerDate(plan.departure);
   const latest=new Date(today);latest.setDate(latest.getDate()+15);
@@ -361,7 +351,7 @@ async function loadPlannerWeather(plan){
     const low=Math.round(Math.min(...daily.temperature_2m_min)),high=Math.round(Math.max(...daily.temperature_2m_max));
     const gust=Math.round(Math.max(...daily.wind_gusts_10m_max.map(value=>Number(value)||0)));
     const condition=weatherCodeLabel(Math.max(...daily.weather_code.map(value=>Number(value)||0)));
-    const attire=rainChance>=60||rainTotal>=.1?"Pack a waterproof shell with a hood, water-resistant shoes, and a dry layer for after shopping.":rainChance>=30?"Bring a light rain shell and shoes that handle wet sidewalks; keep a dry layer in the vehicle.":"A wind-resistant coastal layer should be enough, but keep a compact rain shell handy.";
+    const attire=rainChance>=60||rainTotal>=.1?"Pack a waterproof shell with a hood, water-resistant shoes, and a dry layer for after time outdoors.":rainChance>=30?"Bring a light rain shell and shoes that handle wet sidewalks; keep a dry layer in the vehicle.":"A wind-resistant coastal layer should be enough, but keep a compact rain shell handy.";
     const roadNotes=[];
     if(rainChance>=60||rainTotal>=.1)roadNotes.push("wet pavement, spray, reduced visibility, and localized standing water are possible");
     else if(rainChance>=30)roadNotes.push("brief slick pavement is possible during showers");
@@ -373,70 +363,245 @@ async function loadPlannerWeather(plan){
     target.innerHTML=`The live forecast could not load right now. Pack a waterproof layer and check again before leaving. ${tripCheck}`
   }
 }
-function renderLocalStopGroup(label,items,groupKey,selected=[]){
-  return`<article class="local-stop-group"><p>${label}</p><div>${items.map((item,index)=>{const key=`${groupKey}:${index}`;return`<article class="local-stop-card"><a class="local-stop-details" href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="${label}" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div></article>`
-}
 function escapeHtml(value=""){
   return String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]))
 }
+function formatClock(value){
+  if(!value)return"";
+  const [hour,minute]=value.split(":").map(Number),period=hour>=12?"PM":"AM",clockHour=hour%12||12;
+  return`${clockHour}:${String(minute).padStart(2,"0")} ${period}`
+}
+function renderLocalStopGroup(label,items,groupKey,selected=[],stopDetails={},planningGroup=false){
+  const multiple=groupKey==="shopping";
+  return`<article class="local-stop-group"><p>${label}</p><div>${items.map((item,index)=>{
+    const key=`${groupKey}:${index}`,details=stopDetails[key]||{},fieldId=`${groupKey}-${index}`;
+    return`<article class="local-stop-card"><a class="local-stop-details" href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="${multiple?"checkbox":"radio"}" ${multiple?"":`name="planned-${groupKey}"`} value="${key}" data-plan-name="${item.name}" data-plan-category="${label}" ${selected.includes(key)?"checked":""}><span>Plan this</span></label><div class="planned-stop-details" data-stop-key="${key}" ${selected.includes(key)?"":"hidden"}><p>${planningGroup?"GROUP":"TRIP"} DETAILS <span>(optional)</span></p><div class="planned-stop-fields"><label for="${fieldId}-time">${planningGroup?"Meeting":"Planned"} time<input id="${fieldId}-time" class="stop-detail-input" data-stop-key="${key}" data-detail-field="time" type="time" value="${escapeHtml(details.time||"")}"></label><label for="${fieldId}-reservation">Reservation name<input id="${fieldId}-reservation" class="stop-detail-input" data-stop-key="${key}" data-detail-field="reservation" type="text" maxlength="80" placeholder="Name on reservation" value="${escapeHtml(details.reservation||"")}"></label><label for="${fieldId}-confirmation">Confirmation number<input id="${fieldId}-confirmation" class="stop-detail-input" data-stop-key="${key}" data-detail-field="confirmation" type="text" maxlength="80" placeholder="Optional" value="${escapeHtml(details.confirmation||"")}"></label><label for="${fieldId}-note">${planningGroup?"Organizer":"Trip"} note<input id="${fieldId}-note" class="stop-detail-input" data-stop-key="${key}" data-detail-field="note" type="text" maxlength="140" placeholder="${planningGroup?"Where to meet, what to bring…":"Anything you want to remember…"}" value="${escapeHtml(details.note||"")}"></label></div><small>Saved on this device. Share-menu privacy choices control what ${planningGroup?"the group receives":"is shared"}.</small><p class="stop-detail-print" data-stop-print="${key}"></p></div></article>`
+  }).join("")}</div></article>`
+}
 function renderStaySection(plan){
-  if(plan.tripType==="day")return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>No overnight stay selected</h2><p class="stay-guide-intro">This plan is set as a day trip. If the group decides to stay overnight, change “How will you use the dunes?” to Camping overnight or Town lodging and rebuild the plan.</p></section>`;
+  if(plan.tripType==="day")return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>No overnight stay selected</h2><p class="stay-guide-intro">This plan is set as a day trip. If ${plan.planningGroup?"the group decides":"you decide"} to stay overnight, change “How will you use the dunes?” to Camping overnight or Town lodging and rebuild the plan.</p></section>`;
   const stayType=plan.tripType==="offsite"?"lodging":plan.vehicle==="rv"?"rv":"camping";
   const heading=stayType==="lodging"?`Town lodging near ${plan.region.base}`:stayType==="rv"?`RV options near ${plan.region.base}`:`Campgrounds near ${plan.region.base}`;
   const intro=stayType==="lodging"?"Compare hotels and inns convenient to town services, dining, and the dunes.":stayType==="rv"?"Compare RV parks and RV-friendly campgrounds, then verify rig length, hookups, vehicle limits, and access before reserving.":"Compare developed campgrounds, then verify current openings, reservation rules, and site details.";
-  const options=plan.region.stays[stayType],selected=plan.plannedStops||[];
+  const allOptions=plan.region.stays[stayType],dogTrip=plan.crew.includes("dog"),selected=plan.plannedStops||[];
+  const options=allOptions.map((item,index)=>({item,index})).filter(option=>!dogTrip||option.item.dogFriendly);
   const selectedStayKey=selected.find(key=>key.startsWith("stay:"))||"";
   const selectedStayIndex=Number(selectedStayKey.split(":")[2]);
-  const selectedStayName=Number.isInteger(selectedStayIndex)&&options[selectedStayIndex]?options[selectedStayIndex].name:"";
-  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose one “Plan this” option to include it in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="radio" name="plannedStay" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selectedStayKey===key?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><div class="stay-confirmation-panel" id="stayConfirmationPanel" ${selectedStayName?"":"hidden"}><p id="staySummary">${selectedStayName?`You are staying at “${selectedStayName}”.`:""}</p><label for="stayConfirmation">Confirmation number <span>(optional)</span></label><input id="stayConfirmation" type="text" maxlength="80" autocomplete="off" placeholder="Reservation or confirmation number" value="${escapeHtml(plan.stayConfirmation||"")}"><small class="stay-confirmation-field-note">Saved on this device and shown on your personal printout. You decide whether to include it when sharing.</small><p class="stay-confirmation-print" id="stayConfirmationPrint">${plan.stayConfirmation?`Confirmation number: ${escapeHtml(plan.stayConfirmation)}`:""}</p></div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
+  const selectedStayName=Number.isInteger(selectedStayIndex)&&allOptions[selectedStayIndex]&&(!dogTrip||allOptions[selectedStayIndex].dogFriendly)?allOptions[selectedStayIndex].name:"";
+  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose one “Plan this” option to include it in the printed and shared plan.</p>${dogTrip?`<aside class="dog-stay-notice"><b>Dog-friendly filter is on</b><span>Only stays with a verified pet-friendly policy are shown. Pet rooms and designated cabins can be limited, so confirm availability, fees, size limits, and leash rules directly before booking.</span></aside>`:""}<div class="stay-options-grid">${options.map(option=>{const {item,index}=option,key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer">${dogTrip?`<small class="dog-friendly-badge">DOG-FRIENDLY</small>`:""}<b>${item.name}</b><span>${item.note}</span>${dogTrip?`<em>${item.petNote}</em>`:""}<i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="radio" name="plannedStay" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selectedStayKey===key?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><div class="stay-confirmation-panel" id="stayConfirmationPanel" ${selectedStayName?"":"hidden"}><p id="staySummary">${selectedStayName?`You are staying at “${selectedStayName}”.`:""}</p><label for="stayConfirmation">Confirmation number <span>(optional)</span></label><input id="stayConfirmation" type="text" maxlength="80" autocomplete="off" placeholder="Reservation or confirmation number" value="${escapeHtml(plan.stayConfirmation||"")}"><small class="stay-confirmation-field-note">Saved on this device and shown on your personal printout. You decide whether to include it when sharing.</small><p class="stay-confirmation-print" id="stayConfirmationPrint">${plan.stayConfirmation?`Confirmation number: ${escapeHtml(plan.stayConfirmation)}`:""}</p></div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
+}
+function nonRidingDayProfile(plan){
+  if(plan.interests.includes("lakes"))return{title:"Dunes and lake day",description:`Begin with a permitted dune walk or developed viewpoint near ${plan.region.ride}, then spend the afternoon at a nearby freshwater lake or paddling area.`};
+  if(plan.interests.includes("wildlife"))return{title:"Wildlife and dunes day",description:`Begin quietly near a forest edge, estuary, or developed wildlife-viewing area, then visit a permitted dune overlook while keeping well away from signed habitat.`};
+  if(plan.interests.includes("hiking"))return{title:"Dunes walk and photography day",description:`Choose a permitted dune trail or developed viewpoint near ${plan.region.ride}, move at an easy pace, and leave extra time for photography and changing coastal light.`};
+  if(plan.interests.includes("towns"))return{title:"Shopping and dining day",description:`Spend the day around ${plan.region.base}, using the shopping, lunch, and dinner options selected below to shape a relaxed town itinerary.`};
+  return{title:"Scenic dunes day",description:`Explore a developed dune viewpoint or permitted walking route near ${plan.region.ride}, then keep the afternoon flexible for a beach, lighthouse, or other easy coastal stop.`}
+}
+function selectedPriorityAddOn(plan){
+  const additions=[];
+  if(plan.interests.includes("lakes"))additions.push("a nearby freshwater lake stop");
+  if(plan.interests.includes("wildlife"))additions.push("a quiet wildlife-viewing window away from signed habitat");
+  if(plan.interests.includes("hiking"))additions.push("a short permitted walk and time for photography");
+  if(plan.interests.includes("towns"))additions.push(`time in ${plan.region.base} for the selected shopping and dining stops`);
+  if(!additions.length)return"";
+  return` If time and energy allow, also make room for ${additions.join(", ")}.`
+}
+function itinerarySelectionPrompt(plan){
+  const choices=[];
+  if(plan.tripType!=="day")choices.push("a stay");
+  if(plan.interests.includes("towns"))choices.push("shopping, meal, or breakfast stops");
+  if(!choices.length)return"This schedule follows the trip style and priorities selected above.";
+  return`Choose ${choices.join(" and ")} with “Plan this” and the schedule will update around those choices.`
+}
+function selectedItinerary(plan,picks){
+  const pick=prefix=>picks.find(item=>item.key.startsWith(`${prefix}:`));
+  const stay=pick("stay"),shopping=pick("shopping"),lunch=pick("lunch"),dinner=pick("dinner"),breakfast=pick("breakfast");
+  const detail=item=>item?(plan.stopDetails?.[item.key]||{}):{};
+  const atTime=item=>detail(item).time?` at ${formatClock(detail(item).time)}`:"";
+  const rentalName={quad:"ATV / quad",sxs:"side-by-side / UTV",bike:"dirt bike",unsure:"OHV"}[plan.rentalType];
+  const nonRidingDay=nonRidingDayProfile(plan);
+  const experienceStart=plan.experience==="first"?"Begin in a low-consequence practice area and keep the first route short.":plan.experience==="some"?"Use a conservative first loop to read the current ridges and slip faces.":"Use the first loop to confirm current sand, visibility, and route conditions before increasing the pace.";
+  const ridingLead=rentalName?`Pick up the reserved ${rentalName}, complete the orientation, and confirm the return time before staging at ${plan.region.ride}. ${experienceStart}`:plan.hasMachines?`Stage at ${plan.region.ride} and inspect every machine. ${experienceStart}`:nonRidingDay.description;
+  const ridingCheck=plan.hasMachines?" Confirm same-day closures, designated access, permits, and flag requirements before entering the sand.":"";
+  const crewNotes=[];
+  if(plan.crew.includes("youth"))crewNotes.push(plan.hasMachines?"keep youth supervision, rider fit, and skill breaks built into the day":"keep supervision, rest breaks, and an age-appropriate backup activity built into the day");
+  if(plan.crew.includes("dog"))crewNotes.push("use only pet-appropriate stops and keep the dog leashed away from protected habitat");
+  if(plan.crew.includes("accessibility"))crewNotes.push("use the confirmed accessible parking, restroom, and path options");
+  const crewLine=crewNotes.length?` For ${plan.planningGroup?"the group":"this trip"}, ${crewNotes.join(" and ")}.`:"";
+  const priorityAddOn=plan.hasMachines?selectedPriorityAddOn(plan):"";
+  const townParts=[];
+  if(shopping)townParts.push(`Browse ${shopping.name}${atTime(shopping)}`);
+  if(lunch)townParts.push(`meet for lunch at ${lunch.name}${atTime(lunch)}`);
+  if(dinner)townParts.push(`finish with dinner at ${dinner.name}${atTime(dinner)}`);
+  const townPlan=townParts.length?`${townParts.join(", ")}.`:`Use the afternoon for the shops and waterfront in ${plan.region.base}; choose lunch and dinner with “Plan this” to place them here.`;
+  const days=[];
+  if(plan.days===1){
+    const meal=lunch?` Stop for lunch at ${lunch.name}${atTime(lunch)}.`:"";
+    const town=shopping?` Add ${shopping.name}${atTime(shopping)} before leaving town.`:"";
+    const evening=dinner?` Finish with dinner at ${dinner.name}${atTime(dinner)}.`:"";
+    days.push([`Your selected day in ${plan.region.base}`,`${ridingLead}${ridingCheck}${priorityAddOn}${meal}${town}${evening}${crewLine}`]);
+    return{days,note:picks.length?"Built from the places and activities marked “Plan this.”":itinerarySelectionPrompt(plan)}
+  }
+  const arrivalDinner=plan.days===2&&dinner?` Meet for dinner at ${dinner.name}${atTime(dinner)}.`:"";
+  const arrivalPlan=plan.hasMachines?`Unload only what the riders need, confirm tomorrow’s route to ${plan.region.ride}, and review weather and closures.`:`Settle in, review tomorrow’s ${nonRidingDay.title.toLowerCase()}, and confirm weather, hours, and driving time for the selected stops.`;
+  days.push([stay?`Arrive and check in at ${stay.name}`:`Arrive and settle in near ${plan.region.base}`,`${stay?`Check in at ${stay.name} with daylight remaining. ${arrivalPlan}`:`Arrive with daylight and choose your overnight base. Mark a stay with “Plan this” to add its name, check-in, and checkout to this schedule.`}${arrivalDinner}`]);
+  const departureTraffic=plan.vehicle==="rv"?"US 101 and trailer traffic":"coastal traffic on US 101";
+  if(plan.days===2){
+    const breakfastLine=breakfast?`Start with breakfast at ${breakfast.name}${atTime(breakfast)}. `:"";
+    const shortTownPlan=[shopping?`browse ${shopping.name}${atTime(shopping)}`:"",lunch?`have lunch at ${lunch.name}${atTime(lunch)}`:""].filter(Boolean).join(" and ");
+    const twoDayDeparture=plan.hasMachines?`Finish with enough daylight to clean and secure the machines and riding gear, check out${stay?` of ${stay.name}`:""}, and allow extra time for ${departureTraffic}.`:`Leave time to pack your belongings, check out${stay?` of ${stay.name}`:""}, and enjoy one last short stop that matches your selected priorities before accounting for ${departureTraffic}.`;
+    days.push([rentalName?`${rentalName} outing, then head home`:plan.hasMachines?`Ride ${plan.region.ride}, then head home`:nonRidingDay.title,`${breakfastLine}${ridingLead}${ridingCheck}${priorityAddOn}${shortTownPlan?` Then ${shortTownPlan}.`:""} ${twoDayDeparture}${crewLine}`]);
+    return{days,note:picks.length?`This two-day schedule uses ${picks.length} selection${picks.length===1?"":"s"} marked “Plan this” and updates as choices change.`:itinerarySelectionPrompt(plan)}
+  }
+  const shortTripDinner=plan.days===3&&dinner?` Finish with dinner at ${dinner.name}${atTime(dinner)}.`:"";
+  days.push([rentalName?`${rentalName} day at ${plan.region.ride}`:plan.hasMachines?`Primary riding day at ${plan.region.ride}`:nonRidingDay.title,`${ridingLead}${ridingCheck}${priorityAddOn}${shortTripDinner}${crewLine}`]);
+  for(let day=3;day<plan.days;day++){
+    if(day===3&&plan.interests.includes("towns"))days.push([townParts.length?`Your ${plan.region.base} picks`:`Coast and community day`,`${plan.interests.includes("wildlife")?"Start with quiet wildlife watching while conditions are calm. ":""}${townPlan}`]);
+    else if(plan.interests.includes("wildlife")&&day===4)days.push(["Wildlife and slow-coast day","Begin quietly near an estuary, forest edge, or developed viewing area. Keep distance from wildlife and signed habitat, then choose a sheltered, developed backup stop if the weather changes."]);
+    else if(plan.hasMachines)days.push([`Flexible riding day`, `Return to ${plan.region.ride} only if the riders and machines are ready. Shorten the route, revisit a favorite section, and keep enough time for cleanup and tomorrow’s departure.`]);
+    else days.push(["Flexible coast day","Revisit a favorite stop from the plan, choose another developed viewpoint, or slow the day down if the weather changes."]);
+  }
+  const breakfastLine=breakfast?`Meet for breakfast at ${breakfast.name}${atTime(breakfast)}. `:"";
+  const departureTown=plan.days===3?[shopping?`browse ${shopping.name}${atTime(shopping)}`:"",lunch?`have lunch at ${lunch.name}${atTime(lunch)}`:""].filter(Boolean).join(" and "):"";
+  const departureTitle=breakfast?`Breakfast at ${breakfast.name}, then head home`:plan.hasMachines?"Pack up and leave light":"One last coast stop, then head home";
+  const departurePrep=plan.hasMachines?`${stay?`Check out of ${stay.name}, then `:""}clean and secure the machines and sandy riding gear`:plan.vehicle==="rv"?`${stay?`Check out of ${stay.name}, then `:""}secure the RV or trailer and complete a final campsite check`:`${stay?`Check out of ${stay.name}, then `:""}pack your belongings and make sure nothing is left behind`;
+  const relaxedStop=!plan.hasMachines&&!departureTown?", then enjoy one last short stop that matches your selected priorities":"";
+  days.push([departureTitle,`${breakfastLine}${departurePrep}${departureTown?`, then ${departureTown}`:""}${relaxedStop}. Allow extra time for ${departureTraffic}.`]);
+  return{days,note:picks.length?`This schedule uses ${picks.length} selection${picks.length===1?"":"s"} marked “Plan this” and updates as choices change.`:itinerarySelectionPrompt(plan)}
+}
+function renderPlanSources(plan){
+  const sources=[];
+  if(plan.hasMachines){
+    sources.push({name:"Forest Service OHV",note:"Current motorized maps, alerts, and access",url:"https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv",external:true});
+    sources.push({name:"Oregon ATV Program",note:"Permits, education, and equipment rules",url:"https://www.oregon.gov/oprd/atv/pages/atv-overview.aspx",external:true})
+  }
+  if(plan.tripType==="camping")sources.push({name:"Camping Guide",note:"Campgrounds, access, reservations, and backups",url:"guide.html?topic=camping"});
+  if(plan.interests.includes("towns"))sources.push({name:"Nearby Towns Guide",note:"Services and gateway-town planning",url:"guide.html?topic=towns"});
+  if(plan.interests.includes("wildlife"))sources.push({name:"Wildlife & Habitat",note:"Seasonal habitat and low-impact viewing",url:"guide.html?topic=wildlife"});
+  if(plan.hasMachines&&(plan.crew.includes("youth")||plan.experience==="first"))sources.push({name:"Safety Fieldbook",note:"New-rider and youth safety",url:"guide.html?topic=safety"});
+  if(plan.tripType==="day")sources.push({name:"Day Use Guide",note:plan.hasMachines?"Staging, parking, and day-trip details":"Parking, viewpoints, and day-trip details",url:"day-use.html"});
+  sources.push({name:"Field Guide Map",note:plan.hasMachines?"Your selected region, staging, and nearby stops":"Your selected region, viewpoints, and nearby stops",url:"maps.html"});
+  return`<section class="plan-section"><p class="section-label">FOR THIS PLAN</p><h2>Links matched to your selections</h2><div class="plan-sources">${sources.map(source=>`<a href="${source.url}" ${source.external?'target="_blank" rel="noreferrer"':""}><b>${source.name}</b><span>${source.note} ${source.external?"↗":"→"}</span></a>`).join("")}</div></section>`
+}
+function selectionSummaryItems(plan,picks){
+  const items=[];
+  const stay=picks.find(item=>item.key.startsWith("stay:"));
+  const vehicle={["4wd"]:"4×4 truck or SUV",["2wd"]:"2WD vehicle",rv:"RV or trailer"}[plan.vehicle]||plan.vehicle;
+  const tripType={camping:"Camping overnight",offsite:"Town lodging",day:"Day trip"}[plan.tripType]||plan.tripType;
+  const toyLabels={quad:"ATVs / quads",sxs:"Side-by-side / UTV",bike:"Dirt bikes"};
+  const rentalLabels={quad:"Renting an ATV / quad",sxs:"Renting a side-by-side / UTV",bike:"Renting a dirt bike",unsure:"Needs rental guidance"};
+  const experienceLabels={first:"First dune trip",some:"Some dune experience",experienced:"Experienced riders"};
+  const crewLabels={youth:"Riders under 16",dog:"Bringing a dog",campfire:"Campfire requested",accessibility:"Easy-access options"};
+  const interestLabels={lakes:"Lakes & paddling",wildlife:"Wildlife watching",towns:"Shopping, meals & towns",hiking:"Hiking & photography"};
+  items.push(["Vehicle",vehicle],["Trip style",tripType]);
+  if(plan.planningGroup)items.push(["Planning","Group trip"]);
+  if(stay)items.push(["Staying at",stay.name]);
+  const toys=plan.toys.filter(item=>item!=="none").map(item=>toyLabels[item]).filter(Boolean);
+  if(toys.length)items.push(["Bringing",toys.join(", ")]);
+  if(plan.rentalType!=="none")items.push(["Rental",rentalLabels[plan.rentalType]||plan.rentalType]);
+  if(plan.hasMachines)items.push(["Experience",experienceLabels[plan.experience]||plan.experience]);
+  plan.crew.forEach(item=>{if(crewLabels[item])items.push([plan.planningGroup?"Group":"Trip detail",crewLabels[item]])});
+  plan.interests.forEach(item=>{if(interestLabels[item])items.push(["Priority",interestLabels[item]])});
+  return items
+}
+function personalizedPlanLead(plan){
+  if(plan.hasMachines)return`A practical base for access to ${plan.region.ride}, supplies, fuel, and rider services.`;
+  if(plan.interests.includes("lakes"))return`A flexible base for freshwater lakes, developed dune viewpoints, and an easy-paced coast trip.`;
+  if(plan.interests.includes("wildlife"))return`A useful base for quiet wildlife viewing, developed dune viewpoints, and habitat-aware exploring.`;
+  if(plan.interests.includes("hiking"))return`A scenic base for dune walks, photography, and flexible coastal outings.`;
+  if(plan.interests.includes("towns"))return`A convenient base for the shopping, dining, parking, and town stops selected in this plan.`;
+  return`A flexible base for developed dune viewpoints, beaches, and an easy-paced Oregon Coast visit.`
 }
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
   const tripLabel=plan.tripType==="camping"?"Camping":plan.tripType==="offsite"?"Town lodging":"Day trip";
-  const sharePrefs={dates:plan.sharePrefs?.dates!==false,stay:plan.sharePrefs?.stay!==false,confirmation:plan.sharePrefs?.confirmation===true,picks:plan.sharePrefs?.picks!==false};
+  const sharePrefs={dates:plan.sharePrefs?.dates!==false,stay:plan.sharePrefs?.stay!==false,itinerary:plan.sharePrefs?.itinerary!==false,picks:plan.sharePrefs?.picks!==false,details:plan.sharePrefs?.details===true,confirmation:plan.sharePrefs?.confirmation===true};
   result.hidden=false;
-  result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${plan.region.headline}. ${plan.region.summary}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="sharePlan" aria-expanded="false" aria-controls="planShareMenu">Share plan</button><button type="button" id="editPlan">Edit answers</button>
+  result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${personalizedPlanLead(plan)}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="sharePlan" aria-expanded="false" aria-controls="planShareMenu">Share plan</button><button type="button" id="editPlan">Edit answers</button>
     <div class="plan-share-menu" id="planShareMenu" role="dialog" aria-label="Share this trip plan" hidden>
       <div class="plan-share-heading"><div><span>SHARE THIS PLAN</span><b>Choose where to send it.</b></div><button type="button" id="closePlanShare" aria-label="Close share options">×</button></div>
-      <fieldset class="share-privacy-options"><legend>INCLUDE IN THIS SHARE</legend><label><input class="share-pref" type="checkbox" data-share-pref="dates" ${sharePrefs.dates?"checked":""}><span>Exact trip dates</span></label><label><input class="share-pref" id="shareStayPref" type="checkbox" data-share-pref="stay" ${sharePrefs.stay?"checked":""}><span>Selected stay</span></label><label><input class="share-pref" id="shareConfirmationPref" type="checkbox" data-share-pref="confirmation" ${sharePrefs.confirmation?"checked":""}><span>Confirmation number</span></label><label><input class="share-pref" type="checkbox" data-share-pref="picks" ${sharePrefs.picks?"checked":""}><span>Meal, shopping & group picks</span></label><small>Confirmation numbers are private by default. Print always keeps your complete personal copy.</small></fieldset>
+      <fieldset class="share-privacy-options"><legend>INCLUDE IN THIS SHARE</legend><label><input class="share-pref" type="checkbox" data-share-pref="dates" ${sharePrefs.dates?"checked":""}><span>Exact trip dates</span></label><label><input class="share-pref" id="shareStayPref" type="checkbox" data-share-pref="stay" ${sharePrefs.stay?"checked":""}><span>Selected stay</span></label><label><input class="share-pref" type="checkbox" data-share-pref="itinerary" ${sharePrefs.itinerary?"checked":""}><span>Day-by-day schedule</span></label><label><input class="share-pref" type="checkbox" data-share-pref="picks" ${sharePrefs.picks?"checked":""}><span>Meal, shopping & ${plan.planningGroup?"group":"trip"} picks</span></label><label><input class="share-pref" id="shareDetailsPref" type="checkbox" data-share-pref="details" ${sharePrefs.details?"checked":""}><span>Reservation names & notes</span></label><label><input class="share-pref" id="shareConfirmationPref" type="checkbox" data-share-pref="confirmation" ${sharePrefs.confirmation?"checked":""}><span>Confirmation numbers</span></label><small>Private reservation details and confirmation numbers are off by default. Print keeps the complete personal copy.</small></fieldset>
       <a class="plan-share-option" id="shareMessenger" href="https://www.messenger.com/" target="_blank" rel="noreferrer"><span>M</span><div><b>Messenger</b><small>Copy the selected details, then open Messenger</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareEmail"><span>@</span><div><b>Email</b><small>Open a ready-to-send message</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareText"><span>TXT</span><div><b>Text</b><small>Send by SMS or iMessage</small></div><i>→</i></a>
       <p class="plan-share-feedback" id="planShareFeedback" aria-live="polite"></p>
     </div>
   </div></div>
-  <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>Crew</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
+  <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>${plan.planningGroup?"Group":"Travelers"}</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
+  <section class="answer-summary"><div class="answer-summary-intro"><p>HERE IS YOUR PERSONALIZED TRIP</p><h2>Planned the way you want.</h2><span>Now let’s take a look at some of your options.</span></div><div class="answer-summary-chips" id="answerSummaryChips"></div><button type="button" id="editAnswersSummary">Edit answers</button></section>
   ${renderStaySection(plan)}
-  <section class="plan-section"><p class="section-label">KNOW BEFORE YOU GO</p><h2>Your trip-specific notes</h2><div class="alert-grid">${plan.alerts.map(x=>`<article class="plan-alert"><b>${x[0]}</b><p>${x[1]}</p></article>`).join("")}</div></section>
-  <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>A plan with breathing room</h2><div class="itinerary">${plan.itinerary.map((x,i)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${i+1}</b></div><div class="day-copy"><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`).join("")}</div></section>
-  ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Check “Plan this” on the places your group chooses, and those picks will be included when you share the plan.</p><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping,"shopping",plan.plannedStops)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch,"lunch",plan.plannedStops)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner,"dinner",plan.plannedStops)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast,"breakfast",plan.plannedStops)}</div><p class="planned-stops-status" id="plannedStopsStatus" aria-live="polite"></p><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
-  <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Your personalized checklist</h2><div class="checklist-columns">${plan.checklist.map(x=>`<div class="checklist-item">${x}</div>`).join("")}</div></section>
-  <section class="plan-section"><p class="section-label">PRIMARY SOURCES</p><h2>Verify before the wheels turn</h2><div class="plan-sources"><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv" target="_blank" rel="noreferrer"><b>Forest Service OHV</b><span>Maps, alerts, and access ↗</span></a><a href="https://www.oregon.gov/oprd/atv/pages/atv-overview.aspx" target="_blank" rel="noreferrer"><b>Oregon ATV Program</b><span>Permits and safety rules ↗</span></a><a href="maps.html"><b>Field Guide Map</b><span>Compare regions and staging →</span></a></div></section>`;
+  ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Choose one lunch, dinner, and breakfast; shopping can include more than one stop. ${plan.planningGroup?"Add optional meeting, reservation, and organizer details after selecting a place.":"Add optional reservation details after selecting a place."}</p><aside class="local-parking"><div><span>TOWN PARKING</span><b>Parking for these stops</b></div><div class="local-parking-links">${plan.region.parking.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><small>${item.note}</small></a>`).join("")}</div></aside><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping,"shopping",plan.plannedStops,plan.stopDetails,plan.planningGroup)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch,"lunch",plan.plannedStops,plan.stopDetails,plan.planningGroup)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner,"dinner",plan.plannedStops,plan.stopDetails,plan.planningGroup)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast,"breakfast",plan.plannedStops,plan.stopDetails,plan.planningGroup)}</div><p class="planned-stops-status" id="plannedStopsStatus" aria-live="polite"></p><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
+  <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>Your selections, organized by day</h2><p class="itinerary-selection-note" id="itinerarySelectionNote"></p><aside class="itinerary-weather"><div><span>WEATHER & ROADS</span><b>${plan.region.base} during your trip</b></div><p id="plannerWeatherAlert" class="weather-outlook" aria-live="polite">Checking the forecast and road-weather outlook…</p></aside><div class="itinerary" id="tripItinerary"></div></section>
+  <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Only what your selections require</h2><div class="checklist-groups">${plan.checklistGroups.map(group=>`<article class="checklist-group"><h3>${group.title}</h3>${group.items.map(item=>`<div class="checklist-item">${item}</div>`).join("")}</article>`).join("")}</div></section>
+  ${renderPlanSources(plan)}`;
   document.getElementById("printPlan").addEventListener("click",()=>window.print());
   const shareButton=document.getElementById("sharePlan");
   const shareMenu=document.getElementById("planShareMenu");
   const closeShareButton=document.getElementById("closePlanShare");
   const shareFeedback=document.getElementById("planShareFeedback");
   const plannerUrl=new URL("planner.html",window.location.href).href;
-  const shareTitle="My Oregon Dunes trip plan";
+  const shareTitle=plan.planningGroup?"Our Oregon Dunes trip plan":"My Oregon Dunes trip plan";
   const selectedPlanStops=()=>[...result.querySelectorAll(".plan-stop-checkbox:checked")].map(input=>({key:input.value,category:input.dataset.planCategory,name:input.dataset.planName}));
-  const buildShareMessage=()=>{const picks=selectedPlanStops(),stay=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:"));const confirmation=(document.getElementById("stayConfirmation")?.value||"").trim();const dates=sharePrefs.dates?`, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}`:"";const shareSummary=`Oregon Dunes trip: ${plan.region.name}${dates}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;const stayLine=sharePrefs.stay&&stay?`\n\nYou are staying at "${stay.name}".${sharePrefs.confirmation&&confirmation?` Confirmation number: ${confirmation}.`:""}`:"";const groupPicks=sharePrefs.picks&&otherPicks.length?`\n\nGroup picks:\n${otherPicks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${stayLine}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
+  const readStopDetails=()=>{
+    const details={};
+    result.querySelectorAll(".stop-detail-input").forEach(input=>{const key=input.dataset.stopKey;if(!details[key])details[key]={};details[key][input.dataset.detailField]=input.value.trim()});
+    return details
+  };
+  const buildShareMessage=()=>{
+    const picks=selectedPlanStops(),stay=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:")),stopDetails=readStopDetails();
+    const confirmation=(document.getElementById("stayConfirmation")?.value||"").trim(),dates=sharePrefs.dates?`, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}`:"";
+    const shareSummary=`${plan.planningGroup?"Our":"My"} Oregon Dunes trip: ${plan.region.name}${dates}, ${plan.days} days. Base: ${plan.region.base}.${plan.hasMachines?` Primary riding area: ${plan.region.ride}.`:""}`;
+    const stayLine=sharePrefs.stay&&stay?`\n\nYou are staying at "${stay.name}".${sharePrefs.confirmation&&confirmation?` Confirmation number: ${confirmation}.`:""}`:"";
+    const groupPicks=sharePrefs.picks&&otherPicks.length?`\n\n${plan.planningGroup?"Group":"Trip"} picks:\n${otherPicks.map(item=>{const detail=stopDetails[item.key]||{},extras=[];if(detail.time)extras.push(`${plan.planningGroup?"meet at":"planned for"} ${formatClock(detail.time)}`);if(sharePrefs.details&&detail.reservation)extras.push(`reservation: ${detail.reservation}`);if(sharePrefs.details&&detail.note)extras.push(`note: ${detail.note}`);if(sharePrefs.confirmation&&detail.confirmation)extras.push(`confirmation: ${detail.confirmation}`);return`- ${item.category}: ${item.name}${extras.length?` (${extras.join("; ")})`:""}`}).join("\n")}`:"";
+    const itineraryPicks=picks.filter(item=>item.key.startsWith("stay:")?sharePrefs.stay:sharePrefs.picks);
+    const itinerary=sharePrefs.itinerary?selectedItinerary({...plan,stopDetails},itineraryPicks).days:"";
+    const itineraryText=itinerary?`\n\nDay-by-day:\n${itinerary.map((day,index)=>`Day ${index+1}: ${day[0]} — ${day[1]}`).join("\n")}`:"";
+    return`${shareSummary}${stayLine}${groupPicks}${itineraryText}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`
+  };
   const closeShare=()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");shareButton.focus()};
   closeShareButton.addEventListener("click",closeShare);
   shareMenu.addEventListener("keydown",event=>{if(event.key==="Escape"){event.preventDefault();closeShare()}});
   const emailLink=document.getElementById("shareEmail");
   const textLink=document.getElementById("shareText");
   const refreshShareLinks=()=>{const shareMessage=buildShareMessage();emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`};
+  const refreshItinerary=()=>{
+    const itinerary=selectedItinerary(plan,selectedPlanStops()),itineraryElement=document.getElementById("tripItinerary"),itineraryNote=document.getElementById("itinerarySelectionNote");
+    if(itineraryElement)itineraryElement.innerHTML=itinerary.days.map((day,index)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${index+1}</b></div><div class="day-copy"><h3>${day[0]}</h3><p>${day[1]}</p></div></article>`).join("");
+    if(itineraryNote)itineraryNote.textContent=itinerary.note
+  };
+  const refreshSelectionSummary=()=>{
+    const summary=document.getElementById("answerSummaryChips");if(!summary)return;
+    summary.innerHTML=selectionSummaryItems(plan,selectedPlanStops()).map(item=>`<span><small>${item[0]}</small><b>${item[1]}</b></span>`).join("")
+  };
+  const refreshStopDetailPrints=()=>{
+    const details=readStopDetails();
+    result.querySelectorAll("[data-stop-print]").forEach(output=>{const detail=details[output.dataset.stopPrint]||{},parts=[];if(detail.time)parts.push(`${plan.planningGroup?"Meeting":"Planned"} time: ${formatClock(detail.time)}`);if(detail.reservation)parts.push(`Reservation: ${detail.reservation}`);if(detail.confirmation)parts.push(`Confirmation: ${detail.confirmation}`);if(detail.note)parts.push(`Note: ${detail.note}`);output.textContent=parts.join(" · ")})
+  };
   const confirmationInput=document.getElementById("stayConfirmation");
   const sharePrefInputs=[...result.querySelectorAll(".share-pref")];
-  const shareStayPref=document.getElementById("shareStayPref"),shareConfirmationPref=document.getElementById("shareConfirmationPref");
-  const syncSharePrefAvailability=()=>{if(shareConfirmationPref)shareConfirmationPref.disabled=!shareStayPref?.checked||!confirmationInput?.value.trim()};
+  const shareStayPref=document.getElementById("shareStayPref"),shareDetailsPref=document.getElementById("shareDetailsPref"),shareConfirmationPref=document.getElementById("shareConfirmationPref");
+  const syncSharePrefAvailability=()=>{
+    const details=readStopDetails(),values=Object.values(details);
+    const hasPrivateDetails=values.some(detail=>detail.reservation||detail.note);
+    const hasConfirmation=Boolean(shareStayPref?.checked&&confirmationInput?.value.trim())||values.some(detail=>detail.confirmation);
+    if(shareDetailsPref)shareDetailsPref.disabled=!hasPrivateDetails;
+    if(shareConfirmationPref)shareConfirmationPref.disabled=!hasConfirmation
+  };
   const updateSharePrefs=()=>{
     sharePrefInputs.forEach(input=>sharePrefs[input.dataset.sharePref]=input.checked);
     plan.sharePrefs={...sharePrefs};
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.sharePrefs=plan.sharePrefs;saveTrip(savedData)}catch{}}
     syncSharePrefAvailability();
+    refreshShareLinks()
+  };
+  const updateStopDetails=()=>{
+    plan.stopDetails=readStopDetails();
+    const saved=readSavedTrip();
+    if(saved){try{const savedData=JSON.parse(saved);savedData.stopDetails=plan.stopDetails;saveTrip(savedData)}catch{}}
+    refreshStopDetailPrints();
+    syncSharePrefAvailability();
+    refreshItinerary();
     refreshShareLinks()
   };
   const updateStayConfirmation=()=>{
@@ -454,19 +619,24 @@ function renderTrip(plan){
     const stayPick=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:")),stayStatus=document.getElementById("plannedStayStatus");
     const stayPanel=document.getElementById("stayConfirmationPanel"),staySummary=document.getElementById("staySummary");
     plan.plannedStops=picks.map(item=>item.key);
-    if(status)status.textContent=otherPicks.length?`${otherPicks.length} group pick${otherPicks.length===1?"":"s"} will be included when this plan is shared.`:"No group picks selected yet.";
+    if(status)status.textContent=otherPicks.length?`${otherPicks.length} ${plan.planningGroup?"group":"trip"} pick${otherPicks.length===1?"":"s"} will be included when this plan is shared.`:`No ${plan.planningGroup?"group":"trip"} picks selected yet.`;
     if(stayStatus)stayStatus.textContent=stayPick?"Your selected stay will be included when this plan is printed or shared.":"No stay option selected yet.";
     if(stayPanel)stayPanel.hidden=!stayPick;
     if(staySummary)staySummary.textContent=stayPick?`You are staying at "${stayPick.name}".`:"";
+    result.querySelectorAll(".planned-stop-details").forEach(panel=>panel.hidden=!plan.plannedStops.includes(panel.dataset.stopKey));
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.plannedStops=plan.plannedStops;saveTrip(savedData)}catch{}}
     syncSharePrefAvailability();
+    refreshSelectionSummary();
+    refreshItinerary();
     refreshShareLinks()
   };
   result.querySelectorAll(".plan-stop-checkbox").forEach(input=>input.addEventListener("change",updatePlannedStops));
+  result.querySelectorAll(".stop-detail-input").forEach(input=>input.addEventListener("input",updateStopDetails));
   sharePrefInputs.forEach(input=>input.addEventListener("change",updateSharePrefs));
   if(confirmationInput)confirmationInput.addEventListener("input",updateStayConfirmation);
   updateSharePrefs();
+  updateStopDetails();
   updateStayConfirmation();
   updatePlannedStops();
   shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
@@ -478,11 +648,12 @@ function renderTrip(plan){
     catch{shareFeedback.textContent="Messenger opened, but this browser blocked copying. Email and Text remain available here."}
   });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
+  document.getElementById("editAnswersSummary").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
   loadPlannerWeather(plan);
   result.scrollIntoView({behavior:"smooth",block:"start"});
 }
 function restoreTrip(form,data){
-  Object.entries(data||{}).forEach(([key,value])=>{if(["toys","crew","interests"].includes(key)){form.querySelectorAll(`input[name="${key}"]`).forEach(x=>x.checked=value.includes(x.value))}else{const radio=form.querySelector(`input[type="radio"][name="${key}"][value="${value}"]`);if(radio){radio.checked=true;return}const field=form.elements[key];if(field&&typeof field.value!=="undefined")field.value=value}});
+  Object.entries(data||{}).forEach(([key,value])=>{if(["toys","crew","interests"].includes(key)){form.querySelectorAll(`input[name="${key}"]`).forEach(x=>x.checked=value.includes(x.value))}else if(key==="planningGroup"){const field=form.elements[key];if(field)field.checked=Boolean(value)}else{const radio=form.querySelector(`input[type="radio"][name="${key}"][value="${value}"]`);if(radio){radio.checked=true;return}const field=form.elements[key];if(field&&typeof field.value!=="undefined")field.value=value}});
 }
 function readSavedTrip(){try{return window.localStorage.getItem("odfg-trip")}catch{return null}}
 function saveTrip(data){try{window.localStorage.setItem("odfg-trip",JSON.stringify(data));return true}catch{return false}}
@@ -490,8 +661,31 @@ function clearSavedTrip(){try{window.localStorage.removeItem("odfg-trip")}catch{
 function setupPlanner(){
   const form=document.getElementById("tripPlannerForm");if(!form)return;
   const error=document.getElementById("plannerError"),saved=readSavedTrip();
+  const toyInputs=[...form.querySelectorAll('input[name="toys"]')],noMachines=toyInputs.find(input=>input.value==="none");
+  toyInputs.forEach(input=>input.addEventListener("change",()=>{
+    if(input===noMachines&&input.checked)toyInputs.forEach(other=>{if(other!==noMachines)other.checked=false});
+    else if(input!==noMachines&&input.checked&&noMachines)noMachines.checked=false
+  }));
   if(saved){try{const data=JSON.parse(saved);restoreTrip(form,data);renderTrip(buildTrip(data))}catch{}}
-  form.addEventListener("submit",e=>{e.preventDefault();const data=collectTrip(form);error.textContent="";if(!data.arrival||!data.departure){error.textContent="Please choose arrival and departure dates.";return}if(new Date(data.departure)<new Date(data.arrival)){error.textContent="Departure cannot be before arrival.";return}if(data.toys.includes("none")&&data.toys.length>1){error.textContent='Choose "No machines" or select the machines you are bringing, not both.';return}if(!data.toys.length)data.toys=["none"];saveTrip(data);renderTrip(buildTrip(data))});
+  form.addEventListener("submit",e=>{
+    e.preventDefault();
+    const data=collectTrip(form);error.textContent="";
+    if(!data.arrival||!data.departure){error.textContent="Please choose arrival and departure dates.";return}
+    if(new Date(data.departure)<new Date(data.arrival)){error.textContent="Departure cannot be before arrival.";return}
+    if(data.toys.includes("none")&&data.toys.length>1){error.textContent='Choose "No machines" or select the machines you are bringing, not both.';return}
+    if(!data.toys.length)data.toys=["none"];
+    const previousSaved=readSavedTrip();
+    if(previousSaved){try{
+      const previous=JSON.parse(previousSaved),previousPlan=buildTrip(previous),nextPlan=buildTrip(data);
+      data.sharePrefs=previous.sharePrefs;
+      if(previousPlan.regionKey===nextPlan.regionKey&&previous.tripType===data.tripType&&previous.vehicle===data.vehicle){
+        data.plannedStops=previous.plannedStops;
+        data.stopDetails=previous.stopDetails;
+        data.stayConfirmation=previous.stayConfirmation
+      }
+    }catch{}}
+    saveTrip(data);renderTrip(buildTrip(data))
+  });
   document.getElementById("clearTrip").addEventListener("click",()=>{clearSavedTrip();form.reset();document.getElementById("tripPlan").hidden=true;error.textContent=""});
 }
 document.addEventListener("DOMContentLoaded",()=>{setupPlanner();setupMenu();setupShareControls();renderGuide();renderMap()});
