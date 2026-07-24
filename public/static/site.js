@@ -179,9 +179,60 @@ function chooseRegion(data){
 }
 function regionProfile(key){
   return{
-    florence:{name:"Florence & Siltcoos",base:"Florence",headline:"A flexible north-dunes base",summary:"A balanced choice for first-time dune visitors, mixed-interest crews, freshwater lakes, South Jetty staging, and the varied Siltcoos area.",ride:"South Jetty and Siltcoos",camp:"Honeyman or a nearby Forest Service campground",backup:"Old Town Florence, a lake walk, or a sheltered forest outing"},
-    winchester:{name:"Winchester Bay & Umpqua Dunes",base:"Winchester Bay",headline:"Big sand with a compact harbor base",summary:"Best for a riding-centered trip with experienced dune travelers, large open terrain, harbor services, and lighthouse-country backups.",ride:"Umpqua Dunes",camp:"Winchester Bay area camping or Eel Creek",backup:"Umpqua Lighthouse, the harbor, or Reedsport"},
-    coos:{name:"Coos Bay & Horsfall",base:"Coos Bay / North Bend",headline:"Southern access with the fullest services",summary:"A strong match for groups, trailers, multiple machines, ride-from-camp options, and easy access to repairs, groceries, and town lodging.",ride:"Spinreel to Horsfall",camp:"Spinreel, Horsfall, Bluebill, or Riley Ranch",backup:"Coos Bay, North Bend, Charleston, or a Cape Arago day"}
+    florence:{name:"Florence & Siltcoos",base:"Florence",headline:"A flexible north-dunes base",summary:"A balanced choice for first-time dune visitors, mixed-interest crews, freshwater lakes, South Jetty staging, and the varied Siltcoos area.",ride:"South Jetty and Siltcoos",camp:"Honeyman or a nearby Forest Service campground",backup:"Old Town Florence, a lake walk, or a sheltered forest outing",localStops:{
+      shopping:[
+        {name:"Historic Old Town Florence",note:"Walk Bay Street for coastal gifts, locally made art, galleries, books, and waterfront views.",url:"https://florencechamber.com/historic-old-town/"},
+        {name:"Florence shopping guide",note:"Find antiques, jewelry, outdoor goods, toys, kites, and more locally owned shops around town.",url:"https://florencechamber.com/things-to-do/shopping/"}
+      ],
+      lunch:[
+        {name:"Mari’s Kitchen",note:"A relaxed Bay Street stop for homestyle food in the middle of an Old Town stroll.",url:"https://www.google.com/maps/search/?api=1&query=Mari%27s+Kitchen+Florence+Oregon"},
+        {name:"Fresh Harvest Café",note:"A casual Highway 101 café with hearty plates and a good fit for mixed-age groups.",url:"https://www.google.com/maps/search/?api=1&query=Fresh+Harvest+Cafe+Florence+Oregon"}
+      ],
+      dinner:[
+        {name:"The Waterfront Depot",note:"Reserve ahead for seafood, local beef, and a special-occasion dinner in a restored train station.",url:"https://visittheoregoncoast.com/cities/florence/dine/the-waterfront-depot/"},
+        {name:"Old Town waterfront dining",note:"Keep the evening flexible and compare current Bay Street menus while you explore the riverfront.",url:"https://florencechamber.com/food-drink/"}
+      ],
+      breakfast:[
+        {name:"Little Brown Hen Café",note:"An all-day-breakfast favorite known for scrambles, pancakes, and classic comfort food.",url:"https://www.google.com/maps/search/?api=1&query=Little+Brown+Hen+Cafe+Florence+Oregon"},
+        {name:"Fresh Harvest Café",note:"Start the next morning with a full breakfast, including its well-known marionberry French toast.",url:"https://www.google.com/maps/search/?api=1&query=Fresh+Harvest+Cafe+Florence+Oregon"}
+      ]
+    }},
+    winchester:{name:"Winchester Bay & Umpqua Dunes",base:"Winchester Bay",headline:"Big sand with a compact harbor base",summary:"Best for a riding-centered trip with experienced dune travelers, large open terrain, harbor services, and lighthouse-country backups.",ride:"Umpqua Dunes",camp:"Winchester Bay area camping or Eel Creek",backup:"Umpqua Lighthouse, the harbor, or Reedsport",localStops:{
+      shopping:[
+        {name:"Old Towne Reedsport & Fir Avenue",note:"Browse local art, Oregon gifts, home finds, and small shops in Reedsport’s compact downtown.",url:"https://reedsportcc.org/member-directory/"},
+        {name:"Myrtlewood Gallery",note:"A classic Highway 101 stop for Oregon myrtlewood gifts, art, and locally crafted keepsakes.",url:"https://www.google.com/maps/search/?api=1&query=Myrtlewood+Gallery+Reedsport+Oregon"}
+      ],
+      lunch:[
+        {name:"Bedrock’s On the Bay",note:"Waterfront lunch in Winchester Bay, convenient after a harbor walk or morning dune session.",url:"https://www.google.com/maps/search/?api=1&query=Bedrock%27s+On+the+Bay+Winchester+Bay+Oregon"},
+        {name:"Blue Box Seafood Company",note:"A casual Winchester Bay seafood stop highlighted by Oregon Coast visitor guides.",url:"https://www.google.com/maps/search/?api=1&query=Blue+Box+Seafood+Company+Winchester+Bay+Oregon"}
+      ],
+      dinner:[
+        {name:"Griff’s On the Bay",note:"A longtime bayfront choice for seafood and a relaxed coastal dinner.",url:"https://www.google.com/maps/search/?api=1&query=Griff%27s+On+the+Bay+Winchester+Bay+Oregon"},
+        {name:"Big Fish Café & Dinner House",note:"A Reedsport dinner alternative when you want to combine the meal with an evening in town.",url:"https://www.google.com/maps/search/?api=1&query=Big+Fish+Cafe+Reedsport+Oregon"}
+      ],
+      breakfast:[
+        {name:"Sugar Shack Bakery",note:"Pick up pastries and an easy next-morning breakfast before heading back toward the dunes.",url:"https://www.google.com/maps/search/?api=1&query=Sugar+Shack+Bakery+Reedsport+Oregon"},
+        {name:"Harbor Light Family Restaurant",note:"A sit-down Reedsport breakfast option with a traditional family-restaurant feel.",url:"https://www.google.com/maps/search/?api=1&query=Harbor+Light+Family+Restaurant+Reedsport+Oregon"}
+      ]
+    }},
+    coos:{name:"Coos Bay & Horsfall",base:"Coos Bay / North Bend",headline:"Southern access with the fullest services",summary:"A strong match for groups, trailers, multiple machines, ride-from-camp options, and easy access to repairs, groceries, and town lodging.",ride:"Spinreel to Horsfall",camp:"Spinreel, Horsfall, Bluebill, or Riley Ranch",backup:"Coos Bay, North Bend, Charleston, or a Cape Arago day",localStops:{
+      shopping:[
+        {name:"Cranberry Sweets",note:"Sample locally made fruit candies and chocolates, then browse Oregon Coast gifts in the showroom.",url:"https://visittheoregoncoast.com/cities/coos-bay/activities/cranberry-sweets/"},
+        {name:"Historic Marshfield District",note:"Explore downtown Coos Bay shops, galleries, antiques, and local home-and-gift stores.",url:"https://visittheoregoncoast.com/cities/coos-bay"}
+      ],
+      lunch:[
+        {name:"7 Devils Waterfront Alehouse",note:"Local seafood, salads, burgers, and house beer beside the Coos Bay waterfront.",url:"https://visittheoregoncoast.com/cities/coos-bay/dine/7-devils-waterfront-alehouse/"},
+        {name:"Front Street Food Trucks",note:"A flexible lunch stop when everyone wants a different quick bite near the waterfront.",url:"https://www.google.com/maps/search/?api=1&query=Front+Street+Food+Trucks+Coos+Bay+Oregon"}
+      ],
+      dinner:[
+        {name:"7 Devils Waterfront Alehouse",note:"A lively locally focused dinner with water views; check the current schedule before visiting.",url:"https://visittheoregoncoast.com/cities/coos-bay/dine/7-devils-waterfront-alehouse/"},
+        {name:"SharkBites Café",note:"A casual downtown Coos Bay alternative for seafood and coastal comfort food.",url:"https://www.google.com/maps/search/?api=1&query=SharkBites+Cafe+Coos+Bay+Oregon"}
+      ],
+      breakfast:[
+        {name:"D Street Café",note:"A North Bend breakfast with biscuits, omelets, chilaquiles, and other hearty plates.",url:"https://visittheoregoncoast.com/cities/d-street-cafe/"},
+        {name:"Friends Café & Deli",note:"A convenient North Bend choice for breakfast and coffee before the next day’s outing.",url:"https://visittheoregoncoast.com/cities/friends-cafe-deli/"}
+      ]
+    }}
   }[key]
 }
 function collectTrip(form){
@@ -195,7 +246,7 @@ function buildTrip(data){
   const itinerary=[];
   itinerary.push(["Arrive with daylight",isDay?`Start early in ${region.base}, confirm current access, and stage at ${region.ride}.`:`Settle into ${region.camp}. Confirm weather, closures, maps, and the next morning's access before reliable service fades.`]);
   if(days>1)itinerary.push([hasMachines?"Primary riding day":"Dunes and lake day",hasMachines?`Begin early in ${region.ride}. Use a conservative first loop to read the sand, regroup often, and finish with daylight in reserve.`:`Explore a permitted dune trail in the morning, then add a freshwater lake or forest-edge walk after lunch.`]);
-  if(days>2)itinerary.push(["Coast and community day",`Use the weather window for ${data.interests.includes("wildlife")?"quiet wildlife watching":"a shorter dune outing"}, then make room for ${region.backup}.`]);
+  if(days>2)itinerary.push(["Coast and community day",data.interests.includes("towns")?`Use the weather window for ${data.interests.includes("wildlife")?"quiet wildlife watching":"a shorter dune outing"}, then browse ${region.localStops.shopping[0].name}, stop for lunch, and finish with a local dinner. Breakfast choices for the next morning are included below.`:`Use the weather window for ${data.interests.includes("wildlife")?"quiet wildlife watching":"a shorter dune outing"}, then make room for ${region.backup}.`]);
   for(let i=3;i<Math.min(days,7);i++)itinerary.push([i%2?`Flexible adventure day`:`Slow coast day`,i%2?`Choose a second zone only if the group is rested and current conditions support the drive. Otherwise deepen the ${region.name} plan.`:`Rest machines and riders. Explore a town, lake, lighthouse, or forest trail and recheck tomorrow's conditions.`]);
   if(days>1)itinerary.push(["Leave light",`Choose a compact final activity, clean and secure equipment, pack every item, and allow extra time for US 101 and trailer traffic.`]);
   const alerts=[
@@ -214,6 +265,9 @@ function buildTrip(data){
   if(data.interests.includes("wildlife"))checklist.push("Binoculars and long lens for distance-respecting wildlife viewing");
   return{...data,days,regionKey,region,itinerary,alerts,checklist,hasMachines}
 }
+function renderLocalStopGroup(label,items){
+  return`<article class="local-stop-group"><p>${label}</p><div>${items.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a>`).join("")}</div></article>`
+}
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
   const tripLabel=plan.tripType==="camping"?"Camping":plan.tripType==="offsite"?"Town lodging":"Day trip";
@@ -230,6 +284,7 @@ function renderTrip(plan){
   <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>Crew</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
   <section class="plan-section"><p class="section-label">KNOW BEFORE YOU GO</p><h2>Your trip-specific notes</h2><div class="alert-grid">${plan.alerts.map(x=>`<article class="plan-alert"><b>${x[0]}</b><p>${x[1]}</p></article>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>A plan with breathing room</h2><div class="itinerary">${plan.itinerary.map((x,i)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${i+1}</b></div><div class="day-copy"><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`).join("")}</div></section>
+  ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Two choices are included for each meal so you can adapt to the day’s hours, appetite, and drive time.</p><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast)}</div><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
   <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Your personalized checklist</h2><div class="checklist-columns">${plan.checklist.map(x=>`<div class="checklist-item">${x}</div>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">PRIMARY SOURCES</p><h2>Verify before the wheels turn</h2><div class="plan-sources"><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv" target="_blank" rel="noreferrer"><b>Forest Service OHV</b><span>Maps, alerts, and access ↗</span></a><a href="https://www.oregon.gov/oprd/atv/pages/atv-overview.aspx" target="_blank" rel="noreferrer"><b>Oregon ATV Program</b><span>Permits and safety rules ↗</span></a><a href="maps.html"><b>Field Guide Map</b><span>Compare regions and staging →</span></a></div></section>`;
   document.getElementById("printPlan").addEventListener("click",()=>window.print());
