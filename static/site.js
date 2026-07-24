@@ -388,16 +388,18 @@ function renderStaySection(plan){
   const selectedStayKey=selected.find(key=>key.startsWith("stay:"))||"";
   const selectedStayIndex=Number(selectedStayKey.split(":")[2]);
   const selectedStayName=Number.isInteger(selectedStayIndex)&&options[selectedStayIndex]?options[selectedStayIndex].name:"";
-  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose one “Plan this” option to include it in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="radio" name="plannedStay" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selectedStayKey===key?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><div class="stay-confirmation-panel" id="stayConfirmationPanel" ${selectedStayName?"":"hidden"}><p id="staySummary">${selectedStayName?`You are staying at “${selectedStayName}”.`:""}</p><label for="stayConfirmation">Confirmation number <span>(optional)</span></label><input id="stayConfirmation" type="text" maxlength="80" autocomplete="off" placeholder="Reservation or confirmation number" value="${escapeHtml(plan.stayConfirmation||"")}"><small class="stay-confirmation-field-note">Saved on this device and included when you print or share.</small><p class="stay-confirmation-print" id="stayConfirmationPrint">${plan.stayConfirmation?`Confirmation number: ${escapeHtml(plan.stayConfirmation)}`:""}</p></div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
+  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose one “Plan this” option to include it in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="radio" name="plannedStay" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selectedStayKey===key?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><div class="stay-confirmation-panel" id="stayConfirmationPanel" ${selectedStayName?"":"hidden"}><p id="staySummary">${selectedStayName?`You are staying at “${selectedStayName}”.`:""}</p><label for="stayConfirmation">Confirmation number <span>(optional)</span></label><input id="stayConfirmation" type="text" maxlength="80" autocomplete="off" placeholder="Reservation or confirmation number" value="${escapeHtml(plan.stayConfirmation||"")}"><small class="stay-confirmation-field-note">Saved on this device and shown on your personal printout. You decide whether to include it when sharing.</small><p class="stay-confirmation-print" id="stayConfirmationPrint">${plan.stayConfirmation?`Confirmation number: ${escapeHtml(plan.stayConfirmation)}`:""}</p></div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
 }
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
   const tripLabel=plan.tripType==="camping"?"Camping":plan.tripType==="offsite"?"Town lodging":"Day trip";
+  const sharePrefs={dates:plan.sharePrefs?.dates!==false,stay:plan.sharePrefs?.stay!==false,confirmation:plan.sharePrefs?.confirmation===true,picks:plan.sharePrefs?.picks!==false};
   result.hidden=false;
   result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${plan.region.headline}. ${plan.region.summary}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="sharePlan" aria-expanded="false" aria-controls="planShareMenu">Share plan</button><button type="button" id="editPlan">Edit answers</button>
     <div class="plan-share-menu" id="planShareMenu" role="dialog" aria-label="Share this trip plan" hidden>
       <div class="plan-share-heading"><div><span>SHARE THIS PLAN</span><b>Choose where to send it.</b></div><button type="button" id="closePlanShare" aria-label="Close share options">×</button></div>
-      <a class="plan-share-option" id="shareMessenger" href="https://www.messenger.com/" target="_blank" rel="noreferrer"><span>M</span><div><b>Messenger</b><small>Copy the plan, then open Messenger</small></div><i>→</i></a>
+      <fieldset class="share-privacy-options"><legend>INCLUDE IN THIS SHARE</legend><label><input class="share-pref" type="checkbox" data-share-pref="dates" ${sharePrefs.dates?"checked":""}><span>Exact trip dates</span></label><label><input class="share-pref" id="shareStayPref" type="checkbox" data-share-pref="stay" ${sharePrefs.stay?"checked":""}><span>Selected stay</span></label><label><input class="share-pref" id="shareConfirmationPref" type="checkbox" data-share-pref="confirmation" ${sharePrefs.confirmation?"checked":""}><span>Confirmation number</span></label><label><input class="share-pref" type="checkbox" data-share-pref="picks" ${sharePrefs.picks?"checked":""}><span>Meal, shopping & group picks</span></label><small>Confirmation numbers are private by default. Print always keeps your complete personal copy.</small></fieldset>
+      <a class="plan-share-option" id="shareMessenger" href="https://www.messenger.com/" target="_blank" rel="noreferrer"><span>M</span><div><b>Messenger</b><small>Copy the selected details, then open Messenger</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareEmail"><span>@</span><div><b>Email</b><small>Open a ready-to-send message</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareText"><span>TXT</span><div><b>Text</b><small>Send by SMS or iMessage</small></div><i>→</i></a>
       <p class="plan-share-feedback" id="planShareFeedback" aria-live="polite"></p>
@@ -417,9 +419,8 @@ function renderTrip(plan){
   const shareFeedback=document.getElementById("planShareFeedback");
   const plannerUrl=new URL("planner.html",window.location.href).href;
   const shareTitle="My Oregon Dunes trip plan";
-  const shareSummary=`Oregon Dunes trip: ${plan.region.name}, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;
   const selectedPlanStops=()=>[...result.querySelectorAll(".plan-stop-checkbox:checked")].map(input=>({key:input.value,category:input.dataset.planCategory,name:input.dataset.planName}));
-  const buildShareMessage=()=>{const picks=selectedPlanStops(),stay=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:"));const confirmation=(document.getElementById("stayConfirmation")?.value||"").trim();const stayLine=stay?`\n\nYou are staying at "${stay.name}".${confirmation?` Confirmation number: ${confirmation}.`:""}`:"";const groupPicks=otherPicks.length?`\n\nGroup picks:\n${otherPicks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${stayLine}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
+  const buildShareMessage=()=>{const picks=selectedPlanStops(),stay=picks.find(item=>item.key.startsWith("stay:")),otherPicks=picks.filter(item=>!item.key.startsWith("stay:"));const confirmation=(document.getElementById("stayConfirmation")?.value||"").trim();const dates=sharePrefs.dates?`, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}`:"";const shareSummary=`Oregon Dunes trip: ${plan.region.name}${dates}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;const stayLine=sharePrefs.stay&&stay?`\n\nYou are staying at "${stay.name}".${sharePrefs.confirmation&&confirmation?` Confirmation number: ${confirmation}.`:""}`:"";const groupPicks=sharePrefs.picks&&otherPicks.length?`\n\nGroup picks:\n${otherPicks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${stayLine}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
   const closeShare=()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");shareButton.focus()};
   closeShareButton.addEventListener("click",closeShare);
   shareMenu.addEventListener("keydown",event=>{if(event.key==="Escape"){event.preventDefault();closeShare()}});
@@ -427,6 +428,17 @@ function renderTrip(plan){
   const textLink=document.getElementById("shareText");
   const refreshShareLinks=()=>{const shareMessage=buildShareMessage();emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`};
   const confirmationInput=document.getElementById("stayConfirmation");
+  const sharePrefInputs=[...result.querySelectorAll(".share-pref")];
+  const shareStayPref=document.getElementById("shareStayPref"),shareConfirmationPref=document.getElementById("shareConfirmationPref");
+  const syncSharePrefAvailability=()=>{if(shareConfirmationPref)shareConfirmationPref.disabled=!shareStayPref?.checked||!confirmationInput?.value.trim()};
+  const updateSharePrefs=()=>{
+    sharePrefInputs.forEach(input=>sharePrefs[input.dataset.sharePref]=input.checked);
+    plan.sharePrefs={...sharePrefs};
+    const saved=readSavedTrip();
+    if(saved){try{const savedData=JSON.parse(saved);savedData.sharePrefs=plan.sharePrefs;saveTrip(savedData)}catch{}}
+    syncSharePrefAvailability();
+    refreshShareLinks()
+  };
   const updateStayConfirmation=()=>{
     if(!confirmationInput)return;
     plan.stayConfirmation=confirmationInput.value.trim();
@@ -434,6 +446,7 @@ function renderTrip(plan){
     if(confirmationPrint)confirmationPrint.textContent=plan.stayConfirmation?`Confirmation number: ${plan.stayConfirmation}`:"";
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.stayConfirmation=plan.stayConfirmation;saveTrip(savedData)}catch{}}
+    syncSharePrefAvailability();
     refreshShareLinks()
   };
   const updatePlannedStops=()=>{
@@ -447,18 +460,20 @@ function renderTrip(plan){
     if(staySummary)staySummary.textContent=stayPick?`You are staying at "${stayPick.name}".`:"";
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.plannedStops=plan.plannedStops;saveTrip(savedData)}catch{}}
+    syncSharePrefAvailability();
     refreshShareLinks()
   };
   result.querySelectorAll(".plan-stop-checkbox").forEach(input=>input.addEventListener("change",updatePlannedStops));
+  sharePrefInputs.forEach(input=>input.addEventListener("change",updateSharePrefs));
   if(confirmationInput)confirmationInput.addEventListener("input",updateStayConfirmation);
+  updateSharePrefs();
   updateStayConfirmation();
   updatePlannedStops();
   shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
   emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   textLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   document.getElementById("shareMessenger").addEventListener("click",async()=>{
-    const picks=selectedPlanStops();
-    shareFeedback.textContent=picks.length?`Plan copied with ${picks.length} group pick${picks.length===1?"":"s"}—choose a conversation and paste it into Messenger.`:"Plan copied—choose a conversation and paste it into Messenger.";
+    shareFeedback.textContent="Only the details you selected were copied—choose a conversation and paste them into Messenger.";
     try{await navigator.clipboard.writeText(buildShareMessage())}
     catch{shareFeedback.textContent="Messenger opened, but this browser blocked copying. Email and Text remain available here."}
   });
