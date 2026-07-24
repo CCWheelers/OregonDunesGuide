@@ -9,9 +9,9 @@
   <meta property="og:description" content="Live NOAA high and low tide predictions for the three Oregon Dunes gateways.">
   <meta property="og:image" content="/og-v2.png">
   <link rel="icon" href="/favicon.svg">
-  <link rel="stylesheet" href="static/styles.css">
-  <script src="static/site.js" defer></script>
-  <script src="static/tides.js" defer></script>
+  <link rel="stylesheet" href="static/styles.css?v=24">
+  <script src="static/site.js?v=24" defer></script>
+  <script src="static/tides.js?v=24" defer></script>
 </head>
 <body data-page="tides">
   <header class="site-header">
@@ -55,11 +55,25 @@
       <div class="tides-heading">
         <div><p class="section-label">CHOOSE A DUNE REGION</p><h2>Three gateways.<br><i>Three tide stations.</i></h2></div>
         <div class="tide-regions" role="group" aria-label="Tide prediction station">
-          <button type="button" class="active" data-tide-region="florence" aria-pressed="true"><span>01</span><b>Florence</b><small>Siuslaw River · 9434032</small></button>
-          <button type="button" data-tide-region="winchester" aria-pressed="false"><span>02</span><b>Winchester Bay</b><small>Umpqua entrance · 9433445</small></button>
-          <button type="button" data-tide-region="coos" aria-pressed="false"><span>03</span><b>Coos Bay</b><small>Charleston · 9432780</small></button>
+          <button type="button" class="active tide-region-florence" data-tide-region="florence" aria-pressed="true"><span>01</span><b>Florence</b><small>Siuslaw River · 9434032</small></button>
+          <button type="button" class="tide-region-winchester" data-tide-region="winchester" aria-pressed="false"><span>02</span><b>Winchester Bay</b><small>Umpqua entrance · 9433445</small></button>
+          <button type="button" class="tide-region-coos" data-tide-region="coos" aria-pressed="false"><span>03</span><b>Coos Bay</b><small>Charleston · 9432780</small></button>
         </div>
       </div>
+
+      <section class="tide-decision" aria-labelledby="tideDecisionTitle">
+        <div class="tide-decision-copy">
+          <span id="tideDecisionLabel">FINDING THE NEXT LOW-TIDE WINDOW</span>
+          <h2 id="tideDecisionTitle">Building today’s beach-access plan…</h2>
+          <p id="tideDecisionCopy">NOAA predictions will be translated into a conservative planning window around the next low tide.</p>
+          <div class="tide-seasonal-note"><b id="tideSeasonTitle">Checking seasonal access dates…</b><p id="tideSeasonCopy">Always verify the official OHV map, current closures, and posted signs.</p></div>
+        </div>
+        <div class="tide-window-facts">
+          <div><span>NEXT LOW</span><b id="nextLowTime">--</b><small id="nextLowHeight">-- ft</small></div>
+          <div><span>PLANNING WINDOW</span><b id="lowWindowTime">-- to --</b><small>Two hours either side of low tide</small></div>
+          <div><span>NEXT HIGH</span><b id="followingHighTime">--</b><small id="followingHighHeight">-- ft</small></div>
+        </div>
+      </section>
 
       <section class="tide-curve-section" aria-labelledby="curveHeading">
         <div class="tide-curve-heading"><div><span>RIGHT NOW</span><h2 id="curveHeading">Today’s predicted tide curve</h2></div><p>The curve is interpolated between NOAA high and low predictions. The orange marker shows the current time; heights are feet above MLLW.</p></div>
@@ -83,26 +97,26 @@
         </div>
 
         <div class="tide-terrain-compare">
-          <article><span>INLAND OPEN SAND</span><h3>Driven by wind, not the daily tide</h3><p>Ridges, bowls, and inland routes are shaped by wind and weather. Tide height is generally not the deciding factor there, though rain, fog, closures, and standing water still matter.</p></article>
-          <article><span>DESIGNATED BEACH SECTIONS</span><h3>Access changes hour by hour</h3><p>On legal ocean-shore routes, the tide controls how much firm wet sand is exposed. An incoming high tide can narrow or remove the usable corridor.</p></article>
+          <article class="tide-terrain-inland"><span>INLAND OPEN SAND</span><h3>Driven by wind, not the daily tide</h3><p>Ridges, bowls, and inland routes are shaped by wind and weather. Tide height is generally not the deciding factor there, though rain, fog, closures, and standing water still matter.</p></article>
+          <article class="tide-terrain-beach"><span>DESIGNATED BEACH SECTIONS</span><h3>Access changes hour by hour</h3><p>On legal ocean-shore routes, the tide controls how much firm wet sand is exposed. An incoming high tide can narrow or remove the usable corridor.</p></article>
         </div>
 
         <div class="tide-ohv-grid">
-          <article>
+          <article class="tide-ohv-access">
             <div class="tide-ohv-number">01</div>
             <div><span>BEACH ACCESS &amp; REGULATIONS</span><h3>Only designated stretches are open.</h3>
               <p>The Forest Service map identifies limited OHV beach sections in the South Jetty–Siltcoos and Horsfall–Spinreel areas. Other beach segments are closed to OHVs year-round.</p>
               <p>On the mapped seasonal OHV beach segments, access is generally shown as open October 1 through April 30 and closed to all vehicles May 1 through September 30. Separate western snowy plover restrictions in designated management areas can run March 15 through September 15.</p>
             </div>
           </article>
-          <article>
+          <article class="tide-ohv-surface">
             <div class="tide-ohv-number">02</div>
             <div><span>RIDING CONDITIONS</span><h3>Low tide reveals the better surface.</h3>
               <p>As water recedes, it often leaves a wider strip of firm, hard-packed wet sand. That can provide smoother travel than the soft, dry upper beach.</p>
               <p>As the tide rises, the firm corridor narrows. Riders may be pushed toward deep loose sand, driftwood, dune faces, or an impassable waterline. Never continue without a clear legal exit.</p>
             </div>
           </article>
-          <article>
+          <article class="tide-ohv-safety">
             <div class="tide-ohv-number">03</div>
             <div><span>SAFETY &amp; PLANNING</span><h3>Build the outing around low tide.</h3>
               <p>A conservative planning target is the two-hour window on either side of predicted low tide—but it is only a starting point, not a guarantee of safe or legal passage.</p>
@@ -122,15 +136,15 @@
       <div class="shell">
         <div class="tides-heading"><div><p class="section-label pale">TIDE FIELD NOTES</p><h2>Low tide helps.<br><i>It does not guarantee safety.</i></h2></div><p>Use the chart to plan—not to override surf warnings, closures, posted signs, or what you see on arrival.</p></div>
         <div class="tide-note-grid">
-          <article><span>01</span><h3>River entrances</h3><p>Siuslaw, Umpqua, and Coos entrances combine tide, current, river flow, wind, and ocean swell. Bar conditions can be hazardous even near low tide.</p></article>
-          <article><span>02</span><h3>Beach walking</h3><p>Falling tide often creates more room, but sneaker waves, driftwood, steep beach faces, and incoming sets remain serious hazards.</p></article>
-          <article><span>03</span><h3>Fishing &amp; exploring</h3><p>Plan an exit before the tide turns. Never enter tide pools, rocks, or shoreline pockets without a clear return route.</p></article>
-          <article><span>04</span><h3>Storm adjustment</h3><p>Strong onshore wind and low pressure can raise actual water above predictions. Give winter systems considerably more margin.</p></article>
+          <article class="tide-note-entrance"><span>01</span><h3>River entrances</h3><p>Siuslaw, Umpqua, and Coos entrances combine tide, current, river flow, wind, and ocean swell. Bar conditions can be hazardous even near low tide.</p></article>
+          <article class="tide-note-walking"><span>02</span><h3>Beach walking</h3><p>Falling tide often creates more room, but sneaker waves, driftwood, steep beach faces, and incoming sets remain serious hazards.</p></article>
+          <article class="tide-note-explore"><span>03</span><h3>Fishing &amp; exploring</h3><p>Plan an exit before the tide turns. Never enter tide pools, rocks, or shoreline pockets without a clear return route.</p></article>
+          <article class="tide-note-storm"><span>04</span><h3>Storm adjustment</h3><p>Strong onshore wind and low pressure can raise actual water above predictions. Give winter systems considerably more margin.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="official-band tides-official">
+    <section class="official-band tides-official tides-official-photo">
       <div class="shell split">
         <div><p class="section-label pale">OFFICIAL WATER SOURCES</p><h2>Prediction here.<br><i>Conditions there.</i></h2><p>Check NOAA observations, National Weather Service marine forecasts, and Coast Guard bar reports before activities near river entrances or exposed shoreline.</p></div>
         <div class="official-links">

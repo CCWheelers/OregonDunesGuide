@@ -28,6 +28,22 @@
 .weather-dashboard{padding:105px 0 125px}.weather-region-heading,.forecast-heading{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px;align-items:end}.weather-region-heading h2,.forecast-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,5vw,68px);font-weight:600;line-height:.9;letter-spacing:-.035em;margin:0}.weather-regions{display:grid;grid-template-columns:repeat(3,1fr)}.weather-regions button{display:flex;flex-direction:column;align-items:flex-start;min-height:120px;padding:20px;border:1px solid rgba(21,63,60,.18);border-right:0;background:var(--white);color:var(--ink);cursor:pointer;text-align:left}.weather-regions button:last-child{border-right:1px solid rgba(21,63,60,.18)}.weather-regions button:hover,.weather-regions button:focus-visible{background:#eee4d2;outline:none}.weather-regions button.active{background:var(--ink);color:white}.weather-regions span{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--orange)}.weather-regions b{font-family:"Cormorant Garamond",serif;font-size:20px;margin-top:10px}.weather-regions small{font-size:8px;line-height:1.4;color:#718682;margin-top:5px}.weather-regions button.active small{color:rgba(255,255,255,.62)}.ride-window{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:var(--sand);padding:35px 42px;margin:60px 0 95px;border-left:5px solid var(--orange)}.ride-window span{font-size:8px;letter-spacing:.18em;color:var(--orange);font-weight:800}.ride-window h2{font-family:"Cormorant Garamond",serif;font-size:32px;margin:7px 0 0}.ride-window p{font-size:11px;line-height:1.7;color:#566e69}.forecast-heading>p{font-size:12px;line-height:1.75;color:#627975;max-width:550px}
 .forecast-grid{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid rgba(21,63,60,.16);margin-top:42px;background:var(--white)}.forecast-card{padding:21px 16px;border-right:1px solid rgba(21,63,60,.15);min-width:0}.forecast-card:last-child{border-right:0}.forecast-day{display:flex;justify-content:space-between;gap:4px;align-items:center}.forecast-day span{font-size:10px;font-weight:800;text-transform:uppercase}.forecast-day small{font-size:8px;color:#7c908c}.weather-symbol{display:flex;align-items:center;justify-content:center;width:50px;height:50px;margin:22px 0 15px;border-radius:50%;background:var(--sky);font-size:7px;font-weight:800;letter-spacing:.08em;color:#2f6967}.forecast-card h3{font-family:"Cormorant Garamond",serif;font-size:18px;line-height:1.05;min-height:38px;margin:0 0 14px}.forecast-temps{display:flex;gap:8px;align-items:baseline}.forecast-temps b{font-family:"Cormorant Garamond",serif;font-size:31px}.forecast-temps span{font-family:"Cormorant Garamond",serif;font-size:19px;color:#748783}.forecast-card dl{margin:18px 0 0}.forecast-card dl div{border-top:1px solid rgba(21,63,60,.12);padding:8px 0;display:flex;justify-content:space-between;gap:7px}.forecast-card dt{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#7b8f8b}.forecast-card dd{font-size:8px;font-weight:700;margin:0;text-align:right}.forecast-loading,.forecast-error{grid-column:1/-1;padding:50px;text-align:center;color:#647b77}.forecast-error b{font-family:"Cormorant Garamond",serif;font-size:26px}.forecast-error p{font-size:11px}
 .weather-field-guide{padding-top:110px}.weather-notes{display:grid;grid-template-columns:repeat(4,1fr);margin-top:45px;border-top:1px solid rgba(21,63,60,.17)}.weather-notes article{padding:28px 28px 0 0;border-right:1px solid rgba(21,63,60,.17)}.weather-notes article:not(:first-child){padding-left:28px}.weather-notes article:last-child{border-right:0}.weather-notes span{font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--orange)}.weather-notes h3{font-family:"Cormorant Garamond",serif;font-size:25px;margin:10px 0}.weather-notes p{font-size:10px;line-height:1.75;color:#637975}.weather-official .split>div>p:last-child{font-size:13px;line-height:1.8;color:rgba(255,255,255,.62)}.weather-official .section-label{color:#efcf9d}
+.weather-regions button.weather-region-florence,.weather-regions button.weather-region-winchester,.weather-regions button.weather-region-coos{position:relative;isolation:isolate;justify-content:flex-end;min-height:180px;color:white;border-color:rgba(255,255,255,.2);background-position:center;background-size:cover;text-shadow:0 2px 4px rgba(0,0,0,.65);overflow:hidden}
+.weather-regions button.weather-region-florence{background-image:linear-gradient(180deg,rgba(7,39,37,.12),rgba(7,39,37,.84)),url('../public/images/riding-01-florence.webp')}
+.weather-regions button.weather-region-winchester{background-image:linear-gradient(180deg,rgba(7,39,37,.12),rgba(7,39,37,.84)),url('../public/images/riding-02-winchester.webp')}
+.weather-regions button.weather-region-coos{background-image:linear-gradient(180deg,rgba(7,39,37,.12),rgba(7,39,37,.84)),url('../public/images/riding-03-coos-bay.webp')}
+.weather-regions button.weather-region-florence:hover,.weather-regions button.weather-region-florence:focus-visible,.weather-regions button.weather-region-florence.active,.weather-regions button.weather-region-winchester:hover,.weather-regions button.weather-region-winchester:focus-visible,.weather-regions button.weather-region-winchester.active,.weather-regions button.weather-region-coos:hover,.weather-regions button.weather-region-coos:focus-visible,.weather-regions button.weather-region-coos.active{background-position:center;background-size:cover;box-shadow:inset 0 0 0 4px var(--orange)}
+.weather-regions button.weather-region-florence:hover,.weather-regions button.weather-region-florence:focus-visible,.weather-regions button.weather-region-florence.active{background-image:linear-gradient(180deg,rgba(7,39,37,.02),rgba(7,39,37,.68)),url('../public/images/riding-01-florence.webp')}
+.weather-regions button.weather-region-winchester:hover,.weather-regions button.weather-region-winchester:focus-visible,.weather-regions button.weather-region-winchester.active{background-image:linear-gradient(180deg,rgba(7,39,37,.02),rgba(7,39,37,.68)),url('../public/images/riding-02-winchester.webp')}
+.weather-regions button.weather-region-coos:hover,.weather-regions button.weather-region-coos:focus-visible,.weather-regions button.weather-region-coos.active{background-image:linear-gradient(180deg,rgba(7,39,37,.02),rgba(7,39,37,.68)),url('../public/images/riding-03-coos-bay.webp')}
+.weather-regions button small,.weather-regions button.active small{color:rgba(255,255,255,.82);font-size:11px}.weather-regions button b{font-size:25px}.weather-regions button span{font-size:20px;color:#ffd184}
+.weather-decisions{padding:0 0 105px}.weather-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:42px}.weather-action-grid article{min-height:235px;padding:30px;background:var(--white);border-top:4px solid var(--orange);display:flex;flex-direction:column}.weather-action-grid span{font-size:11px;font-weight:800;letter-spacing:.15em;color:var(--orange)}.weather-action-grid h3{font-family:"Cormorant Garamond",serif;font-size:31px;line-height:1.05;margin:20px 0 12px}.weather-action-grid p{font-size:14px;line-height:1.7;color:#5d7470;margin:0}.weather-action-grid a{align-self:flex-start;margin-top:auto;padding-top:18px;font-size:12px;font-weight:800;color:var(--orange);border-bottom:1px solid rgba(226,91,52,.45)}
+.hourly-section{padding:0 0 110px}.hourly-grid{display:grid;grid-template-columns:repeat(6,1fr);margin-top:42px;background:var(--ink);color:white}.hourly-card{min-width:0;padding:24px 18px;border-right:1px solid rgba(255,255,255,.16)}.hourly-card:last-child{border-right:0}.hourly-card>span{font-size:12px;font-weight:800;color:#f1cf91}.hourly-symbol{display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin:22px 0 14px;border:1px solid rgba(255,255,255,.24);border-radius:50%;font-size:9px;letter-spacing:.08em}.hourly-card h3{font-family:"Cormorant Garamond",serif;font-size:38px;margin:0}.hourly-card>p{min-height:38px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.72)}.hourly-card dl{margin:18px 0 0}.hourly-card dl div{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid rgba(255,255,255,.15)}.hourly-card dt{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55)}.hourly-card dd{font-size:11px;font-weight:800;margin:0}
+.forecast-section{padding-bottom:20px}.forecast-card{padding:24px 18px}.forecast-day span{font-size:12px}.forecast-day small{font-size:10px}.forecast-card h3{font-size:21px;min-height:44px}.forecast-card dt{font-size:9px}.forecast-card dd{font-size:11px}.weather-symbol{font-size:9px}
+.weather-notes{gap:12px;border-top:0}.weather-notes article,.weather-notes article:not(:first-child){position:relative;isolation:isolate;min-height:390px;padding:28px;color:white;border:0;display:flex;flex-direction:column;justify-content:flex-end;background-position:center;background-size:cover;overflow:hidden;text-shadow:0 2px 4px rgba(0,0,0,.65)}.weather-notes article:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(7,39,37,.06),rgba(7,39,37,.89))}.weather-note-wind{background-image:url('../public/images/riding-05-dune-reading.webp')}.weather-note-rain{background-image:url('../public/images/hero-weather.webp')}.weather-note-fog{background-image:url('../public/images/home-explore.webp')}.weather-note-cold{background-image:url('../public/images/camp-ohv-after-ride.webp')}.weather-notes span{font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.17em;color:#ffd184}.weather-notes h3{font-size:31px}.weather-notes p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.84)}
+.weather-personalities{padding-top:120px}.weather-personality-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:45px}.weather-personality-grid article{min-height:450px;padding:28px;color:white;display:flex;align-items:flex-end;background-position:center;background-size:cover}.weather-personality-grid article>div{background:rgba(7,39,37,.86);padding:24px}.weather-personality-florence{background-image:url('../public/images/riding-01-florence.webp')}.weather-personality-winchester{background-image:url('../public/images/riding-02-winchester.webp')}.weather-personality-coos{background-image:url('../public/images/riding-03-coos-bay.webp')}.weather-personality-grid span{font-size:10px;font-weight:800;letter-spacing:.14em;color:#f3cd8c}.weather-personality-grid h3{font-family:"Cormorant Garamond",serif;font-size:29px;line-height:1.05;margin:13px 0}.weather-personality-grid p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.82);margin:0}
+.weather-tide-callout{display:flex;justify-content:space-between;align-items:center;gap:40px;margin-top:95px;padding:38px 42px;background:var(--sand);border-left:5px solid var(--orange)}.weather-tide-callout span{font-size:11px;font-weight:800;letter-spacing:.17em;color:var(--orange)}.weather-tide-callout h2{font-family:"Cormorant Garamond",serif;font-size:36px;margin:8px 0}.weather-tide-callout p{max-width:700px;font-size:14px;line-height:1.65;color:#58716d;margin:0}.weather-tide-callout .button{flex:0 0 auto}
+.weather-official-photo{background:linear-gradient(90deg,rgba(8,46,43,.95),rgba(8,46,43,.76)),url('../public/images/hero-weather.webp') center/cover}.weather-official .official-links span{font-size:11px;line-height:1.45}.weather-official .split>div>p:last-child{font-size:14px}
 @media(max-width:1120px){.site-header nav{gap:14px}.site-header{gap:17px}.forecast-grid{grid-template-columns:repeat(4,1fr)}.forecast-card{border-bottom:1px solid rgba(21,63,60,.15)}}
 @media(max-width:800px){.weather-hero{padding:70px 0}.weather-hero-grid,.weather-region-heading,.forecast-heading,.ride-window{grid-template-columns:1fr;gap:35px}.weather-hero h1{font-size:56px}.weather-now{padding:24px}.weather-dashboard{padding:70px 0 85px}.weather-regions{grid-template-columns:1fr}.weather-regions button,.weather-regions button:last-child{min-height:0;border-right:1px solid rgba(21,63,60,.18);border-bottom:0}.weather-regions button:last-child{border-bottom:1px solid rgba(21,63,60,.18)}.ride-window{padding:28px 24px;margin:45px 0 70px}.forecast-grid{grid-template-columns:1fr 1fr}.forecast-card{border-right:1px solid rgba(21,63,60,.15)}.forecast-card:nth-child(even){border-right:0}.weather-field-guide{padding-top:75px}.weather-notes{grid-template-columns:1fr}.weather-notes article,.weather-notes article:not(:first-child){padding:22px 0;border-right:0;border-bottom:1px solid rgba(21,63,60,.17)}}
 @media(max-width:430px){.weather-temperature{align-items:flex-start;flex-direction:column;gap:12px}.weather-temperature>strong{font-size:66px}.forecast-grid{grid-template-columns:1fr}.forecast-card,.forecast-card:nth-child(even){border-right:0}}
@@ -180,7 +196,7 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
 .camp-dog-planner{margin-top:26px;padding:28px 30px;background:var(--ink);color:white;border-left:4px solid var(--orange)}.camp-dog-planner>span{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:#efcd95}.camp-dog-planner>b{display:block;margin:10px 0 6px;font-family:"Cormorant Garamond",serif;font-size:27px}.camp-dog-planner>p{margin:0 0 18px!important;font-size:14px!important;line-height:1.6!important;color:rgba(255,255,255,.72)!important}.camp-dog-planner>a{font-size:12px;font-weight:800;color:#efcd95;border-bottom:1px solid rgba(239,205,149,.55);padding-bottom:4px}
 
 /* Photographic interactive-map location details */
-.map-detail{background-image:linear-gradient(180deg,rgba(7,39,37,.48),rgba(7,39,37,.80)),var(--place-image);background-position:center;background-size:cover;color:white;transition:background-image .25s ease;text-shadow:0 1px 3px rgba(0,0,0,.34)}
+.map-detail{background-image:linear-gradient(180deg,rgba(7,39,37,.25),rgba(7,39,37,.67)),var(--place-image);background-position:center;background-size:cover;color:white;transition:background-image .25s ease;text-shadow:0 2px 5px rgba(0,0,0,.68)}
 .map-detail .region-name{color:rgba(255,255,255,.68)}
 .map-detail h2,.map-detail dd{color:white}
 .map-detail>p{color:rgba(255,255,255,.82)}
@@ -286,6 +302,30 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
   .official-riding-map a{max-height:none}
   .location-offline-actions{grid-column:auto;margin-top:0;align-items:flex-start;flex-direction:column}
 }
+@media(max-width:1000px){
+  .hourly-grid{grid-template-columns:repeat(3,1fr)}
+  .hourly-card:nth-child(3){border-right:0}
+  .weather-notes{grid-template-columns:1fr 1fr}
+  .weather-personality-grid{grid-template-columns:1fr}
+  .weather-personality-grid article{min-height:390px}
+}
+@media(max-width:800px){
+  .weather-action-grid{grid-template-columns:1fr}
+  .weather-action-grid article{min-height:0}
+  .weather-notes{grid-template-columns:1fr}
+  .weather-notes article,.weather-notes article:not(:first-child){min-height:360px;padding:26px}
+  .weather-personalities{padding-top:85px}
+  .weather-tide-callout{align-items:flex-start;flex-direction:column;padding:30px 26px}
+  .weather-tide-callout .button{width:100%}
+}
+@media(max-width:560px){
+  .hourly-grid{grid-template-columns:1fr 1fr}
+  .hourly-card:nth-child(3){border-right:1px solid rgba(255,255,255,.16)}
+  .hourly-card:nth-child(even){border-right:0}
+  .weather-action-grid h3{font-size:28px}
+  .weather-personality-grid article{min-height:360px;padding:18px}
+  .weather-personality-grid article>div{padding:21px}
+}
 @media(max-width:600px){
   .riding-location-hero{min-height:560px;padding:75px 0 65px}
   .riding-location-hero h1{font-size:62px}
@@ -299,4 +339,139 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
   .location-camping,.location-offline,.location-verify{padding:75px 0}
   .location-offline h2,.location-verify h2{font-size:46px}
   .location-back{align-items:flex-start;flex-direction:column}
+}
+
+/* Tides: regional planning and beach-access decision guide */
+.tides-hero-grid>div>p:last-child{font-size:17px;line-height:1.75}
+.next-tide-top div>span,.next-tide-meta span{font-size:10px}
+.next-tide-main span,.next-tide-card>small{font-size:11px}
+.tides-heading>p{font-size:15px;line-height:1.75}
+.tide-regions{gap:12px}
+.tide-regions button,.tide-regions button:last-child{
+  position:relative;isolation:isolate;overflow:hidden;min-height:190px;padding:24px;
+  justify-content:flex-end;border:0;color:white;background-position:center;background-size:cover;
+  transition:transform .2s ease,box-shadow .2s ease
+}
+.tide-regions button::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,46,43,0) 34%,rgba(8,46,43,.15) 53%,rgba(8,46,43,.88) 100%)
+}
+.tide-regions button:hover,.tide-regions button:focus-visible{
+  transform:translateY(-3px);background-position:center;box-shadow:0 16px 32px rgba(8,46,43,.15);outline:3px solid #efb856;outline-offset:2px
+}
+.tide-regions button.active{box-shadow:inset 0 0 0 4px #efb856}
+.tide-regions button.tide-region-florence{background-image:url('../public/images/riding-01-florence.webp')}
+.tide-regions button.tide-region-winchester{background-image:url('../public/images/riding-02-winchester.webp')}
+.tide-regions button.tide-region-coos{background-image:url('../public/images/riding-03-coos-bay.webp')}
+.tide-regions span{color:#ffd071;font-size:20px}
+.tide-regions b{font-size:28px;margin-top:8px}
+.tide-regions small,.tide-regions button.active small{font-size:11px;color:rgba(255,255,255,.85)}
+
+.tide-decision{
+  display:grid;grid-template-columns:1.12fr .88fr;margin:62px 0 86px;
+  background:linear-gradient(120deg,rgba(8,46,43,.98),rgba(8,46,43,.84)),url('../public/images/hero-tides.webp') center/cover;
+  color:white;box-shadow:0 24px 55px rgba(8,46,43,.18)
+}
+.tide-decision-copy{padding:48px 52px}
+.tide-decision-copy>span{font-size:11px;letter-spacing:.18em;font-weight:900;color:#ffd071}
+.tide-decision h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,4.5vw,64px);line-height:.94;letter-spacing:-.035em;margin:16px 0 20px}
+.tide-decision-copy>p{max-width:680px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.82)}
+.tide-seasonal-note{margin-top:30px;padding:22px 24px;border-left:4px solid var(--orange);background:rgba(255,255,255,.11)}
+.tide-seasonal-note b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.1;color:white}
+.tide-seasonal-note p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78);margin:9px 0 0}
+.tide-window-facts{display:grid;align-content:stretch;background:#eadfc9;color:var(--ink)}
+.tide-window-facts>div{display:flex;flex-direction:column;justify-content:center;padding:28px 34px;border-bottom:1px solid rgba(21,63,60,.18)}
+.tide-window-facts>div:last-child{border-bottom:0}
+.tide-window-facts span{font-size:10px;letter-spacing:.17em;font-weight:900;color:var(--orange)}
+.tide-window-facts b{font-family:"Cormorant Garamond",serif;font-size:29px;line-height:1.05;margin:8px 0}
+.tide-window-facts small{font-size:12px;line-height:1.5;color:#5c716e}
+
+.tide-curve-heading span{font-size:10px}.tide-curve-heading>p{font-size:13px;line-height:1.65}
+.tide-day-heading>span{font-size:11px}.tide-day-heading small{font-size:10px}
+.tide-day-events span{font-size:9px}.tide-day-events b{font-size:21px}.tide-day-events small{font-size:10px}
+.tide-loading{font-size:13px}
+
+.tide-terrain-compare{gap:16px;border:0;background:transparent}
+.tide-terrain-compare article,.tide-terrain-compare article:first-child{
+  position:relative;isolation:isolate;overflow:hidden;min-height:380px;padding:34px;
+  display:flex;flex-direction:column;justify-content:flex-end;border:0;color:white;background-position:center;background-size:cover
+}
+.tide-terrain-compare article::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.06) 10%,rgba(8,46,43,.94) 100%)
+}
+.tide-terrain-inland{background-image:url('../public/images/riding-05-dune-reading.webp')}
+.tide-terrain-beach{background-image:url('../public/images/hero-tides.webp')}
+.tide-terrain-compare span{font-size:10px;color:#ffd071}
+.tide-terrain-compare h3{font-size:34px;line-height:1.03;margin:12px 0}
+.tide-terrain-compare p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.82)}
+
+.tide-ohv-grid{gap:16px;border-top:0}
+.tide-ohv-grid>article,.tide-ohv-grid>article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:470px;padding:32px;border:0;color:white;background-position:center;background-size:cover
+}
+.tide-ohv-grid>article::before{
+  content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.12) 5%,rgba(8,46,43,.97) 88%)
+}
+.tide-ohv-access{background-image:url('../public/images/riding-01-florence.webp')}
+.tide-ohv-surface{background-image:url('../public/images/hero-tides.webp')}
+.tide-ohv-safety{background-image:url('../public/images/hero-safety-v2.webp')}
+.tide-ohv-number{font-size:28px;color:#ffd071}
+.tide-ohv-grid article>div>span{font-size:10px;color:#ffd071}
+.tide-ohv-grid h3{font-size:31px;margin:12px 0 18px}
+.tide-ohv-grid p{font-size:14px;line-height:1.68;color:rgba(255,255,255,.8)}
+.tide-ohv-callout span{font-size:10px}.tide-ohv-callout a{font-size:13px}
+
+.tide-note-grid{gap:16px;border-top:0}
+.tide-note-grid article,.tide-note-grid article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;min-height:370px;padding:28px;
+  display:flex;flex-direction:column;justify-content:flex-end;border:0;background-position:center;background-size:cover
+}
+.tide-note-grid article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.08),rgba(8,46,43,.96))}
+.tide-note-entrance{background-image:url('../public/images/hero-tides.webp')}
+.tide-note-walking{background-image:url('../public/images/hero-day-use.webp')}
+.tide-note-explore{background-image:url('../public/images/home-explore.webp')}
+.tide-note-storm{background-image:url('../public/images/hero-weather.webp')}
+.tide-note-grid span{font-size:24px;color:#ffd071}
+.tide-note-grid h3{font-size:29px}
+.tide-note-grid p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.78)}
+
+.tides-official-photo{
+  position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.97),rgba(8,46,43,.79)),url('../public/images/hero-tides.webp') center/cover
+}
+.tides-official .split>div>p:last-child{font-size:15px}
+.tides-official .official-links span{font-size:11px}
+
+@media(max-width:1000px){
+  .tide-decision{grid-template-columns:1fr}
+  .tide-window-facts{grid-template-columns:repeat(3,1fr)}
+  .tide-window-facts>div{border-bottom:0;border-right:1px solid rgba(21,63,60,.18)}
+  .tide-window-facts>div:last-child{border-right:0}
+  .tide-ohv-grid{grid-template-columns:1fr}
+  .tide-ohv-grid>article,.tide-ohv-grid>article:not(:first-child){min-height:430px}
+  .tide-note-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:800px){
+  .tide-regions{grid-template-columns:1fr}
+  .tide-regions button,.tide-regions button:last-child{min-height:170px;border:0}
+  .tide-decision-copy{padding:38px 30px}
+  .tide-window-facts{grid-template-columns:1fr}
+  .tide-window-facts>div{border-right:0;border-bottom:1px solid rgba(21,63,60,.18)}
+  .tide-window-facts>div:last-child{border-bottom:0}
+  .tide-terrain-compare{grid-template-columns:1fr}
+  .tide-terrain-compare article,.tide-terrain-compare article:first-child{min-height:350px;border:0}
+  .tide-note-grid{grid-template-columns:1fr}
+  .tide-note-grid article,.tide-note-grid article:not(:first-child){min-height:350px}
+}
+@media(max-width:560px){
+  .tides-hero-grid>div>p:last-child{font-size:16px}
+  .next-tide-card{padding:24px}
+  .tide-decision{margin:42px 0 65px}
+  .tide-decision-copy{padding:32px 24px}
+  .tide-decision h2{font-size:42px}
+  .tide-window-facts>div{padding:24px}
+  .tide-schedule{grid-template-columns:1fr}
+  .tide-day,.tide-day:nth-child(even){border-right:0;border-bottom:1px solid rgba(21,63,60,.15)}
+  .tide-day:last-child{border-bottom:0}
+  .tide-ohv-grid>article,.tide-ohv-grid>article:not(:first-child){min-height:480px;padding:26px}
 }

@@ -23,7 +23,8 @@ const weatherSymbols={
 function weatherUrl(region){
   const current="temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,cloud_cover,wind_speed_10m,wind_gusts_10m,wind_direction_10m,visibility";
   const daily="weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,sunrise,sunset";
-  return `https://api.open-meteo.com/v1/forecast?latitude=${region.lat}&longitude=${region.lon}&current=${current}&daily=${daily}&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=7`;
+  const hourly="temperature_2m,apparent_temperature,precipitation_probability,weather_code,wind_speed_10m,wind_gusts_10m,visibility";
+  return `https://api.open-meteo.com/v1/forecast?latitude=${region.lat}&longitude=${region.lon}&current=${current}&hourly=${hourly}&daily=${daily}&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FLos_Angeles&forecast_days=7`;
 }
 
 function compassDirection(degrees){
@@ -85,6 +86,88 @@ function renderForecast(data){
   }).join("");
 }
 
+function upcomingHourlyIndexes(data,hours=24){
+  const now=Date.now();
+  const first=data.hourly.time.findIndex(value=>new Date(value).getTime()>=now);
+  const start=Math.max(first,0);
+  return data.hourly.time.map((_,index)=>index).slice(start,start+hours);
+}
+
+function renderHourly(data){
+  const hourly=data.hourly;
+  const indexes=upcomingHourlyIndexes(data,24).filter((_,index)=>index%4===0).slice(0,6);
+  document.getElementById("hourlyGrid").innerHTML=indexes.map(index=>{
+    const time=new Date(hourly.time[index]);
+    const label=new Intl.DateTimeFormat("en-US",{weekday:"short",hour:"numeric"}).format(time);
+    const code=hourly.weather_code[index];
+    const visibility=(hourly.visibility[index]||0)/1609.344;
+    return `<article class="hourly-card">
+      <span>${label}</span>
+      <div class="hourly-symbol">${weatherSymbols[code]||"WX"}</div>
+      <h3>${Math.round(hourly.temperature_2m[index])}°</h3>
+      <p>${weatherDescriptions[code]||"Variable"}</p>
+      <dl><div><dt>Rain</dt><dd>${hourly.precipitation_probability[index]??0}%</dd></div><div><dt>Wind</dt><dd>${Math.round(hourly.wind_speed_10m[index])} mph</dd></div><div><dt>Gust</dt><dd>${Math.round(hourly.wind_gusts_10m[index])} mph</dd></div><div><dt>View</dt><dd>${visibility.toFixed(1)} mi</dd></div></dl>
+    </article>`;
+  }).join("");
+}
+
+function renderPracticalGuidance(region,data){
+  const current=data.current;
+  const hourly=data.hourly;
+  const indexes=upcomingHourlyIndexes(data,24);
+  const best=indexes.reduce((winner,index)=>{
+    const visibility=(hourly.visibility[index]||0)/1609.344;
+    const score=(hourly.wind_speed_10m[index]||0)+(hourly.wind_gusts_10m[index]||0)*1.4+(hourly.precipitation_probability[index]||0)*.32+(visibility<3?35:0);
+    return !winner||score<winner.score?{index,score}:winner;
+  },null);
+  const bestTime=best?new Intl.DateTimeFormat("en-US",{weekday:"short",hour:"numeric"}).format(new Date(hourly.time[best.index])):"later";
+  const bestGust=best?Math.round(hourly.wind_gusts_10m[best.index]):Math.round(current.wind_gusts_10m||0);
+  const currentTemp=Math.round(current.temperature_2m||0);
+  const feels=Math.round(current.apparent_temperature||currentTemp);
+  const rainChance=Math.max(...indexes.map(index=>hourly.precipitation_probability[index]||0),0);
+  const lowestVisibility=Math.min(...indexes.map(index=>(hourly.visibility[index]||16093)/1609.344),10);
+  const peakGust=Math.max(...indexes.map(index=>hourly.wind_gusts_10m[index]||0),0);
+
+  document.getElementById("weatherTimingTitle").textContent=`Best-looking checkpoint: ${bestTime}`;
+  document.getElementById("weatherTimingCopy").textContent=`This is the calmest forecast checkpoint in the next 24 hours, with gusts near ${bestGust} mph. It is a planning clue—not a guarantee on exposed sand.`;
+
+  if(feels<=45){
+    document.getElementById("weatherWearTitle").textContent="Dress for cold wind and moisture";
+    document.getElementById("weatherWearCopy").textContent="Wear a windproof shell over a warm layer, pack dry gloves and socks, and keep a complete dry layer sealed in the vehicle.";
+  }else if(rainChance>=45){
+    document.getElementById("weatherWearTitle").textContent="Bring a real rain layer";
+    document.getElementById("weatherWearCopy").textContent="Use a wind-resistant waterproof shell, quick-drying layers, and dry footwear. Cotton stays cold when the coast turns wet.";
+  }else{
+    document.getElementById("weatherWearTitle").textContent="Coastal layers, even if town feels mild";
+    document.getElementById("weatherWearCopy").textContent=`Around ${currentTemp}° now. Carry a wind shell and one warm layer because open dunes can feel cooler than the selected town.`;
+  }
+
+  if(peakGust>=30||lowestVisibility<3){
+    document.getElementById("weatherGearTitle").textContent="Protect navigation and shorten the loop";
+    document.getElementById("weatherGearCopy").textContent="Save the map offline, secure loose gear, use clear eye protection, keep the group close, and set a firm turnaround point before visibility or wind worsens.";
+  }else if(rainChance>=45){
+    document.getElementById("weatherGearTitle").textContent="Keep essentials dry";
+    document.getElementById("weatherGearCopy").textContent="Seal phones, maps, gloves, and a battery bank. Add towels, a change of socks, and a dry place for helmets and goggles.";
+  }else{
+    document.getElementById("weatherGearTitle").textContent="Pack for a fast coastal change";
+    document.getElementById("weatherGearCopy").textContent="Bring offline maps, water, eye protection, a wind layer, warm backup clothing, and enough light to handle a delayed return.";
+  }
+
+  if(rainChance>=65){
+    document.getElementById("weatherRoadTitle").textContent="Wet-road conditions are possible";
+    document.getElementById("weatherRoadCopy").textContent=`Rain probability reaches ${rainChance}% in the next day. Allow more braking distance, watch for standing water, and check US 101 cameras before towing.`;
+  }else if(lowestVisibility<3){
+    document.getElementById("weatherRoadTitle").textContent="Fog may affect the drive";
+    document.getElementById("weatherRoadCopy").textContent="Low visibility is forecast at times. Slow down, use headlights, allow extra travel time, and verify coastal highway cameras.";
+  }else if(peakGust>=35){
+    document.getElementById("weatherRoadTitle").textContent="Watch exposed roads and trailers";
+    document.getElementById("weatherRoadCopy").textContent="Strong gusts can affect high-profile vehicles and trailers. Check TripCheck and postpone if towing becomes uncomfortable.";
+  }else{
+    document.getElementById("weatherRoadTitle").textContent=`No major weather-road flag near ${region.name}`;
+    document.getElementById("weatherRoadCopy").textContent="The forecast does not show a strong rain, fog, or wind signal right now. TripCheck remains the source for live incidents, construction, and cameras.";
+  }
+}
+
 function showWeatherError(region){
   document.getElementById("weatherLocation").textContent=region.name;
   document.getElementById("weatherStatus").textContent="Official forecast";
@@ -96,6 +179,15 @@ function showWeatherError(region){
   document.getElementById("rideWindowTitle").textContent="Open the official forecast.";
   document.getElementById("rideWindowCopy").textContent="Review wind, rain, visibility, warnings, road conditions, and Forest Service alerts before leaving pavement.";
   document.getElementById("forecastGrid").innerHTML='<div class="forecast-error"><b>Live outlook unavailable.</b><p>The rest of this guide remains available. Use the National Weather Service link below for current conditions and alerts.</p></div>';
+  document.getElementById("hourlyGrid").innerHTML='<div class="forecast-error"><b>Hourly outlook unavailable.</b><p>Use the official forecast link for current timing.</p></div>';
+  document.getElementById("weatherTimingTitle").textContent="Check the official hourly forecast";
+  document.getElementById("weatherTimingCopy").textContent="Live timing could not be calculated. Use National Weather Service hourly details before choosing a departure window.";
+  document.getElementById("weatherWearTitle").textContent="Pack complete coastal layers";
+  document.getElementById("weatherWearCopy").textContent="Bring a windproof shell, warm layer, dry footwear, gloves, and a waterproof backup.";
+  document.getElementById("weatherGearTitle").textContent="Keep the conservative kit";
+  document.getElementById("weatherGearCopy").textContent="Carry offline maps, water, first aid, eye protection, lights, and dry clothing.";
+  document.getElementById("weatherRoadTitle").textContent="Check TripCheck before leaving";
+  document.getElementById("weatherRoadCopy").textContent="Use live cameras and incident reports because weather-based road guidance is unavailable.";
 }
 
 async function loadWeather(regionKey){
@@ -108,6 +200,8 @@ async function loadWeather(regionKey){
     if(!response.ok)throw new Error(`Weather request failed: ${response.status}`);
     const data=await response.json();
     renderCurrent(region,data);
+    renderPracticalGuidance(region,data);
+    renderHourly(data);
     renderForecast(data);
   }catch(error){
     console.warn(error);

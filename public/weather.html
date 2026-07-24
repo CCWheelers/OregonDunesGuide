@@ -9,9 +9,9 @@
   <meta property="og:description" content="Compare current coastal conditions and plan a safer Oregon Dunes trip.">
   <meta property="og:image" content="/og-v2.png">
   <link rel="icon" href="/favicon.svg">
-  <link rel="stylesheet" href="static/styles.css">
-  <script src="static/site.js" defer></script>
-  <script src="static/weather.js" defer></script>
+  <link rel="stylesheet" href="static/styles.css?v=22">
+  <script src="static/site.js?v=22" defer></script>
+  <script src="static/weather.js?v=22" defer></script>
 </head>
 <body data-page="weather">
   <header class="site-header">
@@ -63,9 +63,9 @@
       <div class="weather-region-heading">
         <div><p class="section-label">CHOOSE A DUNE REGION</p><h2>One coast.<br><i>Three forecasts.</i></h2></div>
         <div class="weather-regions" role="group" aria-label="Forecast location">
-          <button type="button" class="active" data-weather-region="florence" aria-pressed="true"><span>01</span><b>Florence</b><small>South Jetty & Siltcoos</small></button>
-          <button type="button" data-weather-region="winchester" aria-pressed="false"><span>02</span><b>Winchester Bay</b><small>Umpqua Dunes</small></button>
-          <button type="button" data-weather-region="coos" aria-pressed="false"><span>03</span><b>Coos Bay</b><small>Spinreel & Horsfall</small></button>
+          <button type="button" class="active weather-region-florence" data-weather-region="florence" aria-pressed="true"><span>01</span><b>Florence</b><small>South Jetty &amp; Siltcoos</small></button>
+          <button type="button" class="weather-region-winchester" data-weather-region="winchester" aria-pressed="false"><span>02</span><b>Winchester Bay</b><small>Umpqua Dunes</small></button>
+          <button type="button" class="weather-region-coos" data-weather-region="coos" aria-pressed="false"><span>03</span><b>Coos Bay</b><small>Spinreel &amp; Horsfall</small></button>
         </div>
       </div>
 
@@ -73,6 +73,21 @@
         <div><span id="rideWindowLabel">CONDITIONS SNAPSHOT</span><h2 id="rideWindowTitle">Reading the forecast…</h2></div>
         <p id="rideWindowCopy">Live wind, rain, visibility, and temperature will shape a practical trip note.</p>
       </div>
+
+      <section class="weather-decisions" aria-labelledby="weatherDecisionHeading">
+        <div class="forecast-heading"><div><p class="section-label">WHAT THIS MEANS FOR YOUR DAY</p><h2 id="weatherDecisionHeading">Forecast translated.<br><i>Coast-ready choices.</i></h2></div><p>These suggestions respond to the selected region’s current wind, rain, visibility, and temperature. Recheck whenever conditions begin changing.</p></div>
+        <div class="weather-action-grid">
+          <article><span>01 · TIMING</span><h3 id="weatherTimingTitle">Finding the best window…</h3><p id="weatherTimingCopy">Comparing the next several forecast periods.</p></article>
+          <article><span>02 · WHAT TO WEAR</span><h3 id="weatherWearTitle">Building your layers…</h3><p id="weatherWearCopy">Temperature, rain, and wind will shape this note.</p></article>
+          <article><span>03 · PACK &amp; PROTECT</span><h3 id="weatherGearTitle">Preparing for the coast…</h3><p id="weatherGearCopy">Equipment advice will appear with the live forecast.</p></article>
+          <article><span>04 · ROAD &amp; BACKUP</span><h3 id="weatherRoadTitle">Checking travel impacts…</h3><p id="weatherRoadCopy">Use TripCheck for live incidents and cameras.</p><a href="https://tripcheck.com/" target="_blank" rel="noreferrer">Open Oregon TripCheck ↗</a></article>
+        </div>
+      </section>
+
+      <section class="hourly-section" aria-labelledby="hourlyHeading">
+        <div class="forecast-heading"><div><p class="section-label">NEXT 24 HOURS</p><h2 id="hourlyHeading">Watch the change,<br><i>not just the high.</i></h2></div><p>The coast can move from calm to windy quickly. Compare six upcoming four-hour checkpoints before choosing departure and return times.</p></div>
+        <div class="hourly-grid" id="hourlyGrid"><div class="forecast-loading">Loading the next weather checkpoints…</div></div>
+      </section>
 
       <section class="forecast-section" aria-labelledby="forecastHeading">
         <div class="forecast-heading"><div><p class="section-label">SEVEN-DAY OUTLOOK</p><h2 id="forecastHeading">Plan with margin.</h2></div><p>Daily values are forecast estimates. Wind on exposed dune crests can feel stronger than readings in town.</p></div>
@@ -82,15 +97,29 @@
       <section class="weather-field-guide">
         <div class="forecast-heading"><div><p class="section-label">DUNE WEATHER FIELD NOTES</p><h2>What the numbers<br><i>mean on sand.</i></h2></div><p>Weather changes traction, visibility, body temperature, and how quickly a simple recovery becomes serious.</p></div>
         <div class="weather-notes">
-          <article><span>01</span><h3>Wind &amp; gusts</h3><p>Wind reshapes crests and can erase tracks. Strong crosswinds increase fatigue and make regrouping harder. Reduce speed before exposed ridges.</p></article>
-          <article><span>02</span><h3>Rain &amp; wet sand</h3><p>Light rain can firm some sand, but storms reduce visibility and create colder conditions. Waterproof layers belong in every vehicle.</p></article>
-          <article><span>03</span><h3>Fog &amp; marine cloud</h3><p>Dense fog removes visual landmarks quickly. Shorten loops, keep the group tight, and use offline navigation instead of following old tracks.</p></article>
-          <article><span>04</span><h3>Cold exposure</h3><p>Wind makes mild temperatures feel colder, especially after rain or sweat. Carry a dry insulating layer even on summer afternoons.</p></article>
+          <article class="weather-note-wind"><span>01</span><h3>Wind &amp; gusts</h3><p>Wind reshapes crests and can erase tracks. Strong crosswinds increase fatigue and make regrouping harder. Reduce speed before exposed ridges.</p></article>
+          <article class="weather-note-rain"><span>02</span><h3>Rain &amp; wet sand</h3><p>Light rain can firm some sand, but storms reduce visibility and create colder conditions. Waterproof layers belong in every vehicle.</p></article>
+          <article class="weather-note-fog"><span>03</span><h3>Fog &amp; marine cloud</h3><p>Dense fog removes visual landmarks quickly. Shorten loops, keep the group tight, and use offline navigation instead of following old tracks.</p></article>
+          <article class="weather-note-cold"><span>04</span><h3>Cold exposure</h3><p>Wind makes mild temperatures feel colder, especially after rain or sweat. Carry a dry insulating layer even on summer afternoons.</p></article>
         </div>
       </section>
+
+      <section class="weather-personalities">
+        <div class="forecast-heading"><div><p class="section-label">LOCAL WEATHER PERSONALITIES</p><h2>Twenty miles can<br><i>change the answer.</i></h2></div><p>Town readings are useful reference points, but exposure, tree cover, fog, and distance from the water create noticeable differences across the dunes.</p></div>
+        <div class="weather-personality-grid">
+          <article class="weather-personality-florence"><div><span>FLORENCE · NORTH</span><h3>Lake fog and north-zone wind</h3><p>Morning marine cloud can linger near lakes and forest edges while South Jetty becomes windier and brighter. Visibility may change within one loop.</p></div></article>
+          <article class="weather-personality-winchester"><div><span>WINCHESTER BAY · CENTRAL</span><h3>Big, exposed sand</h3><p>The Umpqua Dunes offer less shelter from coastal wind. Gusts can feel stronger on open ridges than at the harbor forecast point.</p></div></article>
+          <article class="weather-personality-coos"><div><span>COOS BAY · SOUTH</span><h3>Harbor cloud and sheltered pockets</h3><p>Horsfall and Spinreel can differ from downtown Coos Bay. Forest edges may feel calm while open beach approaches remain windy or foggy.</p></div></article>
+        </div>
+      </section>
+
+      <aside class="weather-tide-callout">
+        <div><span>RIDING THE BEACH?</span><h2>Weather is only half the decision.</h2><p>Wind, surf, tide level, seasonal closures, and beach access all affect whether a coastal route is practical.</p></div>
+        <a class="button ink" href="tides.html">Check tides &amp; beach guidance →</a>
+      </aside>
     </section>
 
-    <section class="official-band weather-official">
+    <section class="official-band weather-official weather-official-photo">
       <div class="shell split">
         <div><p class="section-label pale">VERIFY BEFORE YOU GO</p><h2>Forecast here.<br><i>Official word there.</i></h2><p>Use this page for planning, then check National Weather Service alerts, road conditions, and Forest Service notices the morning you travel.</p></div>
         <div class="official-links">

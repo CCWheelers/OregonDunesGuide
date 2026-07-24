@@ -57,6 +57,51 @@ function renderNextTide(region,predictions){
   updateCountdown(parseTideTime(next.t));
 }
 
+function formatWindowTime(date){
+  return new Intl.DateTimeFormat("en-US",{weekday:"short",hour:"numeric",minute:"2-digit"}).format(date);
+}
+
+function renderBeachDecision(predictions){
+  const now=new Date();
+  const nextLow=predictions.find(item=>item.type==="L"&&parseTideTime(item.t)>now);
+  if(!nextLow)return;
+  const lowTime=parseTideTime(nextLow.t);
+  const windowStart=new Date(lowTime.getTime()-2*3600000);
+  const windowEnd=new Date(lowTime.getTime()+2*3600000);
+  const followingHigh=predictions.find(item=>item.type==="H"&&parseTideTime(item.t)>lowTime);
+  const insideWindow=now>=windowStart&&now<=windowEnd;
+
+  document.getElementById("nextLowTime").textContent=formatWindowTime(lowTime);
+  document.getElementById("nextLowHeight").textContent=`${Number(nextLow.v).toFixed(1)} ft MLLW`;
+  document.getElementById("lowWindowTime").textContent=`${formatWindowTime(windowStart)} to ${formatWindowTime(windowEnd)}`;
+  document.getElementById("followingHighTime").textContent=followingHigh?formatWindowTime(parseTideTime(followingHigh.t)):"Check NOAA";
+  document.getElementById("followingHighHeight").textContent=followingHigh?`${Number(followingHigh.v).toFixed(1)} ft MLLW`:"Next prediction unavailable";
+
+  if(insideWindow){
+    document.getElementById("tideDecisionLabel").textContent="INSIDE THE LOW-TIDE PLANNING WINDOW";
+    document.getElementById("tideDecisionTitle").textContent="The wider beach window is open now.";
+    document.getElementById("tideDecisionCopy").textContent=`Low tide is predicted for ${formatWindowTime(lowTime)}. Treat ${formatWindowTime(windowEnd)} as a firm planning boundary—not a promise of safe or legal passage.`;
+  }else{
+    document.getElementById("tideDecisionLabel").textContent="NEXT LOW-TIDE PLANNING WINDOW";
+    document.getElementById("tideDecisionTitle").textContent=`The conservative window begins ${formatWindowTime(windowStart)}.`;
+    document.getElementById("tideDecisionCopy").textContent=`Low tide is predicted for ${formatWindowTime(lowTime)}. Arrive early enough to inspect surf, beach width, closures, driftwood, and the legal exit before committing to a coastal route.`;
+  }
+
+  const month=now.getMonth(),day=now.getDate();
+  const seasonalVehicleClosure=month>=4&&month<=8;
+  const ploverSeason=(month===2&&day>=15)||month>=3&&month<=7||(month===8&&day<=15);
+  if(seasonalVehicleClosure){
+    document.getElementById("tideSeasonTitle").textContent="Seasonal vehicle closures apply on mapped beach segments.";
+    document.getElementById("tideSeasonCopy").textContent="May 1–September 30 closures protect sensitive habitat on designated stretches. A favorable tide does not reopen a closed route; verify the official OHV map and current signs.";
+  }else if(ploverSeason){
+    document.getElementById("tideSeasonTitle").textContent="Wildlife restrictions may still affect beach access.";
+    document.getElementById("tideSeasonCopy").textContent="Western snowy plover management restrictions can apply March 15–September 15 in designated areas. Confirm the exact route before departure.";
+  }else{
+    document.getElementById("tideSeasonTitle").textContent="Typical beach-riding season—but access is never automatic.";
+    document.getElementById("tideSeasonCopy").textContent="Verify the official OHV map, current wildlife or storm closures, posted signs, surf conditions, and a legal exit before entering any beach segment.";
+  }
+}
+
 function renderTideSchedule(predictions){
   const groups=[];
   predictions.forEach(item=>{
@@ -125,6 +170,14 @@ function showTideError(region){
   document.querySelector(".next-tide-card").setAttribute("aria-busy","false");
   document.getElementById("tideChartLoading").textContent="The live curve could not be loaded.";
   document.getElementById("tideSchedule").innerHTML='<div class="tide-loading"><b>Live schedule unavailable.</b><br>Open the selected NOAA station below for current predictions.</div>';
+  document.getElementById("tideDecisionLabel").textContent="CHECK THE OFFICIAL NOAA TABLE";
+  document.getElementById("tideDecisionTitle").textContent="The low-tide planning window could not be calculated.";
+  document.getElementById("tideDecisionCopy").textContent="Use the selected NOAA station below, then verify closures, surf, beach width, and your legal exit on arrival.";
+  document.getElementById("nextLowTime").textContent="--";
+  document.getElementById("nextLowHeight").textContent="NOAA unavailable";
+  document.getElementById("lowWindowTime").textContent="-- to --";
+  document.getElementById("followingHighTime").textContent="--";
+  document.getElementById("followingHighHeight").textContent="NOAA unavailable";
 }
 
 async function loadTides(regionKey){
@@ -139,6 +192,7 @@ async function loadTides(regionKey){
     const hilo=await hiloResponse.json();
     if(!hilo.predictions?.length)throw new Error("NOAA returned no predictions");
     renderNextTide(region,hilo.predictions);
+    renderBeachDecision(hilo.predictions);
     renderTideSchedule(hilo.predictions);
     tideChartData=buildTideCurve(hilo.predictions);
     document.getElementById("tideChartLoading").hidden=true;
