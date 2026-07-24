@@ -73,6 +73,65 @@ const mapPlaces=[
   {id:"riley",name:"Riley Ranch",region:"Coos Bay",type:"campground",top:94,left:67,summary:"County campground and OHV staging base south of Horsfall.",access:"South of Coos Bay",best:"Groups and trailers",url:"https://www.google.com/maps/search/?api=1&query=Riley%20Ranch%20County%20Park%20Oregon"}
 ];
 
+function renderMap(){
+  const canvas=document.getElementById("mapCanvas");
+  const detail=document.getElementById("mapDetail");
+  if(!canvas||!detail)return;
+
+  const filters=[...document.querySelectorAll("[data-filter]")];
+  const typeLabels={town:"Gateway town",staging:"OHV staging",campground:"Campground",riding:"Riding zone"};
+  let selectedId=mapPlaces[0].id;
+  let activeFilter="all";
+
+  function showPlace(place){
+    selectedId=place.id;
+    canvas.querySelectorAll(".marker").forEach(marker=>{
+      const selected=marker.dataset.placeId===place.id;
+      marker.classList.toggle("active",selected);
+      marker.setAttribute("aria-pressed",String(selected));
+    });
+    detail.innerHTML=`<span class="place-type">${typeLabels[place.type]||place.type}</span>
+      <span class="region-name">${place.region} region</span>
+      <h2>${place.name}</h2>
+      <p>${place.summary}</p>
+      <dl><div><dt>Access</dt><dd>${place.access}</dd></div><div><dt>Best for</dt><dd>${place.best}</dd></div></dl>
+      <a class="button ink" href="${place.url}" target="_blank" rel="noreferrer">Open directions ↗</a>`;
+  }
+
+  function drawMarkers(){
+    canvas.querySelectorAll(".marker").forEach(marker=>marker.remove());
+    const visible=activeFilter==="all"?mapPlaces:mapPlaces.filter(place=>place.type===activeFilter);
+    visible.forEach(place=>{
+      const marker=document.createElement("button");
+      marker.type="button";
+      marker.className=`marker marker-${place.type}`;
+      marker.dataset.placeId=place.id;
+      marker.style.top=`${place.top}%`;
+      marker.style.left=`${place.left}%`;
+      marker.setAttribute("aria-label",`${place.name}, ${typeLabels[place.type]||place.type}`);
+      marker.setAttribute("aria-pressed","false");
+      marker.innerHTML=`<i aria-hidden="true"></i><span>${place.name}</span>`;
+      marker.addEventListener("click",()=>showPlace(place));
+      canvas.appendChild(marker);
+    });
+    const selected=visible.find(place=>place.id===selectedId)||visible[0];
+    if(selected)showPlace(selected);
+    else detail.innerHTML="<p>No locations match this filter.</p>";
+  }
+
+  filters.forEach(button=>button.addEventListener("click",()=>{
+    activeFilter=button.dataset.filter||"all";
+    filters.forEach(item=>{
+      const active=item===button;
+      item.classList.toggle("active",active);
+      item.setAttribute("aria-pressed",String(active));
+    });
+    drawMarkers();
+  }));
+  filters.forEach(button=>button.setAttribute("aria-pressed",String(button.classList.contains("active"))));
+  drawMarkers();
+}
+
 function setupMenu(){const header=document.querySelector(".site-header"),button=document.querySelector(".menu-button");if(!button)return;button.addEventListener("click",()=>{const open=header.classList.toggle("open");button.setAttribute("aria-expanded",String(open));button.textContent=open?"Close":"Menu"})}
 function currentShareDetails(){
   const title=document.title||"Oregon Dunes Field Guide";
