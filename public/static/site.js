@@ -172,7 +172,7 @@ function getChecked(form,name){return [...form.querySelectorAll(`input[name="${n
 function formatDate(value){return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",year:"numeric"}).format(new Date(`${value}T12:00:00`))}
 function chooseRegion(data){
   if(data.region!=="auto")return data.region;
-  const hasMachines=data.toys.some(x=>x!=="none");
+  const hasMachines=data.toys.some(x=>x!=="none")||(data.rentalType&&data.rentalType!=="none");
   if(!hasMachines||data.experience==="first"||data.interests.includes("lakes"))return"florence";
   if(data.experience==="experienced"&&data.tripType!=="day")return"winchester";
   return"coos";
@@ -246,12 +246,13 @@ function regionProfile(key){
 }
 function collectTrip(form){
   const fd=new FormData(form);
-  return{arrival:fd.get("arrival"),departure:fd.get("departure"),region:fd.get("region"),vehicle:fd.get("vehicle"),tripType:fd.get("tripType"),experience:fd.get("experience"),partySize:Number(fd.get("partySize")||1),toys:getChecked(form,"toys"),crew:getChecked(form,"crew"),interests:getChecked(form,"interests")}
+  return{arrival:fd.get("arrival"),departure:fd.get("departure"),region:fd.get("region"),vehicle:fd.get("vehicle"),tripType:fd.get("tripType"),rentalType:fd.get("rentalType")||"none",experience:fd.get("experience"),partySize:Number(fd.get("partySize")||1),toys:getChecked(form,"toys"),crew:getChecked(form,"crew"),interests:getChecked(form,"interests")}
 }
 function buildTrip(data){
   const start=new Date(`${data.arrival}T12:00:00`),end=new Date(`${data.departure}T12:00:00`);
   const days=Math.round((end-start)/86400000)+1,regionKey=chooseRegion(data),region=regionProfile(regionKey);
-  const hasMachines=data.toys.some(x=>x!=="none"),isDay=data.tripType==="day";
+  const needsRental=data.rentalType&&data.rentalType!=="none";
+  const hasMachines=data.toys.some(x=>x!=="none")||needsRental,isDay=data.tripType==="day";
   const itinerary=[];
   itinerary.push(["Arrive with daylight",isDay?`Start early in ${region.base}, confirm current access, and stage at ${region.ride}.`:`Settle into ${region.camp}. Confirm weather, closures, maps, and the next morning's access before reliable service fades.`]);
   if(days>1)itinerary.push([hasMachines?"Primary riding day":"Dunes and lake day",hasMachines?`Begin early in ${region.ride}. Use a conservative first loop to read the sand, regroup often, and finish with daylight in reserve.`:`Explore a permitted dune trail in the morning, then add a freshwater lake or forest-edge walk after lunch.`]);
@@ -266,6 +267,10 @@ function buildTrip(data){
   if(data.crew.includes("dog"))alerts.push(["Dog and habitat plan","Check campground and beach rules, carry a leash, protect paws from hot sand, and keep pets far from signed snowy plover habitat."]);
   if(data.crew.includes("campfire"))alerts.push(["Fire plan","Confirm same-day fire restrictions with the managing agency. Carry an extinguisher and never assume a fire is allowed because a ring is present."]);
   if(data.experience==="first"&&hasMachines)alerts.push(["First-hour rule","Use a low-consequence practice area, shorten the first loop, and learn current ridge and slip-face conditions before adding speed."]);
+  if(needsRental){
+    const rentalName={quad:"ATV / quad",sxs:"side-by-side / UTV",bike:"dirt bike",unsure:"rental machine"}[data.rentalType]||"rental machine";
+    alerts.push(["Reserve your rental early",`Ask the rental company about ${rentalName} availability, operator age and license rules, deposits, insurance, safety gear, training, delivery or staging location, fuel, and cancellation terms. Confirm exactly where the machine may be ridden.`]);
+  }
   if(data.interests.includes("towns")){
     alerts.push(["Public parking near your town stops",`<span class="parking-links">${region.parking.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><small>${item.note}</small></a>`).join("")}</span>`]);
     alerts.push(["Weather, rain attire & roads",`<span id="plannerWeatherAlert" class="weather-outlook" aria-live="polite">Checking the forecast for ${region.base} and your trip dates…</span>`]);
@@ -276,6 +281,7 @@ function buildTrip(data){
   if(data.crew.includes("youth"))checklist.push("Youth training records, supervision plan, and correctly sized machine");
   if(data.crew.includes("dog"))checklist.push("Leash, water bowl, waste bags, towel, and pet-safe backup activity");
   if(data.interests.includes("wildlife"))checklist.push("Binoculars and long lens for distance-respecting wildlife viewing");
+  if(needsRental)checklist.push("Rental confirmation, operator documents, deposit method, pickup time, included safety gear, and after-hours contact");
   return{...data,days,regionKey,region,itinerary,alerts,checklist,hasMachines}
 }
 function plannerDate(value){return new Date(`${value}T12:00:00`)}
