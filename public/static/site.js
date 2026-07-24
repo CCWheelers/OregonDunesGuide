@@ -221,7 +221,7 @@ function renderTrip(plan){
   result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${plan.region.headline}. ${plan.region.summary}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="sharePlan" aria-expanded="false" aria-controls="planShareMenu">Share plan</button><button type="button" id="editPlan">Edit answers</button>
     <div class="plan-share-menu" id="planShareMenu" role="dialog" aria-label="Share this trip plan" hidden>
       <div class="plan-share-heading"><div><span>SHARE THIS PLAN</span><b>Choose where to send it.</b></div><button type="button" id="closePlanShare" aria-label="Close share options">×</button></div>
-      <button type="button" class="plan-share-option" id="shareMessenger"><span>M</span><div><b>Messenger</b><small>Send with the Messenger app</small></div><i>→</i></button>
+      <a class="plan-share-option" id="shareMessenger" href="https://www.messenger.com/" target="_blank" rel="noreferrer"><span>M</span><div><b>Messenger</b><small>Copy the plan, then open Messenger</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareEmail"><span>@</span><div><b>Email</b><small>Open a ready-to-send message</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareText"><span>TXT</span><div><b>Text</b><small>Send by SMS or iMessage</small></div><i>→</i></a>
       <p class="plan-share-feedback" id="planShareFeedback" aria-live="polite"></p>
@@ -252,14 +252,9 @@ function renderTrip(plan){
   textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`;
   textLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   document.getElementById("shareMessenger").addEventListener("click",async()=>{
-    shareFeedback.textContent="";
-    if(navigator.share){
-      try{await navigator.share({title:shareTitle,text:shareSummary,url:plannerUrl});shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");return}
-      catch(error){if(error?.name==="AbortError")return}
-    }
-    try{await navigator.clipboard.writeText(shareMessage);shareFeedback.textContent="Plan copied—paste it into Messenger."}
-    catch{shareFeedback.textContent="Messenger opened. Copy the plan above if needed."}
-    window.open("https://www.messenger.com/","_blank","noopener,noreferrer");
+    shareFeedback.textContent="Plan copied—choose a conversation and paste it into Messenger.";
+    try{await navigator.clipboard.writeText(shareMessage)}
+    catch{shareFeedback.textContent="Messenger opened, but this browser blocked copying. Email and Text remain available here."}
   });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
   result.scrollIntoView({behavior:"smooth",block:"start"});
