@@ -102,9 +102,9 @@ function renderMap(){
   const zoneLayer=L.layerGroup().addTo(map);
   const markerColors={town:"#235f77",staging:"#e25b34",campground:"#7e8c43",riding:"#c28d3a",parts:"#6f4c89"};
   const ridingZones=[
-    {id:"siltcoos",bounds:[[43.965,-124.151],[43.965,-124.112],[43.875,-124.105],[43.872,-124.153]]},
-    {id:"umpqua",bounds:[[43.695,-124.225],[43.690,-124.174],[43.565,-124.170],[43.560,-124.232]]},
-    {id:"horsfall",bounds:[[43.585,-124.226],[43.581,-124.183],[43.424,-124.202],[43.421,-124.273]]}
+    {id:"siltcoos",color:"#e25b34",bounds:[[43.965,-124.151],[43.965,-124.112],[43.875,-124.105],[43.872,-124.153]]},
+    {id:"umpqua",color:"#c28d3a",bounds:[[43.695,-124.225],[43.690,-124.174],[43.565,-124.170],[43.560,-124.232]]},
+    {id:"horsfall",color:"#3f8c79",bounds:[[43.585,-124.226],[43.581,-124.183],[43.424,-124.202],[43.421,-124.273]]}
   ];
   let selectedId=mapPlaces[0].id;
   let activeFilter="all";
@@ -127,7 +127,7 @@ function renderMap(){
     const visible=activeFilter==="all"?mapPlaces:mapPlaces.filter(place=>place.type===activeFilter);
     if(activeFilter==="all"||activeFilter==="riding")ridingZones.forEach(zone=>{
       const place=mapPlaces.find(item=>item.id===zone.id);
-      L.polygon(zone.bounds,{color:"#d99a32",weight:2,fillColor:"#efcd7b",fillOpacity:.22,dashArray:"7 6"}).on("click",()=>place&&showPlace(place)).addTo(zoneLayer);
+      L.polygon(zone.bounds,{color:zone.color,weight:2,fillColor:zone.color,fillOpacity:.24,dashArray:"7 6"}).on("click",()=>place&&showPlace(place)).addTo(zoneLayer);
     });
     visible.forEach(place=>{
       const icon=L.divIcon({className:"leaflet-place-icon",html:`<span class="leaflet-place-dot" style="--marker-color:${markerColors[place.type]}"></span><b>${place.name}</b>`,iconSize:[20,20],iconAnchor:[10,10]});

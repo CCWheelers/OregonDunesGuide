@@ -23,6 +23,20 @@
     <section class="sub-hero"><div class="shell"><p class="kicker">MAPS & ORIENTATION</p><h1>Read the coast<br>north to south.</h1><p>Compare three dune regions, staging areas, campgrounds, and service towns. This is a planning overview—carry current official maps in the field.</p></div></section>
     <section class="map-section shell">
       <div class="map-toolbar"><div><small>WHAT DO YOU WANT TO FIND?</small><div class="map-filters" role="group" aria-label="Map filters"><button class="active" data-filter="all">All places</button><button data-filter="riding">Riding areas</button><button data-filter="staging">Staging</button><button data-filter="campground">Camping</button><button data-filter="town">Towns</button><button data-filter="parts">Parts & gear</button></div></div><div><small>CHOOSE A MAP VIEW</small><div class="map-filters map-style-filters" role="group" aria-label="Map background"><button class="active" data-basemap="street">Street</button><button data-basemap="terrain">Terrain</button><button data-basemap="satellite">Satellite</button></div></div><p>Zoom, drag, and select a marker for details, GPS directions, and regional riding guides.</p></div>
+      <aside class="map-legend" aria-label="Map color key">
+        <div><h2>Zones</h2><ul>
+          <li><i class="zone-swatch zone-florence" aria-hidden="true"></i><p><strong>Florence / North:</strong> South Jetty through Siltcoos, with open sand, forest-edge routes, lakes, and several staging choices.</p></li>
+          <li><i class="zone-swatch zone-winchester" aria-hidden="true"></i><p><strong>Winchester Bay / Central:</strong> the Umpqua Dunes region, known for large exposed dunes and rapidly changing wind-shaped terrain.</p></li>
+          <li><i class="zone-swatch zone-coos" aria-hidden="true"></i><p><strong>Coos Bay / South:</strong> Spinreel through Horsfall, with riding routes, staging, camp access, and nearby North Bend services.</p></li>
+        </ul></div>
+        <div><h2>Points of interest</h2><ul class="poi-key">
+          <li><i class="poi-dot poi-riding" aria-hidden="true"></i><p><strong>Riding area</strong><span>Regional riding guide and approximate zone</span></p></li>
+          <li><i class="poi-dot poi-staging" aria-hidden="true"></i><p><strong>OHV staging</strong><span>Day-use parking and riding access</span></p></li>
+          <li><i class="poi-dot poi-campground" aria-hidden="true"></i><p><strong>Campground</strong><span>Developed or OHV-oriented overnight base</span></p></li>
+          <li><i class="poi-dot poi-town" aria-hidden="true"></i><p><strong>Gateway town</strong><span>Food, fuel, lodging, and visitor services</span></p></li>
+          <li><i class="poi-dot poi-parts" aria-hidden="true"></i><p><strong>Parts & gear</strong><span>Machine parts, repairs, tires, or riding equipment</span></p></li>
+        </ul></div>
+      </aside>
       <div class="map-grid">
         <div class="map-canvas real-coast-map" id="mapCanvas" aria-label="Interactive Oregon Dunes coast map"></div>
         <aside class="map-detail" id="mapDetail" aria-live="polite"></aside>
