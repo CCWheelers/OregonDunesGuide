@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maps · Oregon Dunes Field Guide</title>
+  <meta name="description" content="Interactive overview of Oregon Dunes towns, staging areas, campgrounds, and riding zones.">
+  <link rel="icon" href="public/favicon.svg">
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/site.js" defer></script>
+</head>
+<body data-page="maps">
+  <header class="site-header">
+    <a class="brand" href="index.html">OD <span>FIELD<br>GUIDE</span></a>
+    <nav aria-label="Main navigation"><a href="guide.html?topic=camping">Camp</a><a href="guide.html?topic=riding">Ride</a><a href="maps.html" aria-current="page">Maps</a><a href="weather.html">Weather</a><a href="tides.html">Tides</a>
+      <a href="day-use.html">Day Use</a><a href="gas.html">Gas Prices</a><a href="history.html">History</a><a href="rules.html">Rules</a><a href="guide.html?topic=safety">Safety</a><a href="guide.html?topic=towns">Towns</a><a href="guide.html?topic=wildlife">Wildlife</a></nav>
+    <a class="header-cta" href="planner.html">Plan a trip ↗</a>
+    <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </header>
+  <main>
+    <section class="sub-hero"><div class="shell"><p class="kicker">MAPS & ORIENTATION</p><h1>Read the coast<br>north to south.</h1><p>Compare three dune regions, staging areas, campgrounds, and service towns. This is a planning overview—carry current official maps in the field.</p></div></section>
+    <section class="map-section shell">
+      <div class="map-toolbar"><div><small>FILTER THE OVERVIEW</small><div class="map-filters" role="group" aria-label="Map filters"><button class="active" data-filter="all">All places</button><button data-filter="staging">Staging</button><button data-filter="campground">Camping</button><button data-filter="riding">Riding zones</button><button data-filter="town">Towns</button></div></div><p>Click a location to see access notes and directions.</p></div>
+      <div class="map-grid">
+        <div class="map-canvas" id="mapCanvas" aria-label="Stylized north-to-south Oregon Dunes map"><div class="ocean">PACIFIC<br>OCEAN</div><div class="coast"></div><div class="forest"></div><div class="region-line north"><span>FLORENCE</span></div><div class="region-line central"><span>WINCHESTER BAY</span></div><div class="region-line south"><span>COOS BAY</span></div><div class="highway">US 101</div></div>
+        <aside class="map-detail" id="mapDetail" aria-live="polite"></aside>
+      </div>
+    </section>
+    <section class="official-band"><div class="shell split"><div><p class="section-label pale">TAKE THE RIGHT MAP</p><h2>Overview here.<br><i>Official map in hand.</i></h2></div><div class="official-links"><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv" target="_blank" rel="noreferrer"><b>Forest Service OHV hub</b><span>Riding areas, notices, and map resources ↗</span></a><a href="https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5259370.pdf" target="_blank" rel="noreferrer"><b>Oregon Dunes OHV map</b><span>Official riding-area overview PDF ↗</span></a><a href="https://www.oregon.gov/oprd/atv/pages/atv-places-to-ride.aspx" target="_blank" rel="noreferrer"><b>Oregon places to ride</b><span>State riding guidance and resources ↗</span></a></div></div></section>
+  </main>
+  <footer><div class="shell"><a href="index.html">← Back home</a><p>Interactive planning overview · Not for backcountry navigation.</p><span>Oregon Dunes Field Guide</span></div></footer>
+</body>
+</html>

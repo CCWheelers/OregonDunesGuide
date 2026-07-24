@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gas Prices Near the Oregon Dunes | Field Guide</title>
+  <meta name="description" content="Find live gas prices near Florence, Winchester Bay, Reedsport, and Coos Bay, plus calculate fuel costs for an Oregon Dunes trip.">
+  <meta property="og:title" content="Gas Prices Near the Oregon Dunes">
+  <meta property="og:description" content="Compare Oregon fuel averages, find nearby stations, and estimate the cost of your dunes trip.">
+  <meta property="og:image" content="/og-v2.png">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/site.js" defer></script>
+  <script src="static/gas.js" defer></script>
+</head>
+<body data-page="gas">
+  <header class="site-header">
+    <a class="brand" href="index.html">OD <span>FIELD<br>GUIDE</span></a>
+    <nav aria-label="Main navigation">
+      <a href="guide.html?topic=camping">Camp</a>
+      <a href="guide.html?topic=riding">Ride</a>
+      <a href="maps.html">Maps</a>
+      <a href="weather.html">Weather</a>
+      <a href="tides.html">Tides</a>
+      <a href="day-use.html">Day Use</a>
+      <a href="gas.html" aria-current="page">Gas Prices</a>
+      <a href="history.html">History</a>
+      <a href="rules.html">Rules</a>
+      <a href="guide.html?topic=safety">Safety</a>
+      <a href="guide.html?topic=towns">Towns</a>
+      <a href="guide.html?topic=wildlife">Wildlife</a>
+    </nav>
+    <a class="header-cta" href="planner.html">Plan a trip ↗</a>
+    <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </header>
+
+  <main>
+    <section class="gas-hero">
+      <div class="shell gas-hero-grid">
+        <div>
+          <p class="kicker">OREGON DUNES FUEL GUIDE</p>
+          <h1>Fuel the rig.<br><i>Feed the weekend.</i></h1>
+          <p>Tow rigs are thirsty, coastal stations can be limited, and there is no fuel in the riding areas. Compare live sources, choose a gateway, and calculate the full trip before the pump surprises you.</p>
+        </div>
+        <aside class="gas-hero-note">
+          <span>FIELD RULE 01</span>
+          <h2>Arrive full.</h2>
+          <p>Top off the tow vehicle, machines, approved cans, and generator before staging. A fuel run after camp is set costs riding time.</p>
+          <a href="#price-board">Check Oregon averages ↓</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="gas-regions shell">
+      <div class="gas-section-heading">
+        <div><p class="section-label">WHERE TO FILL UP</p><h2>Three gateways.<br><i>One simple rule.</i></h2></div>
+        <p>Station prices change throughout the day. The links below open current nearby listings so you can compare before committing a trailer to the coast.</p>
+      </div>
+      <div class="gas-region-grid">
+        <article>
+          <span>01 · NORTH DUNES</span>
+          <h3>Florence</h3>
+          <p>Fuel in Florence before heading to South Jetty, Honeyman, or Siltcoos. US 101 has the broadest selection; services thin out toward staging.</p>
+          <a href="https://www.google.com/maps/search/gas+stations+near+Florence,+OR/" target="_blank" rel="noreferrer">View live station prices ↗</a>
+        </article>
+        <article>
+          <span>02 · CENTRAL DUNES</span>
+          <h3>Reedsport &amp; Winchester Bay</h3>
+          <p>Reedsport is the practical full-service stop. Fill the rig and cans there before continuing to Winchester Bay and Umpqua Dunes access.</p>
+          <a href="https://www.google.com/maps/search/gas+stations+near+Reedsport,+OR/" target="_blank" rel="noreferrer">View live station prices ↗</a>
+        </article>
+        <article>
+          <span>03 · SOUTH DUNES</span>
+          <h3>Coos Bay &amp; North Bend</h3>
+          <p>The south-coast hub offers the largest station selection near Spinreel, Horsfall, and Riley Ranch. Compare in town before heading west.</p>
+          <a href="https://www.google.com/maps/search/gas+stations+near+Coos+Bay,+OR/" target="_blank" rel="noreferrer">View live station prices ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="gas-price-board" id="price-board">
+      <div class="shell">
+        <div class="gas-board-heading">
+          <div><p class="section-label pale">LIVE OREGON PRICE BOARD</p><h2>Know the number<br><i>before the nozzle.</i></h2></div>
+          <div><p>AAA’s Oregon averages are updated regularly and provide a useful statewide benchmark. Individual coastal stations may be higher or lower.</p><a class="button sand" href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">Open AAA in a new tab ↗</a></div>
+        </div>
+        <div class="aaa-frame-wrap">
+          <iframe src="https://gasprices.aaa.com/?state=OR" title="AAA Oregon average gas prices" loading="lazy"></iframe>
+          <p>If the live board does not appear, <a href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">open AAA Gas Prices directly ↗</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fuel-calculator-section shell">
+      <div class="gas-section-heading">
+        <div><p class="section-label">TRIP FUEL CALCULATOR</p><h2>Budget the haul<br><i>and the toys.</i></h2></div>
+        <p>Enter the current price you found above. The estimate combines highway fuel with the extra gallons you expect to use in machines, approved cans, or a generator.</p>
+      </div>
+      <form class="fuel-calculator" id="fuelCalculator">
+        <label>Round-trip road miles<input type="number" name="miles" min="0" step="1" value="300" required></label>
+        <label>Tow vehicle MPG<input type="number" name="mpg" min="1" step="0.1" value="10" required></label>
+        <label>Extra dune &amp; camp gallons<input type="number" name="extraGallons" min="0" step="0.1" value="15" required></label>
+        <label>Current price per gallon<input type="number" name="price" min="0.01" step="0.001" placeholder="Enter live price" required></label>
+        <button type="submit">Calculate trip fuel <span>→</span></button>
+      </form>
+      <div class="fuel-result" id="fuelResult" aria-live="polite" hidden>
+        <div><span>ROAD FUEL</span><b id="roadGallons">0 gal</b></div>
+        <div><span>EXTRA FUEL</span><b id="extraGallonsResult">0 gal</b></div>
+        <div><span>TOTAL FUEL</span><b id="totalGallons">0 gal</b></div>
+        <div class="fuel-total"><span>ESTIMATED COST</span><b id="fuelCost">$0</b></div>
+      </div>
+    </section>
+
+    <section class="gas-field-notes">
+      <div class="shell">
+        <div class="gas-section-heading"><div><p class="section-label pale">FUEL FIELD NOTES</p><h2>Save the detour.<br><i>Pack the right way.</i></h2></div><p>Fuel is ordinary until you need it miles from the pavement. Plan supply stops with the same care as permits and weather.</p></div>
+        <div class="gas-note-grid">
+          <article><span>01</span><h3>Fill before staging</h3><p>Do the grocery, ice, potable-water, and fuel stops together. Confirm station access if your trailer needs a wide turn.</p></article>
+          <article><span>02</span><h3>Use approved containers</h3><p>Secure fuel upright, protect it from heat, and keep it outside passenger compartments. Follow campground and fire restrictions.</p></article>
+          <article><span>03</span><h3>Match the machine</h3><p>Verify octane and fuel requirements for every OHV and generator. Label cans when your group carries more than one fuel type.</p></article>
+          <article><span>04</span><h3>Keep a return reserve</h3><p>Do not plan to arrive back at camp empty. Wind, recovery work, and route changes can all increase consumption.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><a href="index.html">← Back home</a><p>Prices change frequently. Verify the displayed price at the station before fueling.</p><span>Oregon Dunes Field Guide</span></div></footer>
+</body>
+</html>

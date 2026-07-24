@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Planner · Oregon Dunes Field Guide</title>
+  <meta name="description" content="Build a personalized Oregon Dunes itinerary, camp plan, safety brief, and packing checklist.">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/site.js" defer></script>
+</head>
+<body data-page="planner">
+  <header class="site-header">
+    <a class="brand" href="index.html">OD <span>FIELD<br>GUIDE</span></a>
+    <nav aria-label="Main navigation"><a href="guide.html?topic=camping">Camp</a><a href="guide.html?topic=riding">Ride</a><a href="maps.html">Maps</a><a href="weather.html">Weather</a><a href="tides.html">Tides</a>
+      <a href="day-use.html">Day Use</a><a href="gas.html">Gas Prices</a><a href="history.html">History</a><a href="rules.html">Rules</a><a href="guide.html?topic=safety">Safety</a><a href="guide.html?topic=towns">Towns</a><a href="guide.html?topic=wildlife">Wildlife</a></nav>
+    <a class="header-cta" href="planner.html" aria-current="page">Trip planner ↗</a>
+    <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </header>
+
+  <main>
+    <section class="planner-hero">
+      <div class="shell">
+        <p class="kicker">FREE OREGON DUNES TRIP PLANNER</p>
+        <h1>Tell us your setup.<br><i>We'll shape the weekend.</i></h1>
+        <p>Choose your dates, rig, crew, and interests. The planner will recommend a dune region and build an original day-by-day plan, camp strategy, safety brief, and checklist.</p>
+        <div class="planner-promises"><span>✓ Saved on this device</span><span>✓ Printable plan</span><span>✓ No account needed</span></div>
+      </div>
+    </section>
+
+    <section class="planner-intro shell">
+      <article><span>01</span><div><h2>Pick a coast window</h2><p>Dates determine trip length and how much flexibility to build in.</p></div></article>
+      <article><span>02</span><div><h2>Describe your setup</h2><p>Your vehicle, trailer, machines, and crew change the right base.</p></div></article>
+      <article><span>03</span><div><h2>Get a field-ready plan</h2><p>Receive a regional match, itinerary, safety notes, and checklist.</p></div></article>
+    </section>
+
+    <section class="planner-shell shell">
+      <form id="tripPlannerForm" class="planner-form" action="#" onsubmit="return false">
+        <div class="form-heading"><p class="section-label">BUILD YOUR TRIP</p><h2>A few useful details.</h2><p>Nothing is sent anywhere. Your choices stay in this browser.</p></div>
+
+        <fieldset>
+          <legend><span>01</span> Dates & region</legend>
+          <div class="form-grid two">
+            <label>Arriving<input type="date" name="arrival" required></label>
+            <label>Leaving<input type="date" name="departure" required></label>
+          </div>
+          <label>Preferred base
+            <select name="region">
+              <option value="auto">Recommend one for me</option>
+              <option value="florence">Florence / Siltcoos</option>
+              <option value="winchester">Winchester Bay / Umpqua Dunes</option>
+              <option value="coos">Coos Bay / Horsfall</option>
+            </select>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span>02</span> Vehicle & stay</legend>
+          <p class="field-help">What are you bringing to the coast?</p>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="vehicle" value="4wd" checked><span><b>4WD truck or SUV</b><small>Flexible day-use access</small></span></label>
+            <label class="choice"><input type="radio" name="vehicle" value="2wd"><span><b>2WD vehicle</b><small>Stick to firm developed access</small></span></label>
+            <label class="choice"><input type="radio" name="vehicle" value="rv"><span><b>RV or trailer in tow</b><small>Plan turning room and camp access</small></span></label>
+          </div>
+          <p class="field-help">How will you use the dunes?</p>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="tripType" value="camping" checked><span><b>Camping overnight</b><small>Developed or OHV-oriented base</small></span></label>
+            <label class="choice"><input type="radio" name="tripType" value="offsite"><span><b>Town lodging</b><small>Hotel or RV park, riding by day</small></span></label>
+            <label class="choice"><input type="radio" name="tripType" value="day"><span><b>Day trip</b><small>Stage, explore, and leave before dark</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span>03</span> Machines & experience</legend>
+          <p class="field-help">Bringing any off-highway vehicles?</p>
+          <div class="check-grid">
+            <label class="check"><input type="checkbox" name="toys" value="quad"><span>ATVs / quads</span></label>
+            <label class="check"><input type="checkbox" name="toys" value="sxs"><span>Side-by-side / UTV</span></label>
+            <label class="check"><input type="checkbox" name="toys" value="bike"><span>Dirt bikes</span></label>
+            <label class="check"><input type="checkbox" name="toys" value="none"><span>No machines</span></label>
+          </div>
+          <div class="form-grid two">
+            <label>Dune experience
+              <select name="experience"><option value="first">First dune trip</option><option value="some">Some dune experience</option><option value="experienced">Experienced group</option></select>
+            </label>
+            <label>People in your group<input type="number" name="partySize" min="1" max="30" value="2"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span>04</span> Crew & priorities</legend>
+          <div class="check-grid">
+            <label class="check"><input type="checkbox" name="crew" value="youth"><span>Riders under 16</span></label>
+            <label class="check"><input type="checkbox" name="crew" value="dog"><span>Bringing a dog</span></label>
+            <label class="check"><input type="checkbox" name="crew" value="campfire"><span>Hope to have a campfire</span></label>
+            <label class="check"><input type="checkbox" name="crew" value="accessibility"><span>Need easy-access options</span></label>
+          </div>
+          <p class="field-help">What should the trip make room for?</p>
+          <div class="check-grid">
+            <label class="check"><input type="checkbox" name="interests" value="lakes"><span>Lakes & paddling</span></label>
+            <label class="check"><input type="checkbox" name="interests" value="wildlife"><span>Wildlife watching</span></label>
+            <label class="check"><input type="checkbox" name="interests" value="towns"><span>Local food & towns</span></label>
+            <label class="check"><input type="checkbox" name="interests" value="hiking"><span>Hiking & photography</span></label>
+          </div>
+        </fieldset>
+
+        <div id="plannerError" class="planner-error" role="alert"></div>
+        <button class="build-button" type="submit">Build my Oregon Dunes plan <span>↗</span></button>
+        <button class="clear-button" type="button" id="clearTrip">Clear saved trip</button>
+      </form>
+
+      <section id="tripPlan" class="trip-plan" hidden aria-live="polite"></section>
+    </section>
+  </main>
+
+  <footer><div class="shell"><a href="index.html">← Back home</a><p>Planning support only · Verify current conditions, closures, permits, and reservations with official agencies.</p><span>Oregon Dunes Field Guide</span></div></footer>
+</body>
+</html>
