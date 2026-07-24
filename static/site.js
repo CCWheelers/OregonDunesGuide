@@ -218,14 +218,49 @@ function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
   const tripLabel=plan.tripType==="camping"?"Camping":plan.tripType==="offsite"?"Town lodging":"Day trip";
   result.hidden=false;
-  result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${plan.region.headline}. ${plan.region.summary}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="copyPlan">Copy summary</button><button type="button" id="editPlan">Edit answers</button></div></div>
+  result.innerHTML=`<div class="plan-top"><div><p class="kicker">YOUR PERSONALIZED PLAN</p><h2>${plan.region.name}</h2><p>${plan.region.headline}. ${plan.region.summary}</p></div><div class="plan-actions"><button type="button" id="printPlan">Print / Save PDF</button><button type="button" id="sharePlan" aria-expanded="false" aria-controls="planShareMenu">Share plan</button><button type="button" id="editPlan">Edit answers</button>
+    <div class="plan-share-menu" id="planShareMenu" role="dialog" aria-label="Share this trip plan" hidden>
+      <div class="plan-share-heading"><div><span>SHARE THIS PLAN</span><b>Choose where to send it.</b></div><button type="button" id="closePlanShare" aria-label="Close share options">×</button></div>
+      <button type="button" class="plan-share-option" id="shareMessenger"><span>M</span><div><b>Messenger</b><small>Send with the Messenger app</small></div><i>→</i></button>
+      <a class="plan-share-option" id="shareEmail"><span>@</span><div><b>Email</b><small>Open a ready-to-send message</small></div><i>→</i></a>
+      <a class="plan-share-option" id="shareText"><span>TXT</span><div><b>Text</b><small>Send by SMS or iMessage</small></div><i>→</i></a>
+      <p class="plan-share-feedback" id="planShareFeedback" aria-live="polite"></p>
+    </div>
+  </div></div>
   <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>Crew</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
   <section class="plan-section"><p class="section-label">KNOW BEFORE YOU GO</p><h2>Your trip-specific notes</h2><div class="alert-grid">${plan.alerts.map(x=>`<article class="plan-alert"><b>${x[0]}</b><p>${x[1]}</p></article>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>A plan with breathing room</h2><div class="itinerary">${plan.itinerary.map((x,i)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${i+1}</b></div><div class="day-copy"><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Your personalized checklist</h2><div class="checklist-columns">${plan.checklist.map(x=>`<div class="checklist-item">${x}</div>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">PRIMARY SOURCES</p><h2>Verify before the wheels turn</h2><div class="plan-sources"><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv" target="_blank" rel="noreferrer"><b>Forest Service OHV</b><span>Maps, alerts, and access ↗</span></a><a href="https://www.oregon.gov/oprd/atv/pages/atv-overview.aspx" target="_blank" rel="noreferrer"><b>Oregon ATV Program</b><span>Permits and safety rules ↗</span></a><a href="maps.html"><b>Field Guide Map</b><span>Compare regions and staging →</span></a></div></section>`;
   document.getElementById("printPlan").addEventListener("click",()=>window.print());
-  document.getElementById("copyPlan").addEventListener("click",async e=>{const summary=`Oregon Dunes trip: ${plan.region.name}, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;try{await navigator.clipboard.writeText(summary);e.currentTarget.textContent="Copied"}catch{e.currentTarget.textContent="Copy unavailable"}});
+  const shareButton=document.getElementById("sharePlan");
+  const shareMenu=document.getElementById("planShareMenu");
+  const closeShareButton=document.getElementById("closePlanShare");
+  const shareFeedback=document.getElementById("planShareFeedback");
+  const plannerUrl=new URL("planner.html",window.location.href).href;
+  const shareTitle="My Oregon Dunes trip plan";
+  const shareSummary=`Oregon Dunes trip: ${plan.region.name}, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;
+  const shareMessage=`${shareSummary}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`;
+  const closeShare=()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");shareButton.focus()};
+  shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
+  closeShareButton.addEventListener("click",closeShare);
+  shareMenu.addEventListener("keydown",event=>{if(event.key==="Escape"){event.preventDefault();closeShare()}});
+  const emailLink=document.getElementById("shareEmail");
+  emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;
+  emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
+  const textLink=document.getElementById("shareText");
+  textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`;
+  textLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
+  document.getElementById("shareMessenger").addEventListener("click",async()=>{
+    shareFeedback.textContent="";
+    if(navigator.share){
+      try{await navigator.share({title:shareTitle,text:shareSummary,url:plannerUrl});shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");return}
+      catch(error){if(error?.name==="AbortError")return}
+    }
+    try{await navigator.clipboard.writeText(shareMessage);shareFeedback.textContent="Plan copied—paste it into Messenger."}
+    catch{shareFeedback.textContent="Messenger opened. Copy the plan above if needed."}
+    window.open("https://www.messenger.com/","_blank","noopener,noreferrer");
+  });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
   result.scrollIntoView({behavior:"smooth",block:"start"});
 }
