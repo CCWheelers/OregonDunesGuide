@@ -180,7 +180,7 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
 .camp-dog-planner{margin-top:26px;padding:28px 30px;background:var(--ink);color:white;border-left:4px solid var(--orange)}.camp-dog-planner>span{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:#efcd95}.camp-dog-planner>b{display:block;margin:10px 0 6px;font-family:"Cormorant Garamond",serif;font-size:27px}.camp-dog-planner>p{margin:0 0 18px!important;font-size:14px!important;line-height:1.6!important;color:rgba(255,255,255,.72)!important}.camp-dog-planner>a{font-size:12px;font-weight:800;color:#efcd95;border-bottom:1px solid rgba(239,205,149,.55);padding-bottom:4px}
 
 /* Photographic interactive-map location details */
-.map-detail{background-image:linear-gradient(180deg,rgba(7,39,37,.76),rgba(7,39,37,.94)),var(--place-image);background-position:center;background-size:cover;color:white;transition:background-image .25s ease}
+.map-detail{background-image:linear-gradient(180deg,rgba(7,39,37,.48),rgba(7,39,37,.80)),var(--place-image);background-position:center;background-size:cover;color:white;transition:background-image .25s ease;text-shadow:0 1px 3px rgba(0,0,0,.34)}
 .map-detail .region-name{color:rgba(255,255,255,.68)}
 .map-detail h2,.map-detail dd{color:white}
 .map-detail>p{color:rgba(255,255,255,.82)}
@@ -197,6 +197,7 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
 .map-detail-actions{display:flex;flex-direction:column;gap:14px;margin-top:auto}
 .map-detail-actions .button{margin-top:0;text-align:center}
 .map-gps-link{align-self:flex-start;color:#ffd17a;font-size:14px;font-weight:800;border-bottom:1px solid rgba(255,209,122,.55);padding-bottom:4px}
+.maps-official{background:linear-gradient(90deg,rgba(8,46,43,.94),rgba(8,46,43,.79)),url("/images/hero-maps.webp") center 54%/cover}
 .map-style-filters button{min-width:74px}
 .map-legend{display:grid;grid-template-columns:1fr 1fr;gap:45px;padding:28px 30px;background:#fffaf0;border:1px solid rgba(21,63,60,.16);border-top:0}
 .map-legend h2{margin:0 0 15px;font-family:"Cormorant Garamond",serif;font-size:25px}
