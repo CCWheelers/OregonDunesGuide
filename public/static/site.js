@@ -182,7 +182,22 @@ function regionProfile(key){
     florence:{name:"Florence & Siltcoos",base:"Florence",latitude:43.9826,longitude:-124.0998,headline:"A flexible north-dunes base",summary:"A balanced choice for first-time dune visitors, mixed-interest crews, freshwater lakes, South Jetty staging, and the varied Siltcoos area.",ride:"South Jetty and Siltcoos",camp:"Honeyman or a nearby Forest Service campground",backup:"Old Town Florence, a lake walk, or a sheltered forest outing",parking:[
       {name:"Official Old Town parking map",note:"Shows public areas, 3-hour zones, day-use areas, and 7-foot vehicle-height restrictions. RVs and trailers are not allowed in restricted Old Town zones.",url:"https://www.ci.florence.or.us/918/4740/Old-Town-Parking"},
       {name:"Navigate to Old Town parking",note:"Open directions near Bay Street, then follow posted signs because limits vary by block and lot.",url:"https://www.google.com/maps/search/?api=1&query=public+parking+Old+Town+Florence+Oregon"}
-    ],localStops:{
+    ],stays:{
+      rv:[
+        {name:"Jessie M. Honeyman State Park",note:"Large state-park campground south of Florence with RV sites, dunes access nearby, and easy access to town services.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95"},
+        {name:"Port of Siuslaw Campground & Marina",note:"Riverfront RV camping within walking distance of Historic Old Town Florence restaurants and shops.",url:"https://www.google.com/maps/search/?api=1&query=Port+of+Siuslaw+Campground+and+Marina+Florence+Oregon"},
+        {name:"Florence RV and campground directory",note:"Compare additional private parks and public campgrounds around Florence, Siltcoos, and the dunes.",url:"https://florencechamber.com/lodging/"}
+      ],
+      lodging:[
+        {name:"Driftwood Shores Resort",note:"Oceanfront rooms north of Florence with beach access, kitchens in many rooms, and an indoor pool.",url:"https://www.google.com/maps/search/?api=1&query=Driftwood+Shores+Resort+Florence+Oregon"},
+        {name:"River House Inn",note:"A riverfront Old Town base within walking distance of Bay Street shopping and dining.",url:"https://www.google.com/maps/search/?api=1&query=River+House+Inn+Florence+Oregon"},
+        {name:"Best Western Pier Point Inn",note:"A scenic river-view hotel with breakfast and quick Highway 101 access south of Old Town.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Pier+Point+Inn+Florence+Oregon"}
+      ],
+      camping:[
+        {name:"Jessie M. Honeyman State Park",note:"A full-service state-park base near Florence with tent sites and easy access to lakes and dunes.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=95"},
+        {name:"Siltcoos-area Forest Service camping",note:"Compare developed campgrounds around Siltcoos Lake and the central Oregon Dunes corridor.",url:"https://www.fs.usda.gov/r06/siuslaw/recreation/camping-cabins"}
+      ]
+    },localStops:{
       shopping:[
         {name:"Historic Old Town Florence",note:"Walk Bay Street for coastal gifts, locally made art, galleries, books, and waterfront views.",url:"https://florencechamber.com/historic-old-town/"},
         {name:"Florence shopping guide",note:"Find antiques, jewelry, outdoor goods, toys, kites, and more locally owned shops around town.",url:"https://florencechamber.com/things-to-do/shopping/"}
@@ -203,7 +218,22 @@ function regionProfile(key){
     winchester:{name:"Winchester Bay & Umpqua Dunes",base:"Winchester Bay",latitude:43.6765,longitude:-124.1751,headline:"Big sand with a compact harbor base",summary:"Best for a riding-centered trip with experienced dune travelers, large open terrain, harbor services, and lighthouse-country backups.",ride:"Umpqua Dunes",camp:"Winchester Bay area camping or Eel Creek",backup:"Umpqua Lighthouse, the harbor, or Reedsport",parking:[
       {name:"Downtown Reedsport public lot",note:"Ten public spaces at Greenwood Avenue and North Fourth Street; posted two-hour limit from 7 a.m. to 7 p.m.",url:"https://www.google.com/maps/dir/?api=1&destination=Greenwood+Avenue+and+North+Fourth+Street+Reedsport+Oregon"},
       {name:"Rainbow Plaza riverfront lot",note:"Passenger and boat-trailer spaces near Riverfront Way, public restrooms, picnic tables, and the Umpqua riverfront. Check kiosk signs for launch-related fees.",url:"https://www.cityofreedsport.org/community/page/rainbow-plaza-boat-launch"}
-    ],localStops:{
+    ],stays:{
+      rv:[
+        {name:"Winchester Bay RV Resort",note:"Waterfront full-hookup RV sites at Salmon Harbor with a compact harbor-town base.",url:"https://www.google.com/maps/search/?api=1&query=Winchester+Bay+RV+Resort+Oregon"},
+        {name:"Half Moon Bay Campground",note:"A Douglas County campground near the harbor, Umpqua Dunes, and lighthouse area.",url:"https://www.google.com/maps/search/?api=1&query=Half+Moon+Bay+Campground+Winchester+Bay+Oregon"},
+        {name:"Salmon Harbor RV Park",note:"A Highway 101 RV option close to Winchester Bay services and dune access routes.",url:"https://www.google.com/maps/search/?api=1&query=Salmon+Harbor+RV+Park+Winchester+Bay+Oregon"}
+      ],
+      lodging:[
+        {name:"Winchester Bay Inn",note:"A small harbor-community hotel close to bayfront restaurants and Umpqua Dunes access.",url:"https://www.google.com/maps/search/?api=1&query=Winchester+Bay+Inn+Oregon"},
+        {name:"Best Western Salbasgeon Inn",note:"A Reedsport hotel with Highway 101 access, useful for groups wanting more town services.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Salbasgeon+Inn+Reedsport+Oregon"},
+        {name:"Umpqua River Inn & Suites",note:"A Reedsport lodging option convenient to groceries, dining, and the Winchester Bay drive.",url:"https://www.google.com/maps/search/?api=1&query=Umpqua+River+Inn+and+Suites+Reedsport+Oregon"}
+      ],
+      camping:[
+        {name:"Half Moon Bay Campground",note:"Harbor-side camping near Winchester Bay, the lighthouse, and Umpqua Dunes.",url:"https://www.google.com/maps/search/?api=1&query=Half+Moon+Bay+Campground+Winchester+Bay+Oregon"},
+        {name:"Umpqua Lighthouse State Park",note:"A state-park campground near Lake Marie and the Umpqua River Lighthouse.",url:"https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=83"}
+      ]
+    },localStops:{
       shopping:[
         {name:"Old Towne Reedsport & Fir Avenue",note:"Browse local art, Oregon gifts, home finds, and small shops in Reedsport’s compact downtown.",url:"https://reedsportcc.org/member-directory/"},
         {name:"Myrtlewood Gallery",note:"A classic Highway 101 stop for Oregon myrtlewood gifts, art, and locally crafted keepsakes.",url:"https://www.google.com/maps/search/?api=1&query=Myrtlewood+Gallery+Reedsport+Oregon"}
@@ -224,7 +254,22 @@ function regionProfile(key){
     coos:{name:"Coos Bay & Horsfall",base:"Coos Bay / North Bend",latitude:43.3665,longitude:-124.2179,headline:"Southern access with the fullest services",summary:"A strong match for groups, trailers, multiple machines, ride-from-camp options, and easy access to repairs, groceries, and town lodging.",ride:"Spinreel to Horsfall",camp:"Spinreel, Horsfall, Bluebill, or Riley Ranch",backup:"Coos Bay, North Bend, Charleston, or a Cape Arago day",parking:[
       {name:"Third Street & Central Avenue lot",note:"A completed public downtown lot close to shops, restaurants, and seasonal community events.",url:"https://www.google.com/maps/dir/?api=1&destination=South+3rd+Street+and+Central+Avenue+Coos+Bay+Oregon"},
       {name:"Visitor Center & Boardwalk parking",note:"Public parking beside the Visitor Information Center at 50 Central Avenue, across from the Boardwalk and City Docks.",url:"https://www.coosbayor.gov/Home/Components/FacilityDirectory/FacilityDirectory/14/35"}
-    ],localStops:{
+    ],stays:{
+      rv:[
+        {name:"Oregon Dunes KOA Holiday",note:"Full-hookup RV sites with direct access toward the dunes and family-oriented campground amenities.",url:"https://www.google.com/maps/search/?api=1&query=Oregon+Dunes+KOA+Holiday+North+Bend+Oregon"},
+        {name:"Riley Ranch County Park",note:"RV and camping options with direct OHV access near the southern dunes and Butterfield Lake.",url:"https://www.google.com/maps/search/?api=1&query=Riley+Ranch+County+Park+North+Bend+Oregon"},
+        {name:"Ko-Kwel Casino Resort RV Park",note:"Full-hookup waterfront RV sites near North Bend dining, entertainment, and town services.",url:"https://www.google.com/maps/search/?api=1&query=Ko-Kwel+Casino+Resort+RV+Park+North+Bend+Oregon"}
+      ],
+      lodging:[
+        {name:"Ko-Kwel Casino Resort Coos Bay",note:"A waterfront North Bend hotel with dining, entertainment, pool, and hot tub amenities.",url:"https://www.google.com/maps/search/?api=1&query=Ko-Kwel+Casino+Resort+Coos+Bay+North+Bend+Oregon"},
+        {name:"Best Western Holiday Hotel",note:"A Coos Bay hotel across from the bay and within walking distance of downtown shopping and dining.",url:"https://www.google.com/maps/search/?api=1&query=Best+Western+Holiday+Hotel+Coos+Bay+Oregon"},
+        {name:"Edgewater Inn",note:"Rooms and suites on the bay with an observation deck and quick access to Coos Bay services.",url:"https://www.google.com/maps/search/?api=1&query=Edgewater+Inn+Coos+Bay+Oregon"}
+      ],
+      camping:[
+        {name:"Spinreel Campground",note:"A Forest Service campground with direct access to the southern Oregon Dunes riding area.",url:"https://www.google.com/maps/search/?api=1&query=Spinreel+Campground+North+Bend+Oregon"},
+        {name:"Riley Ranch County Park",note:"Campsites, cabins, showers, lake access, and a direct connection to OHV terrain.",url:"https://www.google.com/maps/search/?api=1&query=Riley+Ranch+County+Park+North+Bend+Oregon"}
+      ]
+    },localStops:{
       shopping:[
         {name:"Cranberry Sweets",note:"Sample locally made fruit candies and chocolates, then browse Oregon Coast gifts in the showroom.",url:"https://visittheoregoncoast.com/cities/coos-bay/activities/cranberry-sweets/"},
         {name:"Historic Marshfield District",note:"Explore downtown Coos Bay shops, galleries, antiques, and local home-and-gift stores.",url:"https://visittheoregoncoast.com/cities/coos-bay"}
@@ -331,6 +376,14 @@ async function loadPlannerWeather(plan){
 function renderLocalStopGroup(label,items,groupKey,selected=[]){
   return`<article class="local-stop-group"><p>${label}</p><div>${items.map((item,index)=>{const key=`${groupKey}:${index}`;return`<article class="local-stop-card"><a class="local-stop-details" href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="${label}" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div></article>`
 }
+function renderStaySection(plan){
+  if(plan.tripType==="day")return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>No overnight stay selected</h2><p class="stay-guide-intro">This plan is set as a day trip. If the group decides to stay overnight, change “How will you use the dunes?” to Camping overnight or Town lodging and rebuild the plan.</p></section>`;
+  const stayType=plan.tripType==="offsite"?"lodging":plan.vehicle==="rv"?"rv":"camping";
+  const heading=stayType==="lodging"?`Town lodging near ${plan.region.base}`:stayType==="rv"?`RV options near ${plan.region.base}`:`Campgrounds near ${plan.region.base}`;
+  const intro=stayType==="lodging"?"Compare hotels and inns convenient to town services, dining, and the dunes.":stayType==="rv"?"Compare RV parks and RV-friendly campgrounds, then verify rig length, hookups, vehicle limits, and access before reserving.":"Compare developed campgrounds, then verify current openings, reservation rules, and site details.";
+  const options=plan.region.stays[stayType],selected=plan.plannedStops||[];
+  return`<section class="plan-section stay-guide"><p class="section-label">01 · WHERE YOU’LL STAY</p><h2>${heading}</h2><p class="stay-guide-intro">${intro} Choose “Plan this” on any option the group wants included in the printed and shared plan.</p><div class="stay-options-grid">${options.map((item,index)=>{const key=`stay:${stayType}:${index}`;return`<article class="stay-option-card"><a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View stay details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="WHERE TO STAY" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div><p class="planned-stay-status" id="plannedStayStatus" aria-live="polite"></p><p class="stay-guide-note">Availability and amenities can change. Confirm dates, rates, cancellation terms, pet rules, trailer parking, and direct dune access with the property before booking.</p></section>`
+}
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
   const tripLabel=plan.tripType==="camping"?"Camping":plan.tripType==="offsite"?"Town lodging":"Day trip";
@@ -345,6 +398,7 @@ function renderTrip(plan){
     </div>
   </div></div>
   <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>Crew</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
+  ${renderStaySection(plan)}
   <section class="plan-section"><p class="section-label">KNOW BEFORE YOU GO</p><h2>Your trip-specific notes</h2><div class="alert-grid">${plan.alerts.map(x=>`<article class="plan-alert"><b>${x[0]}</b><p>${x[1]}</p></article>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>A plan with breathing room</h2><div class="itinerary">${plan.itinerary.map((x,i)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${i+1}</b></div><div class="day-copy"><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`).join("")}</div></section>
   ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Check “Plan this” on the places your group chooses, and those picks will be included when you share the plan.</p><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping,"shopping",plan.plannedStops)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch,"lunch",plan.plannedStops)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner,"dinner",plan.plannedStops)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast,"breakfast",plan.plannedStops)}</div><p class="planned-stops-status" id="plannedStopsStatus" aria-live="polite"></p><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
@@ -368,8 +422,10 @@ function renderTrip(plan){
   const refreshShareLinks=()=>{const shareMessage=buildShareMessage();emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`};
   const updatePlannedStops=()=>{
     const picks=selectedPlanStops(),status=document.getElementById("plannedStopsStatus");
+    const stayPicks=picks.filter(item=>item.key.startsWith("stay:")),stayStatus=document.getElementById("plannedStayStatus");
     plan.plannedStops=picks.map(item=>item.key);
     if(status)status.textContent=picks.length?`${picks.length} group pick${picks.length===1?"":"s"} will be included when this plan is shared.`:"No group picks selected yet.";
+    if(stayStatus)stayStatus.textContent=stayPicks.length?`${stayPicks.length} stay option${stayPicks.length===1?" is":"s are"} marked for this group plan.`:"No stay option selected yet.";
     const saved=readSavedTrip();
     if(saved){try{const savedData=JSON.parse(saved);savedData.plannedStops=plan.plannedStops;saveTrip(savedData)}catch{}}
     refreshShareLinks()
