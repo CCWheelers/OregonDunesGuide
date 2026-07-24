@@ -328,8 +328,8 @@ async function loadPlannerWeather(plan){
     target.innerHTML=`The live forecast could not load right now. Pack a waterproof layer and check again before leaving. ${tripCheck}`
   }
 }
-function renderLocalStopGroup(label,items){
-  return`<article class="local-stop-group"><p>${label}</p><div>${items.map(item=>`<a href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a>`).join("")}</div></article>`
+function renderLocalStopGroup(label,items,groupKey,selected=[]){
+  return`<article class="local-stop-group"><p>${label}</p><div>${items.map((item,index)=>{const key=`${groupKey}:${index}`;return`<article class="local-stop-card"><a class="local-stop-details" href="${item.url}" target="_blank" rel="noreferrer"><b>${item.name}</b><span>${item.note}</span><i>View details ↗</i></a><label class="plan-stop-toggle"><input class="plan-stop-checkbox" type="checkbox" value="${key}" data-plan-name="${item.name}" data-plan-category="${label}" ${selected.includes(key)?"checked":""}><span>Plan this</span></label></article>`}).join("")}</div></article>`
 }
 function renderTrip(plan){
   const result=document.getElementById("tripPlan");if(!result)return;
@@ -347,7 +347,7 @@ function renderTrip(plan){
   <div class="plan-stats"><div><span>Dates</span><b>${formatDate(plan.arrival)}–${formatDate(plan.departure)}</b></div><div><span>Length</span><b>${plan.days} day${plan.days===1?"":"s"}</b></div><div><span>Stay</span><b>${tripLabel}</b></div><div><span>Crew</span><b>${plan.partySize} traveler${plan.partySize===1?"":"s"}</b></div></div>
   <section class="plan-section"><p class="section-label">KNOW BEFORE YOU GO</p><h2>Your trip-specific notes</h2><div class="alert-grid">${plan.alerts.map(x=>`<article class="plan-alert"><b>${x[0]}</b><p>${x[1]}</p></article>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>A plan with breathing room</h2><div class="itinerary">${plan.itinerary.map((x,i)=>`<article class="day-card"><div class="day-number"><span>DAY</span><b>${i+1}</b></div><div class="day-copy"><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`).join("")}</div></section>
-  ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Two choices are included for each meal so you can adapt to the day’s hours, appetite, and drive time.</p><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast)}</div><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
+  ${plan.interests.includes("towns")?`<section class="plan-section local-guide"><p class="section-label">SHOP, EAT & EXPLORE</p><h2>Local picks near ${plan.region.base}</h2><p class="local-guide-intro">Build a town break around these nearby visitor-friendly stops. Check “Plan this” on the places your group chooses, and those picks will be included when you share the plan.</p><div class="local-stop-grid">${renderLocalStopGroup("TOURIST SHOPPING",plan.region.localStops.shopping,"shopping",plan.plannedStops)}${renderLocalStopGroup("LUNCH",plan.region.localStops.lunch,"lunch",plan.plannedStops)}${renderLocalStopGroup("DINNER",plan.region.localStops.dinner,"dinner",plan.plannedStops)}${renderLocalStopGroup("NEXT MORNING BREAKFAST",plan.region.localStops.breakfast,"breakfast",plan.plannedStops)}</div><p class="planned-stops-status" id="plannedStopsStatus" aria-live="polite"></p><p class="local-guide-note"><b>Before you go:</b> Coastal business hours can change seasonally. Open each listing to confirm today’s hours, reservations, and accessibility.</p></section>`:""}
   <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Your personalized checklist</h2><div class="checklist-columns">${plan.checklist.map(x=>`<div class="checklist-item">${x}</div>`).join("")}</div></section>
   <section class="plan-section"><p class="section-label">PRIMARY SOURCES</p><h2>Verify before the wheels turn</h2><div class="plan-sources"><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/opportunities/highway-vehicles-ohv" target="_blank" rel="noreferrer"><b>Forest Service OHV</b><span>Maps, alerts, and access ↗</span></a><a href="https://www.oregon.gov/oprd/atv/pages/atv-overview.aspx" target="_blank" rel="noreferrer"><b>Oregon ATV Program</b><span>Permits and safety rules ↗</span></a><a href="maps.html"><b>Field Guide Map</b><span>Compare regions and staging →</span></a></div></section>`;
   document.getElementById("printPlan").addEventListener("click",()=>window.print());
@@ -358,20 +358,31 @@ function renderTrip(plan){
   const plannerUrl=new URL("planner.html",window.location.href).href;
   const shareTitle="My Oregon Dunes trip plan";
   const shareSummary=`Oregon Dunes trip: ${plan.region.name}, ${formatDate(plan.arrival)} to ${formatDate(plan.departure)}, ${plan.days} days. Base: ${plan.region.base}. Primary area: ${plan.region.ride}.`;
-  const shareMessage=`${shareSummary}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`;
+  const selectedPlanStops=()=>[...result.querySelectorAll(".plan-stop-checkbox:checked")].map(input=>({key:input.value,category:input.dataset.planCategory,name:input.dataset.planName}));
+  const buildShareMessage=()=>{const picks=selectedPlanStops();const groupPicks=picks.length?`\n\nGroup picks:\n${picks.map(item=>`- ${item.category}: ${item.name}`).join("\n")}`:"";return`${shareSummary}${groupPicks}\n\nBuild your own Oregon Dunes plan: ${plannerUrl}`};
   const closeShare=()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false");shareButton.focus()};
-  shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
   closeShareButton.addEventListener("click",closeShare);
   shareMenu.addEventListener("keydown",event=>{if(event.key==="Escape"){event.preventDefault();closeShare()}});
   const emailLink=document.getElementById("shareEmail");
-  emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;
-  emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   const textLink=document.getElementById("shareText");
-  textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`;
+  const refreshShareLinks=()=>{const shareMessage=buildShareMessage();emailLink.href=`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareMessage)}`;textLink.href=`sms:?&body=${encodeURIComponent(shareMessage)}`};
+  const updatePlannedStops=()=>{
+    const picks=selectedPlanStops(),status=document.getElementById("plannedStopsStatus");
+    plan.plannedStops=picks.map(item=>item.key);
+    if(status)status.textContent=picks.length?`${picks.length} group pick${picks.length===1?"":"s"} will be included when this plan is shared.`:"No group picks selected yet.";
+    const saved=readSavedTrip();
+    if(saved){try{const savedData=JSON.parse(saved);savedData.plannedStops=plan.plannedStops;saveTrip(savedData)}catch{}}
+    refreshShareLinks()
+  };
+  result.querySelectorAll(".plan-stop-checkbox").forEach(input=>input.addEventListener("change",updatePlannedStops));
+  updatePlannedStops();
+  shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
+  emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   textLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   document.getElementById("shareMessenger").addEventListener("click",async()=>{
-    shareFeedback.textContent="Plan copied—choose a conversation and paste it into Messenger.";
-    try{await navigator.clipboard.writeText(shareMessage)}
+    const picks=selectedPlanStops();
+    shareFeedback.textContent=picks.length?`Plan copied with ${picks.length} group pick${picks.length===1?"":"s"}—choose a conversation and paste it into Messenger.`:"Plan copied—choose a conversation and paste it into Messenger.";
+    try{await navigator.clipboard.writeText(buildShareMessage())}
     catch{shareFeedback.textContent="Messenger opened, but this browser blocked copying. Email and Text remain available here."}
   });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
