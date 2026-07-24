@@ -9,9 +9,9 @@
   <meta property="og:description" content="Compare Oregon fuel averages, find nearby stations, and estimate the cost of your dunes trip.">
   <meta property="og:image" content="public/og-v2.png">
   <link rel="icon" href="public/favicon.svg">
-  <link rel="stylesheet" href="static/styles.css">
-  <script src="static/site.js" defer></script>
-  <script src="static/gas.js" defer></script>
+  <link rel="stylesheet" href="static/styles.css?v=26">
+  <script src="static/site.js?v=26" defer></script>
+  <script src="static/gas.js?v=26" defer></script>
 </head>
 <body data-page="gas">
   <header class="site-header">
@@ -43,10 +43,10 @@
           <p>Tow rigs are thirsty, coastal stations can be limited, and there is no fuel in the riding areas. Compare live sources, choose a gateway, and calculate the full trip before the pump surprises you.</p>
         </div>
         <aside class="gas-hero-note">
-          <span>FIELD RULE 01</span>
-          <h2>Arrive full.</h2>
-          <p>Top off the tow vehicle, machines, approved cans, and generator before staging. A fuel run after camp is set costs riding time.</p>
-          <a href="#price-board">Check Oregon averages ↓</a>
+          <span>THE THREE-TANK PLAN</span>
+          <h2>Rig. Toys. Reserve.</h2>
+          <p>Fill the tow vehicle, every machine, and approved reserve cans before turning toward staging. The cheapest gallon is the one that saves a mid-ride supply run.</p>
+          <a href="#price-board">See today’s Oregon average ↓</a>
         </aside>
       </div>
     </section>
@@ -57,19 +57,19 @@
         <p>Station prices change throughout the day. The links below open current nearby listings so you can compare before committing a trailer to the coast.</p>
       </div>
       <div class="gas-region-grid">
-        <article>
+        <article class="gas-region-florence">
           <span>01 · NORTH DUNES</span>
           <h3>Florence</h3>
           <p>Fuel in Florence before heading to South Jetty, Honeyman, or Siltcoos. US 101 has the broadest selection; services thin out toward staging.</p>
           <a href="https://www.google.com/maps/search/gas+stations+near+Florence,+OR/" target="_blank" rel="noreferrer">View live station prices ↗</a>
         </article>
-        <article>
+        <article class="gas-region-reedsport">
           <span>02 · CENTRAL DUNES</span>
           <h3>Reedsport &amp; Winchester Bay</h3>
           <p>Reedsport is the practical full-service stop. Fill the rig and cans there before continuing to Winchester Bay and Umpqua Dunes access.</p>
           <a href="https://www.google.com/maps/search/gas+stations+near+Reedsport,+OR/" target="_blank" rel="noreferrer">View live station prices ↗</a>
         </article>
-        <article>
+        <article class="gas-region-coos">
           <span>03 · SOUTH DUNES</span>
           <h3>Coos Bay &amp; North Bend</h3>
           <p>The south-coast hub offers the largest station selection near Spinreel, Horsfall, and Riley Ranch. Compare in town before heading west.</p>
@@ -81,12 +81,28 @@
     <section class="gas-price-board" id="price-board">
       <div class="shell">
         <div class="gas-board-heading">
-          <div><p class="section-label pale">LIVE OREGON PRICE BOARD</p><h2>Know the number<br><i>before the nozzle.</i></h2></div>
-          <div><p>AAA’s Oregon averages are updated regularly and provide a useful statewide benchmark. Individual coastal stations may be higher or lower.</p><a class="button sand" href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">Open AAA in a new tab ↗</a></div>
+          <div><p class="section-label pale">OREGON FUEL BENCHMARK</p><h2>The number you need.<br><i>None of the clutter.</i></h2></div>
+          <div><p>These are Oregon statewide averages from AAA, not guaranteed pump prices. Use them as a quick benchmark, then open the station listings above for nearby coastal prices.</p><a class="gas-source-link" href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">View the original AAA Oregon table ↗</a></div>
         </div>
-        <div class="aaa-frame-wrap">
-          <iframe src="https://gasprices.aaa.com/?state=OR" title="AAA Oregon average gas prices" loading="lazy"></iframe>
-          <p>If the live board does not appear, <a href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">open AAA Gas Prices directly ↗</a></p>
+        <div class="gas-live-board" aria-live="polite">
+          <div class="gas-price-cards">
+            <article class="gas-price-regular"><span>REGULAR</span><b id="gasRegular">$4.62</b><small id="gasRegularDelta">Loading current change…</small></article>
+            <article><span>MID-GRADE</span><b id="gasMid">$4.87</b><small id="gasMidDelta">Loading current change…</small></article>
+            <article><span>PREMIUM</span><b id="gasPremium">$5.17</b><small id="gasPremiumDelta">Loading current change…</small></article>
+            <article><span>DIESEL</span><b id="gasDiesel">$5.44</b><small id="gasDieselDelta">Loading current change…</small></article>
+          </div>
+          <p class="gas-fetched-note" id="gasFetchedNote">Oregon statewide average · checking the live AAA table…</p>
+          <div class="gas-trend-wrap">
+            <table class="gas-trend-table">
+              <thead><tr><th>OREGON AVERAGE</th><th>REGULAR</th><th>MID</th><th>PREMIUM</th><th>DIESEL</th></tr></thead>
+              <tbody id="gasTrendBody">
+                <tr><td>Today</td><td>$4.62</td><td>$4.87</td><td>$5.17</td><td>$5.44</td></tr>
+                <tr><td>Yesterday</td><td>$4.60</td><td>$4.86</td><td>$5.14</td><td>$5.42</td></tr>
+                <tr><td>Week ago</td><td>$4.53</td><td>$4.79</td><td>$5.08</td><td>$5.34</td></tr>
+                <tr><td>Month ago</td><td>$4.80</td><td>$5.08</td><td>$5.37</td><td>$5.62</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
@@ -109,16 +125,17 @@
         <div><span>TOTAL FUEL</span><b id="totalGallons">0 gal</b></div>
         <div class="fuel-total"><span>ESTIMATED COST</span><b id="fuelCost">$0</b></div>
       </div>
+      <div class="gas-planner-ribbon"><div><span>BUILD THE WHOLE DAY</span><h3>The Trip Planner handles the stops, weather, meals, group picks, printout, and sharing.</h3></div><a class="button ink" href="planner.html">Open the Trip Planner ↗</a></div>
     </section>
 
     <section class="gas-field-notes">
       <div class="shell">
         <div class="gas-section-heading"><div><p class="section-label pale">FUEL FIELD NOTES</p><h2>Save the detour.<br><i>Pack the right way.</i></h2></div><p>Fuel is ordinary until you need it miles from the pavement. Plan supply stops with the same care as permits and weather.</p></div>
         <div class="gas-note-grid">
-          <article><span>01</span><h3>Fill before staging</h3><p>Do the grocery, ice, potable-water, and fuel stops together. Confirm station access if your trailer needs a wide turn.</p></article>
-          <article><span>02</span><h3>Use approved containers</h3><p>Secure fuel upright, protect it from heat, and keep it outside passenger compartments. Follow campground and fire restrictions.</p></article>
-          <article><span>03</span><h3>Match the machine</h3><p>Verify octane and fuel requirements for every OHV and generator. Label cans when your group carries more than one fuel type.</p></article>
-          <article><span>04</span><h3>Keep a return reserve</h3><p>Do not plan to arrive back at camp empty. Wind, recovery work, and route changes can all increase consumption.</p></article>
+          <article class="gas-note-staging"><span>01</span><h3>Fill before staging</h3><p>Do the grocery, ice, potable-water, and fuel stops together. Confirm station access if your trailer needs a wide turn.</p></article>
+          <article class="gas-note-containers"><span>02</span><h3>Use approved containers</h3><p>Secure fuel upright, protect it from heat, and keep it outside passenger compartments. Follow campground and fire restrictions.</p></article>
+          <article class="gas-note-machine"><span>03</span><h3>Match the machine</h3><p>Verify octane and fuel requirements for every OHV and generator. Label cans when your group carries more than one fuel type.</p></article>
+          <article class="gas-note-reserve"><span>04</span><h3>Keep a return reserve</h3><p>Do not plan to arrive back at camp empty. Wind, recovery work, and route changes can all increase consumption.</p></article>
         </div>
       </div>
     </section>

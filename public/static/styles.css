@@ -62,12 +62,22 @@
 .history-now{background:var(--ink);color:white;padding:105px 0}.history-now-grid{align-items:end}.history-now-grid>div>p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.65)}.history-now .section-label{color:#efcf9d}.history-actions{display:flex;align-items:center;gap:28px;margin-top:25px}.history-text-link{font-size:9px;font-weight:800;border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:5px}.history-sources{padding:105px 0 120px}.history-sources>div{display:grid;grid-template-columns:1fr 1fr;margin-top:48px;border-top:1px solid rgba(21,63,60,.17)}.history-sources a{display:flex;flex-direction:column;padding:25px 25px 25px 0;border-bottom:1px solid rgba(21,63,60,.17)}.history-sources a:nth-child(odd){border-right:1px solid rgba(21,63,60,.17)}.history-sources a:nth-child(even){padding-left:25px}.history-sources b{font-family:"Cormorant Garamond",serif;font-size:22px}.history-sources span{font-size:8px;color:#748783;margin-top:6px}
 @media(max-width:800px){.history-hero{min-height:680px;align-items:flex-start}.history-hero-copy{padding:85px 0 175px}.history-hero h1{font-size:58px}.history-facts{width:calc(100% - 32px);right:16px}.history-facts div{padding:15px 10px}.history-facts span{font-size:23px}.history-intro{padding:80px 0 65px}.history-intro-grid,.history-now-grid,.history-timeline{grid-template-columns:1fr;gap:35px}.history-timeline{padding-bottom:80px}.history-toc{position:static}.history-stories article{grid-template-columns:1fr;gap:12px;padding:48px 0}.history-story-copy h2{font-size:39px}.history-feature-story{margin-left:-16px;margin-right:-16px;padding-left:16px!important;padding-right:16px!important}.history-now{padding:75px 0}.history-actions{align-items:flex-start;flex-direction:column}.history-sources{padding:75px 0 85px}.history-sources>div{grid-template-columns:1fr}.history-sources a,.history-sources a:nth-child(even),.history-sources a:nth-child(odd){padding:22px 0;border-right:0}}
 @media print{.history-toc,.history-now{display:none!important}.history-timeline{grid-template-columns:1fr}.history-stories article{break-inside:avoid}}
+.history-hero-copy>p:not(.kicker){font-size:17px;line-height:1.75}.history-scroll{font-size:11px}.history-facts b{font-size:10px;line-height:1.45}.history-intro{padding-bottom:110px}.history-intro-grid p{font-size:16px;line-height:1.78}.history-lead{font-size:27px!important}.history-era-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:70px}.history-era{min-height:340px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;isolation:isolate;overflow:hidden;color:white;background-size:cover;background-position:center;box-shadow:0 16px 34px rgba(21,63,60,.14);transition:transform .22s ease,box-shadow .22s ease}.history-era:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(6,35,33,.05) 15%,rgba(6,35,33,.3) 46%,rgba(6,35,33,.95) 100%)}.history-era:hover,.history-era:focus-visible{transform:translateY(-4px);box-shadow:0 22px 42px rgba(21,63,60,.22);outline:none}.history-era small{font-size:10px;letter-spacing:.16em;font-weight:800;color:#f0ce95}.history-era b{font-family:"Cormorant Garamond",serif;font-size:31px;line-height:1.05;margin:10px 0}.history-era span{font-size:13px;line-height:1.55;color:rgba(255,255,255,.78)}.history-era-people{background-image:url('../images/hero-guide-towns.webp');background-position:62% center}.history-era-sand{background-image:url('../images/hero-history.webp')}.history-era-work{background-image:url('../images/map-reedsport.webp')}.history-era-future{background-image:url('../images/hero-maps.webp')}
+.history-timeline{grid-template-columns:270px 1fr;gap:75px}.history-toc>p{font-size:10px}.history-toc a{font-size:17px;padding:15px 0}.history-toc a span{font-size:10px}.history-stories{border-top:0}.history-stories article{grid-template-columns:125px 1fr;gap:34px;margin-bottom:20px;padding:34px;background:#fffdf8;border:1px solid rgba(21,63,60,.15);box-shadow:0 10px 28px rgba(21,63,60,.06)}.history-date{font-size:10px;line-height:1.55}.history-story-copy>span{font-size:10px}.history-story-copy h2{font-size:51px;margin:12px 0 22px}.history-story-copy p{font-size:16px;line-height:1.78;color:#496661}.history-story-copy>a{font-size:12px;color:var(--orange);border-bottom-color:var(--orange)}.history-story-copy blockquote{font-size:30px}.history-feature-story{margin:0 0 20px;padding:34px!important;border:1px solid rgba(21,63,60,.15)!important;background:#eee4d2}.history-story-visual{height:285px;margin:0 0 28px;position:relative;overflow:hidden;background-color:#264a46;background-size:cover;background-position:center}.history-story-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(7,39,36,.78))}.history-story-visual figcaption{position:absolute;z-index:1;left:22px;right:22px;bottom:18px;color:white;font-size:11px;line-height:1.45;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.45)}.history-visual-homelands{background-image:url('../images/hero-guide-towns.webp');background-position:center 58%}.history-visual-formation{background-image:url('../images/hero-history.webp')}.history-visual-settlement{background-image:url('../images/map-reedsport.webp')}.history-visual-stabilization{background-image:url('../images/home-explore.webp')}.history-visual-herbert{background-image:url('../images/riding-05-dune-reading.webp')}.history-visual-recreation{background-image:url('../images/home-ride.webp')}.history-visual-designation{background-image:url('../images/hero-maps.webp')}.history-visual-restoration{background-image:url('../images/hero-day-use.webp')}.history-now{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.97),rgba(8,46,43,.68) 58%,rgba(8,46,43,.32)),url('../images/hero-history.webp') center 65%/cover}.history-now-grid>div>p{font-size:16px;line-height:1.75}.history-text-link{font-size:12px}.history-sources>div{gap:12px;border-top:0}.history-sources a,.history-sources a:nth-child(even),.history-sources a:nth-child(odd){padding:27px;background:#eee4d2;border:0;border-top:3px solid var(--orange);transition:transform .18s ease,background .18s ease}.history-sources a:hover,.history-sources a:focus-visible{transform:translateY(-3px);background:#e7dbc6;outline:none}.history-sources b{font-size:25px}.history-sources span{font-size:11px;line-height:1.55}
+@media(max-width:1050px){.history-era-grid{grid-template-columns:1fr 1fr}.history-timeline{grid-template-columns:220px 1fr;gap:35px}.history-stories article{grid-template-columns:1fr}.history-date{padding-bottom:12px;border-bottom:1px solid rgba(21,63,60,.13)}}
+@media(max-width:800px){.history-hero-copy>p:not(.kicker){font-size:16px}.history-facts b{font-size:9px}.history-era-grid{grid-template-columns:1fr}.history-era{min-height:390px}.history-era:hover{transform:none}.history-timeline{grid-template-columns:1fr}.history-stories article,.history-feature-story{margin-bottom:14px;padding:24px!important}.history-story-copy h2{font-size:42px}.history-story-copy p{font-size:16px}.history-story-visual{height:240px;margin-left:-24px;margin-right:-24px}.history-story-visual figcaption{font-size:10px}.history-sources>div{gap:10px}.history-sources a,.history-sources a:nth-child(even),.history-sources a:nth-child(odd){padding:24px}}
 .rules-hero{padding:100px 0;background:linear-gradient(90deg,rgba(8,46,43,.97),rgba(8,46,43,.46)),url('../dunes-hero.jpg') center 52%/cover;color:white}.rules-hero-grid{display:grid;grid-template-columns:1.1fr .6fr;gap:100px;align-items:end}.rules-hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(66px,9vw,118px);font-weight:600;line-height:.86;letter-spacing:-.05em;margin:22px 0 28px}.rules-hero h1 i{font-weight:500}.rules-hero-grid>div>p:last-child{max-width:670px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.77)}.rules-alert{background:rgba(255,253,248,.97);color:var(--ink);padding:32px;border-top:5px solid var(--orange)}.rules-alert>span{font-size:8px;letter-spacing:.18em;color:var(--orange);font-weight:800}.rules-alert h2{font-family:"Cormorant Garamond",serif;font-size:33px;line-height:1;margin:12px 0}.rules-alert p{font-size:10px;line-height:1.75;color:#607773}.rules-alert a{display:inline-block;margin-top:10px;font-size:9px;font-weight:800;border-bottom:1px solid var(--ink);padding-bottom:4px}
 .rules-essentials{padding:105px 0 110px}.rules-heading{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:end}.rules-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(48px,6vw,76px);font-weight:600;line-height:.9;letter-spacing:-.04em;margin:0}.rules-heading>p{font-size:12px;line-height:1.8;color:#617975}.rule-essential-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:50px;border-top:1px solid rgba(21,63,60,.17)}.rule-essential-grid article{padding:28px 26px 0 0;border-right:1px solid rgba(21,63,60,.17)}.rule-essential-grid article:not(:first-child){padding-left:26px}.rule-essential-grid article:last-child{border-right:0}.rule-essential-grid span{font-family:"Cormorant Garamond",serif;font-size:21px;color:var(--orange)}.rule-essential-grid b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;margin-top:10px}.rule-essential-grid p{font-size:9px;line-height:1.75;color:#617975}
 .rules-body{display:grid;grid-template-columns:250px 1fr;gap:90px;padding-bottom:120px}.rules-toc{position:sticky;top:24px;align-self:start}.rules-toc>p{font-size:8px;letter-spacing:.2em;color:var(--orange);font-weight:800}.rules-toc a{display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(21,63,60,.15);font-family:"Cormorant Garamond",serif;font-weight:700}.rules-toc span{font-family:Inter,sans-serif;font-size:8px;color:#899c98}.rules-content>section{padding:70px 0;border-top:1px solid rgba(21,63,60,.17);scroll-margin-top:25px}.rules-content>section:last-child{border-bottom:1px solid rgba(21,63,60,.17)}.rules-number{font-size:8px;letter-spacing:.18em;color:var(--orange);font-weight:800}.rules-content>section>h2{font-family:"Cormorant Garamond",serif;font-size:47px;line-height:.96;letter-spacing:-.03em;margin:12px 0 35px}.rules-content>section>p{font-size:13px;line-height:1.9;color:#536e69}.rule-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rule-columns article{background:var(--white);border:1px solid rgba(21,63,60,.15);padding:23px}.rule-columns h3,.vehicle-class-grid h3{font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.05;margin:0 0 12px}.rule-columns p{font-size:9px;line-height:1.75;color:#617975}.rule-source-link{display:inline-block;margin-top:28px;font-size:9px;font-weight:800;border-bottom:1px solid var(--ink);padding-bottom:4px}
 .vehicle-class-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.vehicle-class-grid article{background:var(--ink);color:white;padding:25px}.vehicle-class-grid article>span{font-size:8px;letter-spacing:.17em;color:#eac991}.vehicle-class-grid h3{font-size:27px;margin-top:10px}.vehicle-class-grid ul{list-style:none;padding:0;margin:17px 0 0}.vehicle-class-grid li{padding:9px 0;border-top:1px solid rgba(255,255,255,.16);font-size:9px;color:rgba(255,255,255,.67)}.rules-checklist{list-style:none;padding:0;margin:0}.rules-checklist li{display:grid;grid-template-columns:.65fr 1.35fr;gap:35px;padding:20px 0;border-top:1px solid rgba(21,63,60,.15)}.rules-checklist b{font-family:"Cormorant Garamond",serif;font-size:20px}.rules-checklist span{font-size:10px;line-height:1.7;color:#617975}.equipment-board{border:1px solid rgba(21,63,60,.16)}.equipment-board>div{display:grid;grid-template-columns:130px 1fr;gap:25px;padding:18px 22px;border-bottom:1px solid rgba(21,63,60,.14)}.equipment-board>div:last-child{border-bottom:0}.equipment-board span{font-size:8px;letter-spacing:.16em;color:var(--orange);font-weight:800}.equipment-board b{font-family:"Cormorant Garamond",serif;font-size:19px}.rule-note{background:var(--sand);border-left:4px solid var(--orange);padding:20px!important;margin-top:20px}.habitat-rules{display:grid;grid-template-columns:1fr 1fr;margin-top:25px;border-top:1px solid rgba(21,63,60,.15)}.habitat-rules b{padding:17px 20px 17px 0;border-bottom:1px solid rgba(21,63,60,.15);font-family:"Cormorant Garamond",serif;font-size:18px}.habitat-rules b:nth-child(odd){border-right:1px solid rgba(21,63,60,.15)}.habitat-rules b:nth-child(even){padding-left:20px}.rules-official .split>div>p:last-child{font-size:13px;line-height:1.8;color:rgba(255,255,255,.62)}.rules-official .section-label{color:#efcf9d}.rules-trip-strip{background:var(--sand);padding:50px 0}.rules-trip-strip .shell{display:flex;justify-content:space-between;align-items:center;gap:35px}.rules-trip-strip small{font-size:8px;letter-spacing:.18em}.rules-trip-strip h2{font-family:"Cormorant Garamond",serif;font-size:29px;margin:6px 0}
 @media(max-width:800px){.rules-hero{padding:70px 0}.rules-hero-grid,.rules-heading,.rules-body{grid-template-columns:1fr;gap:35px}.rules-hero h1{font-size:58px}.rules-essentials{padding:75px 0}.rule-essential-grid,.rule-columns,.vehicle-class-grid{grid-template-columns:1fr}.rule-essential-grid article,.rule-essential-grid article:not(:first-child){padding:22px 0;border-right:0;border-bottom:1px solid rgba(21,63,60,.17)}.rules-body{padding-bottom:80px}.rules-toc{position:static}.rules-content>section{padding:52px 0}.rules-content>section>h2{font-size:39px}.rules-checklist li{grid-template-columns:1fr;gap:8px}.equipment-board>div{grid-template-columns:1fr;gap:7px}.habitat-rules{grid-template-columns:1fr}.habitat-rules b,.habitat-rules b:nth-child(even),.habitat-rules b:nth-child(odd){padding:15px 0;border-right:0}.rules-trip-strip .shell{align-items:flex-start;flex-direction:column}.rules-trip-strip .button{width:100%}}
 @media print{.rules-toc,.rules-official,.rules-trip-strip{display:none!important}.rules-body{grid-template-columns:1fr}.rules-content>section{break-inside:avoid}}
+.rules-hero-grid>div>p:last-child{font-size:17px}.rules-alert>span{font-size:10px}.rules-alert p{font-size:13px}.rules-alert a{font-size:11px}.rule-finder{padding:105px 0;background:#e8dfcf}.rule-finder-heading{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:end}.rule-finder-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(48px,6vw,76px);font-weight:600;line-height:.9;letter-spacing:-.04em;margin:0}.rule-finder-heading>p{font-size:15px;line-height:1.75;color:#536e69}.rule-finder-panel{margin-top:55px;padding:30px;background:#fffdf8;box-shadow:0 18px 45px rgba(21,63,60,.1)}.rule-finder fieldset{padding:0;margin:0;border:0}.rule-finder legend{display:block;width:100%;margin-bottom:16px;font-size:11px;letter-spacing:.14em;color:var(--orange);font-weight:800}.rule-machine-options{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.rule-machine-card{min-height:245px;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;color:white;background-size:cover;background-position:center;cursor:pointer}.rule-machine-card:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(6,35,33,.08) 10%,rgba(6,35,33,.9) 100%)}.rule-machine-card input{position:absolute;top:15px;right:15px;width:20px;height:20px;accent-color:var(--orange)}.rule-machine-card>span{display:flex;flex-direction:column;padding:22px}.rule-machine-card small{font-size:9px;letter-spacing:.16em;color:#f0ce95;font-style:normal}.rule-machine-card b{font-family:"Cormorant Garamond",serif;font-size:29px;margin:7px 0 3px}.rule-machine-card em{font-size:11px;color:rgba(255,255,255,.72);font-style:normal}.rule-machine-card:has(input:checked){outline:4px solid var(--orange);outline-offset:-4px}.rule-machine-card:has(input:focus-visible){outline:4px solid #fff;outline-offset:-7px}.rule-machine-i{background-image:url('../images/riding-04-checklist.webp')}.rule-machine-ii{background-image:url('../images/riding-01-florence.webp')}.rule-machine-iii{background-image:url('../images/riding-05-dune-reading.webp')}.rule-machine-iv{background-image:url('../images/riding-02-winchester.webp')}.rule-age-fieldset{margin-top:30px!important}.rule-age-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.rule-age-options label{cursor:pointer}.rule-age-options input{position:absolute;opacity:0}.rule-age-options span{display:block;padding:15px 18px;text-align:center;border:1px solid rgba(21,63,60,.2);font-size:13px;font-weight:800}.rule-age-options input:checked+span{background:var(--ink);color:white;border-color:var(--ink)}.rule-age-options input:focus-visible+span{outline:3px solid var(--orange);outline-offset:2px}.rule-finder-result{margin-top:28px;padding:28px 30px;background:var(--ink);color:white}.rule-finder-result-top{display:flex;justify-content:space-between;gap:30px}.rule-finder-result-top small{font-size:9px;letter-spacing:.17em;color:#f0ce95}.rule-finder-result-top h3{font-family:"Cormorant Garamond",serif;font-size:31px;line-height:1.05;margin:8px 0}.rule-finder-result-top>span{align-self:flex-start;padding:8px 10px;background:var(--orange);font-size:8px;letter-spacing:.12em;font-weight:800}.rule-finder-result ul{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;list-style:none;padding:0;margin:20px 0}.rule-finder-result li{position:relative;padding:13px 0 13px 24px;border-top:1px solid rgba(255,255,255,.17);font-size:13px;line-height:1.55;color:rgba(255,255,255,.78)}.rule-finder-result li:before{content:"✓";position:absolute;left:0;color:#f0ce95;font-weight:800}.rule-finder-actions{display:flex;gap:12px;margin-top:12px}.rule-finder-actions a,.rule-finder-actions button{padding:12px 16px;border:1px solid rgba(255,255,255,.4);background:transparent;color:white;font:800 10px Inter,sans-serif;letter-spacing:.04em;cursor:pointer}.rule-finder-actions button{background:#fffdf8;color:var(--ink)}
+.rules-essentials{padding-top:105px}.rules-heading>p{font-size:15px}.rule-essential-grid{gap:12px;border:0}.rule-essential-grid article,.rule-essential-grid article:not(:first-child){min-height:350px;padding:26px;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:white;border:0;background-size:cover;background-position:center}.rule-essential-grid article:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(6,35,33,.08) 12%,rgba(6,35,33,.92) 100%)}.rule-essential-grid span{color:#f0ce95}.rule-essential-grid b{font-size:27px}.rule-essential-grid p{font-size:12px;line-height:1.65;color:rgba(255,255,255,.76)}.rule-essential-grid a{align-self:flex-start;margin-top:8px;padding-bottom:4px;border-bottom:1px solid #f0ce95;font-size:10px;font-weight:800;color:#f0ce95}.rule-essential-permit{background-image:url('../images/riding-04-checklist.webp')}.rule-essential-cardid{background-image:url('../images/riding-06-group-protocol.webp')}.rule-essential-flag{background-image:url('../images/riding-03-coos-bay.webp')}.rule-essential-map{background-image:url('../images/hero-maps.webp')}.rules-body{grid-template-columns:270px 1fr;gap:70px}.rules-toc>p,.rules-number{font-size:10px}.rules-toc a{font-size:17px}.rules-toc span{font-size:10px}.rules-content>section{padding:80px 0}.rules-content>section>h2{font-size:51px}.rules-content>section>p{font-size:16px;line-height:1.78}.rules-chapter-photo{height:310px;margin:0 0 30px;position:relative;overflow:hidden;background-color:var(--ink);background-size:cover;background-position:center}.rules-chapter-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(7,39,36,.82))}.rules-chapter-photo span{position:absolute;z-index:1;left:23px;right:23px;bottom:19px;color:white;font-size:12px;line-height:1.5;font-weight:700}.rules-photo-permits{background-image:url('../images/riding-04-checklist.webp')}.rules-photo-classes{background-image:url('../images/riding-02-winchester.webp')}.rules-photo-sand{background-image:url('../images/riding-05-dune-reading.webp')}.rules-photo-equipment{background-image:url('../images/riding-04-checklist.webp')}.rules-photo-youth{background-image:url('../images/riding-06-group-protocol.webp')}.rules-photo-roads{background-image:url('../images/riding-01-florence.webp')}.rules-photo-habitat{background-image:url('../images/hero-day-use.webp')}.rule-columns p,.vehicle-class-grid li{font-size:12px;line-height:1.65}.rule-source-link{font-size:12px;color:var(--orange);border-bottom-color:var(--orange)}.vehicle-class-grid article{min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;position:relative;isolation:isolate}.vehicle-class-grid article:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(6,35,33,.12),rgba(6,35,33,.96))}.vehicle-class-grid article:nth-child(1){background-image:url('../images/riding-04-checklist.webp')}.vehicle-class-grid article:nth-child(2){background-image:url('../images/riding-01-florence.webp')}.vehicle-class-grid article:nth-child(3){background-image:url('../images/riding-05-dune-reading.webp')}.vehicle-class-grid article:nth-child(4){background-image:url('../images/riding-02-winchester.webp')}.vehicle-class-grid article>span{font-size:10px}.vehicle-class-grid li{color:rgba(255,255,255,.76)}.rules-checklist b{font-size:23px}.rules-checklist span{font-size:13px}.equipment-board span{font-size:10px}.equipment-board b{font-size:22px}.rule-note{font-size:14px!important}.habitat-rules b{font-size:21px}.rules-official .split>div>p:last-child{font-size:15px}.rules-trip-strip small{font-size:10px}
+@media(max-width:1000px){.rule-machine-options{grid-template-columns:1fr 1fr}.rule-essential-grid{grid-template-columns:1fr 1fr}.rules-body{grid-template-columns:220px 1fr;gap:35px}}
+@media(max-width:800px){.rule-finder{padding:75px 0}.rule-finder-heading{grid-template-columns:1fr;gap:30px}.rule-finder-panel{padding:18px}.rule-machine-options{grid-template-columns:1fr 1fr}.rule-machine-card{min-height:225px}.rule-age-options{grid-template-columns:1fr}.rule-finder-result{padding:24px 20px}.rule-finder-result-top{flex-direction:column}.rule-finder-result-top>span{align-self:flex-start}.rule-finder-result ul{grid-template-columns:1fr}.rule-finder-actions{flex-direction:column}.rule-finder-actions a,.rule-finder-actions button{text-align:center}.rule-essential-grid{grid-template-columns:1fr}.rule-essential-grid article,.rule-essential-grid article:not(:first-child){min-height:390px;padding:25px}.rules-body{grid-template-columns:1fr}.rules-content>section>h2{font-size:42px}.rules-chapter-photo{height:250px;margin-left:-16px;margin-right:-16px}.rule-columns p,.vehicle-class-grid li,.rules-checklist span{font-size:13px}}
+@media(max-width:520px){.rule-machine-options{grid-template-columns:1fr}.rule-machine-card{min-height:260px}}
+@media print{body.rule-print-mode>*:not(main),body.rule-print-mode main>*:not(.rule-finder),body.rule-print-mode .rule-finder-heading,body.rule-print-mode .rule-finder-panel>fieldset{display:none!important}body.rule-print-mode .rule-finder{padding:0;background:white}body.rule-print-mode .rule-finder-panel{margin:0;padding:0;box-shadow:none}body.rule-print-mode .rule-finder-result{margin:0;color:#153f3c;background:white;border:2px solid #153f3c}body.rule-print-mode .rule-finder-result li{color:#153f3c;border-top-color:#ccc}body.rule-print-mode .rule-finder-actions,body.rule-print-mode .rule-finder-result-top>span{display:none!important}}
 .tides-hero{padding:100px 0;background:linear-gradient(90deg,rgba(8,46,43,.96),rgba(8,46,43,.45)),url('../dunes-hero.jpg') center 43%/cover;color:white}.tides-hero-grid{display:grid;grid-template-columns:1.05fr .65fr;gap:95px;align-items:end}.tides-hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(66px,9vw,116px);font-weight:600;line-height:.86;letter-spacing:-.05em;margin:22px 0 28px}.tides-hero h1 i{font-weight:500}.tides-hero-grid>div>p:last-child{max-width:670px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.77)}.next-tide-card{background:rgba(255,253,248,.97);color:var(--ink);padding:30px}.next-tide-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.next-tide-top div>span,.next-tide-meta span{display:block;font-size:8px;letter-spacing:.16em;color:#6a817d;font-weight:800}.next-tide-top div>b{display:block;font-family:"Cormorant Garamond",serif;font-size:25px;margin-top:4px}.tide-live{background:var(--ink);color:white;padding:7px 9px;font-size:8px;letter-spacing:.12em;text-transform:uppercase}.next-tide-main{display:flex;align-items:center;gap:25px;padding:28px 0}.next-tide-main>strong{font-family:"Cormorant Garamond",serif;font-size:57px;line-height:.8;color:var(--orange)}.next-tide-main>div{display:flex;flex-direction:column;gap:6px}.next-tide-main b{font-family:"Cormorant Garamond",serif;font-size:28px}.next-tide-main span{font-size:9px;color:#6a817d}.next-tide-meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(21,63,60,.15)}.next-tide-meta div{padding:15px 8px 15px 0;border-bottom:1px solid rgba(21,63,60,.15)}.next-tide-meta div:first-child{border-right:1px solid rgba(21,63,60,.15)}.next-tide-meta div:last-child{padding-left:15px}.next-tide-meta b{display:block;font-family:"Cormorant Garamond",serif;font-size:18px;margin-top:5px}.next-tide-card>small{display:block;color:#758a86;font-size:8px;line-height:1.5;margin-top:14px}
 .tides-dashboard{padding:105px 0 120px}.tides-heading{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:end}.tides-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(47px,5.5vw,72px);font-weight:600;line-height:.9;letter-spacing:-.04em;margin:0}.tides-heading>p{font-size:12px;line-height:1.8;color:#617975}.tide-regions{display:grid;grid-template-columns:repeat(3,1fr)}.tide-regions button{display:flex;flex-direction:column;align-items:flex-start;min-height:120px;padding:20px;border:1px solid rgba(21,63,60,.18);border-right:0;background:var(--white);color:var(--ink);cursor:pointer;text-align:left}.tide-regions button:last-child{border-right:1px solid rgba(21,63,60,.18)}.tide-regions button:hover,.tide-regions button:focus-visible{background:#eee4d2;outline:none}.tide-regions button.active{background:var(--ink);color:white}.tide-regions span{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--orange)}.tide-regions b{font-family:"Cormorant Garamond",serif;font-size:20px;margin-top:10px}.tide-regions small{font-size:8px;line-height:1.4;color:#718682;margin-top:5px}.tide-regions button.active small{color:rgba(255,255,255,.62)}
 .tide-curve-section{margin:75px 0 105px}.tide-curve-heading{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:22px}.tide-curve-heading span{font-size:8px;letter-spacing:.18em;color:var(--orange);font-weight:800}.tide-curve-heading h2{font-family:"Cormorant Garamond",serif;font-size:35px;margin:7px 0 0}.tide-curve-heading>p{max-width:430px;font-size:9px;line-height:1.6;color:#697f7b}.tide-canvas-wrap{position:relative;min-height:350px;background:var(--white);border:1px solid rgba(21,63,60,.16);padding:12px}.tide-canvas-wrap canvas{display:block}.tide-chart-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#687e7a;font-size:10px;background:rgba(255,253,248,.92)}.tide-chart-loading[hidden]{display:none}.tide-schedule-section{padding-top:5px}.tide-schedule{display:grid;grid-template-columns:repeat(7,1fr);margin-top:45px;background:var(--white);border:1px solid rgba(21,63,60,.16)}.tide-day{padding:20px 14px;border-right:1px solid rgba(21,63,60,.15)}.tide-day:last-child{border-right:0}.tide-day-heading{display:flex;justify-content:space-between;gap:5px;align-items:center;padding-bottom:16px}.tide-day-heading>span{font-size:9px;font-weight:800}.tide-day-heading small{font-size:8px;color:#758985}.tide-day-events>div{padding:12px 0;border-top:1px solid rgba(21,63,60,.12)}.tide-day-events span{display:block;font-size:7px;letter-spacing:.12em;color:#2b7377;font-weight:800}.tide-day-events .low span{color:var(--orange)}.tide-day-events b{display:block;font-family:"Cormorant Garamond",serif;font-size:18px;margin-top:4px}.tide-day-events small{font-size:8px;color:#748783}.tide-loading{grid-column:1/-1;padding:50px;text-align:center;color:#647b77;font-size:10px}
@@ -474,4 +484,229 @@ body[data-page=planner] .kicker,body[data-page=planner] .section-label{font-size
   .tide-day,.tide-day:nth-child(even){border-right:0;border-bottom:1px solid rgba(21,63,60,.15)}
   .tide-day:last-child{border-bottom:0}
   .tide-ohv-grid>article,.tide-ohv-grid>article:not(:first-child){min-height:480px;padding:26px}
+}
+
+/* Day Use: inspiration first, full planning through the Trip Planner */
+.dayuse-hero-grid>div>p:not(.kicker){font-size:17px;line-height:1.75}
+.dayuse-text-link{font-size:13px}
+.dayuse-arrival-card>span{font-size:10px}
+.dayuse-arrival-card h2{font-size:35px}
+.dayuse-arrival-card small{font-size:11px;line-height:1.5}
+.dayuse-planner-card-button{display:block;margin-top:22px;text-align:center}
+.dayuse-facts small{font-size:10px}
+
+.dayuse-chooser{padding:115px 0 100px}
+.dayuse-choice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
+.dayuse-choice-grid>a{
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:510px;padding:30px;color:white;background-position:center;background-size:cover;
+  transition:transform .2s ease,box-shadow .2s ease
+}
+.dayuse-choice-grid>a::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.04) 14%,rgba(8,46,43,.95) 86%)}
+.dayuse-choice-grid>a:hover,.dayuse-choice-grid>a:focus-visible{transform:translateY(-5px);box-shadow:0 20px 40px rgba(8,46,43,.2);outline:3px solid #efb856;outline-offset:2px}
+.dayuse-choice-ride{background-image:url('../images/riding-03-coos-bay.webp')}
+.dayuse-choice-walk{background-image:url('../images/hero-day-use.webp')}
+.dayuse-choice-lake{background-image:url('../images/map-lakeside.webp')}
+.dayuse-choice-coast{background-image:url('../images/home-explore.webp')}
+.dayuse-choice-grid>a>span{font-size:10px;letter-spacing:.18em;font-weight:900;color:#ffd071}
+.dayuse-choice-grid h3{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;margin:12px 0}
+.dayuse-choice-grid p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.8);min-height:92px}
+.dayuse-choice-grid>a>div{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.24)}
+.dayuse-choice-grid b{font-size:9px;letter-spacing:.16em;color:#ffd071}
+.dayuse-choice-grid small{font-family:"Cormorant Garamond",serif;font-size:18px}
+.dayuse-choice-grid strong{grid-column:1/-1;margin-top:14px;font-size:12px;color:white}
+.dayuse-planner-ribbon{display:flex;align-items:center;justify-content:space-between;gap:35px;margin-top:18px;padding:32px 36px;background:#e9dfcc;border-left:5px solid var(--orange)}
+.dayuse-planner-ribbon span{font-size:10px;letter-spacing:.17em;font-weight:900;color:var(--orange)}
+.dayuse-planner-ribbon h3{font-family:"Cormorant Garamond",serif;font-size:29px;margin:7px 0 0}
+
+.dayuse-intro>div:last-child{position:relative}
+.dayuse-lead{position:relative;font-size:30px;line-height:1.35;padding:0 0 28px 28px;margin-bottom:24px}
+.dayuse-lead::before{content:"";position:absolute;left:0;top:5px;bottom:31px;width:5px;background:var(--orange)}
+.dayuse-plain-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+.dayuse-plain-list li{
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:300px;padding:26px;border:0;color:white;background-position:center;background-size:cover
+}
+.dayuse-plain-list li::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.04),rgba(8,46,43,.95))}
+.dayuse-essential-fees{background-image:url('../images/camp-booking-forest-service.webp')}
+.dayuse-essential-hours{background-image:url('../images/hero-weather.webp')}
+.dayuse-essential-trailers{background-image:url('../images/camp-rv-parking-count.webp')}
+.dayuse-essential-dogs{background-image:url('../images/hero-day-use.webp')}
+.dayuse-plain-list li>span{font-size:9px;letter-spacing:.17em;font-weight:900;color:#ffd071}
+.dayuse-plain-list li>b{font-family:"Cormorant Garamond",serif;font-size:27px;line-height:1.05;color:white;margin:9px 0}
+.dayuse-plain-list li>p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.8);margin:0}
+.dayuse-heading>p{font-size:15px;line-height:1.75}
+
+.dayuse-region-grid{gap:16px;border-top:0}
+.dayuse-region-grid>article,.dayuse-region-grid>article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;
+  min-height:680px;padding:32px;border:0;background-position:center;background-size:cover
+}
+.dayuse-region-grid>article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.08) 7%,rgba(8,46,43,.96) 72%)}
+.dayuse-region-florence{background-image:url('../images/riding-01-florence.webp')}
+.dayuse-region-winchester{background-image:url('../images/riding-02-winchester.webp')}
+.dayuse-region-coos{background-image:url('../images/riding-03-coos-bay.webp')}
+.dayuse-region-grid>article>span,.dayuse-quiet-list span{font-size:10px}
+.dayuse-region-grid h3{font-size:40px}
+.dayuse-region-grid>article>p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.8)}
+.dayuse-site-list{margin-top:auto}
+.dayuse-site-list div{padding:16px;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.2)}
+.dayuse-site-list b{font-size:21px}.dayuse-site-list small{font-size:11px;line-height:1.55;color:rgba(255,255,255,.76)}
+.dayuse-region-actions{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.dayuse-region-grid>article>.dayuse-region-actions>a{display:block;margin:0;padding:10px 0;border-top:1px solid rgba(255,255,255,.25);border-bottom:0;font-size:12px;font-weight:800}
+
+.dayuse-check-grid{gap:14px;border-top:0}
+.dayuse-check-grid article,.dayuse-check-grid article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:390px;padding:28px;border:0;color:white;background-position:center;background-size:cover
+}
+.dayuse-check-grid article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.06),rgba(8,46,43,.96))}
+.dayuse-ready-permit{background-image:url('../images/hero-rules-v2.webp')}
+.dayuse-ready-machine{background-image:url('../images/riding-04-checklist.webp')}
+.dayuse-ready-map{background-image:url('../images/riding-map-florence.webp')}
+.dayuse-ready-group{background-image:url('../images/hero-guide-riding.webp')}
+.dayuse-check-grid span{font-size:25px;color:#ffd071}
+.dayuse-check-grid h3{font-size:29px}
+.dayuse-check-grid p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.8)}
+.dayuse-check-grid a{align-self:flex-start;margin-top:15px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px;font-weight:800;color:white}
+.dayuse-alert p,.dayuse-alert a{font-size:13px}
+
+.dayuse-quiet{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.98),rgba(8,46,43,.86)),url('../images/hero-day-use.webp') center/cover}
+.dayuse-quiet-grid>div:first-child>p:last-child{font-size:15px;line-height:1.75}
+.dayuse-quiet-list{gap:14px}
+.dayuse-quiet-list article,.dayuse-quiet-list article:nth-child(even){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:410px;padding:27px;border:0;background-position:center;background-size:cover
+}
+.dayuse-quiet-list article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.06),rgba(8,46,43,.96))}
+.dayuse-quiet-overlook{background-image:url('../images/hero-day-use.webp')}
+.dayuse-quiet-alder{background-image:url('../images/map-lakeside.webp')}
+.dayuse-quiet-dellenback{background-image:url('../images/riding-05-dune-reading.webp')}
+.dayuse-quiet-jetty{background-image:url('../images/hero-tides.webp')}
+.dayuse-quiet-list h3{font-size:30px}
+.dayuse-quiet-list p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78)}
+.dayuse-quiet-list a{align-self:flex-start;margin-top:15px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px;font-weight:800}
+
+.dayuse-hazard-grid{gap:14px;border-top:0}
+.dayuse-hazard-grid article,.dayuse-hazard-grid article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:410px;padding:30px;border:0;color:white;background-position:center;background-size:cover
+}
+.dayuse-hazard-grid article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.02),rgba(8,46,43,.95))}
+.dayuse-hazard-wave{background-image:url('../images/hero-weather.webp')}
+.dayuse-hazard-tide{background-image:url('../images/hero-tides.webp')}
+.dayuse-hazard-water{background-image:url('../images/home-explore.webp')}
+.dayuse-hazard-grid span{font-size:25px;color:#ffd071}
+.dayuse-hazard-grid h3{font-size:31px}
+.dayuse-hazard-grid p{font-size:14px;line-height:1.68;color:rgba(255,255,255,.82)}
+
+.dayuse-dayplan{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.98),rgba(8,46,43,.88)),url('../images/hero-day-use.webp') center/cover}
+.dayuse-timeline{gap:12px;border-top:0}
+.dayuse-timeline article,.dayuse-timeline article:not(:first-child){padding:27px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.dayuse-timeline time{font-size:10px}.dayuse-timeline h3{font-size:28px}.dayuse-timeline p{font-size:14px;line-height:1.68;color:rgba(255,255,255,.76)}
+.dayuse-dayplan-action{display:flex;align-items:center;gap:25px;margin-top:34px}.dayuse-dayplan-action span{font-size:12px;color:rgba(255,255,255,.67)}
+.dayuse-official-photo{background:linear-gradient(90deg,rgba(8,46,43,.97),rgba(8,46,43,.78)),url('../images/hero-day-use.webp') center/cover}
+.dayuse-official .split>div>p:last-child{font-size:15px}
+.dayuse-official .official-links span{font-size:11px}
+
+@media(max-width:1050px){
+  .dayuse-choice-grid{grid-template-columns:1fr 1fr}
+  .dayuse-choice-grid>a{min-height:460px}
+  .dayuse-region-grid{grid-template-columns:1fr}
+  .dayuse-region-grid>article,.dayuse-region-grid>article:not(:first-child){min-height:630px}
+  .dayuse-check-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .dayuse-plain-list{grid-template-columns:1fr}
+  .dayuse-choice-grid,.dayuse-check-grid{grid-template-columns:1fr}
+  .dayuse-choice-grid>a{min-height:430px}
+  .dayuse-planner-ribbon{align-items:flex-start;flex-direction:column;padding:28px 24px}
+  .dayuse-planner-ribbon .button{width:100%}
+  .dayuse-region-grid>article,.dayuse-region-grid>article:not(:first-child){min-height:660px;padding:27px}
+  .dayuse-check-grid article,.dayuse-check-grid article:not(:first-child){min-height:410px;padding:26px}
+  .dayuse-quiet-list article,.dayuse-quiet-list article:nth-child(even){min-height:390px}
+  .dayuse-hazard-grid article,.dayuse-hazard-grid article:not(:first-child){min-height:390px}
+  .dayuse-dayplan-action{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:520px){
+  .dayuse-chooser{padding:80px 0 72px}
+  .dayuse-choice-grid>a{min-height:450px;padding:25px}
+  .dayuse-choice-grid h3{font-size:32px}
+  .dayuse-region-grid>article,.dayuse-region-grid>article:not(:first-child){min-height:720px;padding:24px}
+  .dayuse-site-list div{padding:14px}
+}
+
+/* Gas: useful Oregon benchmarks without an embedded third-party website */
+.gas-hero-grid>div>p:last-child{font-size:17px;line-height:1.75}
+.gas-hero-note>span{font-size:10px}.gas-hero-note h2{font-size:45px}.gas-hero-note p{font-size:14px;line-height:1.65}.gas-hero-note a{font-size:12px}
+.gas-section-heading>p,.gas-board-heading>div>p{font-size:15px;line-height:1.75}
+
+.gas-region-grid{gap:16px;border-top:0}
+.gas-region-grid article,.gas-region-grid article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:470px;padding:31px;border:0;color:white;background-position:center;background-size:cover
+}
+.gas-region-grid article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.04) 12%,rgba(8,46,43,.95) 88%)}
+.gas-region-florence{background-image:url('../images/hero-guide-towns.webp')}
+.gas-region-reedsport{background-image:url('../images/map-reedsport.webp')}
+.gas-region-coos{background-image:url('../images/camp-region-coos-bay.webp')}
+.gas-region-grid article>span{font-size:10px;color:#ffd071}
+.gas-region-grid h3{font-size:38px;line-height:1}
+.gas-region-grid p{min-height:0;font-size:14px;line-height:1.68;color:rgba(255,255,255,.8)}
+.gas-region-grid a{align-self:flex-start;margin-top:15px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px;color:white}
+
+.gas-price-board{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.98),rgba(8,46,43,.88)),url('../images/hero-gas.webp') center/cover}
+.gas-source-link{display:inline-block;margin-top:18px;padding-bottom:5px;border-bottom:1px solid #ffd071;font-size:13px;font-weight:800;color:white}
+.gas-live-board{margin-top:52px}
+.gas-price-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gas-price-cards article{padding:30px;background:#f7f0e3;color:var(--ink);box-shadow:0 16px 35px rgba(0,0,0,.13)}
+.gas-price-cards .gas-price-regular{background:var(--orange);color:white}
+.gas-price-cards span{display:block;font-size:10px;letter-spacing:.18em;font-weight:900;color:#687e7a}
+.gas-price-cards .gas-price-regular span{color:#ffe2b1}
+.gas-price-cards b{display:block;font-family:"Cormorant Garamond",serif;font-size:55px;line-height:1;margin:15px 0 10px}
+.gas-price-cards small{display:block;min-height:20px;font-size:12px;color:#617975}
+.gas-price-cards .gas-price-regular small{color:rgba(255,255,255,.82)}
+.gas-down{color:#2d7c58!important}.gas-up{color:#b94e2d!important}.gas-steady{color:#617975!important}
+.gas-fetched-note{font-size:12px;color:rgba(255,255,255,.68);margin:18px 2px}
+.gas-fetched-note a{font-weight:800;text-decoration:underline;color:white}
+.gas-trend-wrap{overflow-x:auto;background:#f7f0e3}
+.gas-trend-table{width:100%;border-collapse:collapse;color:var(--ink)}
+.gas-trend-table th{padding:16px 18px;background:#e8dcc6;text-align:left;font-size:10px;letter-spacing:.12em}
+.gas-trend-table td{padding:15px 18px;border-top:1px solid rgba(21,63,60,.14);font-size:14px}
+.gas-trend-table td:first-child{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:700}
+
+.fuel-calculator{padding:38px;gap:17px}
+.fuel-calculator label{font-size:11px}.fuel-calculator input{font-size:15px;padding:15px}.fuel-calculator button{font-size:13px;padding:19px 21px}
+.fuel-result span{font-size:10px}.fuel-result b{font-size:31px}
+.gas-planner-ribbon{display:flex;align-items:center;justify-content:space-between;gap:35px;margin-top:22px;padding:32px 36px;background:#e8dcc6;border-left:5px solid var(--orange)}
+.gas-planner-ribbon span{font-size:10px;letter-spacing:.17em;font-weight:900;color:var(--orange)}
+.gas-planner-ribbon h3{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.08;margin:8px 0 0;max-width:760px}
+
+.gas-field-notes{position:relative;isolation:isolate;background:linear-gradient(90deg,rgba(8,46,43,.98),rgba(8,46,43,.88)),url('../images/hero-gas.webp') center/cover}
+.gas-note-grid{gap:14px;border-top:0}
+.gas-note-grid article,.gas-note-grid article:not(:first-child){
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:410px;padding:28px;border:0;background-position:center;background-size:cover
+}
+.gas-note-grid article::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.04),rgba(8,46,43,.96))}
+.gas-note-staging{background-image:url('../images/camp-rv-parking-count.webp')}
+.gas-note-containers{background-image:url('../images/camp-pack-safety.webp')}
+.gas-note-machine{background-image:url('../images/riding-04-checklist.webp')}
+.gas-note-reserve{background-image:url('../images/hero-gas.webp')}
+.gas-note-grid span{font-size:24px;color:#ffd071}.gas-note-grid h3{font-size:29px}.gas-note-grid p{font-size:14px;line-height:1.68;color:rgba(255,255,255,.8)}
+
+@media(max-width:1000px){
+  .gas-price-cards{grid-template-columns:1fr 1fr}
+  .gas-region-grid{grid-template-columns:1fr}
+  .gas-region-grid article,.gas-region-grid article:not(:first-child){min-height:440px}
+  .gas-note-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .gas-price-cards,.gas-note-grid{grid-template-columns:1fr}
+  .gas-price-cards b{font-size:48px}
+  .gas-region-grid article,.gas-region-grid article:not(:first-child){min-height:460px;padding:27px}
+  .gas-note-grid article,.gas-note-grid article:not(:first-child){min-height:390px}
+  .gas-planner-ribbon{align-items:flex-start;flex-direction:column;padding:28px 24px}
+  .gas-planner-ribbon .button{width:100%}
+  .gas-trend-table th,.gas-trend-table td{padding:12px 10px;white-space:nowrap}
 }

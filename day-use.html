@@ -9,8 +9,8 @@
   <meta property="og:description" content="Day-use staging, quiet dune walks, coast safety, passes, and practical trip planning from Florence to Coos Bay.">
   <meta property="og:image" content="public/og-v2.png">
   <link rel="icon" href="public/favicon.svg">
-  <link rel="stylesheet" href="static/styles.css">
-  <script src="static/site.js" defer></script>
+  <link rel="stylesheet" href="static/styles.css?v=25">
+  <script src="static/site.js?v=25" defer></script>
 </head>
 <body data-page="day-use">
   <header class="site-header">
@@ -41,30 +41,60 @@
           <h1>One coast.<br><i>One unforgettable day.</i></h1>
           <p>You do not need a campsite to experience the dunes. Stage an OHV, walk into quiet open sand, picnic beside a lake, watch wildlife, or build a coast day around all three.</p>
           <div class="dayuse-hero-actions">
-            <a class="button light" href="#choose-area">Choose an area ↓</a>
-            <a class="dayuse-text-link" href="planner.html">Build a day-trip plan →</a>
+            <a class="button light" href="#choose-your-day">Choose your day ↓</a>
+            <a class="dayuse-text-link" href="planner.html">Let the Trip Planner build it →</a>
           </div>
         </div>
         <aside class="dayuse-arrival-card">
-          <span>BEFORE YOU LEAVE HOME</span>
-          <h2>Four checks make arrival easy.</h2>
+          <span>THE PLANNER DOES THE HEAVY LIFTING</span>
+          <h2>Choose the experience. It builds the day.</h2>
           <ol>
-            <li><b>Access</b><small>Open site, road, and riding-zone status</small></li>
-            <li><b>Passes</b><small>Day-use fee or recreation pass for the chosen site</small></li>
-            <li><b>Weather</b><small>Wind, rain, visibility, tides, and fire restrictions</small></li>
-            <li><b>Equipment</b><small>Permits, safety cards, flags, helmets, and recovery gear</small></li>
+            <li><b>Your crew</b><small>Group, children, dogs, machines, and rentals</small></li>
+            <li><b>Your day</b><small>Region, activities, meals, timing, and backups</small></li>
+            <li><b>Conditions</b><small>Weather, rain attire, road notes, and tides</small></li>
+            <li><b>Your picks</b><small>A printable, shareable plan built from selections</small></li>
           </ol>
+          <a class="button ink dayuse-planner-card-button" href="planner.html">Build my day-trip plan ↗</a>
         </aside>
       </div>
       <div class="dayuse-facts">
         <div><span>3</span><b>Dune regions</b></div>
-        <div><span>2</span><b>Ways to explore</b><small>Motorized + quiet</small></div>
+        <div><span>4</span><b>Ways to explore</b><small>Ride, walk, lakes, and coast</small></div>
         <div><span>YEAR</span><b>Round access</b><small>Weather permitting</small></div>
-        <div><span>1</span><b>Current map</b><small>Carry it offline</small></div>
+        <div><span>1</span><b>Trip Planner</b><small>Build, print, and share</small></div>
       </div>
     </section>
 
-    <section class="dayuse-intro shell">
+    <section class="dayuse-chooser shell" id="choose-your-day">
+      <div class="dayuse-heading">
+        <div><p class="section-label">START WITH THE EXPERIENCE</p><h2>What sounds good<br><i>today?</i></h2></div>
+        <p>Use this page to discover the kind of day you want. When one feels right, the Trip Planner turns it into a personalized itinerary with the details, stops, checklist, printout, and group-sharing options.</p>
+      </div>
+      <div class="dayuse-choice-grid">
+        <a class="dayuse-choice-ride" href="#choose-area">
+          <span>OHV DAY</span><h3>Stage and ride</h3><p>Choose a legal riding zone, unload from a trailer-friendly lot, and start with the official map.</p>
+          <div><b>ALLOW</b><small>4–8 hours</small><strong>Compare staging areas →</strong></div>
+        </a>
+        <a class="dayuse-choice-walk" href="#quiet-days">
+          <span>QUIET DUNES</span><h3>Walk the open sand</h3><p>Reach overlooks and non-motorized dunes without entering an OHV riding area.</p>
+          <div><b>ALLOW</b><small>2–5 hours</small><strong>Find a quiet trail →</strong></div>
+        </a>
+        <a class="dayuse-choice-lake" href="#quiet-days">
+          <span>LAKE &amp; PICNIC</span><h3>Slow down by the water</h3><p>Pair a picnic, lake walk, fishing stop, or paddle with a shorter dune experience.</p>
+          <div><b>ALLOW</b><small>2–6 hours</small><strong>See lake options →</strong></div>
+        </a>
+        <a class="dayuse-choice-coast" href="#coast-safety">
+          <span>COAST &amp; TOWNS</span><h3>Build a mixed-interest day</h3><p>Combine beach access, wildlife viewpoints, lunch, shopping, and an easy scenic stop.</p>
+          <div><b>ALLOW</b><small>3–8 hours</small><strong>Plan the coast →</strong></div>
+        </a>
+      </div>
+      <div class="dayuse-planner-ribbon">
+        <div><span>FOUND YOUR KIND OF DAY?</span><h3>Send it to the planner and make it yours.</h3></div>
+        <a class="button ink" href="planner.html">Open the Trip Planner ↗</a>
+      </div>
+    </section>
+
+    <section class="dayuse-intro shell" id="arrival-essentials">
       <div>
         <p class="section-label">GETTING IN</p>
         <h2>Park, stage,<br><i>then slow down.</i></h2>
@@ -72,10 +102,10 @@
       <div>
         <p class="dayuse-lead">Day-use areas range from paved OHV staging lots built for trailers to small picnic areas, lake access, overlooks, and trailheads.</p>
         <ul class="dayuse-plain-list">
-          <li><b>Fees and passes:</b> Many Forest Service day-use and OHV staging areas require a site fee or accepted recreation pass. Amounts and payment methods vary—check the exact site before arrival.</li>
-          <li><b>Hours:</b> Use posted opening, closing, and quiet-hour signs. A site being open does not mean every trail, beach segment, or habitat area is open.</li>
-          <li><b>Trailers:</b> Arrive early on summer weekends. Use designated unloading areas and keep ramps, turnarounds, and emergency access clear.</li>
-          <li><b>Dogs:</b> At developed Forest Service recreation sites, keep dogs leashed or otherwise physically restrained. Seasonal wildlife areas may be more restrictive.</li>
+          <li class="dayuse-essential-fees"><span>01 · ARRIVAL</span><b>Fees &amp; passes</b><p>Many day-use and OHV staging areas require a site fee or accepted recreation pass. Check the exact site and payment method before arrival.</p></li>
+          <li class="dayuse-essential-hours"><span>02 · ACCESS</span><b>Hours &amp; closures</b><p>Use posted opening, closing, and quiet-hour signs. An open parking lot does not mean every trail, beach segment, or habitat area is open.</p></li>
+          <li class="dayuse-essential-trailers"><span>03 · PARKING</span><b>Trailers &amp; busy days</b><p>Arrive early on summer weekends. Use designated unloading areas and keep ramps, turnarounds, and emergency access clear.</p></li>
+          <li class="dayuse-essential-dogs"><span>04 · YOUR CREW</span><b>Dogs &amp; wildlife areas</b><p>At developed Forest Service sites, keep dogs leashed or physically restrained. Seasonal wildlife areas may be more restrictive.</p></li>
         </ul>
       </div>
     </section>
@@ -88,7 +118,7 @@
         </div>
 
         <div class="dayuse-region-grid">
-          <article>
+          <article class="dayuse-region-florence">
             <span>01 · FLORENCE / NORTH</span>
             <h3>South Jetty &amp; Siltcoos</h3>
             <p>A varied northern zone with open sand, tree islands, connector trails, and several access choices.</p>
@@ -97,10 +127,10 @@
               <div><b>Goosepasture OHV Staging</b><small>Popular trailer-friendly access to open sand; it can fill early on busy weekends.</small></div>
               <div><b>Siltcoos Beach Day Use</b><small>Southern access to the north riding zone; verify seasonal beach restrictions.</small></div>
             </div>
-            <a href="maps.html">Find north-region access →</a>
+            <div class="dayuse-region-actions"><a href="riding-florence.html">Open Florence riding guide →</a><a href="maps.html">Show on the field map →</a><a href="planner.html">Plan a Florence day →</a></div>
           </article>
 
-          <article>
+          <article class="dayuse-region-winchester">
             <span>02 · WINCHESTER BAY / CENTRAL</span>
             <h3>Umpqua Dunes</h3>
             <p>Big, exposed sand with steep transitions and rapidly changing wind-built ridges. Best approached with conservative first loops.</p>
@@ -109,10 +139,10 @@
               <div><b>Umpqua Dunes Access #3</b><small>Another principal staging choice; confirm current road and lot conditions.</small></div>
               <div><b>Winchester Bay base</b><small>Fuel, food, harbor services, and a practical regroup point close to the dunes.</small></div>
             </div>
-            <a href="maps.html">Find central-region access →</a>
+            <div class="dayuse-region-actions"><a href="riding-winchester-bay.html">Open Winchester Bay guide →</a><a href="maps.html">Show on the field map →</a><a href="planner.html">Plan a Winchester Bay day →</a></div>
           </article>
 
-          <article>
+          <article class="dayuse-region-coos">
             <span>03 · COOS BAY / SOUTH</span>
             <h3>Spinreel &amp; Horsfall</h3>
             <p>A broad southern network of open riding, wooded connectors, staging areas, camp access, and longer route choices.</p>
@@ -121,7 +151,7 @@
               <div><b>Bull Run OHV Staging</b><small>Paved staging with a short trail toward southern open riding and beach access.</small></div>
               <div><b>Horsfall Beach Day Use</b><small>Southern access point near North Bend; check tides and beach closures before using coastal routes.</small></div>
             </div>
-            <a href="maps.html">Find south-region access →</a>
+            <div class="dayuse-region-actions"><a href="riding-coos-bay.html">Open Coos Bay riding guide →</a><a href="maps.html">Show on the field map →</a><a href="planner.html">Plan a Coos Bay day →</a></div>
           </article>
         </div>
       </div>
@@ -133,59 +163,60 @@
         <p>An Oregon ATV operating permit is required for machines used on public riding land. Operator requirements depend on age and vehicle class, and the Oregon Dunes sound limit is 93 dB.</p>
       </div>
       <div class="dayuse-check-grid">
-        <article><span>01</span><h3>Permit &amp; education</h3><p>Display the required operating permit and carry applicable safety education credentials. Confirm youth supervision and training rules.</p></article>
-        <article><span>02</span><h3>Machine setup</h3><p>Bring the required whip flag, approved spark arrestor, working lights, brakes, helmets, eye protection, and vehicle-specific safety gear.</p></article>
-        <article><span>03</span><h3>Current riding map</h3><p>Download the current official map before service fades. Fences, signs, habitat closures, and designated routes control.</p></article>
-        <article><span>04</span><h3>Group protocol</h3><p>Name a lead and sweep, agree on hand signals, regroup at every decision point, and keep the first loop short.</p></article>
+        <article class="dayuse-ready-permit"><span>01</span><h3>Permit &amp; education</h3><p>Display the required operating permit and carry applicable safety education credentials. Confirm youth supervision and training rules.</p><a href="rules.html">Know the rules →</a></article>
+        <article class="dayuse-ready-machine"><span>02</span><h3>Machine setup</h3><p>Bring the required whip flag, approved spark arrestor, working lights, brakes, helmets, eye protection, and vehicle-specific safety gear.</p><a href="guide.html?topic=safety">Open safety guide →</a></article>
+        <article class="dayuse-ready-map"><span>03</span><h3>Current riding map</h3><p>Download the current official map before service fades. Fences, signs, habitat closures, and designated routes control.</p><a href="maps.html">Choose a map →</a></article>
+        <article class="dayuse-ready-group"><span>04</span><h3>Group protocol</h3><p>Name a lead and sweep, agree on hand signals, regroup at every decision point, and keep the first loop short.</p><a href="guide.html?topic=riding">Review group protocol →</a></article>
       </div>
       <div class="dayuse-alert"><b>Stage before you ride.</b><p>Unload only where permitted. Do not operate an unregistered OHV on public roads or ride between a lodging property and the dunes unless the route and vehicle are legal for that connection.</p><a href="rules.html">Review Oregon Dunes rules →</a></div>
     </section>
 
     <section class="dayuse-quiet">
-      <div class="shell dayuse-quiet-grid">
+      <div class="shell dayuse-quiet-grid" id="quiet-days">
         <div>
           <p class="section-label pale">BEYOND THE THROTTLE</p>
           <h2>Quiet sand,<br><i>lakes, and long views.</i></h2>
           <p>Some of the most memorable Oregon Dunes day trips never enter an OHV area. These places offer hiking, picnicking, fishing, paddling, photography, and wildlife watching.</p>
         </div>
         <div class="dayuse-quiet-list">
-          <article><span>WALK TO THE OPEN DUNES</span><h3>Oregon Dunes Day Use Area</h3><p>South of Florence, this non-motorized access offers sweeping dune views and a walking route toward the beach. Expect soft-sand effort and wind exposure.</p></article>
-          <article><span>LAKE &amp; FOREST</span><h3>Alder Dune / Dune Lake</h3><p>North of Florence, this year-round site connects to Alder Dune Trail, with picnic tables and lake-oriented recreation.</p></article>
-          <article><span>BIG-DUNE HIKE</span><h3>John Dellenback Dunes Trail</h3><p>Near Lakeside, a forest approach opens onto a dramatic non-motorized dune landscape. Carry water and navigation for the featureless open sand.</p></article>
-          <article><span>BEACH, WETLAND &amp; WILDLIFE</span><h3>South Jetty Road pullouts</h3><p>Separate beach lots, wetland viewpoints, and a crab-dock area make it possible to build a mixed-interest day without entering an OHV zone.</p></article>
+          <article class="dayuse-quiet-overlook"><span>WALK TO THE OPEN DUNES</span><h3>Oregon Dunes Overlook</h3><p>South of Florence, accessible viewing platforms overlook the dunes and ocean. Beyond the paved portion, a walking route continues toward the open sand and beach.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Oregon+Dunes+Overlook+and+Day+Use" target="_blank" rel="noreferrer">Open GPS directions →</a><a href="planner.html">Plan this day →</a></article>
+          <article class="dayuse-quiet-alder"><span>LAKE &amp; FOREST</span><h3>Alder Dune / Dune Lake</h3><p>North of Florence, this year-round fee site connects to Alder Dune Trail and provides picnic tables, potable water, and lake-oriented recreation.</p><a href="https://www.fs.usda.gov/r06/siuslaw/recreation/alder-dune-day-use-dune-lake" target="_blank" rel="noreferrer">Check the official site →</a><a href="planner.html">Plan this day →</a></article>
+          <article class="dayuse-quiet-dellenback"><span>BIG-DUNE HIKE</span><h3>John Dellenback Dunes Trail</h3><p>Near Lakeside, a forest approach opens onto a dramatic non-motorized dune landscape. Carry water and navigation for the featureless open sand.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=John+Dellenback+Dunes+Trailhead" target="_blank" rel="noreferrer">Open GPS directions →</a><a href="planner.html">Plan this day →</a></article>
+          <article class="dayuse-quiet-jetty"><span>BEACH, WETLAND &amp; WILDLIFE</span><h3>South Jetty Road pullouts</h3><p>Separate beach lots, wetland viewpoints, and a crab-dock area make it possible to build a mixed-interest day without entering an OHV zone.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=South+Jetty+Road+Florence+Oregon" target="_blank" rel="noreferrer">Open GPS directions →</a><a href="planner.html">Plan this day →</a></article>
         </div>
       </div>
     </section>
 
-    <section class="dayuse-coast shell">
+    <section class="dayuse-coast shell" id="coast-safety">
       <div class="dayuse-heading">
         <div><p class="section-label">POSTED AT THE COAST</p><h2>Read the surf.<br><i>Respect the edge.</i></h2></div>
         <p>The Pacific is cold, powerful, and changeable. Tide predictions help with planning, but they do not account for every wave, storm, current, river flow, or drifting log.</p>
       </div>
       <div class="dayuse-hazard-grid">
-        <article><span>01</span><h3>Sneaker waves</h3><p>Unexpected waves can run much farther up the beach than the previous sets. Never turn your back on the ocean or sit on driftwood near the wash line.</p></article>
-        <article><span>02</span><h3>Incoming tide</h3><p>Water can remove a legal wet-sand travel corridor and trap riders against soft sand, logs, or dune faces. Keep a clear exit behind you.</p></article>
-        <article><span>03</span><h3>Cold water &amp; currents</h3><p>Oregon surf can cause rapid cold-water incapacitation. Swim only where appropriate, supervise children closely, and understand rip-current escape.</p></article>
+        <article class="dayuse-hazard-wave"><span>01</span><h3>Sneaker waves</h3><p>Unexpected waves can run much farther up the beach than the previous sets. Never turn your back on the ocean or sit on driftwood near the wash line.</p></article>
+        <article class="dayuse-hazard-tide"><span>02</span><h3>Incoming tide</h3><p>Water can remove a legal wet-sand travel corridor and trap riders against soft sand, logs, or dune faces. Keep a clear exit behind you.</p></article>
+        <article class="dayuse-hazard-water"><span>03</span><h3>Cold water &amp; currents</h3><p>Oregon surf can cause rapid cold-water incapacitation. Swim only where appropriate, supervise children closely, and understand rip-current escape.</p></article>
       </div>
       <a class="button ink" href="tides.html">Open the tide center →</a>
     </section>
 
-    <section class="dayuse-dayplan">
+    <section class="dayuse-dayplan" id="planner-preview">
       <div class="shell">
         <div class="dayuse-heading">
-          <div><p class="section-label pale">A SIMPLE DAY PLAN</p><h2>Leave room for<br><i>the coast to change.</i></h2></div>
-          <p>Wind, fog, tide, closures, and crowding can reshuffle a good plan. Keep one primary objective and one nearby alternative.</p>
+          <div><p class="section-label pale">THE FULL TRIP PLANNER</p><h2>Your choices.<br><i>One useful plan.</i></h2></div>
+          <p>The Day Use guide helps you discover the possibilities. The Trip Planner takes over from there and builds the personalized version for your actual crew, dates, interests, and selected places.</p>
         </div>
         <div class="dayuse-timeline">
-          <article><time>EARLY</time><h3>Arrive and inspect</h3><p>Park before the busiest window, read every posted sign, pay the site fee, and inspect the staging or trail conditions.</p></article>
-          <article><time>MORNING</time><h3>Use the best window</h3><p>Ride the primary loop, take the exposed hike, or use favorable tide and wind conditions while energy and visibility are best.</p></article>
-          <article><time>MIDDAY</time><h3>Reset by the vehicle</h3><p>Eat, hydrate, check weather, reassess the group, and choose a shorter second outing.</p></article>
-          <article><time>AFTERNOON</time><h3>Finish with margin</h3><p>Return before light or weather deteriorates, clean the staging space, secure equipment, and check every trailer connection.</p></article>
+          <article><time>01 · YOUR PICKS</time><h3>Selected places come first</h3><p>Your chosen lodging, staging area, restaurant, shopping stop, or breakfast appears in the plan—not a generic itinerary that ignores your answers.</p></article>
+          <article><time>02 · CONDITIONS</time><h3>Weather, attire &amp; roads</h3><p>Trip dates and region are used to add rain-attire guidance, a forecast-based outlook, and links to current Oregon road conditions.</p></article>
+          <article><time>03 · YOUR DETAILS</time><h3>Confirmations stay under your control</h3><p>Add reservation information where it helps, then mark private details “Do not share” before sending the group version.</p></article>
+          <article><time>04 · TAKE IT WITH YOU</time><h3>Print or share the finished day</h3><p>Send the plan by Messenger, email, or text, or print a clean copy that keeps the group focused on the places everyone chose.</p></article>
         </div>
+        <div class="dayuse-dayplan-action"><a class="button light" href="planner.html">Build my personalized day ↗</a><span>Nothing is sent anywhere unless you choose to share it.</span></div>
       </div>
     </section>
 
-    <section class="official-band dayuse-official">
+    <section class="official-band dayuse-official dayuse-official-photo">
       <div class="shell split">
         <div><p class="section-label pale">VERIFY BEFORE ARRIVAL</p><h2>The sign wins.<br><i>The map decides.</i></h2><p>Fees, closures, road conditions, fire restrictions, and wildlife boundaries can change. Use this guide to choose an area, then verify the final details with the managing agencies.</p></div>
         <div class="official-links">

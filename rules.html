@@ -9,8 +9,9 @@
   <meta property="og:description" content="Know the permits, equipment, rider requirements, and dune rules before unloading.">
   <meta property="og:image" content="public/og-v2.png">
   <link rel="icon" href="public/favicon.svg">
-  <link rel="stylesheet" href="static/styles.css">
-  <script src="static/site.js" defer></script>
+  <link rel="stylesheet" href="static/styles.css?v=28">
+  <script src="static/site.js?v=28" defer></script>
+  <script src="static/rules.js?v=28" defer></script>
 </head>
 <body data-page="rules">
   <header class="site-header">
@@ -50,16 +51,49 @@
       </div>
     </section>
 
+    <section class="rule-finder">
+      <div class="shell">
+        <div class="rule-finder-heading">
+          <div><p class="section-label">YOUR QUICK RULE CHECK</p><h2>What are you driving?<br><i>Who is operating?</i></h2></div>
+          <p>Choose a machine and age group for a plain-language starting list. It takes seconds—and it makes the detailed guide below much easier to use.</p>
+        </div>
+        <div class="rule-finder-panel">
+          <fieldset>
+            <legend>1. Choose the machine</legend>
+            <div class="rule-machine-options">
+              <label class="rule-machine-card rule-machine-i"><input type="radio" name="rule-class" value="1" checked><span><small>CLASS I</small><b>Quad</b><em>ATVs and 3-wheelers</em></span></label>
+              <label class="rule-machine-card rule-machine-ii"><input type="radio" name="rule-class" value="2"><span><small>CLASS II</small><b>4×4 or rail</b><em>Trucks, SUVs, sand rails</em></span></label>
+              <label class="rule-machine-card rule-machine-iii"><input type="radio" name="rule-class" value="3"><span><small>CLASS III</small><b>Dirt bike</b><em>Off-road motorcycles</em></span></label>
+              <label class="rule-machine-card rule-machine-iv"><input type="radio" name="rule-class" value="4"><span><small>CLASS IV</small><b>Side-by-side</b><em>UTVs with steering wheel</em></span></label>
+            </div>
+          </fieldset>
+          <fieldset class="rule-age-fieldset">
+            <legend>2. Choose the operator’s age</legend>
+            <div class="rule-age-options">
+              <label><input type="radio" name="rule-age" value="adult" checked><span>18 or older</span></label>
+              <label><input type="radio" name="rule-age" value="teen"><span>Age 16–17</span></label>
+              <label><input type="radio" name="rule-age" value="youth"><span>Under 16</span></label>
+            </div>
+          </fieldset>
+          <div class="rule-finder-result" aria-live="polite">
+            <div class="rule-finder-result-top"><div><small>YOUR STARTING CHECKLIST</small><h3 id="rule-result-title">Adult riding a Class I quad</h3></div><span>VERIFY OFFICIALLY</span></div>
+            <ul id="rule-result-list"></ul>
+            <div class="rule-finder-actions"><a href="#official-rules">Open official sources ↓</a><button type="button" id="print-rule-check">Print this check</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="rules-essentials shell">
       <div class="rules-heading">
         <div><p class="section-label">THE FOUR BIG CHECKS</p><h2>Before the engine<br><i>ever starts.</i></h2></div>
-        <p>These are the items most likely to stop a trip at staging. Requirements vary by vehicle class and operator age, so use the deeper sections below.</p>
+        <p>These are the items most likely to stop a trip at staging. Permit on the machine, credentials with the operator, legal equipment, and a current map belong together.</p>
       </div>
       <div class="rule-essential-grid">
-        <article><span>01</span><b>ATV operating permit</b><p>A visible Oregon permit—or a qualifying reciprocal-state permit—is required for machines operated on designated public OHV land.</p></article>
-        <article><span>02</span><b>Safety education card</b><p>Required for every Class I quad and Class III off-road motorcycle operator, plus Class IV operators under 16.</p></article>
-        <article><span>03</span><b>Sand flag</b><p>Every vehicle on the dunes needs a red or orange flag at least 8 by 12 inches, displayed nine feet above the ground.</p></article>
-        <article><span>04</span><b>Legal equipment</b><p>Working brakes, safe fuel system, required lights, muffler, spark arrester, restraints, and class-specific safety equipment.</p></article>
+        <article class="rule-essential-card rule-essential-permit"><span>01</span><b>ATV operating permit</b><p>A visible Oregon permit—or a qualifying reciprocal-state permit—is required for machines operated on designated public OHV land.</p><a href="https://www.oregon.gov/oprd/ATV/Pages/ATV-permits.aspx" target="_blank" rel="noreferrer">Purchase or verify ↗</a></article>
+        <article class="rule-essential-card rule-essential-cardid"><span>02</span><b>Safety education card</b><p>Required for every Class I quad and Class III off-road motorcycle operator, plus Class IV operators under 16.</p><a href="https://rideatvoregon.org/" target="_blank" rel="noreferrer">Take the free course ↗</a></article>
+        <article class="rule-essential-card rule-essential-flag"><span>03</span><b>Sand flag</b><p>Every vehicle on the dunes needs a red or orange flag at least 8 by 12 inches, displayed nine feet above the ground.</p><a href="#equipment">See equipment rules ↓</a></article>
+        <article class="rule-essential-card rule-essential-map"><span>04</span><b>Current riding map</b><p>Open sand is not automatically open to vehicles. Carry the current map and obey every posted boundary and closure.</p><a href="maps.html">Open riding maps ↗</a></article>
       </div>
     </section>
 
@@ -79,6 +113,7 @@
         <section id="permits">
           <div class="rules-number">01 · PERMITS &amp; PASSES</div>
           <h2>The machine permit and the parking pass are different.</h2>
+          <div class="rules-chapter-photo rules-photo-permits"><span>Permit on the machine. Recreation pass in the vehicle.</span></div>
           <div class="rule-columns">
             <article><h3>ATV operating permit</h3><p>Oregon’s ATV permit costs $10 and is valid for two years. It must be displayed visibly on the machine. A plated vehicle still needs the ATV permit when it leaves ordinary roads for trails or dunes.</p></article>
             <article><h3>Out-of-state permits</h3><p>Oregon accepts permits only from states that also accept Oregon permits. Riders from nonreciprocal states must purchase an Oregon permit. Check the current reciprocity list before traveling.</p></article>
@@ -90,6 +125,7 @@
         <section id="classes">
           <div class="rules-number">02 · KNOW YOUR CLASS</div>
           <h2>Oregon regulates four kinds of ATV.</h2>
+          <div class="rules-chapter-photo rules-photo-classes"><span>The rule starts with the vehicle’s legal class—not the nickname riders use.</span></div>
           <div class="vehicle-class-grid">
             <article><span>CLASS I</span><h3>Quads &amp; 3-wheelers</h3><ul><li>ATV permit required</li><li>Safety Education Card required for every operator</li><li>Youth rider-fit and supervision rules apply</li></ul></article>
             <article><span>CLASS II</span><h3>4x4s, trucks &amp; sand rails</h3><ul><li>Valid driving privileges required</li><li>ATV permit required off road</li><li>Liability insurance and class-specific equipment required</li></ul></article>
@@ -102,6 +138,7 @@
         <section id="sand">
           <div class="rules-number">03 · ON THE SAND</div>
           <h2>Ride only where motorized travel is designated.</h2>
+          <div class="rules-chapter-photo rules-photo-sand"><span>Read the map, the terrain, and every sign at the same time.</span></div>
           <ul class="rules-checklist">
             <li><b>Follow the current map and posted signs.</b><span>Open sand is not automatically open to vehicles. Riding zones, connectors, seasonal boundaries, and closures vary.</span></li>
             <li><b>Alcohol stays in developed sites.</b><span>Possession of alcohol is prohibited in Forest Service OHV riding areas outside developed campgrounds and day-use sites.</span></li>
@@ -115,6 +152,7 @@
         <section id="equipment">
           <div class="rules-number">04 · REQUIRED EQUIPMENT</div>
           <h2>Your machine must pass more than a visual check.</h2>
+          <div class="rules-chapter-photo rules-photo-equipment"><span>Flag height, sound, exhaust, lighting, restraints, and fire equipment can all matter.</span></div>
           <div class="equipment-board">
             <div><span>FLAG</span><b>Red or orange · 8 × 12 in minimum · 9 ft above ground</b></div>
             <div><span>SOUND</span><b>Oregon Dunes site limit: 93 dB</b></div>
@@ -129,6 +167,7 @@
         <section id="youth">
           <div class="rules-number">05 · YOUTH RIDERS</div>
           <h2>Age, training, fit, and supervision work together.</h2>
+          <div class="rules-chapter-photo rules-photo-youth"><span>Proper fit and active adult supervision are part of the rule—not optional extras.</span></div>
           <ul class="rules-checklist">
             <li><b>Under 18: helmet required.</b><span>Operators and passengers must wear a properly fastened DOT-approved helmet, except the limited exemption for a registered street-legal Class II vehicle with a roof or roll bar.</span></li>
             <li><b>Under 16: hands-on training.</b><span>Youth need the online course plus hands-on training or evaluation, and must be supervised on public land.</span></li>
@@ -143,6 +182,7 @@
         <section id="roads">
           <div class="rules-number">06 · ROADS &amp; STAGING</div>
           <h2>A sand route and a public road are not the same.</h2>
+          <div class="rules-chapter-photo rules-photo-roads"><span>Rules can change the moment tires leave the riding area.</span></div>
           <p>Road use can add driver-license, registration, insurance, lighting, restraint, and traffic-law requirements. Out-of-state ATV plates do not automatically authorize highway use in Oregon. Spinreel Road includes a state-highway segment where driving privileges are required.</p>
           <p>Unload only in authorized areas, secure trailers without blocking circulation, and confirm whether your chosen campground allows direct OHV travel between the campsite and the riding network.</p>
         </section>
@@ -150,6 +190,7 @@
         <section id="habitat">
           <div class="rules-number">07 · CLOSURES &amp; HABITAT</div>
           <h2>The boundary protects wildlife—and continued access.</h2>
+          <div class="rules-chapter-photo rules-photo-habitat"><span>A closure line is a hard boundary, even when tracks continue beyond it.</span></div>
           <p>Western snowy plovers nest on open sand. Seasonal restrictions and signed closures protect nesting, feeding, and resting habitat. Dates and boundaries vary by location, and emergency closures can change access with little notice.</p>
           <div class="habitat-rules"><b>Do not enter posted closures.</b><b>Keep pets controlled and follow leash rules.</b><b>Pack out food and trash that attract predators.</b><b>Use only designated motorized routes.</b></div>
         </section>
