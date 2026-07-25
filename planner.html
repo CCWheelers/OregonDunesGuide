@@ -150,6 +150,52 @@
 
       <section id="tripPlan" class="trip-plan" hidden aria-live="polite"></section>
     </section>
+
+    <section class="planner-feedback" id="plannerFeedback">
+      <div class="shell planner-feedback-grid">
+        <div class="planner-feedback-intro">
+          <p class="section-label">FEEDBACK &amp; SUGGESTIONS</p>
+          <h2>We want to be the best,<br><i>so your opinions matter.</i></h2>
+          <p>Did the planner make your trip easier? Is something missing, confusing, or especially helpful? Tell us what you think and help make the next visitor’s plan even better.</p>
+          <small>Please do not include reservation confirmation numbers or other private trip information.</small>
+        </div>
+        <form class="planner-feedback-form" id="plannerFeedbackForm" name="planner-feedback" method="POST" action="/planner.html?feedback=thanks#plannerFeedback" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="planner-feedback">
+          <p class="feedback-honeypot"><label>Leave this field empty <input name="bot-field"></label></p>
+          <div class="feedback-form-row">
+            <label>What is this about?
+              <select name="feedback-type" required>
+                <option value="">Choose one</option>
+                <option value="Suggestion">A suggestion</option>
+                <option value="Problem">Something did not work</option>
+                <option value="Missing information">Missing information</option>
+                <option value="Compliment">Something you loved</option>
+                <option value="Other">Something else</option>
+              </select>
+            </label>
+            <label>Overall planner rating
+              <select name="rating" required>
+                <option value="">Choose one</option>
+                <option value="5 - Excellent">5 — Excellent</option>
+                <option value="4 - Very good">4 — Very good</option>
+                <option value="3 - Good">3 — Good</option>
+                <option value="2 - Needs work">2 — Needs work</option>
+                <option value="1 - Frustrating">1 — Frustrating</option>
+              </select>
+            </label>
+          </div>
+          <label>Your feedback or suggestion
+            <textarea name="message" rows="7" maxlength="3000" required placeholder="Tell us what would make the planner more useful…"></textarea>
+          </label>
+          <div class="feedback-form-row">
+            <label>Your name <span>(optional)</span><input type="text" name="name" maxlength="80" autocomplete="name"></label>
+            <label>Email for a reply <span>(optional)</span><input type="email" name="email" maxlength="120" autocomplete="email"></label>
+          </div>
+          <button type="submit">Send my feedback <span>↗</span></button>
+          <p class="planner-feedback-status" id="plannerFeedbackStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer><div class="shell"><a href="index.html">← Back home</a><p>Planning support only · Verify current conditions, closures, permits, and reservations with official agencies.</p><a class="footer-brand" href="index.html" aria-label="Oregon Dunes Guide home"><img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240"></a></div></footer>

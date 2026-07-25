@@ -1,3 +1,16 @@
+window.dataLayer=window.dataLayer||[];
+window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+window.odgTrack=window.odgTrack||function(eventName,parameters={}){
+  window.gtag("event",eventName,{...parameters,page_path:window.location.pathname});
+};
+(function loadAnalyticsConfiguration(){
+  if(typeof location==="undefined"||location.protocol==="file:"||!document.createElement||!document.head?.appendChild)return;
+  const script=document.createElement("script");
+  script.src="/api/analytics-config";
+  script.async=true;
+  document.head.appendChild(script)
+})();
+
 const chapters = {
   camping:{eyebrow:"CAMPING GUIDE",title:"Sleep close to the wild.",intro:"Choose a forest hideaway, lakeside family base, harbor campground, or ride-from-camp site—then build around the access, noise level, and facilities your group actually needs.",sections:[
     ["Pick a region before a campground","Florence is the easiest all-around base for first visits, lakes, and non-riding companions. Winchester Bay is compact and riding-focused. Coos Bay and North Bend offer the most services and broad southern-zone access.",["Florence: South Jetty, Siltcoos, Honeyman, and nearby lakes","Winchester Bay: Umpqua Dunes, harbor services, and lighthouse country","Coos Bay: Spinreel, Horsfall, Riley Ranch, repairs, and full-size groceries"]],
@@ -111,7 +124,23 @@ function renderMap(){
 
   function showPlace(place){
     selectedId=place.id;
-    detail.style.setProperty("--place-image",`url("${place.image}")`);
+    const rootUsesPublicPrefix=Boolean(document.querySelector('img[src^="public/"]'));
+    const publicPath=place.image.startsWith("/images/")?`public${place.image}`:place.image;
+    const hostedPath=place.image.replace(/^public\//,"/");
+    const imageCandidates=rootUsesPublicPrefix?[publicPath,hostedPath]:[hostedPath,publicPath];
+    const applyImage=(url)=>{
+      if(selectedId!==place.id)return;
+      detail.style.setProperty("--place-image",`url("${url}")`);
+      detail.style.backgroundImage=`linear-gradient(180deg,rgba(7,39,37,.25),rgba(7,39,37,.67)),url("${url}")`;
+    };
+    const tryImage=(index)=>{
+      if(index>=imageCandidates.length)return;
+      const probe=new Image();
+      probe.onload=()=>applyImage(imageCandidates[index]);
+      probe.onerror=()=>tryImage(index+1);
+      probe.src=imageCandidates[index];
+    };
+    tryImage(0);
     markerLayer.eachLayer(marker=>marker.getElement()?.classList.toggle("active",marker.options.placeId===place.id));
     detail.innerHTML=`<span class="place-type">${typeLabels[place.type]||place.type}</span>
       <span class="region-name">${place.region} region</span>
@@ -813,7 +842,7 @@ function renderTrip(plan){
   <section class="plan-section"><p class="section-label">DAY BY DAY</p><h2>Your selections, organized by day</h2><p class="itinerary-selection-note" id="itinerarySelectionNote"></p><aside class="itinerary-weather"><div><span>WEATHER & ROADS</span><b>${plan.region.base} during your trip</b></div><p id="plannerWeatherAlert" class="weather-outlook" aria-live="polite">Checking the forecast and road-weather outlook…</p></aside><div class="itinerary" id="tripItinerary"></div></section>
   <section class="plan-section"><p class="section-label">PACK & PREP</p><h2>Only what your selections require</h2><div class="checklist-groups">${plan.checklistGroups.map(group=>`<article class="checklist-group"><h3>${group.title}</h3>${group.items.map(item=>`<div class="checklist-item">${item}</div>`).join("")}</article>`).join("")}</div></section>
   ${renderPlanSources(plan)}`;
-  document.getElementById("printPlan").addEventListener("click",()=>window.print());
+  document.getElementById("printPlan").addEventListener("click",()=>{window.odgTrack("planner_print");window.print()});
   const shareButton=document.getElementById("sharePlan");
   const shareMenu=document.getElementById("planShareMenu");
   const closeShareButton=document.getElementById("closePlanShare");
@@ -919,11 +948,12 @@ function renderTrip(plan){
   updateStopDetails();
   updateStayConfirmation();
   updatePlannedStops();
-  shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening)closeShareButton.focus()});
-  emailLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
-  textLink.addEventListener("click",()=>{shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
+  shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening){window.odgTrack("planner_share_open");closeShareButton.focus()}});
+  emailLink.addEventListener("click",()=>{window.odgTrack("planner_share_email");shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
+  textLink.addEventListener("click",()=>{window.odgTrack("planner_share_text");shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   document.getElementById("shareMessenger").addEventListener("click",async event=>{
     event.preventDefault();
+    window.odgTrack("planner_share_messenger");
     const message=buildShareMessage();
     if(navigator.share){
       try{
@@ -976,9 +1006,27 @@ function setupPlanner(){
         data.stayConfirmation=previous.stayConfirmation
       }
     }catch{}}
-    saveTrip(data);renderTrip(buildTrip(data))
+    const builtPlan=buildTrip(data);
+    window.odgTrack("planner_build",{trip_days:builtPlan.days,planning_group:data.planningGroup?"yes":"no"});
+    [
+      `planner_region_${builtPlan.regionKey}`,
+      `planner_stay_${data.tripType}`,
+      `planner_vehicle_${data.vehicle}`,
+      `planner_dog_${data.crew?.includes("dog")?"yes":"no"}`,
+      `planner_rental_${data.rentalType||"none"}`,
+      ...(data.interests||[]).map(value=>`planner_interest_${value}`)
+    ].forEach(name=>window.odgTrack(name.toLowerCase().replace(/[^a-z0-9_]/g,"_").slice(0,40)));
+    saveTrip(data);renderTrip(builtPlan)
   });
-  document.getElementById("clearTrip").addEventListener("click",()=>{clearSavedTrip();form.reset();document.getElementById("tripPlan").hidden=true;error.textContent=""});
+  form.addEventListener("change",()=>{
+    try{
+      if(!sessionStorage.getItem("odg-planner-started")){
+        sessionStorage.setItem("odg-planner-started","1");
+        window.odgTrack("planner_start")
+      }
+    }catch{}
+  },{once:true});
+  document.getElementById("clearTrip").addEventListener("click",()=>{window.odgTrack("planner_clear");clearSavedTrip();form.reset();document.getElementById("tripPlan").hidden=true;error.textContent=""});
 }
 function normalizeLegacyGuideUrl(){
   if(document.body.dataset.page!=="guide"||document.body.dataset.topic)return;
@@ -988,4 +1036,72 @@ function normalizeLegacyGuideUrl(){
   document.body.dataset.topic=topic;
   history.replaceState(history.state,"",destinations[topic]);
 }
-document.addEventListener("DOMContentLoaded",()=>{normalizeLegacyGuideUrl();setupPlanner();setupMenu();setupShareControls();renderEnhancedGuide();renderMap()});
+function setupAnalyticsEvents(){
+  const pageCategory=document.body.dataset.page||document.body.dataset.topic||location.pathname.split("/").pop()?.replace(".html","")||"home";
+  window.odgTrack("page_category_view",{page_category:pageCategory});
+  document.addEventListener("click",event=>{
+    const link=event.target.closest("a[href]");
+    const button=event.target.closest("button");
+    if(link){
+      let url;
+      try{url=new URL(link.href,location.href)}catch{return}
+      const text=(link.textContent||link.getAttribute("aria-label")||"").trim().replace(/\s+/g," ").slice(0,100);
+      if(url.protocol==="tel:")window.odgTrack("phone_click",{link_text:text});
+      else if(url.protocol==="mailto:")window.odgTrack("email_click",{link_text:text});
+      else if(/google\.com\/maps|maps\.apple\.com/i.test(url.href))window.odgTrack("directions_click",{link_domain:url.hostname,link_text:text});
+      else if(/^https?:$/.test(url.protocol)&&url.origin!==location.origin)window.odgTrack("outbound_click",{link_domain:url.hostname,link_path:url.pathname.slice(0,100),link_text:text})
+    }
+    const filter=event.target.closest("[data-filter]");
+    const basemap=event.target.closest("[data-basemap]");
+    if(filter)window.odgTrack("map_filter",{map_filter:filter.dataset.filter});
+    if(basemap)window.odgTrack("map_layer",{map_layer:basemap.dataset.basemap});
+    if(button?.matches("[data-share], .share-button, #sharePage"))window.odgTrack("page_share_open",{page_category:pageCategory})
+  });
+  const thresholds=[25,50,75,90],seen=new Set();
+  let ticking=false;
+  addEventListener("scroll",()=>{
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(()=>{
+      const available=document.documentElement.scrollHeight-innerHeight;
+      const depth=available>0?Math.round(scrollY/available*100):100;
+      thresholds.forEach(value=>{if(depth>=value&&!seen.has(value)){seen.add(value);window.odgTrack("scroll_depth",{percent_scrolled:value})}});
+      ticking=false
+    })
+  },{passive:true})
+}
+function setupPlannerFeedback(){
+  const form=document.getElementById("plannerFeedbackForm");
+  const status=document.getElementById("plannerFeedbackStatus");
+  if(!form||!status)return;
+  const params=new URLSearchParams(location.search);
+  if(params.get("feedback")==="thanks"){
+    status.textContent="Thank you—your feedback was sent.";
+    status.classList.add("success")
+  }
+  form.addEventListener("submit",async event=>{
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    const button=form.querySelector("button[type=submit]");
+    const formData=new FormData(form);
+    button.disabled=true;
+    status.classList.remove("success","error");
+    status.textContent="Sending your feedback…";
+    try{
+      const submission=await fetch("/",{
+        method:"POST",
+        headers:{"Content-Type":"application/x-www-form-urlencoded"},
+        body:new URLSearchParams(formData).toString()
+      });
+      if(!submission.ok)throw new Error("Submission failed");
+      window.odgTrack("feedback_submit",{feedback_type:String(formData.get("feedback-type")||"").slice(0,40),feedback_rating:String(formData.get("rating")||"").slice(0,20)});
+      form.reset();
+      status.textContent="Thank you—your feedback was sent. Your opinion really does matter to us.";
+      status.classList.add("success")
+    }catch{
+      status.textContent="Your feedback could not be sent just now. Please try again in a moment.";
+      status.classList.add("error")
+    }finally{button.disabled=false}
+  })
+}
+document.addEventListener("DOMContentLoaded",()=>{normalizeLegacyGuideUrl();setupPlanner();setupMenu();setupShareControls();renderEnhancedGuide();renderMap();setupAnalyticsEvents();setupPlannerFeedback()});

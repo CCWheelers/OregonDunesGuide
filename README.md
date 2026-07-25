@@ -2,7 +2,8 @@
 
 ## Static site
 
-Open `index.html` directly, or publish the repository root with GitHub Pages.
+Open `index.html` directly for a simple static preview. The production site is
+deployed from this repository through Netlify.
 The static version uses `index.html` for the homepage, `maps.html` for the
 interactive map, `planner.html` for the personalized trip planner, `guide.html`
 for detailed chapters, `static/` for styling and interactions, and `public/`
@@ -103,6 +104,38 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 - `npm run build`: verify the vinext build output
 - `npm test`: build the starter and verify its rendered loading skeleton
 - `npm run db:generate`: generate Drizzle migrations after schema changes
+
+## Private traffic dashboard
+
+The owner dashboard lives at `/dashboard.html`. It is deliberately absent from
+the public navigation, includes `noindex` directives, and does not display data
+until the visitor supplies the password stored in Netlify.
+
+The dashboard combines:
+
+- Google Analytics 4 traffic, engagement, audience, content, and realtime data
+- anonymous trip-planner starts, completions, selections, prints, and shares
+- outbound links, directions, map controls, phone/email taps, and scroll depth
+- optional Google Search Console queries, impressions, clicks, and rankings
+
+Planner names, trip notes, reservation names, confirmation numbers, exact trip
+dates, and other personal trip contents are never sent to analytics.
+
+Configure these environment variables in Netlify:
+
+| Variable | Purpose |
+| --- | --- |
+| `GA4_MEASUREMENT_ID` | Public web-stream ID such as `G-XXXXXXXXXX` |
+| `GA4_PROPERTY_ID` | Numeric GA4 property ID used by the reporting API |
+| `GSA_EMAIL` | Google service-account email with Viewer access to GA4 |
+| `GSA_KEY` | Service-account private key, stored only in Netlify |
+| `DASHBOARD_PASSWORD` | Password required by `/api/dashboard-metrics` |
+| `SEARCH_CONSOLE_SITE_URL` | Optional property, normally `sc-domain:oregondunesguide.com` |
+
+Enable the Google Analytics Data API for the service account's Cloud project.
+For Search Console reporting, add the same service-account email as a user of
+the Oregon Dunes Guide Search Console property. Never commit these values to
+the repository; `.env*` and private key files are ignored.
 
 ## Learn More
 
