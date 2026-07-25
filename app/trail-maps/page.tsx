@@ -1,6 +1,27 @@
 import Link from "next/link";
 import { SiteHeader } from "../site-header";
 import { MapExplorer } from "./map-explorer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Maps",
+  description: "Explore Oregon Dunes riding zones, staging areas, campgrounds, towns, parts stores, terrain views, and GPS directions.",
+  alternates: { canonical: "/trail-maps" },
+  openGraph: {
+    title: "Maps | Oregon Dunes Guide",
+    description: "Explore Oregon Dunes riding zones, staging areas, campgrounds, towns, parts stores, terrain views, and GPS directions.",
+    url: "/trail-maps",
+    siteName: "Oregon Dunes Guide",
+    type: "website",
+    images: [{ url: "/og/maps.jpg", width: 1200, height: 630, alt: "Oregon Dunes maps" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maps | Oregon Dunes Guide",
+    description: "Explore Oregon Dunes riding zones, staging areas, campgrounds, towns, parts stores, terrain views, and GPS directions.",
+    images: ["/og/maps.jpg"],
+  },
+};
 
 const regionCards = [
   { title:"Florence & Siltcoos", tag:"NORTH", text:"A good introduction to the dunes: lakes, forest campgrounds, South Jetty staging, and varied riding around Siltcoos.", links:["South Jetty access","Honeyman State Park","Siltcoos riding zone"] },
@@ -19,6 +40,6 @@ export default function TrailMapsPage() {
       <a href="https://www.oregon.gov/oprd/atv/pages/atv-places-to-ride.aspx" target="_blank" rel="noreferrer"><b>Oregon places to ride</b><span>State riding guidance and resources ↗</span></a>
     </div></div></section>
     <section className="next-step"><div className="page-shell"><div><small>NEXT STEP</small><h2>Match the map to a weekend.</h2></div><Link href="/trip-planner" className="button ink">Build your itinerary ↗</Link></div></section>
-    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Interactive planning overview · Not for backcountry navigation.</p><Link className="footer-brand" href="/" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width={2075} height={758} /></Link></div></footer>
+    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Interactive planning overview · Not for backcountry navigation.</p><Link className="footer-brand" href="/" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width={656} height={240} /></Link></div></footer>
   </main>;
 }

@@ -4,6 +4,33 @@ import { pages } from "../data";
 import { SiteHeader } from "../site-header";
 import type { Metadata } from "next";
 
+const browserTitles: Record<string, string> = {
+  camping: "Camping",
+  "ohv-riding": "OHV Riding",
+  "current-conditions": "Current Conditions",
+  permits: "Permits & Regulations",
+  safety: "Dune Safety",
+  "trip-planner": "Trip Planner",
+  "nearby-towns": "Nearby Towns",
+  wildlife: "Wildlife",
+  "local-business": "Local Businesses",
+  news: "News & Field Notes",
+  gallery: "Photo Gallery",
+  faqs: "FAQs",
+  contact: "Contact",
+};
+
+const socialImages: Record<string, string> = {
+  camping: "camping",
+  "ohv-riding": "ohv-riding",
+  "current-conditions": "current-conditions",
+  permits: "permits",
+  safety: "safety",
+  "trip-planner": "trip-planner",
+  "nearby-towns": "nearby-towns",
+  wildlife: "wildlife",
+};
+
 export function generateStaticParams() {
   return Object.keys(pages).map(slug => ({ slug }));
 }
@@ -11,7 +38,28 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const page = pages[slug];
-  return page ? { title: page.eyebrow, description: page.intro } : {};
+  if (!page) return {};
+  const title = browserTitles[slug] ?? page.eyebrow;
+  const socialImage = socialImages[slug] ?? "home";
+  return {
+    title,
+    description: page.intro,
+    alternates: { canonical: `/${slug}` },
+    openGraph: {
+      title: `${title} | Oregon Dunes Guide`,
+      description: page.intro,
+      url: `/${slug}`,
+      siteName: "Oregon Dunes Guide",
+      type: "website",
+      images: [{ url: `/og/${socialImage}.jpg`, width: 1200, height: 630, alt: `${title} - Oregon Dunes Guide` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Oregon Dunes Guide`,
+      description: page.intro,
+      images: [`/og/${socialImage}.jpg`],
+    },
+  };
 }
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -47,6 +95,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </div>
     </section>
     <section className="next-step"><div className="page-shell"><div><small>KEEP PLANNING</small><h2>Ready for the next detail?</h2></div><Link href={slug === "trip-planner" ? "/current-conditions" : "/trip-planner"} className="button ink">Continue your plan ↗</Link></div></section>
-    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Independent planning guide · Verify current details with official sources.</p><Link className="footer-brand" href="/" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width={2075} height={758} /></Link></div></footer>
+    <footer><div className="page-shell"><Link href="/" className="back-link">← Back home</Link><p>Independent planning guide · Verify current details with official sources.</p><Link className="footer-brand" href="/" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width={656} height={240} /></Link></div></footer>
   </main>;
 }

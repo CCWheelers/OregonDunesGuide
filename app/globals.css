@@ -33,3 +33,27 @@ footer .page-shell>.footer-brand:last-child{justify-self:end}
   .brand{min-width:150px}
   footer .page-shell>.footer-brand:last-child{justify-self:start}
 }
+
+/* Deep coastal footer with the cream-backed logo for strong brand contrast. */
+footer{
+  background:var(--ink);
+  color:white;
+  border-top:4px solid var(--orange);
+}
+footer a{color:white}
+footer p{color:rgba(255,255,255,.72)}
+footer span{color:#efcf98}
+.footer-brand{
+  width:230px;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  padding:8px;
+}
+.footer-brand img{
+  width:100%;
+  filter:
+    drop-shadow(0 0 3px rgba(255,250,240,.98))
+    drop-shadow(0 0 10px rgba(255,240,204,.86))
+    drop-shadow(0 8px 18px rgba(239,207,152,.58));
+}

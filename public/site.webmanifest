@@ -1,0 +1,21 @@
+{
+  "name": "Oregon Dunes Guide",
+  "short_name": "Dunes Guide",
+  "description": "Maps, camping, OHV riding, weather, tides, safety, and trip planning for the Oregon Dunes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f0e6",
+  "theme_color": "#f5f0e6",
+  "icons": [
+    {
+      "src": "/favicon-ogd-v2.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

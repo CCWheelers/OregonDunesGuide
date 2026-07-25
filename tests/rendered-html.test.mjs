@@ -20,8 +20,8 @@ test("renders the complete Oregon Dunes Guide homepage", async () => {
   assert.match(html, /Where the forest/);
   assert.match(html, /Explore the full guide/i);
   assert.match(html, /href="maps\.html"/);
-  assert.match(html, /topic=towns/);
-  assert.match(html, /topic=wildlife/);
+  assert.match(html, /href="nearby-towns\.html"/);
+  assert.match(html, /href="wildlife\.html"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 
@@ -43,9 +43,10 @@ test("declares every main navigation destination", async () => {
     readFile(new URL("../app/data.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/trail-maps/page.tsx", import.meta.url), "utf8"),
   ]);
-  for (const route of ["/camping","/ohv-riding","/trail-maps","/safety","/nearby-towns","/wildlife","/trip-planner"]) {
+  for (const route of ["/camping","/ohv-riding","/trail-maps","/nearby-towns","/wildlife","/trip-planner"]) {
     assert.ok(header.includes(route) || mapPage.includes(route), `${route} is linked`);
   }
+  assert.ok(!header.includes('["Safety", "/safety"]'), "Safety stays out of the crowded main navigation");
   for (const slug of ["camping","ohv-riding","safety","nearby-towns","wildlife","trip-planner"]) {
     assert.ok(data.includes(slug), `${slug} has guide content`);
   }

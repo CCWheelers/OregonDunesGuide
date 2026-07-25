@@ -14,24 +14,41 @@ const display = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: { default: "Oregon Dunes Guide", template: "%s · Oregon Dunes Guide" },
-  description: "An independent guide to camping, OHV riding, maps, safety, and trip planning in the Oregon Dunes.",
+  metadataBase: new URL("https://oregondunesguide.com"),
+  title: { default: "Oregon Dunes Guide", template: "%s | Oregon Dunes Guide" },
+  description: "Plan an Oregon Dunes trip with maps, camping, OHV riding zones, weather, tides, safety guidance, nearby towns, and a personalized trip planner.",
+  applicationName: "Oregon Dunes Guide",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
-    icon: "/favicon-ogd.png",
-    shortcut: "/favicon-ogd.png",
-    apple: "/favicon-ogd.png",
+    icon: [{ url: "/favicon-ogd-v2.png", type: "image/png", sizes: "32x32" }],
+    shortcut: "/favicon-ogd-v2.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Oregon Dunes Guide",
-    description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
+    description: "Maps, camping, OHV riding, weather, tides, safety, nearby towns, and trip planning for the Oregon Dunes.",
     type: "website",
-    images: [{ url: "/og-v3.png", width: 1536, height: 1024, alt: "Oregon Dunes Guide maps, camp, ride, and explore" }],
+    siteName: "Oregon Dunes Guide",
+    locale: "en_US",
+    url: "/",
+    images: [{ url: "/og/home.jpg", width: 1200, height: 630, alt: "Oregon Dunes Guide" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Oregon Dunes Guide",
-    description: "Interactive maps, camping, riding zones, safety, wildlife, towns, and complete trip planning for the Oregon Dunes.",
-    images: ["/og-v3.png"],
+    description: "Maps, camping, OHV riding, weather, tides, safety, nearby towns, and trip planning for the Oregon Dunes.",
+    images: ["/og/home.jpg"],
   },
 };
 
