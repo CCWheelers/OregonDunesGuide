@@ -1,118 +1,195 @@
-"""Generate branded 1200x630 social share cards from the site's hero photography."""
+"""Generate the Oregon Dunes Guide 1200x630 social-card family."""
 
 from pathlib import Path
+import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 IMAGES = PUBLIC / "images"
-OUTPUT = PUBLIC / "og"
+OUTPUT = ROOT / "og"
 OUTPUT.mkdir(parents=True, exist_ok=True)
 
+# Page title, compact descriptor, source photograph.
 PAGES = {
-    "home": ("EXPLORE THE OREGON COAST", "Oregon Dunes Guide", "Maps, camping, OHV riding, weather, tides, safety, and trip planning.", PUBLIC / "dunes-hero.jpg"),
-    "camping": ("CAMPING GUIDE", "Camp close to the dunes.", "Compare camp styles, coastal regions, reservations, RV fit, and ride-from-camp access.", IMAGES / "hero-guide-camping.webp"),
-    "ohv-riding": ("OHV RIDING GUIDE", "Choose the right riding zone.", "Florence, Winchester Bay, and Coos Bay riding areas, staging points, maps, and group safety.", IMAGES / "hero-guide-riding.webp"),
-    "maps": ("INTERACTIVE COAST OVERVIEW", "Map the Oregon Dunes.", "Explore riding zones, staging areas, campgrounds, towns, parts stores, and GPS directions.", IMAGES / "hero-maps.webp"),
-    "weather": ("CURRENT CONDITIONS", "Read the coast before you go.", "Live weather, wind, rain, fog, and seven-day forecasts for all three dune regions.", IMAGES / "hero-weather.webp"),
-    "tides": ("BEACH ACCESS & SAFETY", "Time the tide. Read the beach.", "NOAA tide predictions and practical beach-riding guidance for the Oregon Dunes.", IMAGES / "hero-tides.webp"),
-    "day-use": ("DAY-USE GUIDE", "Build a better dunes day.", "OHV staging, quiet walks, lake access, passes, facilities, and coastal safety.", IMAGES / "hero-day-use.webp"),
-    "gas-prices": ("FUEL PLANNER", "Find fuel near the dunes.", "Gas-price resources and trip fuel planning for Florence, Reedsport, and Coos Bay.", IMAGES / "hero-gas.webp"),
-    "history": ("HISTORY OF THE DUNES", "A coast always in motion.", "Indigenous homelands, dune formation, settlement, recreation, and conservation.", IMAGES / "hero-history.webp"),
-    "rules": ("RULES & REGULATIONS", "Know the rules before you ride.", "Oregon ATV permits, safety cards, flags, helmets, equipment, youth rules, and closures.", IMAGES / "hero-rules-v2.webp"),
-    "safety": ("SAFETY FIELDBOOK", "Confidence starts before the engine.", "Dune reading, recovery, group protocol, youth riders, and field-ready preparation.", IMAGES / "hero-safety-v2.webp"),
-    "nearby-towns": ("GATEWAY TOWNS", "Three towns. Three rhythms.", "Plan around Florence, Winchester Bay, Reedsport, Coos Bay, North Bend, and Lakeside.", IMAGES / "hero-guide-towns.webp"),
-    "wildlife": ("WILDLIFE & HABITAT", "Notice more. Disturb less.", "Explore shorebird habitat, wetlands, freshwater lakes, forest edges, and estuaries.", IMAGES / "hero-day-use.webp"),
-    "permits": ("PERMITS & REGULATIONS", "Prepare every rider and machine.", "A practical starting point for Oregon ATV permits, safety cards, and riding requirements.", IMAGES / "hero-rules-v2.webp"),
-    "current-conditions": ("BEFORE YOU GO", "Check twice. Go ready.", "Weather, closures, fire restrictions, campground status, beach access, and habitat alerts.", IMAGES / "hero-weather.webp"),
-    "trip-planner": ("OREGON DUNES TRIP PLANNER", "Plan it your way.", "Build a personalized stay, itinerary, group plan, checklist, printout, and shareable summary.", IMAGES / "hero-planner.webp"),
-    "riding-florence": ("FLORENCE RIDING MAP", "South Jetty to Siltcoos.", "Staging areas, trail starting points, campgrounds, local services, and GPS directions.", IMAGES / "riding-01-florence.webp"),
-    "riding-winchester-bay": ("WINCHESTER BAY RIDING MAP", "Explore the Umpqua Dunes.", "Large open sand, staging areas, sand camps, harbor services, and GPS directions.", IMAGES / "riding-02-winchester.webp"),
-    "riding-coos-bay": ("COOS BAY RIDING MAP", "Spinreel to Horsfall.", "Southern riding zones, staging areas, camping, local services, and GPS directions.", IMAGES / "riding-03-coos-bay.webp"),
+    "home": ("OREGON DUNES GUIDE", "MAPS · CAMPING · RIDING · WEATHER · TRIP PLANNING", PUBLIC / "dunes-hero.jpg"),
+    "camping": ("CAMPING GUIDE", "CAMPGROUNDS · RV SITES · RIDE-FROM-CAMP", IMAGES / "hero-guide-camping.webp"),
+    "ohv-riding": ("OHV RIDING GUIDE", "RIDING ZONES · STAGING · DUNE SKILLS · GROUPS", IMAGES / "hero-guide-riding.webp"),
+    "maps": ("INTERACTIVE MAPS", "RIDING ZONES · STAGING · CAMPING · GPS", IMAGES / "hero-maps.webp"),
+    "weather": ("WEATHER CENTER", "WIND · RAIN · FOG · SEVEN-DAY OUTLOOKS", IMAGES / "hero-weather.webp"),
+    "tides": ("TIDE GUIDE", "BEACH ACCESS · LOW-TIDE WINDOWS · COAST SAFETY", IMAGES / "hero-tides.webp"),
+    "day-use": ("DAY-USE GUIDE", "STAGING · DUNE WALKS · LAKES · QUIET STOPS", IMAGES / "hero-day-use.webp"),
+    "gas-prices": ("GAS PRICES", "FLORENCE · REEDSPORT · COOS BAY · FUEL PLANNING", IMAGES / "hero-gas.webp"),
+    "history": ("HISTORY OF THE DUNES", "PEOPLE · SAND · SETTLEMENT · CONSERVATION", IMAGES / "hero-history.webp"),
+    "rules": ("RULES & REGULATIONS", "PERMITS · FLAGS · HELMETS · EQUIPMENT · CLOSURES", IMAGES / "hero-rules-v2.webp"),
+    "safety": ("SAFETY FIELDBOOK", "DUNE READING · GROUPS · YOUTH · EMERGENCIES", IMAGES / "hero-safety-v2.webp"),
+    "nearby-towns": ("GATEWAY TOWNS", "FLORENCE · WINCHESTER BAY · REEDSPORT · COOS BAY", IMAGES / "hero-guide-towns.webp"),
+    "wildlife": ("WILDLIFE & HABITAT", "SHOREBIRDS · ELK · WETLANDS · ESTUARIES", IMAGES / "wildlife-hero-elk.webp"),
+    "permits": ("PERMITS & REGULATIONS", "ATV PERMITS · SAFETY CARDS · RIDER REQUIREMENTS", IMAGES / "hero-rules-v2.webp"),
+    "current-conditions": ("CURRENT CONDITIONS", "WEATHER · CLOSURES · FIRE · ROADS · ACCESS", IMAGES / "hero-weather.webp"),
+    "trip-planner": ("TRIP PLANNER", "STAY · RIDE · EXPLORE · EAT · PRINT · SHARE", IMAGES / "hero-planner.webp"),
+    "riding-florence": ("FLORENCE RIDING MAP", "SOUTH JETTY · SILTCOOS · STAGING · GPS", IMAGES / "riding-01-florence.webp"),
+    "riding-winchester-bay": ("WINCHESTER BAY MAP", "UMPQUA DUNES · STAGING · SAND CAMPS · GPS", IMAGES / "riding-02-winchester.webp"),
+    "riding-coos-bay": ("COOS BAY RIDING MAP", "SPINREEL · HAUSER · HORSFALL · GPS", IMAGES / "riding-03-coos-bay.webp"),
 }
 
 FONT_DISPLAY = Path(r"C:\Windows\Fonts\georgiab.ttf")
-FONT_SANS = Path(r"C:\Windows\Fonts\segoeui.ttf")
 FONT_SANS_BOLD = Path(r"C:\Windows\Fonts\segoeuib.ttf")
 LOGO = IMAGES / "oregon-dunes-guide-logo-transparent.png"
+SUNSET_LOGO = IMAGES / "oregon-dunes-guide-logo-footer-sunset.png"
 
 
 def cover(image: Image.Image, size: tuple[int, int]) -> Image.Image:
     ratio = max(size[0] / image.width, size[1] / image.height)
-    resized = image.resize((round(image.width * ratio), round(image.height * ratio)), Image.Resampling.LANCZOS)
+    resized = image.resize(
+        (round(image.width * ratio), round(image.height * ratio)),
+        Image.Resampling.LANCZOS,
+    )
     left = max(0, (resized.width - size[0]) // 2)
     top = max(0, (resized.height - size[1]) // 2)
     return resized.crop((left, top, left + size[0], top + size[1]))
 
 
-def wrapped_lines(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_width: int) -> list[str]:
-    words = text.split()
-    lines: list[str] = []
-    current = ""
-    for word in words:
-        trial = f"{current} {word}".strip()
-        if draw.textlength(trial, font=font) <= max_width:
-            current = trial
-        else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
-    return lines
+def fit_font(draw: ImageDraw.ImageDraw, text: str, max_width: int) -> ImageFont.FreeTypeFont:
+    size = 67
+    while size > 38:
+        font = ImageFont.truetype(str(FONT_DISPLAY), size)
+        if draw.textlength(text, font=font) <= max_width:
+            return font
+        size -= 2
+    return ImageFont.truetype(str(FONT_DISPLAY), 38)
 
 
-def draw_tracking(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, font: ImageFont.FreeTypeFont, fill: str, spacing: int) -> None:
-    x, y = xy
-    for char in text:
-        draw.text((x, y), char, font=font, fill=fill)
-        x += round(draw.textlength(char, font=font)) + spacing
+def fit_sans_font(
+    draw: ImageDraw.ImageDraw,
+    text: str,
+    max_width: int,
+    start_size: int,
+    minimum_size: int,
+) -> ImageFont.FreeTypeFont:
+    size = start_size
+    while size > minimum_size:
+        font = ImageFont.truetype(str(FONT_SANS_BOLD), size)
+        if draw.textlength(text, font=font) <= max_width:
+            return font
+        size -= 1
+    return ImageFont.truetype(str(FONT_SANS_BOLD), minimum_size)
 
 
-def generate(slug: str, kicker: str, title: str, description: str, hero: Path) -> None:
-    background = cover(Image.open(hero).convert("RGB"), (1200, 630)).filter(ImageFilter.GaussianBlur(0.25))
-    card = background.convert("RGBA")
+def centered_x(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, left: int, right: int) -> int:
+    return round(left + ((right - left) - draw.textlength(text, font=font)) / 2)
 
-    overlay = Image.new("RGBA", card.size, (0, 0, 0, 0))
-    pixels = overlay.load()
+
+def split_logo() -> tuple[Image.Image, Image.Image]:
+    """Separate the emblem and wordmark while preserving the overlapping wave."""
+    logo = Image.open(LOGO).convert("RGBA")
+    # The emblem and first letter overlap slightly in the source artwork. A clean
+    # crop avoids leaving even a sliver of the O beside the enlarged icon.
+    emblem = logo.crop((0, 0, 252, logo.height))
+    emblem = emblem.crop(emblem.getbbox())
+
+    sunset_logo = Image.open(SUNSET_LOGO).convert("RGBA")
+    wordmark = sunset_logo.crop((250, 62, sunset_logo.width, 224))
+    word_alpha = wordmark.getchannel("A")
+    # Remove the small tail of the emblem that shares the left edge of this crop.
+    cleanup = ImageDraw.Draw(word_alpha)
+    cleanup.rectangle((0, 96, 48, wordmark.height), fill=0)
+    wordmark.putalpha(word_alpha)
+    wordmark = wordmark.crop(wordmark.getbbox())
+    return emblem, wordmark
+
+
+def generate(slug: str, title: str, descriptor: str, hero: Path) -> None:
+    card = cover(Image.open(hero).convert("RGB"), (1200, 630)).filter(ImageFilter.GaussianBlur(0.2)).convert("RGBA")
+
+    # The photograph stays recognizable while the central type remains readable.
+    shade = Image.new("RGBA", card.size, (0, 0, 0, 0))
+    pixels = shade.load()
     for x in range(card.width):
-        progress = x / card.width
-        alpha = round(222 * max(0.16, 1 - progress * 1.08))
         for y in range(card.height):
-            pixels[x, y] = (4, 40, 37, alpha)
-    card = Image.alpha_composite(card, overlay)
+            left_strength = max(0.0, 1.0 - x / 660)
+            bottom_strength = max(0.0, (y - 430) / 200)
+            alpha = round(45 + 155 * left_strength + 55 * bottom_strength)
+            pixels[x, y] = (3, 34, 32, min(226, alpha))
+    card = Image.alpha_composite(card, shade)
     draw = ImageDraw.Draw(card)
 
-    # A warm brand plate keeps the official dark logo legible on every photo.
-    draw.rounded_rectangle((62, 48, 314, 137), radius=8, fill=(245, 240, 230, 242))
-    logo = Image.open(LOGO).convert("RGBA")
-    logo.thumbnail((224, 70), Image.Resampling.LANCZOS)
-    card.alpha_composite(logo, (76, 58 + (69 - logo.height) // 2))
+    # Fine dune-contour rings preserve the established OG-card family.
+    ring_color = (240, 213, 155, 205)
+    center = (-20, 310)
+    for radius in range(260, 690, 24):
+        draw.ellipse(
+            (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius),
+            outline=ring_color,
+            width=1,
+        )
 
-    kicker_font = ImageFont.truetype(str(FONT_SANS_BOLD), 18)
-    title_font = ImageFont.truetype(str(FONT_DISPLAY), 60 if len(title) < 31 else 52)
-    body_font = ImageFont.truetype(str(FONT_SANS), 24)
-    url_font = ImageFont.truetype(str(FONT_SANS_BOLD), 18)
+    # Let the oversized emblem dominate the left side while keeping every
+    # headline and descriptor crisply legible above it.
+    emblem, wordmark = split_logo()
+    emblem = emblem.resize((emblem.width * 3, emblem.height * 3), Image.Resampling.LANCZOS)
+    emblem_y = round((card.height - emblem.height) / 2)
+    card.alpha_composite(emblem, (-100, emblem_y))
+    draw = ImageDraw.Draw(card)
 
-    draw_tracking(draw, (64, 178), kicker, kicker_font, "#f3bd72", 3)
-    y = 222
-    for line in wrapped_lines(draw, title, title_font, 790)[:3]:
-        draw.text((60, y), line, font=title_font, fill="#fffdf8", stroke_width=1, stroke_fill=(8, 46, 43, 90))
-        y += 70
-    y += 8
-    for line in wrapped_lines(draw, description, body_font, 740)[:3]:
-        draw.text((64, y), line, font=body_font, fill="#e7efed")
-        y += 35
+    content_left, content_right = 366, 1128
+    kicker_font = ImageFont.truetype(str(FONT_SANS_BOLD), 21)
+    title_font = fit_font(draw, title, content_right - content_left)
+    descriptor_font = fit_sans_font(draw, descriptor, content_right - content_left, 25, 19)
+    path = "" if slug == "home" else f"/{slug.upper()}"
+    address = f"OREGONDUNESGUIDE.COM{path}"
+    url_font = fit_sans_font(draw, address, content_right - content_left, 23, 17)
 
-    draw.line((64, 574, 1118, 574), fill=(239, 190, 116, 170), width=2)
-    draw.text((64, 588), "OREGONDUNESGUIDE.COM", font=url_font, fill="#fffdf8")
-    draw.text((980, 588), "PLAN  •  RIDE  •  EXPLORE", font=kicker_font, fill="#f3bd72", anchor="la")
+    kicker = "OREGON DUNES GUIDE"
+    draw.text(
+        (centered_x(draw, kicker, kicker_font, content_left, content_right), 108),
+        kicker,
+        font=kicker_font,
+        fill="#ffc56f",
+        stroke_width=2,
+        stroke_fill="#143f3a",
+    )
+    draw.text(
+        (centered_x(draw, title, title_font, content_left, content_right), 160),
+        title,
+        font=title_font,
+        fill="#f7ecd5",
+        stroke_width=2,
+        stroke_fill="#163c38",
+    )
+    accent_width = 122
+    accent_left = round(content_left + ((content_right - content_left) - accent_width) / 2)
+    draw.rounded_rectangle((accent_left, 268, accent_left + accent_width, 274), radius=3, fill="#ef653d")
+    draw.text(
+        (centered_x(draw, descriptor, descriptor_font, content_left, content_right), 296),
+        descriptor,
+        font=descriptor_font,
+        fill="#fffaf0",
+    )
+
+    # The emblem owns the open left side. The matching wordmark sits in the band
+    # beneath the descriptor, safely above the divider and page address.
+    wordmark.thumbnail((440, 158), Image.Resampling.LANCZOS)
+    wordmark_x = round(content_left + ((content_right - content_left) - wordmark.width) / 2)
+    card.alpha_composite(wordmark, (wordmark_x, 348))
+
+    divider_y = 535
+    draw.line((content_left, divider_y, content_right, divider_y), fill=(239, 190, 116, 210), width=2)
+    draw.text((content_left, 559), address, font=url_font, fill="#fffdf8")
 
     output = OUTPUT / f"{slug}.jpg"
-    card.convert("RGB").save(output, "JPEG", quality=88, optimize=True, progressive=True)
+    card.convert("RGB").save(output, "JPEG", quality=90, optimize=True, progressive=True)
 
 
-for page_slug, page_data in PAGES.items():
+requested_slugs = sys.argv[1:]
+selected_pages = PAGES
+if requested_slugs:
+    unknown = [slug for slug in requested_slugs if slug not in PAGES]
+    if unknown:
+        raise SystemExit(f"Unknown social-card slug(s): {', '.join(unknown)}")
+    selected_pages = {slug: PAGES[slug] for slug in requested_slugs}
+
+for page_slug, page_data in selected_pages.items():
     generate(page_slug, *page_data)
 
-print(f"Generated {len(PAGES)} social share images in {OUTPUT}")
+print(f"Generated {len(selected_pages)} social share image(s) in {OUTPUT}")

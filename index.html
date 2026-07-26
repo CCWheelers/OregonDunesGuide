@@ -144,6 +144,49 @@
     <section class="trip-strip"><div class="shell"><div><small>BUILD A BETTER WEEKEND</small><h2>Your dune trip, in one simple plan.</h2></div><a class="button ink" href="planner.html">Open trip planner ↗</a></div></section>
   </main>
 
-  <footer><div class="shell"><a class="footer-brand" href="index.html" aria-label="Oregon Dunes Guide home"><img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240"></a><p>An independent planning guide. Always verify conditions, closures, and regulations with the U.S. Forest Service and Oregon authorities.</p><span>Made for the long way home.</span></div></footer>
+  <footer>
+    <div class="shell">
+      <a class="footer-brand" href="index.html" aria-label="Oregon Dunes Guide home"><img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240"></a>
+      <p>An independent planning guide. Always verify conditions, closures, and regulations with the U.S. Forest Service and Oregon authorities.</p>
+      <button class="footer-feedback-card" id="openHomeFeedback" type="button" aria-haspopup="dialog" aria-controls="homeFeedbackDialog">
+        <small>YOUR OPINION MATTERS</small>
+        <strong>Help us build the best Oregon Dunes guide.</strong>
+        <span>Suggestions, corrections &amp; kudos →</span>
+      </button>
+    </div>
+  </footer>
+
+  <dialog class="site-feedback-dialog" id="homeFeedbackDialog" aria-labelledby="homeFeedbackTitle">
+    <div class="site-feedback-window">
+      <button class="site-feedback-close" id="closeHomeFeedback" type="button" aria-label="Close feedback form">×</button>
+      <p class="section-label">WE WANT TO HEAR FROM YOU</p>
+      <h2 id="homeFeedbackTitle">Help us make this the best guide to the Oregon Dunes.</h2>
+      <p>Have a suggestion—or want to tell us what we’re doing right? Send us your thoughts. Every useful note helps make the guide better for the next visitor.</p>
+      <form class="site-feedback-form" id="homeFeedbackForm" name="site-feedback" method="POST" action="/?feedback=thanks#homeFeedbackDialog" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="site-feedback">
+        <input type="hidden" name="page" value="Homepage">
+        <p class="site-feedback-honeypot"><label>Do not fill this out: <input name="bot-field"></label></p>
+        <label>What would you like to share?
+          <select name="feedback-type" required>
+            <option value="">Choose one</option>
+            <option>Suggestion</option>
+            <option>Something you are doing right</option>
+            <option>Correction or outdated information</option>
+            <option>Local business or resource</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <div class="site-feedback-row">
+          <label>Name <span>Optional</span><input type="text" name="name" autocomplete="name"></label>
+          <label>Email <span>Optional, if you would like a reply</span><input type="email" name="email" autocomplete="email"></label>
+        </div>
+        <label>Your thoughts
+          <textarea name="message" rows="6" maxlength="3000" required placeholder="Tell us what would make Oregon Dunes Guide even better…"></textarea>
+        </label>
+        <button type="submit">Send my thoughts <span>→</span></button>
+        <p class="site-feedback-status" id="homeFeedbackStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </dialog>
 </body>
 </html>

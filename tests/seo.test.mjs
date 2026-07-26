@@ -58,7 +58,7 @@ test("every canonical page has complete, unique search and social metadata", asy
 
 test("all social images exist and are reasonably sized", async () => {
   for (const [, , slug] of pages) {
-    const details = await stat(join(root, "public", "og", `${slug}.jpg`));
+    const details = await stat(join(root, "og", `${slug}.jpg`));
     assert.ok(details.size > 25_000, `${slug}.jpg is unexpectedly small`);
     assert.ok(details.size < 1_000_000, `${slug}.jpg is too large for a share card`);
   }

@@ -753,6 +753,191 @@ footer .shell>.footer-brand:last-child{justify-self:end}
   footer .shell>.footer-brand:last-child{justify-self:start}
 }
 
+/* Nearby towns: visual gateway comparison and practical arrival guide */
+.towns-hero-actions{display:flex;gap:12px;margin-top:30px}
+.towns-snapshot{display:grid;grid-template-columns:repeat(4,1fr);margin-top:-1px;background:var(--ink);color:white}
+.towns-snapshot article{display:grid;grid-template-columns:38px 1fr;align-content:center;min-height:126px;padding:24px;border-right:1px solid rgba(255,255,255,.15)}
+.towns-snapshot article:last-child{border:0}
+.towns-snapshot span{grid-row:1/3;font-family:"Cormorant Garamond",serif;font-size:25px;color:#efcd95}
+.towns-snapshot b{font-family:"Cormorant Garamond",serif;font-size:21px}
+.towns-snapshot small{margin-top:5px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.68)}
+.towns-guide-layout{padding-top:85px}
+.towns-content>section{scroll-margin-top:25px}
+.towns-guide-layout .guide-toc>p{font-size:11px;letter-spacing:.16em}
+.towns-guide-layout .guide-toc a{padding:17px 0;font-size:16px;line-height:1.3}
+.towns-guide-layout .guide-toc a span{font-size:11px}
+.towns-eyebrow{margin:7px 0 14px!important;font-size:11px!important;font-weight:900;letter-spacing:.17em;color:var(--orange)!important}
+.towns-lead{font-family:"Cormorant Garamond",serif;font-size:26px!important;line-height:1.38!important;color:var(--ink)!important}
+.towns-content>section>p:not(.towns-eyebrow):not(.towns-lead):not(.towns-source-note),
+.towns-feature-copy>p:not(.towns-eyebrow):not(.towns-lead){font-size:15px;line-height:1.75}
+.towns-gateway-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:35px}
+.towns-gateway-card{
+  position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+  min-height:390px;padding:30px;color:white;background:var(--ink)
+}
+.towns-gateway-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.towns-gateway-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.05) 15%,rgba(8,46,43,.96) 88%)}
+.towns-gateway-card span{font-size:11px;line-height:1.4;letter-spacing:.14em;font-weight:900;color:#ffd071}
+.towns-gateway-card h3{margin:12px 0 8px;font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1}
+.towns-gateway-card p{min-height:68px;margin:0;font-size:14px!important;line-height:1.6!important;color:rgba(255,255,255,.82)!important}
+.towns-gateway-card b{align-self:flex-start;margin-top:18px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px}
+.towns-tip{display:grid;grid-template-columns:120px 1fr;gap:24px;margin-top:14px;padding:26px 30px;background:var(--sand);border-left:4px solid var(--orange)}
+.towns-tip>b{font-family:"Cormorant Garamond",serif;font-size:24px}
+.towns-tip p{margin:0;font-size:14px!important;line-height:1.7!important}
+.towns-feature{display:grid;grid-template-columns:minmax(280px,.85fr) 1.35fr;gap:0;background:var(--white);border-top:4px solid var(--orange)!important}
+.towns-feature-reverse{grid-template-columns:1.35fr minmax(280px,.85fr)}
+.towns-feature-reverse .towns-feature-photo{order:2}
+.towns-feature-photo{width:100%;height:100%;min-height:690px;object-fit:cover}
+.towns-feature-copy{padding:42px}
+.towns-feature-copy h2{font-size:48px}
+.towns-fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:27px 0}
+.towns-fact-grid div{padding:18px;background:#eee4d2;border-top:2px solid rgba(226,91,52,.8)}
+.towns-fact-grid b{display:block;margin-bottom:7px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.towns-fact-grid span{font-size:13px;line-height:1.55;color:#425f5a}
+.towns-actions{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.towns-actions a{padding-bottom:5px;border-bottom:1px solid var(--orange);font-size:13px;font-weight:800;color:var(--ink)}
+.towns-arrival-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:30px}
+.towns-arrival-grid article{display:flex;flex-direction:column;min-height:250px;padding:27px;background:#eee4d2;border-top:3px solid var(--orange)}
+.towns-arrival-grid article>span{font-family:"Cormorant Garamond",serif;font-size:24px;color:var(--orange)}
+.towns-arrival-grid h3{margin:12px 0 8px;font-family:"Cormorant Garamond",serif;font-size:27px}
+.towns-arrival-grid p{margin:0 0 18px;font-size:14px!important;line-height:1.65!important}
+.towns-arrival-grid a{align-self:flex-start;margin-top:auto;padding-bottom:4px;border-bottom:1px solid var(--orange);font-size:12px;font-weight:800}
+.towns-source-note{margin-top:22px;padding:20px 24px;background:var(--ink);font-size:13px!important;line-height:1.65!important;color:rgba(255,255,255,.78)!important}
+.towns-source-note strong{color:#ffd071}
+.towns-planner-cta{padding:62px 0;background:var(--ink);color:white}
+.towns-planner-cta .shell{display:flex;align-items:center;justify-content:space-between;gap:45px}
+.towns-planner-cta small{font-size:11px;letter-spacing:.17em;font-weight:900;color:#ffd071}
+.towns-planner-cta h2{margin:8px 0;font-family:"Cormorant Garamond",serif;font-size:40px}
+.towns-planner-cta p{max-width:720px;margin:0;font-size:14px;line-height:1.65;color:rgba(255,255,255,.72)}
+
+@media(max-width:1050px){
+  .towns-feature,.towns-feature-reverse{grid-template-columns:1fr}
+  .towns-feature-reverse .towns-feature-photo{order:0}
+  .towns-feature-photo{height:370px;min-height:0}
+}
+@media(max-width:800px){
+  .towns-snapshot{grid-template-columns:1fr 1fr}
+  .towns-snapshot article:nth-child(2){border-right:0}
+  .towns-guide-layout{padding-top:60px}
+  .towns-gateway-grid{grid-template-columns:1fr}
+  .towns-gateway-card{min-height:410px}
+  .towns-feature-copy{padding:32px}
+  .towns-arrival-grid{grid-template-columns:1fr}
+  .towns-planner-cta .shell{align-items:flex-start;flex-direction:column}
+  .towns-planner-cta .button{width:100%}
+}
+@media(max-width:560px){
+  .towns-hero-actions{align-items:stretch;flex-direction:column}
+  .towns-snapshot{grid-template-columns:1fr}
+  .towns-snapshot article,.towns-snapshot article:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .towns-gateway-card{min-height:430px;padding:26px}
+  .towns-tip{grid-template-columns:1fr;gap:8px;padding:24px}
+  .towns-feature-photo{height:290px}
+  .towns-feature-copy{padding:27px 22px}
+  .towns-feature-copy h2{font-size:40px}
+  .towns-fact-grid{grid-template-columns:1fr}
+  .towns-fact-grid span,.towns-arrival-grid p{font-size:14px}
+}
+
+/* Wildlife: habitat-first visual field guide */
+.guide-hero-wildlife{background-image:linear-gradient(90deg,rgba(8,46,43,.96),rgba(8,46,43,.48) 57%,rgba(8,46,43,.08)),url('../images/wildlife-hero-elk.webp');background-position:center}
+.wildlife-hero-actions{display:flex;gap:12px;margin-top:30px}
+.wildlife-snapshot{display:grid;grid-template-columns:repeat(4,1fr);margin-top:-1px;background:var(--ink);color:white}
+.wildlife-snapshot article{display:grid;grid-template-columns:38px 1fr;align-content:center;min-height:126px;padding:24px;border-right:1px solid rgba(255,255,255,.15)}
+.wildlife-snapshot article:last-child{border:0}
+.wildlife-snapshot span{grid-row:1/3;font-family:"Cormorant Garamond",serif;font-size:25px;color:#efcd95}
+.wildlife-snapshot b{font-family:"Cormorant Garamond",serif;font-size:21px}
+.wildlife-snapshot small{margin-top:5px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.68)}
+.wildlife-guide-layout{padding-top:85px}
+.wildlife-content>section{scroll-margin-top:25px}
+.wildlife-guide-layout .guide-toc>p{font-size:11px;letter-spacing:.16em}
+.wildlife-guide-layout .guide-toc a{padding:17px 0;font-size:16px;line-height:1.3}
+.wildlife-guide-layout .guide-toc a span{font-size:11px}
+.wildlife-eyebrow{margin:7px 0 14px!important;font-size:11px!important;font-weight:900;letter-spacing:.17em;color:var(--orange)!important}
+.wildlife-lead{font-family:"Cormorant Garamond",serif;font-size:26px!important;line-height:1.38!important;color:var(--ink)!important}
+.wildlife-feature-copy>p:not(.wildlife-eyebrow):not(.wildlife-lead){font-size:15px;line-height:1.75}
+.wildlife-habitat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:35px}
+.wildlife-habitat-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:400px;padding:30px;color:white;background:var(--ink)}
+.wildlife-habitat-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.wildlife-habitat-card:nth-child(3) .wildlife-habitat-photo{object-position:78% center}
+.wildlife-habitat-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.03) 12%,rgba(8,46,43,.97) 92%)}
+.wildlife-habitat-card>span{font-size:11px;letter-spacing:.15em;font-weight:900;color:#ffd071}
+.wildlife-habitat-card h3{margin:12px 0 8px;font-family:"Cormorant Garamond",serif;font-size:38px}
+.wildlife-habitat-card p{min-height:68px;margin:0;font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.82)!important}
+.wildlife-habitat-card b{align-self:flex-start;margin-top:18px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px}
+.wildlife-observation-note{display:grid;grid-template-columns:230px 1fr;gap:28px;margin-top:14px;padding:27px 30px;background:var(--sand);border-left:4px solid var(--orange)}
+.wildlife-observation-note b{font-family:"Cormorant Garamond",serif;font-size:25px}
+.wildlife-observation-note p{margin:0;font-size:14px!important;line-height:1.7!important}
+.wildlife-feature{display:grid;grid-template-columns:minmax(290px,.9fr) 1.25fr;background:var(--white);border-top:4px solid var(--orange)!important}
+.wildlife-feature-reverse{grid-template-columns:1.25fr minmax(290px,.9fr)}
+.wildlife-feature-reverse .wildlife-feature-photo{order:2}
+.wildlife-feature-photo{width:100%;height:100%;min-height:710px;object-fit:cover}
+#wildlife-plover .wildlife-feature-photo{object-position:62% center}
+#wildlife-elk .wildlife-feature-photo{object-position:70% center}
+#wildlife-marine .wildlife-feature-photo{object-position:68% center}
+.wildlife-feature-copy{padding:42px}
+.wildlife-feature-copy h2{font-size:48px}
+.wildlife-fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:27px 0}
+.wildlife-fact-grid div{padding:18px;background:#eee4d2;border-top:2px solid rgba(226,91,52,.8)}
+.wildlife-fact-grid b{display:block;margin-bottom:7px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.wildlife-fact-grid span{font-size:13px;line-height:1.55;color:#425f5a}
+.wildlife-actions{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.wildlife-actions a{padding-bottom:5px;border-bottom:1px solid var(--orange);font-size:13px;font-weight:800;color:var(--ink)}
+.wildlife-region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:30px}
+.wildlife-region-grid article{display:flex;flex-direction:column;min-height:390px;padding:28px;background:#eee4d2;border-top:4px solid var(--orange)}
+.wildlife-region-grid article>span{font-size:11px;letter-spacing:.16em;font-weight:900;color:var(--orange)}
+.wildlife-region-grid h3{margin:15px 0 10px;font-family:"Cormorant Garamond",serif;font-size:29px;line-height:1.05}
+.wildlife-region-grid p{font-size:14px!important;line-height:1.68!important}
+.wildlife-region-grid div{margin:12px 0 22px;padding-top:15px;border-top:1px solid rgba(21,63,60,.16);font-size:13px;line-height:1.55;color:#526d69}
+.wildlife-region-grid a{align-self:flex-start;margin-top:auto;padding-bottom:4px;border-bottom:1px solid var(--orange);font-size:12px;font-weight:800}
+.wildlife-field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wildlife-field-grid article{min-height:210px;padding:25px;background:var(--white);border:1px solid rgba(21,63,60,.15)}
+.wildlife-field-grid span{font-family:"Cormorant Garamond",serif;font-size:23px;color:var(--orange)}
+.wildlife-field-grid h3{margin:10px 0 7px;font-family:"Cormorant Garamond",serif;font-size:25px}
+.wildlife-field-grid p{margin:0;font-size:14px!important;line-height:1.65!important}
+.wildlife-current{display:flex;align-items:center;justify-content:space-between;gap:35px;margin-top:14px;padding:30px;background:var(--ink);color:white}
+.wildlife-current span{font-size:11px!important;letter-spacing:.16em;font-weight:900;color:#ffd071!important}
+.wildlife-current h3{margin:9px 0 6px;font-family:"Cormorant Garamond",serif;font-size:28px}
+.wildlife-current p{max-width:630px;margin:0;font-size:13px!important;line-height:1.65!important;color:rgba(255,255,255,.72)!important}
+.wildlife-current>div:last-child{display:flex;flex-wrap:wrap;gap:9px}
+.wildlife-current a{padding:11px 14px;background:rgba(255,255,255,.1);font-size:12px;font-weight:800;color:white}
+.wildlife-planner-cta{padding:62px 0;background:var(--ink);color:white}
+.wildlife-planner-cta .shell{display:flex;align-items:center;justify-content:space-between;gap:45px}
+.wildlife-planner-cta small{font-size:11px;letter-spacing:.17em;font-weight:900;color:#ffd071}
+.wildlife-planner-cta h2{margin:8px 0;font-family:"Cormorant Garamond",serif;font-size:40px}
+.wildlife-planner-cta p{max-width:720px;margin:0;font-size:14px;line-height:1.65;color:rgba(255,255,255,.72)}
+
+@media(max-width:1100px){
+  .wildlife-feature,.wildlife-feature-reverse{grid-template-columns:1fr}
+  .wildlife-feature-reverse .wildlife-feature-photo{order:0}
+  .wildlife-feature-photo{height:390px;min-height:0}
+  .wildlife-region-grid{grid-template-columns:1fr}
+  .wildlife-region-grid article{min-height:0}
+}
+@media(max-width:800px){
+  .wildlife-snapshot{grid-template-columns:1fr 1fr}
+  .wildlife-snapshot article:nth-child(2){border-right:0}
+  .wildlife-guide-layout{padding-top:60px}
+  .wildlife-habitat-grid{grid-template-columns:1fr}
+  .wildlife-habitat-card{min-height:420px}
+  .wildlife-feature-copy{padding:32px}
+  .wildlife-field-grid{grid-template-columns:1fr}
+  .wildlife-current,.wildlife-planner-cta .shell{align-items:flex-start;flex-direction:column}
+  .wildlife-planner-cta .button{width:100%}
+}
+@media(max-width:560px){
+  .wildlife-hero-actions{align-items:stretch;flex-direction:column}
+  .wildlife-snapshot{grid-template-columns:1fr}
+  .wildlife-snapshot article,.wildlife-snapshot article:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .wildlife-habitat-card{min-height:440px;padding:26px}
+  .wildlife-observation-note{grid-template-columns:1fr;gap:8px;padding:24px}
+  .wildlife-feature-photo{height:300px}
+  .wildlife-feature-copy{padding:27px 22px}
+  .wildlife-feature-copy h2{font-size:40px}
+  .wildlife-fact-grid{grid-template-columns:1fr}
+  .wildlife-fact-grid span,.wildlife-region-grid p,.wildlife-field-grid p{font-size:14px}
+}
+
 /* Deep coastal footer with the cream-backed logo for strong brand contrast. */
 footer{
   background:var(--ink);
@@ -763,16 +948,494 @@ footer a{color:white}
 footer p{color:rgba(255,255,255,.72)}
 footer span{color:#efcf98}
 .footer-brand{
-  width:230px;
+  position:relative;
+  isolation:isolate;
+  width:265px;
   background:transparent;
   border:0;
   box-shadow:none;
-  padding:8px;
+  padding:12px;
+}
+.footer-brand:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:23%;
+  top:48%;
+  width:69%;
+  height:145%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 48% 49%,
+      rgba(255,226,146,.8) 0 10%,
+      rgba(255,168,61,.68) 22%,
+      rgba(231,83,40,.44) 43%,
+      rgba(174,43,43,.2) 61%,
+      transparent 76%);
+  filter:blur(11px);
+  pointer-events:none;
+}
+.footer-brand:after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  left:10%;
+  top:43%;
+  width:34%;
+  height:48%;
+  transform:translateY(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle at center,rgba(255,222,139,.52),rgba(244,123,47,.24) 43%,transparent 72%);
+  filter:blur(8px);
+  pointer-events:none;
 }
 .footer-brand img{
+  position:relative;
+  z-index:1;
   width:100%;
-  filter:
-    drop-shadow(0 0 3px rgba(255,250,240,.98))
-    drop-shadow(0 0 10px rgba(255,240,204,.86))
-    drop-shadow(0 8px 18px rgba(239,207,152,.58));
+  content:url('../images/oregon-dunes-guide-logo-footer-sunset.png');
+  filter:drop-shadow(-5px 4px 12px rgba(226,91,52,.18));
 }
+
+/* Keep the footer composition identical regardless of source-link order. */
+footer .shell>.footer-brand,
+footer .shell>.footer-brand:last-child{
+  grid-column:1;
+  grid-row:1;
+  justify-self:start;
+}
+footer .shell>p{
+  grid-column:2;
+  grid-row:1;
+}
+footer .shell>span,
+footer .shell>a:not(.footer-brand){
+  grid-column:3;
+  grid-row:1;
+  justify-self:end;
+  text-align:right;
+}
+.footer-feedback-card{
+  grid-column:3;
+  grid-row:1;
+  justify-self:end;
+  width:min(310px,100%);
+  min-height:132px;
+  padding:22px 24px;
+  border:1px solid rgba(255,214,139,.44);
+  color:white;
+  text-align:left;
+  cursor:pointer;
+  background:
+    linear-gradient(90deg,rgba(8,46,43,.92),rgba(8,46,43,.54)),
+    url('../images/home-explore.webp') center 48%/cover;
+  box-shadow:0 14px 35px rgba(0,0,0,.18);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.footer-feedback-card small{
+  display:block;
+  color:#ffd17f;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.17em;
+}
+.footer-feedback-card strong{
+  display:block;
+  margin:8px 0 13px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:24px;
+  line-height:1;
+}
+.footer-feedback-card span{
+  display:block;
+  color:#fff4dc;
+  font-size:10px;
+  font-weight:800;
+}
+.footer-feedback-card:hover,
+.footer-feedback-card:focus-visible{
+  transform:translateY(-3px);
+  border-color:#ffd17f;
+  box-shadow:0 18px 42px rgba(0,0,0,.3),0 0 0 3px rgba(255,209,127,.12);
+  outline:none;
+}
+.site-feedback-dialog{
+  width:min(680px,calc(100% - 32px));
+  max-height:calc(100vh - 32px);
+  padding:0;
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  overflow:auto;
+}
+.site-feedback-dialog::backdrop{background:rgba(3,27,26,.82);backdrop-filter:blur(5px)}
+.site-feedback-window{
+  position:relative;
+  padding:45px;
+  border-top:5px solid var(--orange);
+  background:#fffaf0;
+  box-shadow:0 32px 90px rgba(0,0,0,.42);
+}
+.site-feedback-close{
+  position:absolute;
+  top:13px;
+  right:16px;
+  width:39px;
+  height:39px;
+  border:1px solid rgba(21,63,60,.2);
+  background:transparent;
+  color:var(--ink);
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+.site-feedback-window>.section-label{margin:0 48px 16px 0}
+.site-feedback-window>h2{
+  margin:0 38px 14px 0;
+  font-family:"Cormorant Garamond",serif;
+  font-size:42px;
+  line-height:.98;
+}
+.site-feedback-window>p:not(.section-label){
+  margin:0 0 28px;
+  color:#607773;
+  font-size:14px;
+  line-height:1.7;
+}
+.site-feedback-form>label,
+.site-feedback-row label{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:17px;
+  font-size:13px;
+  font-weight:800;
+}
+.site-feedback-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.site-feedback-row label span{font-size:10px;font-weight:500;color:#718481}
+.site-feedback-form input,
+.site-feedback-form select,
+.site-feedback-form textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid rgba(21,63,60,.25);
+  border-radius:0;
+  background:white;
+  color:var(--ink);
+  font:inherit;
+  font-size:14px;
+}
+.site-feedback-form textarea{min-height:145px;resize:vertical;line-height:1.55}
+.site-feedback-form input:focus,
+.site-feedback-form select:focus,
+.site-feedback-form textarea:focus{outline:3px solid rgba(226,91,52,.24);border-color:var(--orange)}
+.site-feedback-form>button{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  padding:17px 19px;
+  border:0;
+  background:linear-gradient(135deg,#f27a3f,#d84b31);
+  color:white;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+}
+.site-feedback-form>button:disabled{opacity:.56;cursor:wait}
+.site-feedback-honeypot{display:none!important}
+.site-feedback-status{min-height:20px;margin:13px 0 0;font-size:12px}
+.site-feedback-status.success{color:#226247}.site-feedback-status.error{color:#a12e26}
+body.site-feedback-open{overflow:hidden}
+
+/* Warm photographic planner ribbons replace the flat green banners. */
+.trip-strip{
+  position:relative;
+  isolation:isolate;
+  padding:58px 0;
+  border-top:1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(90deg,rgba(8,46,43,.94),rgba(8,46,43,.72) 56%,rgba(8,46,43,.4)),
+    url('../images/hero-planner.webp') center 57%/cover;
+  color:white;
+}
+.trip-strip:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(226,91,52,.13),transparent 42%);
+}
+.trip-strip small{font-size:9px;letter-spacing:.2em;color:#ffd58a;font-weight:900}
+.trip-strip h2{font-size:34px;margin:7px 0;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.towns-planner-cta{
+  padding:70px 0;
+  background:
+    linear-gradient(90deg,rgba(8,46,43,.94),rgba(8,46,43,.74) 58%,rgba(8,46,43,.42)),
+    url('../images/hero-guide-towns.webp') center 54%/cover;
+}
+.wildlife-planner-cta{
+  padding:70px 0;
+  background:
+    linear-gradient(90deg,rgba(8,46,43,.95),rgba(8,46,43,.74) 58%,rgba(8,46,43,.42)),
+    url('../images/wildlife-hero-elk.webp') 68% 48%/cover;
+}
+
+/* Make primary trip-planner invitations feel warm, active, and clickable. */
+.header-cta,
+a.button[href*="planner"]{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,221,161,.72);
+  background:linear-gradient(135deg,#f27a3f 0%,#e25b34 48%,#c83d2f 100%);
+  color:#fffaf0;
+  box-shadow:0 10px 24px rgba(125,42,31,.22),inset 0 1px 0 rgba(255,255,255,.34);
+  letter-spacing:.035em;
+  text-shadow:0 1px 2px rgba(82,25,19,.38);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+.header-cta:before,
+a.button[href*="planner"]:before{
+  content:"";
+  position:absolute;
+  inset:-60% auto -60% -34%;
+  width:26%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,244,214,.5),transparent);
+  transition:left .42s ease;
+}
+.header-cta:hover,
+.header-cta:focus-visible,
+a.button[href*="planner"]:hover,
+a.button[href*="planner"]:focus-visible{
+  transform:translateY(-2px);
+  filter:saturate(1.08) brightness(1.04);
+  box-shadow:0 15px 30px rgba(125,42,31,.3),0 0 0 3px rgba(255,208,113,.18);
+  outline:none;
+}
+.header-cta:hover:before,
+.header-cta:focus-visible:before,
+a.button[href*="planner"]:hover:before,
+a.button[href*="planner"]:focus-visible:before{left:112%}
+
+@media (prefers-reduced-motion:reduce){
+  .header-cta,
+  a.button[href*="planner"],
+  .header-cta:before,
+  a.button[href*="planner"]:before{transition:none}
+}
+
+@media(max-width:800px){
+  footer .shell>.footer-brand,
+  footer .shell>.footer-brand:last-child,
+  footer .shell>p,
+  footer .shell>span,
+  footer .shell>a:not(.footer-brand){
+    grid-column:1;
+    grid-row:auto;
+    justify-self:start;
+    text-align:left;
+  }
+  footer .shell>.footer-brand{order:1}
+  footer .shell>p{order:2}
+  footer .shell>span,
+  footer .shell>a:not(.footer-brand){order:3}
+  .footer-feedback-card{
+    grid-column:1;
+    grid-row:auto;
+    justify-self:stretch;
+    width:100%;
+    order:3;
+  }
+  .site-feedback-window{padding:38px 22px 25px}
+  .site-feedback-window>h2{font-size:34px}
+  .site-feedback-row{grid-template-columns:1fr}
+}
+
+/* Safety fieldbook */
+.safety-hero-actions{display:flex;gap:12px;margin-top:30px}
+.safety-snapshot{display:grid;grid-template-columns:repeat(4,1fr);margin-top:-1px;background:var(--ink);color:white}
+.safety-snapshot article{display:grid;grid-template-columns:38px 1fr;align-content:center;min-height:126px;padding:24px;border-right:1px solid rgba(255,255,255,.15)}
+.safety-snapshot article:last-child{border:0}
+.safety-snapshot span{grid-row:1/3;font-family:"Cormorant Garamond",serif;font-size:25px;color:#efcd95}
+.safety-snapshot b{font-family:"Cormorant Garamond",serif;font-size:21px}
+.safety-snapshot small{margin-top:5px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.68)}
+.safety-guide-layout{padding-top:85px}
+.safety-content>section{scroll-margin-top:25px}
+.safety-guide-layout .guide-toc>p{font-size:11px;letter-spacing:.16em}
+.safety-guide-layout .guide-toc a{padding:17px 0;font-size:16px;line-height:1.3}
+.safety-guide-layout .guide-toc a span{font-size:11px}
+.safety-eyebrow{margin:7px 0 14px!important;font-size:11px!important;font-weight:900;letter-spacing:.17em;color:var(--orange)!important}
+.safety-lead{font-family:"Cormorant Garamond",serif;font-size:26px!important;line-height:1.38!important;color:var(--ink)!important}
+.safety-principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.safety-principle-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:390px;padding:30px;color:white;background:var(--ink)}
+.safety-principle-card img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.safety-principle-card:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,46,43,.08) 10%,rgba(8,46,43,.97) 94%)}
+.safety-principle-card>span{font-size:11px;letter-spacing:.14em;font-weight:900;color:#ffd071}
+.safety-principle-card h3{margin:11px 0 7px;font-family:"Cormorant Garamond",serif;font-size:36px}
+.safety-principle-card p{min-height:66px;margin:0;font-size:14px!important;line-height:1.62!important;color:rgba(255,255,255,.82)!important}
+.safety-principle-card b{align-self:flex-start;margin-top:17px;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px}
+.safety-reset{display:grid;grid-template-columns:220px 1fr;gap:28px;margin-top:14px;padding:27px 30px;background:var(--sand);border-left:4px solid var(--orange)}
+.safety-reset b{font-family:"Cormorant Garamond",serif;font-size:25px}
+.safety-reset p{margin:0;font-size:14px!important;line-height:1.7!important}
+.safety-feature{display:grid;grid-template-columns:minmax(300px,.86fr) 1.22fr;background:var(--white);border-top:4px solid var(--orange)!important}
+.safety-feature-reverse{grid-template-columns:1.22fr minmax(300px,.86fr)}
+.safety-feature-reverse .safety-feature-photo{order:2}
+.safety-feature-photo{width:100%;height:100%;min-height:720px;object-fit:cover}
+#safety-terrain .safety-feature-photo{object-position:54% center}
+#safety-youth .safety-feature-photo{object-position:68% center}
+.safety-feature-copy{padding:42px}
+.safety-feature-copy h2{font-size:48px}
+.safety-feature-copy>p:not(.safety-eyebrow):not(.safety-lead){font-size:15px;line-height:1.75}
+.safety-hazard-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:27px 0}
+.safety-hazard-grid article{padding:18px;background:#eee4d2;border-top:2px solid rgba(226,91,52,.8)}
+.safety-hazard-grid b{font-family:"Cormorant Garamond",serif;font-size:21px}
+.safety-hazard-grid p{margin:7px 0 0;font-size:13px!important;line-height:1.58!important;color:#425f5a!important}
+.safety-actions{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.safety-actions a{padding-bottom:5px;border-bottom:1px solid var(--orange);font-size:13px;font-weight:800;color:var(--ink)}
+.safety-protocol-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.safety-protocol-grid article{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;padding:27px;border:0;background-color:var(--ink);background-position:center;background-size:cover;color:white}
+.safety-protocol-grid article:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,34,32,.08) 12%,rgba(5,34,32,.96) 92%)}
+.safety-protocol-grid article:nth-child(1){background-image:url('../images/riding-06-group-protocol.webp');background-position:52% center}
+.safety-protocol-grid article:nth-child(2){background-image:url('../images/riding-03-coos-bay.webp');background-position:64% center}
+.safety-protocol-grid article:nth-child(3){background-image:url('../images/riding-01-florence.webp');background-position:55% center}
+.safety-protocol-grid article:nth-child(4){background-image:url('../images/riding-05-dune-reading.webp');background-position:58% center}
+.safety-protocol-grid span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ffd071}
+.safety-protocol-grid h3{margin:12px 0 8px;font-family:"Cormorant Garamond",serif;font-size:29px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.safety-protocol-grid p{margin:0;font-size:14px!important;line-height:1.67!important;color:rgba(255,255,255,.84)!important}
+.safety-group-note{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:12px;padding:28px 30px;background:var(--ink);color:white}
+.safety-group-note b{font-family:"Cormorant Garamond",serif;font-size:25px}
+.safety-group-note p{max-width:600px;margin:7px 0 0;font-size:13px!important;line-height:1.62!important;color:rgba(255,255,255,.72)!important}
+.safety-group-note .button{flex:0 0 auto}
+.safety-youth-list{display:grid;gap:0;margin:27px 0}
+.safety-youth-list p{margin:0!important;padding:15px 0;border-top:1px solid rgba(21,63,60,.17);font-size:14px!important;line-height:1.65!important}
+.safety-youth-list b{color:var(--ink)}
+.safety-response-banner{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:34px;min-height:245px;margin-top:30px;padding:36px;background:#8e3028 url('../images/hero-safety-v2.webp') 66% 44%/cover;color:white}
+.safety-response-banner:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(119,31,27,.97),rgba(174,51,37,.87) 62%,rgba(92,27,25,.58))}
+.safety-response-banner span{font-size:10px;font-weight:900;letter-spacing:.17em;color:#ffd68c}
+.safety-response-banner h3{margin:8px 0 6px;font-family:"Cormorant Garamond",serif;font-size:30px}
+.safety-response-banner p{max-width:690px;margin:0;font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.86)!important}
+.safety-response-banner>a{flex:0 0 auto;padding:15px 19px;background:white;color:#8e3028;font-size:13px;font-weight:900}
+.safety-satellite{display:grid;grid-template-columns:290px 1fr;margin:12px 0;background:#0b242f;color:white}
+.safety-satellite-visual{position:relative;isolation:isolate;overflow:hidden;min-height:570px;background:radial-gradient(circle at 50% 25%,#355d6d 0,#142f3a 38%,#071a22 78%)}
+.satellite-orbit{position:absolute;left:50%;top:42%;width:460px;height:460px;border:1px solid rgba(243,189,114,.48);border-radius:50%;transform:translate(-50%,-50%)}
+.satellite-orbit:before,.satellite-orbit:after{content:"";position:absolute;border:1px solid rgba(243,189,114,.35);border-radius:50%}
+.satellite-orbit:before{inset:32px}.satellite-orbit:after{inset:68px}
+.satellite-orbit-two{width:250px;height:250px;top:20%;border-color:rgba(255,255,255,.24)}
+.satellite-phone{position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;width:160px;height:310px;padding:20px;border:5px solid #05090b;border-radius:30px;background:linear-gradient(180deg,#f6fafc,#d9e8ed);box-shadow:0 26px 60px rgba(0,0,0,.48);color:#102f3a;text-align:center;transform:translate(-50%,-43%)}
+.satellite-phone:before{content:"";position:absolute;top:9px;width:57px;height:14px;border-radius:9px;background:#05090b}
+.satellite-phone span{display:grid;place-items:center;width:62px;height:62px;margin-bottom:19px;border-radius:50%;background:#c54234;color:white;font:900 21px Inter,sans-serif}
+.satellite-phone b{font:700 20px/1.05 "Cormorant Garamond",serif}
+.satellite-phone i{margin-top:11px;font:700 10px Inter,sans-serif;color:#4b6b74}
+.safety-satellite-copy{padding:37px 39px}
+.safety-satellite-copy>span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ffd071}
+.safety-satellite-copy>h3{margin:11px 0 10px;font-family:"Cormorant Garamond",serif;font-size:35px;line-height:1.04}
+.safety-satellite-copy>p{margin:0;font-size:14px!important;line-height:1.68!important;color:rgba(255,255,255,.77)!important}
+.safety-satellite-steps{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:24px 0}
+.safety-satellite-steps article{padding:21px;background:rgba(255,255,255,.08);border-top:2px solid #f3bd72}
+.safety-satellite-steps article>b{font-family:"Cormorant Garamond",serif;font-size:22px}
+.safety-satellite-steps ol{margin:13px 0 0;padding-left:19px}
+.safety-satellite-steps li{margin:0;padding:0 0 9px;border:0;font-size:12px;line-height:1.55;color:rgba(255,255,255,.76)}
+.safety-satellite-steps li:before{content:none}
+.safety-satellite-note{margin-bottom:18px!important;padding:15px 17px;border-left:3px solid #f3bd72;background:rgba(255,255,255,.07)}
+.safety-satellite .safety-actions a{color:white;border-bottom-color:#f3bd72}
+.safety-response-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.safety-response-grid article{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;padding:27px;border:0;background-color:var(--ink);background-position:center;background-size:cover;color:white}
+.safety-response-grid article:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,34,32,.08) 12%,rgba(5,34,32,.97) 93%)}
+.safety-response-grid article:nth-child(1){background-image:url('../images/riding-03-coos-bay.webp');background-position:60% center}
+.safety-response-grid article:nth-child(2){background-image:url('../images/riding-06-group-protocol.webp');background-position:54% center}
+.safety-response-grid article:nth-child(3){background-image:url('../images/hero-maps.webp');background-position:50% center}
+.safety-response-grid article:nth-child(4){background-image:url('../images/riding-04-checklist.webp');background-position:58% center}
+.safety-response-grid span{font-family:"Cormorant Garamond",serif;font-size:24px;color:#ffd071}
+.safety-response-grid h3{margin:9px 0 7px;font-family:"Cormorant Garamond",serif;font-size:27px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.safety-response-grid p{margin:0;font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.84)!important}
+.safety-breakdown{display:grid;grid-template-columns:270px 1fr;margin-top:12px;background:var(--ink);color:white}
+.safety-breakdown img{width:100%;height:100%;min-height:250px;object-fit:cover}
+.safety-breakdown>div{align-self:center;padding:30px}
+.safety-breakdown span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ffd071}
+.safety-breakdown h3{margin:10px 0 8px;font-family:"Cormorant Garamond",serif;font-size:28px}
+.safety-breakdown p{margin:0;font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.76)!important}
+.safety-kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.safety-kit-grid article{overflow:hidden;background:var(--white);border:1px solid rgba(21,63,60,.15)}
+.safety-kit-grid img{width:100%;height:190px;object-fit:cover}
+.safety-kit-grid article:nth-child(1) img{object-position:67% center}
+.safety-kit-grid>article>div{padding:24px}
+.safety-kit-grid span{font-size:10px;font-weight:900;letter-spacing:.15em;color:var(--orange)}
+.safety-kit-grid h3{margin:10px 0 13px;font-family:"Cormorant Garamond",serif;font-size:27px}
+.safety-kit-grid ul{margin:0;padding-left:18px}
+.safety-kit-grid li{margin:0 0 11px;font-size:13px;line-height:1.55}
+.safety-rule-link{display:flex;align-items:center;justify-content:space-between;gap:35px;margin-top:12px;padding:29px 31px;background:var(--sand)}
+.safety-rule-link span{font-size:10px;font-weight:900;letter-spacing:.15em;color:var(--orange)}
+.safety-rule-link h3{max-width:680px;margin:9px 0 0;font-family:"Cormorant Garamond",serif;font-size:25px;line-height:1.15}
+.safety-rule-link .button{flex:0 0 auto}
+.safety-source-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.safety-source-grid a{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:310px;padding:28px;background-color:var(--ink);background-position:center;background-size:cover;color:white;transition:transform .2s ease,filter .2s ease}
+.safety-source-grid a:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,34,32,.12) 8%,rgba(5,34,32,.97) 91%)}
+.safety-source-grid a:nth-child(1){background-image:url('../images/riding-05-dune-reading.webp');background-position:56% center}
+.safety-source-grid a:nth-child(2){background-image:url('../images/hero-safety-v2.webp');background-position:66% center}
+.safety-source-grid a:nth-child(3){background-image:url('../images/riding-04-checklist.webp');background-position:57% center}
+.safety-source-grid a:nth-child(4){background-image:url('../images/hero-guide-riding.webp');background-position:62% center}
+.safety-source-grid a:nth-child(5){background-image:url('../images/hero-weather.webp');background-position:55% center}
+.safety-source-grid a:nth-child(6){background-image:url('../images/riding-map-florence.webp');background-position:center}
+.safety-source-grid a:hover,.safety-source-grid a:focus-visible{transform:translateY(-3px);filter:saturate(1.08) brightness(1.05);outline:none}
+.safety-source-grid span{font-size:10px;font-weight:900;letter-spacing:.16em;color:#ffd071}
+.safety-source-grid h3{margin:13px 0 8px;font-family:"Cormorant Garamond",serif;font-size:29px}
+.safety-source-grid p{margin:0 0 20px;font-size:13px!important;line-height:1.62!important;color:rgba(255,255,255,.72)!important}
+.safety-source-grid b{align-self:flex-start;margin-top:auto;padding-bottom:4px;border-bottom:1px solid #ffd071;font-size:12px}
+.safety-planner-cta{padding:70px 0;background:linear-gradient(90deg,rgba(8,46,43,.95),rgba(8,46,43,.74) 58%,rgba(8,46,43,.42)),url('../images/hero-safety-v2.webp') 68% 46%/cover;color:white}
+.safety-planner-cta .shell{display:flex;align-items:center;justify-content:space-between;gap:45px}
+.safety-planner-cta small{font-size:11px;letter-spacing:.17em;font-weight:900;color:#ffd071}
+.safety-planner-cta h2{margin:8px 0;font-family:"Cormorant Garamond",serif;font-size:40px}
+.safety-planner-cta p{max-width:720px;margin:0;font-size:14px;line-height:1.65;color:rgba(255,255,255,.76)}
+.rules-next-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}
+
+@media(max-width:1050px){
+  .safety-feature,.safety-feature-reverse{grid-template-columns:1fr}
+  .safety-feature-reverse .safety-feature-photo{order:0}
+  .safety-feature-photo{height:390px;min-height:0}
+  .safety-kit-grid{grid-template-columns:1fr}
+  .safety-kit-grid article{display:grid;grid-template-columns:260px 1fr}
+  .safety-kit-grid img{height:100%;min-height:250px}
+}
+@media(max-width:800px){
+  .safety-snapshot{grid-template-columns:1fr 1fr}
+  .safety-snapshot article:nth-child(2){border-right:0}
+  .safety-guide-layout{padding-top:60px}
+  .safety-principle-grid,.safety-hazard-grid,.safety-protocol-grid,.safety-response-grid,.safety-source-grid{grid-template-columns:1fr}
+  .safety-principle-card{min-height:420px}
+  .safety-reset{grid-template-columns:1fr;gap:8px}
+  .safety-feature-copy{padding:32px}
+  .safety-group-note,.safety-response-banner,.safety-rule-link,.safety-planner-cta .shell{align-items:flex-start;flex-direction:column}
+  .safety-group-note .button,.safety-rule-link .button,.safety-planner-cta .button{width:100%}
+  .rules-next-actions,.rules-next-actions .button{width:100%}
+  .safety-breakdown{grid-template-columns:1fr}
+  .safety-breakdown img{height:280px}
+  .safety-satellite{grid-template-columns:1fr}
+  .safety-satellite-visual{min-height:400px}
+  .satellite-phone{height:270px}
+}
+@media(max-width:560px){
+  .safety-hero-actions{align-items:stretch;flex-direction:column}
+  .safety-snapshot{grid-template-columns:1fr}
+  .safety-snapshot article,.safety-snapshot article:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .safety-principle-card{min-height:430px;padding:25px}
+  .safety-feature-photo{height:290px}
+  .safety-feature-copy{padding:27px 22px}
+  .safety-feature-copy h2{font-size:40px}
+  .safety-kit-grid article{display:block}
+  .safety-kit-grid img{height:220px;min-height:0}
+  .safety-response-banner,.safety-response-grid article,.safety-rule-link{padding:24px}
+  .safety-satellite-copy{padding:28px 23px}
+  .safety-satellite-steps{grid-template-columns:1fr}
+}
+
+/* Current conditions command center */
+.guide-hero-conditions h1 i{font-weight:400}.conditions-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.conditions-snapshot{display:grid;grid-template-columns:repeat(4,1fr);margin-top:-1px;background:var(--ink);color:white}.conditions-snapshot article{min-height:122px;padding:24px;border-right:1px solid rgba(255,255,255,.15);display:grid;grid-template-columns:34px 1fr;align-content:center}.conditions-snapshot article:last-child{border:0}.conditions-snapshot span{grid-row:1/3;font-family:"Cormorant Garamond",serif;font-size:25px;color:#efcd95}.conditions-snapshot b{font-family:"Cormorant Garamond",serif;font-size:22px}.conditions-snapshot small{margin-top:5px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.68)}
+.conditions-guide-layout{padding-top:85px}.conditions-content>section{scroll-margin-top:25px}.conditions-guide-layout .guide-toc>p{font-size:11px;letter-spacing:.16em}.conditions-guide-layout .guide-toc a{padding:17px 0;font-size:16px;line-height:1.3}.conditions-guide-layout .guide-toc a span{font-size:11px}.conditions-eyebrow{margin:7px 0 14px!important;font-size:11px!important;font-weight:900;letter-spacing:.17em;color:var(--orange)!important}.conditions-lead{font-family:"Cormorant Garamond",serif;font-size:26px!important;line-height:1.38!important;color:var(--ink)!important}
+.conditions-region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}.conditions-region-card{position:relative;isolation:isolate;min-height:365px;overflow:hidden;background:var(--ink);color:white}.conditions-region-card:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(7,39,36,.08),rgba(7,39,36,.94) 82%)}.conditions-region-card>img{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover}.conditions-region-card>div{position:absolute;z-index:2;inset:auto 0 0;padding:26px}.conditions-region-card span{display:block!important;font-family:inherit!important;font-size:11px!important;font-weight:900;letter-spacing:.14em;color:#efcd95!important}.conditions-region-card h3{margin:8px 0 12px;font-family:"Cormorant Garamond",serif;font-size:28px}.conditions-region-card strong{display:block;font-family:"Cormorant Garamond",serif;font-size:58px;line-height:.9}.conditions-region-card p{margin:12px 0 4px!important;font-size:15px!important;color:white!important}.conditions-region-card small{font-size:12px;line-height:1.5;color:rgba(255,255,255,.72)}.conditions-weather-note{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:20px 24px;background:#e9dfcb}.conditions-weather-note span{display:block;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--orange)}.conditions-weather-note b{font-size:13px}.conditions-weather-note a{font-size:13px;font-weight:900;color:var(--orange);white-space:nowrap}
+.conditions-status-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}.conditions-status-card{position:relative;isolation:isolate;min-height:340px;overflow:hidden;color:white;background:var(--ink)}.conditions-status-card:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(6,35,33,.08),rgba(6,35,33,.97) 86%)}.conditions-status-card>img{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.conditions-status-card:hover>img{transform:scale(1.035)}.conditions-status-card>div{position:absolute;z-index:2;inset:auto 0 0;padding:28px}.conditions-status-card span,.conditions-site-grid span,.conditions-freshness span{display:block!important;font-family:inherit!important;font-size:11px!important;font-weight:900;letter-spacing:.15em;color:#efcd95!important}.conditions-status-card h3{margin:8px 0;font-family:"Cormorant Garamond",serif;font-size:31px}.conditions-status-card p{margin:0 0 18px!important;font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.78)!important}.conditions-status-card b{font-size:13px;color:#ffd594;border-bottom:1px solid rgba(255,213,148,.55)}
+.conditions-decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.conditions-decision-grid article{padding:28px;background:#eee4d2;border-top:4px solid var(--orange)}.conditions-decision-grid span{font-size:11px;font-weight:900;letter-spacing:.15em;color:var(--orange)}.conditions-decision-grid h3{margin:10px 0;font-family:"Cormorant Garamond",serif;font-size:29px}.conditions-decision-grid p{font-size:14px!important;line-height:1.7!important}.conditions-decision-grid a{font-size:13px;font-weight:900;color:var(--orange);border-bottom:1px solid rgba(226,91,52,.45)}
+.conditions-site-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.conditions-site-grid>a{min-height:290px;padding:26px;display:flex;flex-direction:column;background:var(--ink);color:white}.conditions-site-grid h3{margin:12px 0;font-family:"Cormorant Garamond",serif;font-size:27px}.conditions-site-grid p{font-size:14px!important;line-height:1.65!important;color:rgba(255,255,255,.72)!important}.conditions-site-grid b{margin-top:auto;font-size:12px;color:#efcd95}.conditions-map-callout{display:grid;grid-template-columns:36% 1fr;margin-top:16px;background:#e9dfcb;overflow:hidden}.conditions-map-callout>img{width:100%;height:100%;min-height:270px;object-fit:cover}.conditions-map-callout>div{padding:32px}.conditions-map-callout span{font-size:11px;font-weight:900;letter-spacing:.15em;color:var(--orange)}.conditions-map-callout h3{font-family:"Cormorant Garamond",serif;font-size:31px;margin:10px 0}.conditions-map-callout p{font-size:14px!important;line-height:1.7!important}
+.conditions-checklist{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;margin-top:28px;border-top:1px solid rgba(21,63,60,.18)}.conditions-checklist label{display:flex;align-items:flex-start;gap:12px;padding:17px 0;border-bottom:1px solid rgba(21,63,60,.18);font-size:15px;line-height:1.5}.conditions-checklist input{width:20px;height:20px;margin-top:1px;accent-color:var(--orange);flex:0 0 auto}.conditions-reset{margin:24px 0 0!important;padding:24px 28px;background:var(--sand);border-left:4px solid var(--orange);font-size:15px!important;line-height:1.7!important}
+.conditions-freshness{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.conditions-freshness article{padding:26px;background:#eee4d2;border-top:3px solid var(--orange)}.conditions-freshness h3{margin:10px 0;font-family:"Cormorant Garamond",serif;font-size:26px}.conditions-freshness p{font-size:14px!important;line-height:1.7!important}.conditions-freshness span{color:var(--orange)!important}.conditions-source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.conditions-source-links a{padding:13px 16px;background:var(--ink);color:white;font-size:12px;font-weight:900}.conditions-planner-cta{margin-top:70px;padding:62px 0;background:linear-gradient(90deg,rgba(6,39,36,.94),rgba(6,39,36,.65)),url('../images/hero-planner.webp') center 48%/cover;color:white;border-top:4px solid var(--orange)}.conditions-planner-cta .shell{display:flex;justify-content:space-between;align-items:center;gap:35px}.conditions-planner-cta small{font-size:11px;font-weight:900;letter-spacing:.16em;color:#efcd95}.conditions-planner-cta h2{margin:9px 0;font-family:"Cormorant Garamond",serif;font-size:42px}.conditions-planner-cta p{max-width:720px;margin:0;color:rgba(255,255,255,.75);font-size:15px;line-height:1.65}
+@media(max-width:800px){.conditions-snapshot{grid-template-columns:1fr 1fr}.conditions-snapshot article:nth-child(2){border-right:0}.conditions-guide-layout{padding-top:60px}.conditions-region-grid,.conditions-status-grid,.conditions-decision-grid,.conditions-site-grid,.conditions-freshness{grid-template-columns:1fr}.conditions-region-card{min-height:420px}.conditions-status-card{min-height:390px}.conditions-weather-note{align-items:flex-start;flex-direction:column}.conditions-site-grid>a{min-height:250px}.conditions-map-callout{grid-template-columns:1fr}.conditions-map-callout>img{min-height:230px}.conditions-checklist{grid-template-columns:1fr}.conditions-planner-cta .shell{align-items:flex-start;flex-direction:column}.conditions-planner-cta h2{font-size:36px}}
