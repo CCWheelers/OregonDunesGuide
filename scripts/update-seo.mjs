@@ -5,7 +5,7 @@ const root = process.cwd();
 const origin = "https://oregondunesguide.com";
 
 const pages = [
-  { file: "index.html", path: "/", slug: "home", title: "Oregon Dunes Guide", heading: "Oregon Dunes Guide", description: "Plan an Oregon Dunes trip with interactive maps, camping, OHV riding zones, weather, tides, safety guidance, nearby towns, and a personalized trip planner." },
+  { file: "index.html", path: "/", slug: "home", title: "Oregon Dunes Guide | OHV Riding, Camping &amp; Maps", heading: "Oregon Dunes Guide", description: "Plan an Oregon Dunes trip with interactive maps, camping, OHV riding zones, weather, tides, safety guidance, nearby towns, and a personalized trip planner." },
   { file: "camping.html", path: "/camping.html", slug: "camping", title: "Camping | Oregon Dunes Guide", heading: "Oregon Dunes Camping Guide", description: "Compare Oregon Dunes camping by region, camp style, reservations, RV and trailer fit, dog-friendly stays, and legal ride-from-camp access." },
   { file: "ohv-riding.html", path: "/ohv-riding.html", slug: "ohv-riding", title: "OHV Riding | Oregon Dunes Guide", heading: "Oregon Dunes OHV Riding Guide", description: "Compare the Florence, Winchester Bay, and Coos Bay OHV riding zones with staging information, maps, dune-reading tips, equipment, and group protocol." },
   { file: "maps.html", path: "/maps.html", slug: "maps", title: "Maps | Oregon Dunes Guide", heading: "Oregon Dunes Maps", description: "Explore an interactive Oregon Dunes map with riding zones, staging areas, campgrounds, nearby towns, parts stores, terrain views, and GPS directions." },
