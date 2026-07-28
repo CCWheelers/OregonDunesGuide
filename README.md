@@ -11,6 +11,22 @@ for images.
 
 The original Next.js/Vinext source remains in `app/` for reference.
 
+## Publish directory: the repo ROOT
+
+Netlify serves this site from the **repository root**, not from `public/`.
+That means:
+
+- The live pages are the `.html` files at the root. Edit those.
+- `public/` holds assets only (`public/images/`, `public/static/`, favicons,
+  og images). Pages reference them as `public/images/...`, which is why a
+  root-relative `/images/...` path returns 404 in production.
+- `robots.txt` and `sitemap.xml` must exist at the root to be reachable.
+
+On 2026-07-28 a full duplicate set of 22 `.html` files was found sitting in
+`public/`, left over from the Next.js layout. They were never served, nothing
+linked to them, and their image paths were broken, but they were an easy trap
+to edit by mistake. They have been removed. Do not recreate them.
+
 ## Framework source
 
 A clean full-stack starter running on
