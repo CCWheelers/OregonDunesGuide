@@ -52,6 +52,233 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-07-28 (later still) - Claude (Opus): two live bugs on ODG found and fixed. NEEDS A DEPLOY.
+
+Mike reported "ODG not working". Two separate faults, both shipped in
+`7ddb1c5`, both mine, and **both are live right now**.
+
+**1. Every house ad is a broken image.** `static/partners.js` references
+`images/partners/house/...`, but the banners were only ever written to
+`public/images/partners/house/`. This site's web root is the **repo root**
+(that is why `static/styles.css` resolves), and root `images/` did not exist
+at all. So the ad under Live Conditions renders as a broken-image icon with
+its alt text showing.
+
+Fixed by populating `images/partners/house/` at the repo root with all five
+banners, verified hash-identical to the masters. The `public/` copy stays,
+matching the dual-copy convention described at the top of this file.
+
+The renderer has been corrected too: `render_all_house_ads.py` in
+`DuneGuideUSA/network-ads/scripts/` now writes to **both** Oregon paths, so
+this cannot silently recur on the next render.
+
+**2. `/api/gas` returned 502 on every request.** Not a platform error: the
+function's own error path answers 502, and it was taking it every time.
+
+`parseBlock` searched 3500 characters forward from the first occurrence of
+`"Oregon"`. On the live AAA page that string first appears at offset 31776,
+in page furniture, while the price table's `"Current Avg"` sits at 40076,
+about 8000 characters further on. The window never reached the table, no
+price was ever found, and the function returned `state prices not found`.
+
+Fixed by anchoring on the table itself rather than on a place name. Verified
+against the live AAA page before changing the function: state regular
+$4.640, all five rows parsed, and Eugene-Springfield resolving to a
+genuinely different table at $4.596.
+
+This is why the homepage console showed "Gas Price: Unavailable". The
+fallback behaved correctly and said nothing false, which is what it was
+built for, but it was covering a real fault.
+
+**CCWheelers is not affected.** Its copy of this function anchors on
+`San Luis Obispo-Atascadero-Paso Robles`, whose table follows immediately,
+and it is returning live prices. Left alone.
+
+**Both fixes are local and unpushed.** Unlike the rest of today's work, these
+correct faults that are already in production, so this one wants deploying
+rather than holding.
+
+
+### 2026-07-28 (later) - Claude (Opus): the house ads were being cropped on phones. Fixed at the CSS, not the artwork. LOCAL, UNPUSHED.
+
+**The real bug was never the artwork.** `.lsp-art` carried a mobile override,
+`@media(max-width:700px){.lsp-art{aspect-ratio:16/7}}`, against art that is
+16:5. With `object-fit:cover` that trimmed the sides: the visible band was
+500 * 16/7 = 1142.9px centred, so **x below 229 and above 1371 was thrown
+away at every phone width**, because the crop depends only on aspect ratio.
+
+That cut headlines and site URLs off on phones, which is where most of the
+traffic is. Silver Lake read "Make Silver Lake your next du..." with the URL
+cut to "SILVERLAKEDUNEG...". Oregon read "Forty miles of coast. One clear..."
+Both had been signed off on desktop, where they are genuinely fine.
+
+**The fix is one CSS change, applied to all four sites:** the override is
+gone and `object-fit` is now `contain`, so artwork is never cropped at any
+width. Chat's call, and the right one. Designing banners around a 1143px
+safe zone would have pushed an accidental crop onto every future local
+advertiser, who should never have to know it exists.
+
+If taller mobile creative is ever wanted, the answer is separate artwork
+behind `<picture>`, never a forced crop of the desktop banner.
+
+**Three banners were also corrected** (Chat rendered the originals; these are
+re-renders): Little Sahara's headline overflowed the canvas, the Dune Guide
+USA banner reused Oregon's photograph, and the CCWheelers headline read as a
+farewell. It is now "Plan your Oceano Dunes trip with confidence." The hub
+now has original non-photographic artwork that depicts no real location.
+
+**Oregon and Silver Lake were NOT re-rendered.** Once the crop was removed
+both display correctly, so the artwork never needed changing. Both still
+hash exactly as Chat rendered them: `E135F0BE` and `2643F479`.
+
+**Verified, not assumed:**
+- no `aspect-ratio:16/7` rule survives anywhere in any repo
+- rendered ratio is 3.2 against a natural 3.2 at viewport widths 320, 375
+  and 430, with `object-fit:contain` and no crop at any of them
+- the page generators emit only the `live-sponsor-band` container markup and
+  never the CSS, so a rebuild cannot reintroduce the override
+- CCWheelers defines these styles inline in `index.html` only; no other page
+  on that site carries them
+- all five banners render complete at phone size: full emblem, full headline
+  with its full stop, full URL, CTA intact
+- all 20 site copies hash identical to the five masters
+
+**Canonical files now live in the DuneGuideUSA repo**, under `network-ads/`:
+`masters/` holds the five banners, `scripts/` holds the renderer and two QA
+scripts, and `README.md` documents the contract. They previously sat in a
+scratch folder outside git on one machine, which was the only home of both
+the masters and the render code.
+
+Serving stays local to each site. Pulling all four sites' banners from
+duneguideusa.com would add a cross-origin fetch to an image high on the page
+and make the hub a single point of failure for house ads network-wide.
+
+**Also:** Python 3.12.10 and Pillow 12.3.0 are now installed on Mike's PC.
+Until today this artwork could only be rendered inside Chat's Codex
+environment, so it was blocked on Chat's quota.
+
+**Known limit, not a defect.** At a 375px viewport a banner renders about
+325x102, so the 24pt subheading lands near 5px and the URL near 4px. Nothing
+is cut; that copy is simply decorative at phone size. The headline and CTA
+hold up. This is the case for `<picture>` when there is reason to invest.
+
+**Nothing deployed. No commits, no pushes.** Awaiting Mike's approval.
+
+**Files changed here:**
+- `static/styles.css` and `public/static/styles.css` (both mirrors)
+- `public/images/partners/house/` (3 of 5 banners re-rendered)
+- `HANDOFF.md`
+
+
+### 2026-07-28 - Claude (Opus): advertising layer, live conditions console, live gas prices. PUSHED.
+
+Three pieces of work, all now committed as `7ddb1c5` and pushed to
+`CCWheelers/OregonDunesGuide`. This entry exists because the work was built
+before it was logged, which was my mistake.
+
+**Also corrected the remote.** This checkout was pushing to the lowercase
+`ccwheelers/oregondunesguide`, which GitHub was silently redirecting.
+Repointed to `CCWheelers/OregonDunesGuide`. Note the remote here is named
+`sites`, not `origin`.
+
+#### Advertising
+
+New: `advertise.html`, `static/partners.js`, and `public/` mirrors of both.
+
+`partners.js` is the whole system. One data object drives section sponsor
+bars, directory listings, Trip Planner placement, and GA4 click events.
+Selling a placement means adding one object and committing; no HTML is
+edited again. Nothing paid renders while `PARTNERS` is empty, so the site
+looked unchanged until a placement is sold.
+
+Fourteen sellable positions: one premium slot under the console, eight
+section sponsors, two Featured, two Local Listings. Unsold positions run a
+sister-guide advert with a tier ribbon and a price on it rather than
+sitting blank, so a prospect sees the space occupied.
+
+This site sells **by town**. Every listing carries a `town`, so a Coos Bay
+shop does not appear on the Florence page, and Featured is capped at three
+per town rather than three per category.
+
+Rate card is $99 / $249 / $499 / $999 with a half-price first year on
+annual plans. Priced against what these businesses already pay elsewhere:
+local Google Ads runs $1,200 to $8,500 a month, Yelp roughly $270 a month
+plus $2 to $10 per click. Every tier here is flat rate with no per-click
+charge, which the page says plainly because it is the strongest thing we
+can say.
+
+Paid links carry `rel="sponsored"`; house links do not. Google requires
+the former for paid placements and an unmarked paid link risks a penalty
+on this site, not just the advertiser's.
+
+#### Live conditions console
+
+New: `static/conditions.js`, plus a console on the homepage under the hero.
+
+This was the only one of the four guides leading with static content. It
+now shows live weather and wind from Open-Meteo, a ride window computed
+from gusts using the same thresholds `weather.js` already applies on its
+own page, the next tide from NOAA at the Umpqua River entrance, and the
+Oregon gas average. Both data sources were already proven elsewhere in this
+codebase and neither needs a key. Every cell degrades to a readable
+fallback; a dead API never leaves a blank on the homepage.
+
+The console is also what makes the premium advertising slot honest. Before
+it existed I had named that tier "Homepage Sponsor" rather than "Live
+Conditions Sponsor", because selling the latter on a page with no live
+conditions would have been selling something that was not there.
+
+#### Gas
+
+New: `netlify/functions/gas.mjs`, ported from CCWheelers, pointed at AAA
+Oregon, cached six hours at the CDN.
+
+**This fixed a live problem.** `gas.html` carried hardcoded prices under an
+"OREGON FUEL BENCHMARK" heading, including a four-row trend table showing
+day-to-day movement, all of it invented. `/api/gas` did not exist on this
+site, so the fetch failed silently and the typed-in defaults stayed on
+screen looking authoritative. Twenty-four fabricated figures, removed.
+
+The failure path now says prices are unavailable and links to AAA, rather
+than leaving stale numbers up.
+
+**Coverage limit, deliberately reflected in the copy.** AAA publishes named
+metro averages for Eugene-Springfield, Medford, Salem, Portland, Albany,
+Bend, Corvallis, Grants Pass and Pendleton. It publishes no named figure
+for Douglas or Coos county, so there is no honest AAA number for Winchester
+Bay or Coos Bay, and coastal prices run above inland. The page says "Oregon
+statewide" and does not imply otherwise. Station-level pricing would need
+GasBuddy, which has no free public API; the three town cards already link
+out to Google Maps for that.
+
+#### Hero ribbon
+
+The three regions in the hero now link to their riding pages. They looked
+clickable long before they were.
+
+#### Dune Guide USA network hub
+
+`partners.js` carries a `LIVE_GUIDE` constant. The position directly below
+Live Conditions always belongs to the network hub at duneguideusa.com and
+never rotates; every other unsold position rotates through the sister
+guides. House links carry UTM parameters so hub traffic can be told apart
+from organic referral. Banners live in `images/partners/house/`.
+
+If the hub's name or URL changes, `LIVE_GUIDE` needs updating in all four
+guide repos.
+
+#### Outstanding
+
+- **No GA4 measurement ID on this site.** The partner click events collect
+  nothing until analytics is switched on, and the quarterly report the rate
+  card promises depends on it. This is the biggest gap.
+- The advertise page still carries two placeholder figures Mike has not
+  replaced: an offer deadline of **September 30** and a scarcity claim of
+  **twelve slots**.
+- `gas.html` still has hardcoded fallback numbers in the price cards. They
+  only show if the fetch fails, which is now rare, but they will go stale.
+
+
 ### 2026-07-27 - Claude -> Mike / Logan (favicon fixed, indexing diagnosed)
 
 Mike reported the favicon not working and no Google results for any page.

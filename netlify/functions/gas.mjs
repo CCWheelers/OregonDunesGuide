@@ -19,17 +19,26 @@ const ROWS = [
   ['yearAgo', 'Year Ago Avg']
 ];
 
-function parseBlock(html, marker) {
-  const i = html.indexOf(marker);
-  if (i === -1) return null;
-  const chunk = html.slice(i, i + 3500);
+// Anchor on the price table itself, not on a place name.
+//
+// The first version searched 3500 characters forward from the first
+// occurrence of "Oregon", which lands in the page furniture roughly 8000
+// characters before the real table. It never found a price, returned null,
+// and the endpoint answered 502 for every request.
+function parseTable(html, start) {
+  if (start == null || start < 0) return null;
   const out = {};
   for (const [key, label] of ROWS) {
-    const j = chunk.indexOf(label);
-    if (j === -1) continue;
-    const prices = chunk.slice(j, j + 400).match(/\$([0-9]\.[0-9]{2,3})/g);
+    const j = html.indexOf(label, start);
+    // Rows sit within a few thousand characters of the table head; anything
+    // further away belongs to a different table.
+    if (j === -1 || j - start > 4000) continue;
+    // AAA prints four decimals, e.g. $4.6400.
+    const prices = html.slice(j, j + 400).match(/\$([0-9]\.[0-9]{2,4})/g);
     if (prices && prices.length >= 4) {
-      const [regular, mid, premium, diesel] = prices.map(p => parseFloat(p.slice(1)));
+      const [regular, mid, premium, diesel] = prices
+        .slice(0, 4)
+        .map(p => parseFloat(p.slice(1)));
       out[key] = { regular, mid, premium, diesel };
     }
   }
@@ -47,12 +56,13 @@ export default async () => {
     if (!res.ok) return err('AAA returned ' + res.status);
     const html = await res.text();
 
-    // The state table sits under the state name on the Oregon page.
-    const state = parseBlock(html, 'Oregon') || null;
+    // The state table is the first one on the page.
+    const state = parseTable(html, html.indexOf('Current Avg'));
     if (!state) return err('state prices not found');
 
     // Nearest named metro to the dunes. Lane County, so it covers Florence.
-    const eugene = parseBlock(html, 'Eugene-Springfield');
+    const e = html.indexOf('Eugene-Springfield');
+    const eugene = e === -1 ? null : parseTable(html, html.indexOf('Current Avg', e));
 
     return Response.json(
       {
