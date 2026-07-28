@@ -124,12 +124,23 @@ function renderActions(data){
     planner_build:"Plans built",planner_print:"Plans printed",planner_share_email:"Shared by email",
     planner_share_text:"Shared by text",planner_share_messenger:"Shared to Messenger",directions_click:"Directions opened",
     outbound_click:"Outbound links",phone_click:"Phone taps",email_click:"Email taps",map_filter:"Map filters",
+    partner_click:"Partner ad clicks",house_ad_click:"Sister-guide clicks",
     map_layer:"Map layers",page_share_open:"Page share menu",scroll_depth:"Scroll milestones"
   };
   const actions=(data.events||[]).filter(item=>actionNames[item.name]).map(item=>({name:actionNames[item.name],users:item.count}));
   bars("actionBars",actions,{limit:14});
   const links=(data.outboundLinks||[]).map(item=>{let name=item.url;try{const url=new URL(item.url);name=`${url.hostname}${url.pathname==="/"?"" : url.pathname}`}catch{}return{name,users:item.clicks}});
-  bars("outboundBars",links,{limit:14})
+  bars("outboundBars",links,{limit:14});
+  const ads=(data.partnerAds||[]).map(item=>{
+    let name=item.url;
+    try{
+      const url=new URL(item.url);
+      const placement=url.searchParams.get("utm_content")?.replaceAll("_"," ")||"ad";
+      name=`${url.hostname} · ${placement} · ${item.page}`;
+    }catch{}
+    return{name:`${item.kind==="house"?"SISTER":"PARTNER"} · ${name}`,users:item.clicks}
+  });
+  bars("partnerAdBars",ads,{limit:20})
 }
 
 function renderSearch(data){
@@ -187,6 +198,7 @@ function downloadCsv(){
   add("Traffic sources",state.data.sources,[["Source / medium",x=>x.name],["Visits",x=>x.sessions],["Users",x=>x.users]]);
   add("Cities",state.data.cities,[["City",x=>x.city],["Region",x=>x.region],["Country",x=>x.country],["Users",x=>x.users]]);
   add("Events",state.data.events,[["Event",x=>x.name],["Count",x=>x.count],["Users",x=>x.users]]);
+  add("Partner ad clicks",state.data.partnerAds,[["Type",x=>x.kind],["Destination",x=>x.url],["Origin page",x=>x.page],["Clicks",x=>x.clicks]]);
   if(state.data.searchConsole?.connected)add("Google queries",state.data.searchConsole.queries,[["Query",x=>x.query],["Clicks",x=>x.clicks],["Impressions",x=>x.impressions],["CTR",x=>x.ctr],["Position",x=>x.position]]);
   const blob=new Blob([rows.map(row=>row.map(csvCell).join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"});
   const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download=`oregon-dunes-dashboard-${new Date().toISOString().slice(0,10)}.csv`;link.click();URL.revokeObjectURL(link.href)

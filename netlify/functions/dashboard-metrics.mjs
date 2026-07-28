@@ -252,6 +252,7 @@ export default async (request) => {
       visitorTypes,
       dayHours,
       outboundLinks,
+      partnerAds,
       realtime,
       searchConsole,
     ] = await Promise.all([
@@ -398,11 +399,35 @@ export default async (request) => {
         dimensionFilter: {
           filter: {
             fieldName: "eventName",
-            inListFilter: { values: ["click", "outbound_click"] },
+            inListFilter: {
+              values: [
+                "click",
+                "outbound_click",
+                "partner_click",
+                "house_ad_click",
+              ],
+            },
           },
         },
         orderBys: metricOrder("eventCount"),
         limit: 20,
+      }),
+      report({
+        dateRanges: [currentRange],
+        dimensions: [
+          { name: "eventName" },
+          { name: "linkUrl" },
+          { name: "pagePath" },
+        ],
+        metrics: [{ name: "eventCount" }],
+        dimensionFilter: {
+          filter: {
+            fieldName: "eventName",
+            inListFilter: { values: ["partner_click", "house_ad_click"] },
+          },
+        },
+        orderBys: metricOrder("eventCount"),
+        limit: 100,
       }),
       runRealtimeReport(token, property),
       searchConsoleReport(
@@ -444,7 +469,10 @@ export default async (request) => {
       change: 0,
     };
     totals.outboundClicks = {
-      current: eventMap.outbound_click || 0,
+      current:
+        (eventMap.outbound_click || 0) +
+        (eventMap.partner_click || 0) +
+        (eventMap.house_ad_click || 0),
       previous: 0,
       change: 0,
     };
@@ -556,6 +584,14 @@ export default async (request) => {
       outboundLinks: reportRows(outboundLinks)
         .filter((row) => row.dims[0] && row.dims[0] !== "(not set)")
         .map((row) => ({ url: row.dims[0], clicks: row.vals[0] })),
+      partnerAds: reportRows(partnerAds)
+        .filter((row) => row.dims[1] && row.dims[1] !== "(not set)")
+        .map((row) => ({
+          kind: row.dims[0] === "house_ad_click" ? "house" : "partner",
+          url: row.dims[1],
+          page: row.dims[2] || "/",
+          clicks: row.vals[0],
+        })),
       searchConsole,
     });
   } catch (error) {

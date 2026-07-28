@@ -15,7 +15,7 @@
 <body>
   <section class="login-screen" id="loginScreen">
     <div class="login-card">
-      <img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide">
+      <img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide">
       <p class="eyebrow">PRIVATE OWNER REPORT</p>
       <h1>Your guide,<br><em>in numbers.</em></h1>
       <p>Enter the dashboard password to view Oregon Dunes Guide traffic and visitor activity.</p>
@@ -34,7 +34,7 @@
   <div class="dashboard" id="dashboard" hidden>
     <header class="dashboard-header">
       <a href="index.html" class="dashboard-brand" aria-label="Oregon Dunes Guide home">
-        <img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide">
+        <img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide">
       </a>
       <div>
         <p>PRIVATE OWNER DASHBOARD</p>
@@ -168,6 +168,11 @@
           <article class="panel"><h3>Important site actions</h3><div id="actionBars"></div></article>
           <article class="panel"><h3>Outbound destinations</h3><div id="outboundBars"></div></article>
         </div>
+        <article class="panel partner-ad-panel">
+          <h3>Partner advertising clicks</h3>
+          <p class="panel-note">Paid partners and sister-guide house ads are separated. Each row shows the destination, ad placement, and page where the click began.</p>
+          <div id="partnerAdBars"></div>
+        </article>
       </section>
 
       <section class="dashboard-section">
@@ -203,7 +208,7 @@
     </main>
 
     <footer class="dashboard-footer">
-      <img src="/images/oregon-dunes-guide-logo-transparent.png" alt="">
+      <img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="">
       <p>Private aggregate reporting for OregonDunesGuide.com. Personal planner contents are never collected.</p>
     </footer>
   </div>

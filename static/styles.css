@@ -1439,3 +1439,117 @@ a.button[href*="planner"]:focus-visible:before{left:112%}
 .conditions-checklist{display:grid;grid-template-columns:1fr 1fr;gap:0 34px;margin-top:28px;border-top:1px solid rgba(21,63,60,.18)}.conditions-checklist label{display:flex;align-items:flex-start;gap:12px;padding:17px 0;border-bottom:1px solid rgba(21,63,60,.18);font-size:15px;line-height:1.5}.conditions-checklist input{width:20px;height:20px;margin-top:1px;accent-color:var(--orange);flex:0 0 auto}.conditions-reset{margin:24px 0 0!important;padding:24px 28px;background:var(--sand);border-left:4px solid var(--orange);font-size:15px!important;line-height:1.7!important}
 .conditions-freshness{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.conditions-freshness article{padding:26px;background:#eee4d2;border-top:3px solid var(--orange)}.conditions-freshness h3{margin:10px 0;font-family:"Cormorant Garamond",serif;font-size:26px}.conditions-freshness p{font-size:14px!important;line-height:1.7!important}.conditions-freshness span{color:var(--orange)!important}.conditions-source-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.conditions-source-links a{padding:13px 16px;background:var(--ink);color:white;font-size:12px;font-weight:900}.conditions-planner-cta{margin-top:70px;padding:62px 0;background:linear-gradient(90deg,rgba(6,39,36,.94),rgba(6,39,36,.65)),url('../public/images/hero-planner.webp') center 48%/cover;color:white;border-top:4px solid var(--orange)}.conditions-planner-cta .shell{display:flex;justify-content:space-between;align-items:center;gap:35px}.conditions-planner-cta small{font-size:11px;font-weight:900;letter-spacing:.16em;color:#efcd95}.conditions-planner-cta h2{margin:9px 0;font-family:"Cormorant Garamond",serif;font-size:42px}.conditions-planner-cta p{max-width:720px;margin:0;color:rgba(255,255,255,.75);font-size:15px;line-height:1.65}
 @media(max-width:800px){.conditions-snapshot{grid-template-columns:1fr 1fr}.conditions-snapshot article:nth-child(2){border-right:0}.conditions-guide-layout{padding-top:60px}.conditions-region-grid,.conditions-status-grid,.conditions-decision-grid,.conditions-site-grid,.conditions-freshness{grid-template-columns:1fr}.conditions-region-card{min-height:420px}.conditions-status-card{min-height:390px}.conditions-weather-note{align-items:flex-start;flex-direction:column}.conditions-site-grid>a{min-height:250px}.conditions-map-callout{grid-template-columns:1fr}.conditions-map-callout>img{min-height:230px}.conditions-checklist{grid-template-columns:1fr}.conditions-planner-cta .shell{align-items:flex-start;flex-direction:column}.conditions-planner-cta h2{font-size:36px}}
+
+/* ==================================================================
+   PARTNERS
+   Paid placements rendered by static/partners.js. Nothing paid appears
+   until a partner exists in the PARTNERS object.
+================================================================== */
+.pt-sponsor{display:flex;align-items:center;gap:14px;margin-top:22px;padding:14px 18px;background:var(--white);border:1px solid rgba(21,63,60,.18)}
+.pt-sponsor-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:#6b8781;white-space:nowrap}
+.pt-sponsor-body b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--ink);line-height:1.1}
+.pt-sponsor-body span{display:block;font-size:12.5px;color:#5c7a75;margin-top:2px}
+a.pt-sponsor-link{display:block;text-decoration:none;border:0}
+a.pt-sponsor-link:hover .pt-sponsor{border-color:var(--orange)}
+.pt-mark{flex:0 0 48px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:19px;background:var(--ink);color:var(--sand)}
+.pt-mark-b{background:var(--sand);color:var(--ink)}
+.pt-mark-c{background:var(--orange);color:var(--white)}
+.pt-logo{flex:0 0 48px;width:48px;height:48px;object-fit:contain;background:var(--white)}
+.pt-heading{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--ink);margin:0 0 12px}
+.pt-card{display:flex;gap:15px;align-items:flex-start;background:var(--white);border:1px solid rgba(21,63,60,.16);padding:15px 17px;margin-bottom:10px}
+.pt-featured{border:2px solid var(--orange);box-shadow:0 8px 22px rgba(221,107,66,.13)}
+.pt-photo{flex:0 0 120px;height:82px;object-fit:cover}
+.pt-body{flex:1;min-width:0}
+.pt-body h4{margin:0;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--ink);line-height:1.15}
+.pt-body p{margin:5px 0 0;font-size:13.5px;line-height:1.6;color:#41615c}
+.pt-meta{margin-top:7px;font-size:12.5px;color:#5c7a75}
+.pt-meta a{color:var(--orange);font-weight:700}
+.pt-badge{display:inline-block;background:var(--orange);color:var(--white);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;padding:4px 9px;margin-bottom:6px}
+.pt-badge-sand{background:var(--ink);color:var(--sand)}
+.pt-house.pt-sponsor,.pt-house.pt-card{background:var(--cream);border-style:dashed}
+.pt-planner{margin-top:26px;padding-top:22px;border-top:1px solid rgba(21,63,60,.16)}
+.pt-planner-note{font-size:12.5px;color:#5c7a75;margin:0 0 14px}
+@media(max-width:640px){ .pt-card,.pt-sponsor{flex-wrap:wrap} .pt-photo{flex:1 1 100%;height:110px} }
+@media print{ .pt-sponsor,.pt-planner{display:none!important} }
+
+/* ---- For-sale treatment on unsold inventory ----
+   An empty slot sells nothing. A slot showing a real advert with a price
+   tag on it sells the space itself. */
+.pt-avail{position:relative;padding-top:34px!important;border-style:dashed!important;border-color:var(--sand)!important}
+.pt-ribbon{position:absolute;top:0;left:0;right:0;padding:7px 16px;background:var(--ink);color:var(--sand);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+.pt-ribbon b{color:var(--white);font-weight:800}
+.pt-photo-slot{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:rgba(255,253,248,.9);background:linear-gradient(150deg,var(--ink),var(--sand));line-height:1.5}
+.pt-forsale{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin:-4px 0 12px;padding:16px 20px;text-decoration:none;border:0;
+  background:linear-gradient(135deg,var(--orange),#b8532a);color:var(--white);
+  box-shadow:0 10px 26px rgba(221,107,66,.22);transition:transform .15s ease,box-shadow .15s ease}
+.pt-forsale:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(221,107,66,.3)}
+.pt-forsale-left b{display:block;font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;line-height:1.05;color:var(--white)}
+.pt-forsale-left span{display:block;font-size:12.5px;color:rgba(255,253,248,.85);margin-top:3px}
+.pt-forsale-right{display:flex;align-items:center;gap:16px}
+.pt-price{font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;color:var(--white)}
+.pt-price s{opacity:.6;font-weight:600;margin-right:6px}
+.pt-price small{font-size:13px;color:rgba(255,253,248,.75)}
+.pt-sale-note{display:block;margin-top:6px;font-size:11.5px;font-weight:700;color:var(--white);background:rgba(255,253,248,.2);padding:5px 10px}
+.pt-forsale-cta{background:var(--white);color:var(--orange);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:800;padding:11px 16px;white-space:nowrap}
+.pt-free-head{margin:22px 0 8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#6b8781}
+
+/* Premium homepage sponsor */
+.home-sponsor-band{background:var(--ink);padding:0 0 26px}
+.home-sponsor-band .shell{max-width:1180px;margin:0 auto;padding:0 28px}
+.lsp{display:flex;align-items:center;gap:15px;padding:15px 18px;text-decoration:none;border:1px solid rgba(255,253,248,.16);background:rgba(255,253,248,.07);transition:background .15s ease}
+.lsp:hover{background:rgba(255,253,248,.12)}
+.lsp-label{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--sand);white-space:nowrap}
+.lsp-body b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600;color:var(--white);line-height:1.1}
+.lsp-body span{display:block;font-size:12.5px;color:rgba(255,253,248,.7);margin-top:2px}
+.lsp-avail{border-style:dashed;border-color:var(--sand)}
+.lsp-forsale{margin-top:10px}
+
+@media(max-width:640px){
+  .pt-forsale{flex-direction:column;align-items:flex-start}
+  .pt-forsale-right{width:100%;justify-content:space-between}
+  .lsp{flex-wrap:wrap}
+  .lsp-label{width:100%}
+}
+@media print{ .pt-forsale,.pt-ribbon,.lsp,.home-sponsor-band{display:none!important} }
+
+/* ==================================================================
+   LIVE CONDITIONS CONSOLE
+   Homepage, directly under the hero. Brings this guide in line with
+   the sister sites, which all lead with live conditions above the
+   fold. Weather and tides are live; the rest link through.
+================================================================== */
+.status-strip{background:var(--ink);color:var(--white);padding:34px 0 0}
+.conditions-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.conditions-head h2{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,3.6vw,42px);font-weight:600;margin:0;color:var(--white)}
+.conditions-head p{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,253,248,.66);max-width:52ch}
+.live-dot{display:inline-block;width:8px;height:8px;background:#7fd694;border-radius:50%;margin-left:10px;vertical-align:middle;animation:livePulse 2.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,253,248,.16);padding-bottom:34px}
+.status-cell{display:block;padding:20px 22px;background:var(--ink);text-decoration:none;border:0;transition:background .15s ease}
+.status-cell:hover{background:#1b4a47}
+.status-cell .k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--sand)}
+.status-cell .v{font-family:"Cormorant Garamond",serif;font-size:29px;font-weight:600;line-height:1.05;margin:7px 0 4px;color:var(--white)}
+.status-cell .v.status-neutral{color:rgba(255,253,248,.9)}
+.status-cell small{display:block;font-size:12px;line-height:1.5;color:rgba(255,253,248,.62)}
+
+@media(max-width:900px){ .status-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:560px){
+  .status-grid{grid-template-columns:1fr}
+  .conditions-head{flex-direction:column;gap:8px}
+  .status-cell .v{font-size:26px}
+}
+@media print{ .status-strip{display:none!important} }
+/* The three regions in the hero ribbon are now links to their riding
+   pages. They looked clickable long before they were. */
+.region-ribbon>a{background:rgba(21,63,60,.68);padding:20px max(24px,calc((100vw - 1180px)/2 - 8px));display:flex;flex-direction:column;gap:2px;backdrop-filter:blur(3px);text-decoration:none;color:inherit;transition:background .15s ease}
+.region-ribbon>a:hover,.region-ribbon>a:focus-visible{background:rgba(221,107,66,.85)}
+.region-ribbon>a:focus-visible{outline:2px solid var(--white);outline-offset:-4px}
+.region-ribbon>a b{transition:color .15s ease}
+.region-ribbon>a:hover b{color:var(--white)}
+/* Visual sister-guide house ads use the same 1600x500 contract network-wide. */
+.lsp.lsp-visual-ad{display:block!important;padding:0!important;overflow:hidden;background:#073d3a;border:1px solid rgba(255,255,255,.18)}
+.lsp-art{display:block;width:100%;height:auto;aspect-ratio:16/5;object-fit:cover}
+@media(max-width:700px){.lsp-art{aspect-ratio:16/7}}

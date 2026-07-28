@@ -63,10 +63,18 @@ async function loadOregonGasPrices(){
     const priceInput=document.querySelector('#fuelCalculator input[name="price"]');
     if(priceInput&&!priceInput.value)priceInput.value=Number(current.regular).toFixed(3);
   }catch(error){
-    note.innerHTML='Local preview is showing the most recently checked Oregon averages. The hosted page refreshes from <a href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">AAA Gas Prices</a>.';
-    ["gasRegularDelta","gasMidDelta","gasPremiumDelta","gasDieselDelta"].forEach(id=>{
-      const element=document.getElementById(id);if(element)element.textContent="Most recently checked";
+    // Say the prices are unavailable rather than leaving numbers on
+    // screen that look live and are not. This page previously shipped
+    // hardcoded averages that never refreshed.
+    note.innerHTML='Live prices are unavailable right now. Check <a href="https://gasprices.aaa.com/?state=OR" target="_blank" rel="noreferrer">AAA Gas Prices</a> directly.';
+    ["gasRegular","gasMid","gasPremium","gasDiesel"].forEach(id=>{
+      const element=document.getElementById(id);if(element)element.textContent="Unavailable";
     });
+    ["gasRegularDelta","gasMidDelta","gasPremiumDelta","gasDieselDelta"].forEach(id=>{
+      const element=document.getElementById(id);if(element)element.textContent="";
+    });
+    const body=document.getElementById("gasTrendBody");
+    if(body)body.innerHTML='<tr><td colspan="5">Live prices unavailable.</td></tr>';
   }
 }
 
