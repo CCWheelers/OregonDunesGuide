@@ -52,6 +52,30 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-07-29 - Codex: real-place photography audit and riding layout complete. READY TO PUSH.
+
+Replaced generated or generic imagery wherever the site names a specific
+Oregon Dunes place. Fifteen optimized WebP assets now cover Florence Harbor,
+South Jetty, Honeyman/Cleawox, Siltcoos Lake, Winchester Bay, Umpqua Dunes,
+Reedsport, Eel Creek, Lakeside/Tenmile, Spinreel, Riley Ranch/Butterfield
+Lake, Horsfall, North Bend, Coos Bay, and Dean Creek. The interactive map,
+towns guide, camping guide, riding guide, wildlife page, and related cards
+now use those exact-location photographs.
+
+Added `PHOTO_SOURCES.md` and `photo-credits.html`, linked Photo Credits from
+every footer, and added the page to both sitemaps. Credits identify the
+creator/provider, source, and applicable Creative Commons or official-gallery
+terms.
+
+The OHV Riding `Group protocol` section no longer stretches a landscape
+photo into a mostly empty portrait column. It now opens with a responsive
+three-image story: route meeting, visible group spacing, and regroup/check,
+followed by the six existing protocol cards.
+
+Validation: the local desktop layouts were visually reviewed, JavaScript
+syntax passed, `git diff --check` passed, and all 21 non-build tests passed.
+No production push or deployment had been made when this entry was written.
+
 ### 2026-07-28 (even later) - Claude (Opus): Stripe checkout wired live, GA4 installed. PUSHED.
 
 **Stripe: Local Listing tier now takes real payment.** `cf09f47`. Same

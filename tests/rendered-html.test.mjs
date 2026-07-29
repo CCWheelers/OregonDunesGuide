@@ -76,8 +76,8 @@ test("renders the expanded nearby towns guide with four distinct visitor bases",
     assert.ok(source.includes(expected), `town guide includes ${expected}`);
   }
   assert.match(source, /key!==["']camping["']&&key!==["']towns["']/);
-  assert.match(source, /camp-region-florence\.webp/);
-  assert.match(source, /map-lakeside\.webp/);
+  assert.match(source, /place-florence-harbor\.webp/);
+  assert.match(source, /place-lakeside-tenmile\.webp/);
 });
 
 test("renders the expanded wildlife guide with dedicated imagery and official viewing resources", async () => {
