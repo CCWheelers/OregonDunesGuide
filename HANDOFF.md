@@ -52,6 +52,21 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-07-28 (even later) - Claude (Opus): Stripe checkout wired live, GA4 installed. PUSHED.
+
+**Stripe: Local Listing tier now takes real payment.** `cf09f47`. Same
+pattern as the other three guides: the Local Listing card on
+`advertise.html` links to a Stripe Checkout URL, backed by the shared
+network catalog script at `DuneGuideUSA/stripe/seed_catalog.py`. Test-mode
+keys only; switching to live is deferred, Mike's call.
+
+**GA4 installed for the first time.** `bdd378a`, measurement ID
+`G-TWS6Y0FT6M`. This closes the biggest gap flagged in the entry below:
+"No GA4 measurement ID on this site... the quarterly report the rate card
+promises depends on it." The partner click events in `partners.js` now
+have somewhere to land. No prior property existed here to correct against,
+unlike CCWheelers.
+
 ### 2026-07-28 (later still) - Claude (Opus): two live bugs on ODG found and fixed. NEEDS A DEPLOY.
 
 Mike reported "ODG not working". Two separate faults, both shipped in
