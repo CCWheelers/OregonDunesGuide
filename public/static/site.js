@@ -245,10 +245,8 @@ function setupShareControls(){
   const header=document.querySelector(".site-header");if(!header||header.querySelector(".share-controls"))return;
   const controls=document.createElement("div");controls.className="share-controls";controls.setAttribute("aria-label","Page sharing");
   const share=document.createElement("button");share.type="button";share.className="share-button";share.textContent="Share";
-  const copy=document.createElement("button");copy.type="button";copy.className="copy-link-button";copy.textContent="Copy link";
   share.addEventListener("click",()=>showShareFallback(currentShareDetails()));
-  copy.addEventListener("click",()=>copyCurrentLink(copy));
-  controls.append(share,copy);
+  controls.append(share);
   const menu=header.querySelector(".menu-button");header.insertBefore(controls,menu);
 }
 const topicBrowserTitles={
