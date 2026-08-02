@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWS6Y0FT6M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TWS6Y0FT6M');
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO:START -->
+  <title>Weather | Oregon Dunes Guide</title>
+  <meta name="description" content="Check live weather, wind, rain, fog, and seven-day forecasts for Florence, Winchester Bay, and Coos Bay before visiting the Oregon Dunes.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://oregondunesguide.com/weather.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Oregon Dunes Guide">
+  <meta property="og:title" content="Weather | Oregon Dunes Guide">
+  <meta property="og:description" content="Check live weather, wind, rain, fog, and seven-day forecasts for Florence, Winchester Bay, and Coos Bay before visiting the Oregon Dunes.">
+  <meta property="og:url" content="https://oregondunesguide.com/weather.html">
+  <meta property="og:image" content="https://oregondunesguide.com/og/weather.jpg">
+  <meta property="og:image:secure_url" content="https://oregondunesguide.com/og/weather.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Oregon Dunes Weather">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Weather | Oregon Dunes Guide">
+  <meta name="twitter:description" content="Check live weather, wind, rain, fog, and seven-day forecasts for Florence, Winchester Bay, and Coos Bay before visiting the Oregon Dunes.">
+  <meta name="twitter:image" content="https://oregondunesguide.com/og/weather.jpg">
+  <meta name="twitter:image:alt" content="Oregon Dunes Weather">
+  <link rel="icon" href="/favicon.ico?v=20260801" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=20260801">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-ogd.png?v=20260801">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260801">
+  <link rel="manifest" href="/site.webmanifest?v=20260801">
+  <meta name="theme-color" content="#f5f0e6">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://oregondunesguide.com/weather.html#webpage","url":"https://oregondunesguide.com/weather.html","name":"Weather | Oregon Dunes Guide","description":"Check live weather, wind, rain, fog, and seven-day forecasts for Florence, Winchester Bay, and Coos Bay before visiting the Oregon Dunes.","isPartOf":{"@id":"https://oregondunesguide.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://oregondunesguide.com/og/weather.jpg","width":1200,"height":630},"inLanguage":"en-US"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Oregon Dunes Guide","item":"https://oregondunesguide.com/"},{"@type":"ListItem","position":2,"name":"Oregon Dunes Weather","item":"https://oregondunesguide.com/weather.html"}]}]}</script>
+  <!-- SEO:END -->
+<link rel="stylesheet" href="static/styles.css?v=22">
+  <script src="static/site.js?v=22" defer></script>
+  <script src="static/partners.js?v=8" defer></script>
+  <script src="static/weather.js?v=22" defer></script>
+</head>
+<body data-page="weather">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240"></a>
+    <nav aria-label="Main navigation">
+      <a href="camping.html">Camp</a>
+      <a href="ohv-riding.html">Ride</a>
+      <a href="maps.html">Maps</a>
+      <a href="weather.html" aria-current="page">Weather</a>
+      <a href="tides.html">Tides</a>
+      <a href="day-use.html">Day Use</a>
+      <a href="gas.html">Gas Prices</a>
+      <a href="history.html">History</a>
+      <a href="rules.html">Rules</a>
+      
+      <a href="nearby-towns.html">Towns</a>
+      <a href="wildlife.html">Wildlife</a>
+    </nav>
+    <a class="header-cta" href="planner.html">Plan a trip ↗</a>
+    <button class="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </header>
+
+  <main>
+    <section class="weather-hero">
+      <div class="shell weather-hero-grid">
+        <div>
+          <p class="kicker">OREGON DUNES WEATHER CENTER</p>
+          <h1>Read the wind.<br><i>Ride the window.</i></h1>
+          <p>Coastal weather changes quickly. Compare the three dune gateways, watch gusts and rain, then verify official alerts before leaving pavement.</p>
+        </div>
+        <div class="weather-now" aria-live="polite" aria-busy="true">
+          <div class="weather-now-top">
+            <div><span>RIGHT NOW</span><b id="weatherLocation">Florence</b></div>
+            <span class="live-pill" id="weatherStatus">Loading live data</span>
+          </div>
+          <div class="weather-temperature"><strong id="currentTemperature">--°</strong><div><b id="currentCondition">Checking the coast</b><span id="currentFeelsLike">Feels like --°</span></div></div>
+          <div class="weather-now-stats">
+            <div><span>WIND</span><b id="currentWind">-- mph</b></div>
+            <div><span>GUSTS</span><b id="currentGusts">-- mph</b></div>
+            <div><span>RAIN</span><b id="currentRain">-- in</b></div>
+            <div><span>VISIBILITY</span><b id="currentVisibility">-- mi</b></div>
+          </div>
+          <small id="weatherUpdated">Forecast data loading…</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="weather-dashboard shell">
+      <div class="weather-region-heading">
+        <div><p class="section-label">CHOOSE A DUNE REGION</p><h2>One coast.<br><i>Three forecasts.</i></h2></div>
+        <div class="weather-regions" role="group" aria-label="Forecast location">
+          <button type="button" class="active weather-region-florence" data-weather-region="florence" aria-pressed="true"><span>01</span><b>Florence</b><small>South Jetty &amp; Siltcoos</small></button>
+          <button type="button" class="weather-region-winchester" data-weather-region="winchester" aria-pressed="false"><span>02</span><b>Winchester Bay</b><small>Umpqua Dunes</small></button>
+          <button type="button" class="weather-region-coos" data-weather-region="coos" aria-pressed="false"><span>03</span><b>Coos Bay</b><small>Spinreel &amp; Horsfall</small></button>
+        </div>
+      </div>
+
+      <div class="ride-window">
+        <div><span id="rideWindowLabel">CONDITIONS SNAPSHOT</span><h2 id="rideWindowTitle">Reading the forecast…</h2></div>
+        <p id="rideWindowCopy">Live wind, rain, visibility, and temperature will shape a practical trip note.</p>
+      </div>
+
+      <section class="weather-decisions" aria-labelledby="weatherDecisionHeading">
+        <div class="forecast-heading"><div><p class="section-label">WHAT THIS MEANS FOR YOUR DAY</p><h2 id="weatherDecisionHeading">Forecast translated.<br><i>Coast-ready choices.</i></h2></div><p>These suggestions respond to the selected region’s current wind, rain, visibility, and temperature. Recheck whenever conditions begin changing.</p></div>
+        <div class="weather-action-grid">
+          <article><span>01 · TIMING</span><h3 id="weatherTimingTitle">Finding the best window…</h3><p id="weatherTimingCopy">Comparing the next several forecast periods.</p></article>
+          <article><span>02 · WHAT TO WEAR</span><h3 id="weatherWearTitle">Building your layers…</h3><p id="weatherWearCopy">Temperature, rain, and wind will shape this note.</p></article>
+          <article><span>03 · PACK &amp; PROTECT</span><h3 id="weatherGearTitle">Preparing for the coast…</h3><p id="weatherGearCopy">Equipment advice will appear with the live forecast.</p></article>
+          <article><span>04 · ROAD &amp; BACKUP</span><h3 id="weatherRoadTitle">Checking travel impacts…</h3><p id="weatherRoadCopy">Use TripCheck for live incidents and cameras.</p><a href="https://tripcheck.com/" target="_blank" rel="noreferrer">Open Oregon TripCheck ↗</a></article>
+        </div>
+      </section>
+
+      <section class="hourly-section" aria-labelledby="hourlyHeading">
+        <div class="forecast-heading"><div><p class="section-label">NEXT 24 HOURS</p><h2 id="hourlyHeading">Watch the change,<br><i>not just the high.</i></h2></div><p>The coast can move from calm to windy quickly. Compare six upcoming four-hour checkpoints before choosing departure and return times.</p></div>
+        <div class="hourly-grid" id="hourlyGrid"><div class="forecast-loading">Loading the next weather checkpoints…</div></div>
+      </section>
+
+      <section class="forecast-section" aria-labelledby="forecastHeading">
+        <div class="forecast-heading"><div><p class="section-label">SEVEN-DAY OUTLOOK</p><h2 id="forecastHeading">Plan with margin.</h2></div><p>Daily values are forecast estimates. Wind on exposed dune crests can feel stronger than readings in town.</p></div>
+        <div class="forecast-grid" id="forecastGrid"><div class="forecast-loading">Loading the seven-day coastal forecast…</div></div>
+      </section>
+
+      <section class="weather-field-guide">
+        <div class="forecast-heading"><div><p class="section-label">DUNE WEATHER FIELD NOTES</p><h2>What the numbers<br><i>mean on sand.</i></h2></div><p>Weather changes traction, visibility, body temperature, and how quickly a simple recovery becomes serious.</p></div>
+        <div class="weather-notes">
+          <article class="weather-note-wind"><span>01</span><h3>Wind &amp; gusts</h3><p>Wind reshapes crests and can erase tracks. Strong crosswinds increase fatigue and make regrouping harder. Reduce speed before exposed ridges.</p></article>
+          <article class="weather-note-rain"><span>02</span><h3>Rain &amp; wet sand</h3><p>Light rain can firm some sand, but storms reduce visibility and create colder conditions. Waterproof layers belong in every vehicle.</p></article>
+          <article class="weather-note-fog"><span>03</span><h3>Fog &amp; marine cloud</h3><p>Dense fog removes visual landmarks quickly. Shorten loops, keep the group tight, and use offline navigation instead of following old tracks.</p></article>
+          <article class="weather-note-cold"><span>04</span><h3>Cold exposure</h3><p>Wind makes mild temperatures feel colder, especially after rain or sweat. Carry a dry insulating layer even on summer afternoons.</p></article>
+        </div>
+      </section>
+
+      <section class="weather-personalities">
+        <div class="forecast-heading"><div><p class="section-label">LOCAL WEATHER PERSONALITIES</p><h2>Twenty miles can<br><i>change the answer.</i></h2></div><p>Town readings are useful reference points, but exposure, tree cover, fog, and distance from the water create noticeable differences across the dunes.</p></div>
+        <div class="weather-personality-grid">
+          <article class="weather-personality-florence"><div><span>FLORENCE · NORTH</span><h3>Lake fog and north-zone wind</h3><p>Morning marine cloud can linger near lakes and forest edges while South Jetty becomes windier and brighter. Visibility may change within one loop.</p></div></article>
+          <article class="weather-personality-winchester"><div><span>WINCHESTER BAY · CENTRAL</span><h3>Big, exposed sand</h3><p>The Umpqua Dunes offer less shelter from coastal wind. Gusts can feel stronger on open ridges than at the harbor forecast point.</p></div></article>
+          <article class="weather-personality-coos"><div><span>COOS BAY · SOUTH</span><h3>Harbor cloud and sheltered pockets</h3><p>Horsfall and Spinreel can differ from downtown Coos Bay. Forest edges may feel calm while open beach approaches remain windy or foggy.</p></div></article>
+        </div>
+      </section>
+
+      <aside class="weather-tide-callout">
+        <div><span>RIDING THE BEACH?</span><h2>Weather is only half the decision.</h2><p>Wind, surf, tide level, seasonal closures, and beach access all affect whether a coastal route is practical.</p></div>
+        <a class="button ink" href="tides.html">Check tides &amp; beach guidance →</a>
+      </aside>
+    </section>
+
+    <section class="official-band weather-official weather-official-photo">
+      <div class="shell split">
+        <div><p class="section-label pale">VERIFY BEFORE YOU GO</p><h2>Forecast here.<br><i>Official word there.</i></h2><p>Use this page for planning, then check National Weather Service alerts, road conditions, and Forest Service notices the morning you travel.</p></div>
+        <div class="official-links">
+          <a id="nwsForecastLink" href="https://forecast.weather.gov/MapClick.php?lat=43.9826&amp;lon=-124.0998" target="_blank" rel="noreferrer"><b>National Weather Service forecast</b><span>Current selected region and active weather alerts ↗</span></a>
+          <a href="https://tripcheck.com/" target="_blank" rel="noreferrer"><b>Oregon TripCheck</b><span>Highway conditions, incidents, and cameras ↗</span></a>
+          <a href="https://www.fs.usda.gov/r06/siuslaw/alerts" target="_blank" rel="noreferrer"><b>Siuslaw National Forest alerts</b><span>Closures, restrictions, and recreation notices ↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><a href="index.html">← Back home</a> <a href="advertise.html">Advertise with us</a> · <a href="photo-credits.html">Photo credits</a><p>Forecast data for planning only. Conditions on exposed dunes can differ from nearby reporting stations.</p><a class="footer-brand" href="index.html" aria-label="Oregon Dunes Guide home"><img src="/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240"></a></div></footer>
+</body>
+</html>

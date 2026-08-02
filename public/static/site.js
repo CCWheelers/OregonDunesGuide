@@ -191,6 +191,14 @@ function renderMap(){
 }
 
 function setupMenu(){const header=document.querySelector(".site-header"),button=document.querySelector(".menu-button");if(!button)return;button.addEventListener("click",()=>{const open=header.classList.toggle("open");button.setAttribute("aria-expanded",String(open));button.textContent=open?"Close":"Menu"})}
+function setupNewsNav(){
+  document.querySelectorAll(".site-header nav").forEach(nav=>{
+    if(nav.querySelector('a[href="news.html"]'))return;
+    const link=document.createElement("a");link.href="news.html";link.textContent="News";
+    const towns=nav.querySelector('a[href="nearby-towns.html"]');
+    towns?nav.insertBefore(link,towns):nav.appendChild(link)
+  })
+}
 function currentShareDetails(){
   const title=document.title||"Oregon Dunes Guide";
   const description=document.querySelector('meta[name="description"]')?.content||"Plan an Oregon Dunes adventure.";
@@ -215,12 +223,30 @@ async function copyCurrentLink(button){
     return false;
   }
 }
+function showShareFallback(details){
+  let dialog=document.getElementById("pageShareDialog");
+  if(!dialog){
+    dialog=document.createElement("dialog");dialog.id="pageShareDialog";dialog.className="page-share-dialog";
+    dialog.innerHTML='<form method="dialog"><button class="page-share-close" value="cancel" aria-label="Close share options">&times;</button><p>SHARE THIS PAGE</p><h2>Choose how to send it.</h2><div class="page-share-options"><button type="button" data-share="device">Share with an app</button><a data-share="email">Email</a><a data-share="text">Text</a><a data-share="facebook" target="_blank" rel="noopener">Facebook</a><a data-share="x" target="_blank" rel="noopener">X</a><button type="button" data-share="copy">Copy link</button></div><p class="page-share-status" role="status" aria-live="polite"></p></form>';
+    document.body.appendChild(dialog)
+  }
+  const body=`${details.text}\n\n${details.url}`;
+  dialog.querySelector('[data-share="email"]').href=`mailto:?subject=${encodeURIComponent(details.title)}&body=${encodeURIComponent(body)}`;
+  dialog.querySelector('[data-share="text"]').href=`sms:?&body=${encodeURIComponent(body)}`;
+  dialog.querySelector('[data-share="facebook"]').href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(details.url)}`;
+  dialog.querySelector('[data-share="x"]').href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(details.title)}&url=${encodeURIComponent(details.url)}`;
+  const device=dialog.querySelector('[data-share="device"]');
+  device.hidden=!navigator.share;
+  device.onclick=async()=>{try{await navigator.share(details);dialog.close()}catch(error){if(error?.name!=="AbortError")dialog.querySelector(".page-share-status").textContent="Your device could not open its app chooser. Use one of the options below."}};
+  dialog.querySelector('[data-share="copy"]').onclick=async event=>{const ok=await copyCurrentLink(event.currentTarget);dialog.querySelector(".page-share-status").textContent=ok?"Link copied.":"Copy the address shown by your browser."};
+  dialog.showModal()
+}
 function setupShareControls(){
   const header=document.querySelector(".site-header");if(!header||header.querySelector(".share-controls"))return;
   const controls=document.createElement("div");controls.className="share-controls";controls.setAttribute("aria-label","Page sharing");
   const share=document.createElement("button");share.type="button";share.className="share-button";share.textContent="Share";
   const copy=document.createElement("button");copy.type="button";copy.className="copy-link-button";copy.textContent="Copy link";
-  share.addEventListener("click",async()=>{const details=currentShareDetails();if(navigator.share){try{await navigator.share(details);return}catch(error){if(error?.name==="AbortError")return}}await copyCurrentLink(share)});
+  share.addEventListener("click",()=>showShareFallback(currentShareDetails()));
   copy.addEventListener("click",()=>copyCurrentLink(copy));
   controls.append(share,copy);
   const menu=header.querySelector(".menu-button");header.insertBefore(controls,menu);
@@ -998,7 +1024,7 @@ function renderTrip(plan){
     <div class="plan-share-menu" id="planShareMenu" role="dialog" aria-label="Share this trip plan" hidden>
       <div class="plan-share-heading"><div><span>SHARE THIS PLAN</span><b>Choose where to send it.</b></div><button type="button" id="closePlanShare" aria-label="Close share options">×</button></div>
       <fieldset class="share-privacy-options"><legend>INCLUDE IN THIS SHARE</legend><label><input class="share-pref" type="checkbox" data-share-pref="dates" ${sharePrefs.dates?"checked":""}><span>Exact trip dates</span></label><label><input class="share-pref" id="shareStayPref" type="checkbox" data-share-pref="stay" ${sharePrefs.stay?"checked":""}><span>Selected stay</span></label><label><input class="share-pref" type="checkbox" data-share-pref="itinerary" ${sharePrefs.itinerary?"checked":""}><span>Day-by-day schedule</span></label><label><input class="share-pref" type="checkbox" data-share-pref="picks" ${sharePrefs.picks?"checked":""}><span>Meal, shopping & ${plan.planningGroup?"group":"trip"} picks</span></label><label><input class="share-pref" id="shareDetailsPref" type="checkbox" data-share-pref="details" ${sharePrefs.details?"checked":""}><span>Reservation names & notes</span></label><label><input class="share-pref" id="shareConfirmationPref" type="checkbox" data-share-pref="confirmation" ${sharePrefs.confirmation?"checked":""}><span>Confirmation numbers</span></label><small>Private reservation details and confirmation numbers are off by default. Print keeps the complete personal copy.</small></fieldset>
-      <a class="plan-share-option" id="shareMessenger" href="https://www.facebook.com/messages/" target="_blank" rel="noreferrer"><span>M</span><div><b>Messenger</b><small>Open the Messenger app or Facebook Messages</small></div><i>→</i></a>
+      <button class="plan-share-option" type="button" id="shareDevice"><span>APP</span><div><b>Share with an app</b><small>Choose Messenger, Messages, Mail, or another installed app</small></div><i>→</i></button>
       <a class="plan-share-option" id="shareEmail"><span>@</span><div><b>Email</b><small>Open a ready-to-send message</small></div><i>→</i></a>
       <a class="plan-share-option" id="shareText"><span>TXT</span><div><b>Text</b><small>Send by SMS or iMessage</small></div><i>→</i></a>
       <p class="plan-share-feedback" id="planShareFeedback" aria-live="polite"></p>
@@ -1121,9 +1147,8 @@ function renderTrip(plan){
   shareButton.addEventListener("click",()=>{const opening=shareMenu.hidden;refreshShareLinks();shareMenu.hidden=!opening;shareButton.setAttribute("aria-expanded",String(opening));shareFeedback.textContent="";if(opening){window.odgTrack("planner_share_open");closeShareButton.focus()}});
   emailLink.addEventListener("click",()=>{window.odgTrack("planner_share_email");shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
   textLink.addEventListener("click",()=>{window.odgTrack("planner_share_text");shareMenu.hidden=true;shareButton.setAttribute("aria-expanded","false")});
-  document.getElementById("shareMessenger").addEventListener("click",async event=>{
-    event.preventDefault();
-    window.odgTrack("planner_share_messenger");
+  document.getElementById("shareDevice").addEventListener("click",async()=>{
+    window.odgTrack("planner_share_device");
     const message=buildShareMessage();
     if(navigator.share){
       try{
@@ -1136,8 +1161,7 @@ function renderTrip(plan){
     }
     let copied=false;
     try{await navigator.clipboard.writeText(message);copied=true}catch{}
-    const messengerWindow=window.open("https://www.facebook.com/messages/","_blank","noopener,noreferrer");
-    shareFeedback.textContent=messengerWindow?(copied?"Your trip was copied. Choose a Facebook Messages conversation and paste it.":"Facebook Messages opened, but this browser blocked copying. Email and Text remain available here."):"Your browser blocked Facebook Messages. Allow pop-ups or use Email or Text."
+    shareFeedback.textContent=copied?"Your trip was copied. Paste it into Messenger or any group app.":"This browser cannot open an app chooser. Use Email or Text below."
   });
   document.getElementById("editPlan").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
   document.getElementById("editAnswersSummary").addEventListener("click",()=>{document.getElementById("tripPlannerForm").scrollIntoView({behavior:"smooth"})});
@@ -1329,4 +1353,42 @@ function setupHomeFeedback(){
     }finally{button.disabled=false}
   })
 }
-document.addEventListener("DOMContentLoaded",()=>{normalizeLegacyGuideUrl();setupPlanner();setupMenu();setupShareControls();renderEnhancedGuide();renderMap();setupAnalyticsEvents();setupPlannerFeedback();setupHomeFeedback()});
+function setupNetworkBadge(){
+  const footer=document.querySelector("footer");
+  if(!footer||document.querySelector(".dgusa-network-mark"))return;
+  const mark=document.createElement("aside");
+  mark.className="dgusa-network-mark";
+  mark.setAttribute("aria-label","Dune Guide USA network");
+  mark.innerHTML='<a href="https://duneguideusa.com/?utm_source=oregondunesguide.com&utm_medium=network_badge&utm_campaign=branch_network" target="_blank" rel="noopener"><span>PART OF THE</span><img src="images/network/duneguideusa-network-logo.png" alt="Dune Guide USA"><strong>DUNE GUIDE USA NETWORK</strong><small>Locally built dune guides. One place to start.</small></a><div class="dgusa-network-actions"><a href="mailto:Michael@DuneGuideUSA.com">Network contact</a><a href="https://duneguideusa.com/advertise.html?utm_source=oregondunesguide.com&utm_medium=network_footer&utm_campaign=advertising" target="_blank" rel="noopener">Advertise across the network</a></div>';
+  footer.parentNode.insertBefore(mark,footer);
+}
+function setupUnifiedFooter(){
+  const footer=document.querySelector("footer");
+  const shell=footer?.querySelector(":scope > .shell");
+  if(!footer||!shell||shell.classList.contains("footer-shell-conformed"))return;
+
+  const existingBrand=shell.querySelector(".footer-brand");
+  const feedback=shell.querySelector(".footer-feedback-card");
+  const brand=existingBrand||document.createElement("a");
+  if(!existingBrand){
+    brand.className="footer-brand";
+    brand.href="index.html";
+    brand.setAttribute("aria-label","Oregon Dunes Guide home");
+    brand.innerHTML='<img src="public/images/oregon-dunes-guide-logo-transparent.png" alt="Oregon Dunes Guide" width="656" height="240">';
+  }
+
+  const guide=document.createElement("section");
+  guide.className="footer-guide-copy";
+  guide.setAttribute("aria-label","About Oregon Dunes Guide");
+  guide.innerHTML='<small>OREGON DUNES GUIDE</small><strong>Plan the coast with confidence.</strong><p>Independent planning guide. Always verify current conditions, closures, fees, permits, and regulations with the U.S. Forest Service and Oregon authorities.</p><nav aria-label="Oregon Dunes Guide footer"><a href="index.html">Home</a><a href="planner.html">Trip planner</a><a href="news.html">News</a><a href="photo-credits.html">Photo credits</a></nav>';
+
+  const contact=document.createElement("section");
+  contact.className="footer-contact";
+  contact.setAttribute("aria-label","Contact Oregon Dunes Guide");
+  contact.innerHTML='<small>CONTACT &amp; PARTNERSHIPS</small><strong>Questions, corrections, or a business idea?</strong><a class="footer-email" href="mailto:Michael@DuneGuideUSA.com">Michael@DuneGuideUSA.com</a><div class="footer-contact-links"><a href="advertise.html">Advertise in Oregon</a><a href="https://duneguideusa.com/advertise.html?utm_source=oregondunesguide.com&amp;utm_medium=network_footer&amp;utm_campaign=advertising" target="_blank" rel="noopener">Advertise across the network</a><a href="https://ccwheelers.com/?utm_source=oregondunesguide&amp;utm_medium=referral&amp;utm_campaign=sister_site" target="_blank" rel="noopener">Visit sister guide CCWheelers</a></div>';
+  if(feedback)contact.append(feedback);
+
+  shell.replaceChildren(brand,guide,contact);
+  shell.classList.add("footer-shell-conformed");
+}
+document.addEventListener("DOMContentLoaded",()=>{normalizeLegacyGuideUrl();setupPlanner();setupNewsNav();setupMenu();setupShareControls();renderEnhancedGuide();renderMap();setupAnalyticsEvents();setupPlannerFeedback();setupUnifiedFooter();setupHomeFeedback();setupNetworkBadge()});

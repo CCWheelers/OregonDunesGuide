@@ -22,7 +22,7 @@ test("site analytics records useful anonymous events without planner secrets", a
     "planner_print",
     "planner_share_email",
     "planner_share_text",
-    "planner_share_messenger",
+    "planner_share_device",
     "directions_click",
     "outbound_click",
     "scroll_depth",

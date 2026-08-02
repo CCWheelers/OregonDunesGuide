@@ -6,7 +6,7 @@ const origin = "https://oregondunesguide.com";
 
 const pages = [
   { file: "index.html", path: "/", slug: "home", title: "Oregon Dunes Guide | OHV Riding, Camping &amp; Maps", heading: "Oregon Dunes Guide", description: "Plan an Oregon Dunes trip with interactive maps, camping, OHV riding zones, weather, tides, safety guidance, nearby towns, and a personalized trip planner." },
-  { file: "advertise.html", path: "/advertise.html", slug: "home", title: "Advertise With Us | Oregon Dunes Guide", heading: "Advertise With Us", description: "Reach riders planning a trip to Florence, Winchester Bay, and Coos Bay. Local partner rates with capped inventory, plus a national program across four dune guides." },
+  { file: "advertise.html", path: "/advertise.html", slug: "home", title: "Advertise With Us | Oregon Dunes Guide", heading: "Advertise With Us", description: "Reach riders planning a trip to Florence, Winchester Bay, and Coos Bay. Local partner rates with capped inventory, plus a national program across the Dune Guide USA network." },
   { file: "camping.html", path: "/camping.html", slug: "camping", title: "Camping | Oregon Dunes Guide", heading: "Oregon Dunes Camping Guide", description: "Compare Oregon Dunes camping by region, camp style, reservations, RV and trailer fit, dog-friendly stays, and legal ride-from-camp access." },
   { file: "ohv-riding.html", path: "/ohv-riding.html", slug: "ohv-riding", title: "OHV Riding | Oregon Dunes Guide", heading: "Oregon Dunes OHV Riding Guide", description: "Compare the Florence, Winchester Bay, and Coos Bay OHV riding zones with staging information, maps, dune-reading tips, equipment, and group protocol." },
   { file: "maps.html", path: "/maps.html", slug: "maps", title: "Maps | Oregon Dunes Guide", heading: "Oregon Dunes Maps", description: "Explore an interactive Oregon Dunes map with riding zones, staging areas, campgrounds, nearby towns, parts stores, terrain views, and GPS directions." },
@@ -114,9 +114,9 @@ function seoBlock(page) {
   <meta name="twitter:description" content="${escapeHtml(page.description)}">
   <meta name="twitter:image" content="${image}">
   <meta name="twitter:image:alt" content="${escapeHtml(page.heading)}">
-  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-ogd-v2.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
-  <link rel="manifest" href="public/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-ogd-v2.png?v=20260801">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png?v=20260801">
+  <link rel="manifest" href="public/site.webmanifest?v=20260801">
   <meta name="theme-color" content="#f5f0e6">
   <script type="application/ld+json">${jsonLd}</script>
   <!-- SEO:END -->`;
@@ -166,9 +166,9 @@ for (const page of pages) {
   <meta name="description" content="Oregon Dunes visitor guides for camping, OHV riding, safety, permits, nearby towns, wildlife, and current conditions.">
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="${origin}/camping.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-ogd-v2.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
-  <link rel="manifest" href="public/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-ogd-v2.png?v=20260801">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png?v=20260801">
+  <link rel="manifest" href="public/site.webmanifest?v=20260801">
   <meta name="theme-color" content="#f5f0e6">
   <!-- SEO:END -->`,
   );

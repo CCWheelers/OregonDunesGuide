@@ -16,7 +16,7 @@ test("renders the complete Oregon Dunes Guide homepage", async () => {
   assert.equal(response.status, 307);
   assert.equal(new URL(response.headers.get("location"), "http://localhost").pathname, "/index.html");
   const html = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
-  assert.match(html, /<title>Oregon Dunes Guide<\/title>/i);
+  assert.match(html, /<title>Oregon Dunes Guide \| OHV Riding, Camping &amp; Maps<\/title>/i);
   assert.match(html, /Where the forest/);
   assert.match(html, /Explore the full guide/i);
   assert.match(html, /href="maps\.html"/);

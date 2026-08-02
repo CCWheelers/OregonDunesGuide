@@ -288,8 +288,8 @@ test("water-temperature links are used only for exact verified lake matches",()=
   }
 });
 
-test("Messenger sharing prefers the native app handoff and avoids retired messenger.com",()=>{
+test("sharing prefers the native app handoff and avoids retired messenger.com",()=>{
   assert.doesNotMatch(source,/https:\/\/www\.messenger\.com\//);
   assert.match(source,/navigator\.share\(\{title:shareTitle,text:message\}\)/);
-  assert.match(source,/https:\/\/www\.facebook\.com\/messages\//);
+  assert.match(source,/odgTrack\("planner_share_device"/);
 });
