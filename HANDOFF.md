@@ -52,6 +52,25 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-02 - Claude (Opus): sister-guide footer now lists the whole network
+
+St. Anthony Dune Guide launched on 2026-08-02 and nothing in the network
+linked to it. This site's footer named only CCWheelers ("Heading to
+California? Check out our sister site..."), which had gone stale as the
+network grew past two sites. It now reads "Riding somewhere else? Our sister
+guides:" and lists LittleSaharaUtah.com, SilverLakeDuneGuide.com,
+StAnthonyDuneGuide.com and CCWheelers.com, matching the pattern the other
+guides use.
+
+**This site cross-links from the homepage only.** Of 24 root HTML pages,
+`index.html` is the only one carrying a `footer-sister-link`. The other
+guides put it on every page. That is a real inconsistency and probably worth
+closing, but adding a footer to 23 pages is a bigger change than tonight's
+task and was deliberately not done without Mike deciding.
+
+Nothing else here was touched. Analytics on this site (`G-TWS6Y0FT6M`) were
+checked during a network-wide audit and are correct.
+
 ### 2026-07-29 - Codex: real-place photography audit and riding layout complete. READY TO PUSH.
 
 Replaced generated or generic imagery wherever the site names a specific
