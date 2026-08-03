@@ -52,6 +52,22 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-02 (later) - Claude (Opus): sister footer now on every page, not just the homepage. PUSHED as 94e4318.
+
+The homepage-only gap flagged in the entry below is closed. The network line
+was added to the remaining 22 public pages, inserted immediately before the
+`<a class="footer-brand">` logo link, which is the one footer element every
+public page shares. `dashboard.html` is excluded on purpose: private, noindex
+reporting with its own minimal footer.
+
+Note `.footer-sister-link` has no CSS rule anywhere in this repo. It is a hook
+only, and the paragraph inherits normal footer text styling, which is how the
+homepage has always rendered it. Nothing needs adding to `static/styles.css`.
+
+Analytics here were verified correct on `G-TWS6Y0FT6M` across 23 pages by the
+new network checker at `scripts/check-network-analytics.ps1` in the
+DuneGuideUSA repo. Worth running after any footer or template change.
+
 ### 2026-08-02 - Claude (Opus): sister-guide footer now lists the whole network
 
 St. Anthony Dune Guide launched on 2026-08-02 and nothing in the network
