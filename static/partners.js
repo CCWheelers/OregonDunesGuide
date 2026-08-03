@@ -87,6 +87,20 @@ const HOUSE = [
     blurb: "Juab County, Utah. Sand Mountain, White Sands, and Black Mountain, with fees, camping, and conditions in one place.",
     url: "https://littlesaharautah.com/?utm_source=oregondunesguide&utm_medium=house_ad&utm_campaign=sister_site",
     initials: "LS"
+  },
+  {
+    name: "St. Anthony Dune Guide",
+    banner: "images/partners/house/st-anthony-guide-banner-1600x500.webp",
+    blurb: "Eastern Idaho dunes with Egin Lakes access, camping, maps, weather, safety, and trip planning.",
+    url: "https://stanthonyduneguide.com/?utm_source=oregondunesguide&utm_medium=house_ad&utm_campaign=sister_site",
+    initials: "SA"
+  },
+  {
+    name: "Glamis Dune Guide",
+    banner: "images/partners/house/glamis-dune-guide-banner-1600x500.webp",
+    blurb: "California's Imperial Sand Dunes. Maps, permits, camping, weather, safety, and a shareable trip planner.",
+    url: "https://glamisduneguide.com/?utm_source=oregondunesguide&utm_medium=house_ad&utm_campaign=sister_site",
+    initials: "GD"
   }
 ];
 
