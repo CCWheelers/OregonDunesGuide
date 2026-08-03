@@ -52,6 +52,40 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-03 - Claude (Opus): Safety restored to the nav, duplicate News link fixed. COMMITTED as 855435c, NOT YET PUSHED.
+
+Two header bugs Mike spotted on the live site.
+
+**Safety was in no nav anywhere.** `safety.html` existed and was reachable
+from body copy (the homepage feature card, the day-use machine-setup card,
+the maps official-links band, the rules call to action) but appeared in the
+main navigation on zero pages, including its own. Added after Rules on all 23
+content pages, with `aria-current="page"` on `safety.html` itself.
+`dashboard.html` skipped: no main nav, private and noindex.
+
+**The duplicate News link was a pretty-URL mismatch.** `setupNewsNav` in
+`public/static/site.js` guarded against double-injection with
+`nav.querySelector('a[href="news.html"]')`. Netlify rewrites internal links
+to pretty URLs when it serves the site, so the deployed news page ships
+`href="/news"` and that selector never matched. Every visit to `/news` got a
+second News link appended. The guard now compares the resolved pathname,
+which reads the same either side of that rewrite. Verified against live
+markup both directions: `/news` skips the injection, `/camping` still gets
+its News link inserted before Towns.
+
+**Worth knowing for anyone editing markup here:** that same rewrite is why
+deployed HTML never matches the repo byte for byte. Production serves
+`href='/camping'` in single quotes where the repo has `href="camping.html"`.
+Diffing the two directly looks alarming and means nothing.
+
+Per the deploy note above, root `.html` was edited and the same nav change
+mirrored into `public/`. Not a full re-sync: the two sets have already
+drifted (`public/news.html` is 4418 bytes against the root file's 5219), and
+re-syncing everything is a separate decision rather than something to bundle
+into a nav fix.
+
+Committed with `[skip ci]`, so nothing is live until someone pushes.
+
 ### 2026-08-02 (later) - Claude (Opus): sister footer now on every page, not just the homepage. PUSHED as 94e4318.
 
 The homepage-only gap flagged in the entry below is closed. The network line
