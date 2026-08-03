@@ -191,11 +191,20 @@ function renderMap(){
 }
 
 function setupMenu(){const header=document.querySelector(".site-header"),button=document.querySelector(".menu-button");if(!button)return;button.addEventListener("click",()=>{const open=header.classList.toggle("open");button.setAttribute("aria-expanded",String(open));button.textContent=open?"Close":"Menu"})}
+// Netlify's pretty-URL rewriting turns href="news.html" into href="/news" in
+// the served HTML, so matching on the literal attribute missed the link that
+// was already there and injected a second "News" into the nav. Compare the
+// resolved pathname instead, which is the same either side of that rewrite.
+function isPageLink(a,page){
+  try{return new URL(a.href,location.href).pathname.replace(/\/$/,"").endsWith("/"+page)||
+             new URL(a.href,location.href).pathname.replace(/\/$/,"").endsWith("/"+page+".html")}
+  catch(e){return false}
+}
 function setupNewsNav(){
   document.querySelectorAll(".site-header nav").forEach(nav=>{
-    if(nav.querySelector('a[href="news.html"]'))return;
+    if([...nav.querySelectorAll("a")].some(a=>isPageLink(a,"news")))return;
     const link=document.createElement("a");link.href="news.html";link.textContent="News";
-    const towns=nav.querySelector('a[href="nearby-towns.html"]');
+    const towns=[...nav.querySelectorAll("a")].find(a=>isPageLink(a,"nearby-towns"));
     towns?nav.insertBefore(link,towns):nav.appendChild(link)
   })
 }
