@@ -1697,6 +1697,8 @@ a.pt-sponsor-link:hover .pt-sponsor{border-color:var(--orange)}
 .page-share-close{position:absolute;right:15px;top:12px;border:0;background:transparent;font-size:28px;cursor:pointer}
 .page-share-options{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
 .page-share-options a,.page-share-options button{display:flex;align-items:center;justify-content:center;min-height:52px;border:1px solid rgba(21,63,60,.2);background:var(--cream);color:var(--ink);font-weight:800;cursor:pointer}
+/* [hidden] applies display:none from the UA stylesheet, and the rule above beats it. Without this, Share with an app renders on desktops that have no Web Share API and does nothing when clicked. */
+.page-share-options [hidden]{display:none}
 .page-share-status{min-height:18px;font-size:12px;color:var(--orange)}
 @media(max-width:640px){.page-share-options{grid-template-columns:1fr}.page-share-dialog>form{padding:30px 22px}}
 .dgusa-network-mark{box-sizing:border-box;background:#f3ede1;border-top:1px solid rgba(9,48,52,.18);overflow:hidden;padding:26px 20px;text-align:center;width:100%}
