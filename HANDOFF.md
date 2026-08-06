@@ -52,6 +52,28 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-05 (later) - Claude (Opus): cleared em dashes from static/site.js
+
+The network checker only fetches HTML, so it has never downloaded this file.
+It held 10 em dashes of real page copy: "Control the gap-not the rider ahead",
+"Measure the whole setup-not just the RV", "Thank you-your feedback was sent"
+and others. All rewritten. JS token counts identical, so syntax is unchanged.
+
+**Confirmed against production before editing, and worth knowing: this repo has
+three copies of site.js and only one is live.**
+
+| copy | lines | state |
+| --- | --- | --- |
+| `static/site.js` | 1392 | **matches production byte for byte** |
+| `public/static/site.js` | 1401 | stale, diverged |
+| `dist/client/static/site.js` | 1364 | stale build output |
+
+Only `static/site.js` was touched. The other two are drifting copies of live
+code and are an accident waiting to happen, given the `public/` path confusion
+that already caused every house ad to 404 once (`ecb73ee`). Somebody should
+decide whether they are deleted or regenerated.
+
+
 ### 2026-08-05 (later) - Claude (Opus): cleared the em dashes the fixed checker found
 
 `check-network-analytics.ps1` was blind to em dashes until today (see the
