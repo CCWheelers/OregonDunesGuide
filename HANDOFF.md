@@ -52,6 +52,50 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-05 (later) - Claude (Opus): cleared the em dashes the fixed checker found
+
+`check-network-analytics.ps1` was blind to em dashes until today (see the
+DuneGuideUSA HANDOFF for the CP437 console bug). With it fixed, this site
+failed. Those violations are now written around rather than hyphenated, per
+house style: a comma, a full stop, or a restructured clause depending on the
+sentence.
+
+**This is only the visible static prose.** The checker still cannot see two
+other places em dashes live, and both are populated on this network:
+
+1. Copy generated inside `<script>` blocks. The checker strips scripts before
+   looking, so anything a page writes with JavaScript is invisible to it.
+2. Copy in external `.js` files. The checker only fetches HTML pages, so it
+   never downloads them at all.
+
+Raw source counts across the whole network, which is the honest number rather
+than what the checker reports:
+
+| repo | em dashes in source |
+| --- | --- |
+| OregonDunesGuide | 92 |
+| ccwheelers | 86 |
+| StAnthonyDuneGuide | 18 (9 are exempt photo credits) |
+| DuneGuideUSA | 6 (4 are og:image:alt, not page copy) |
+| SilverLakeDuneGuide | 3 (dev server and tests only) |
+| littlesaharautah | 2 (dev server and tests only) |
+| GlamisDuneGuide | 0 |
+
+The other four guides are essentially clean. This is a two-site problem, and
+the bulk of what remains is JavaScript-generated copy.
+Fixed here: rules.html x6, planner.html x4, history.html x2, index.html x2,
+tides.html x2, maps.html, day-use.html. Eighteen in total.
+
+The planner ones were the four "Yes" vehicle options, now commas. The rating
+scale ("5 - Excellent") uses the same glyph but the checker exempts short
+label separators, so it was left alone as UI rather than voice.
+
+**Still outstanding: the external JavaScript.** `site.js` has 10, `rules.js`
+3, `tides.js` 2, `weather.js` 2. The checker never fetches these files, so
+they will keep passing silently. `dashboard.html` has 4 more but it is
+noindex and excluded from the crawl.
+
+
 ### 2026-08-05 (later) - Claude (Opus): rewrote the rules page listing, the site's one zero-click page
 
 Search Console, 7/25 to 8/4: `/rules` pulled **109 of this site's 228 total
