@@ -52,6 +52,35 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-05 (later) - Claude (Opus): rewrote the rules page listing, the site's one zero-click page
+
+Search Console, 7/25 to 8/4: `/rules` pulled **109 of this site's 228 total
+impressions and converted none of them**. Every other page combined had fewer
+impressions than that single page. Site-wide CTR looked like a 3.1% problem;
+it was really one page at 0%.
+
+The queries it ranks for are specific factual questions. The largest is an ATV
+safety-course exam question about flag color, plus variations on "oregon dunes
+flag requirements". The page already answers them plainly: a red or orange
+flag at least 8 by 12 inches, displayed nine feet above the ground. The search
+listing never said so. The title read "Rules & Regulations" and the
+description was a nine-item comma list of topics.
+
+Title and description now lead with the answer, so the listing matches the
+intent of the query. Updated in all seven places they are duplicated: title,
+meta description, og:title, og:description, twitter:title, twitter:description
+and the JSON-LD WebPage node. JSON-LD re-validated after the edit.
+
+Also corrected terminology. The old description said "whip flags"; the page
+body says "sand flag", which is the Oregon term. They now agree.
+
+**Found and deliberately not fixed, both need a decision:**
+- `rules.html` uses em dashes in at least five places of body copy, against the
+  network house style. `check-network-analytics.ps1` should be flagging these.
+- `permits.html` and `rules.html` both target permit queries. They may be
+  competing with each other for the same searches.
+
+
 ### 2026-08-05 - Claude (Opus): the DuneGuideUSA hub link is now in the footer of every page
 
 Google had not indexed duneguideusa.com at all, and only littlesaharautah.com
