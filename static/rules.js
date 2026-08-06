@@ -11,7 +11,7 @@
     1: {
       name: 'Class I quad',
       requirements: [
-        'Display a valid Oregon ATV operating permit—or a currently accepted reciprocal permit.',
+        'Display a valid Oregon ATV operating permit, or a currently accepted reciprocal permit.',
         'The operator must possess an ATV Safety Education Card.',
         'Use a red or orange sand flag at least 8 × 12 inches, displayed nine feet above the ground.',
         'Carry the current riding map and stay inside designated motorized areas.'
@@ -30,7 +30,7 @@
     3: {
       name: 'Class III dirt bike',
       requirements: [
-        'Display a valid Oregon ATV operating permit—or a currently accepted reciprocal permit.',
+        'Display a valid Oregon ATV operating permit, or a currently accepted reciprocal permit.',
         'The operator must possess an ATV Safety Education Card.',
         'The minimum operator age is seven.',
         'Use a red or orange sand flag at least 8 × 12 inches, displayed nine feet above the ground.',
@@ -40,7 +40,7 @@
     4: {
       name: 'Class IV side-by-side',
       requirements: [
-        'Display a valid Oregon ATV operating permit—or a currently accepted reciprocal permit.',
+        'Display a valid Oregon ATV operating permit, or a currently accepted reciprocal permit.',
         'Use the manufacturer-provided seats and restraints for every occupant.',
         'Use a red or orange sand flag at least 8 × 12 inches, displayed nine feet above the ground.',
         'Carry the current riding map and stay inside designated motorized areas.'

@@ -52,6 +52,18 @@ Running `update-seo.mjs` will silently revert that.
 
 ## Messages
 
+### 2026-08-06 - Claude (Opus): static/rules.js em dashes, found by the new script check
+
+First production run of the JavaScript check caught what nothing had ever
+seen: `static/rules.js` repeated "Display a valid Oregon ATV operating
+permit-or a currently accepted reciprocal permit." three times. All three
+rewritten with a comma. JS token counts unchanged.
+
+The checker reports unique snippets, so three identical hits showed as one.
+Worth remembering when reading its output: the count is distinct strings, not
+occurrences.
+
+
 ### 2026-08-05 (later) - Claude (Opus): cleared em dashes from static/site.js
 
 The network checker only fetches HTML, so it has never downloaded this file.
